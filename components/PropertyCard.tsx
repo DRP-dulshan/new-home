@@ -1,0 +1,95 @@
+'use client';
+
+import Image from 'next/image';
+import type { OffPlanProject, ReadyProperty, RentalProperty } from '@/data/homepage';
+import SmartLink from './ui/SmartLink';
+
+type Props =
+  | { kind: 'ready'; item: ReadyProperty }
+  | { kind: 'rent'; item: RentalProperty }
+  | { kind: 'offplan'; item: OffPlanProject };
+
+export default function PropertyCard(props: Props) {
+  const { kind, item } = props;
+  const isProject = kind === 'offplan';
+
+  /* Sale and rental cards share the same shape; only the price line differs. */
+  const badge = isProject ? item.paymentPlan : item.status;
+  const eyebrow = isProject ? `${item.developer} · ${item.community}` : item.location;
+
+  return (
+    <article className="group">
+      <SmartLink href={item.href} className="block">
+        <div className="relative aspect-[4/5] w-full overflow-hidden bg-cream">
+          <Image
+            src={item.image}
+            alt={item.alt}
+            fill
+            loading="lazy"
+            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 25vw"
+            className="object-cover transition-transform duration-[700ms] ease-premium group-hover:scale-[1.06]"
+          />
+
+          <span className="absolute left-4 top-4 bg-white/95 px-3 py-1.5 text-[10px] font-medium uppercase tracking-eyebrow text-charcoal backdrop-blur-sm">
+            {badge}
+          </span>
+        </div>
+
+        <div className="pt-5">
+          {/* Off-plan eyebrows ("Developer · Community") can run to two lines,
+              so the space is reserved to keep every card's text aligned. */}
+          <p
+            className={`text-[10px] uppercase leading-4 tracking-eyebrow text-charcoal-muted ${
+              isProject ? 'min-h-8' : ''
+            }`}
+          >
+            {eyebrow}
+          </p>
+
+          <h3 className="mt-3 line-clamp-2 min-h-[3.1rem] font-serif text-xl font-normal leading-snug text-charcoal transition-colors duration-300 group-hover:text-orange sm:text-[1.4rem]">
+            {item.title}
+          </h3>
+
+          <p className="mt-3 font-serif text-lg font-normal text-charcoal sm:text-xl">
+            {isProject ? item.fromPrice : item.price}
+            {kind === 'rent' ? (
+              <span className="ml-1.5 font-sans text-[13px] font-light text-charcoal-muted">
+                {item.period}
+              </span>
+            ) : null}
+          </p>
+
+          {/* Specs row — type/beds/baths on the left, size on the right, so
+              every card keeps the same height regardless of label length */}
+          <div className="mt-4 flex items-baseline justify-between gap-3 border-t border-line pt-4 text-[10px] font-light uppercase tracking-wide text-charcoal-muted">
+            {isProject ? (
+              <>
+                <span>Handover {item.handover}</span>
+                <span className="shrink-0 whitespace-nowrap">{item.paymentPlan} plan</span>
+              </>
+            ) : (
+              <>
+                <span className="flex items-center gap-2">
+                  <span>{item.type}</span>
+                  <span aria-hidden="true" className="text-line">
+                    |
+                  </span>
+                  <span>{item.beds}</span>
+                  {item.baths ? (
+                    <>
+                      <span aria-hidden="true" className="text-line">
+                        |
+                      </span>
+                      <span>{item.baths}</span>
+                    </>
+                  ) : null}
+                </span>
+                <span className="shrink-0 whitespace-nowrap">{item.area}</span>
+              </>
+            )}
+          </div>
+        </div>
+      </SmartLink>
+    </article>
+  );
+}

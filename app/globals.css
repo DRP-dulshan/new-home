@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --drp-orange: #f47b49;
+    --drp-charcoal: #2e2e2e;
+    --drp-ink: #1a1a1a;
+    --drp-cream: #f7f5f2;
+    --drp-line: #e6e2dc;
+    /* Consistent vertical rhythm for section padding */
+    --section-y: clamp(4.5rem, 9vw, 8.5rem);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Sticky header offset for in-page anchors */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-white text-charcoal font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Visible, on-brand focus ring for keyboard users only */
+  :focus-visible {
+    outline: 2px solid var(--drp-orange);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--drp-orange);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .container-drp {
+    @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-12;
+  }
+
+  .section-y {
+    padding-top: var(--section-y);
+    padding-bottom: var(--section-y);
+  }
+
+  /* Readability helpers for the header while it floats over the hero video */
+  .text-shadow-video {
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  .logo-shadow-video {
+    filter: drop-shadow(0 1px 12px rgba(0, 0, 0, 0.35));
+  }
+
+  /* Small uppercase label that sits above every section title */
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-eyebrow sm:text-xs;
+  }
+
+  .heading-display {
+    @apply font-serif font-light leading-[1.05] tracking-[-0.01em];
+  }
+
+  /* The hero search bar carries the focus state for its text input, so the
+     input itself shows no ring. The Beds/Price buttons keep their own. */
+  .hero-search-bar:has(input:focus-visible) {
+    outline: 2px solid var(--drp-orange);
+    outline-offset: 2px;
+  }
+
+  /* Thin-underline text link used in the hero and section footers */
+  .link-underline {
+    @apply relative inline-flex items-center gap-3 uppercase tracking-eyebrow;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-current;
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    @apply origin-left scale-x-100;
+  }
+}
+
+@layer utilities {
+  /* Hides the scrollbar on horizontal swipe rows without disabling scroll */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 6rem,
+      #000 calc(100% - 6rem),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 6rem,
+      #000 calc(100% - 6rem),
+      transparent
+    );
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion: strip every decorative animation and transition.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
