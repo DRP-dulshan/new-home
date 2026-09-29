@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from 'react';
+import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ChevronDown, Search } from 'lucide-react';
+import { ChevronDown, Search, X } from 'lucide-react';
 import { heroSearch, type Offering, type PriceOption } from '@/data/homepage';
 
 /* -------------------------------------------------------------------------- */
@@ -314,6 +315,13 @@ export default function HeroSearch() {
   const [min, setMin] = useState<PriceOption | null>(null);
   const [max, setMax] = useState<PriceOption | null>(null);
   const [panel, setPanel] = useState<Panel>(null);
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
+  /* The hero is inside a transformed (animated) ancestor, which creates a
+     stacking context — so the sheet is portalled to <body> to escape it and
+     sit above the floating WhatsApp button. */
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const [suggestOpen, setSuggestOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
 
@@ -363,6 +371,21 @@ export default function HeroSearch() {
     };
   }, [panel, suggestOpen]);
 
+  /* Body scroll lock + Escape while the mobile search sheet is open */
+  useEffect(() => {
+    if (!sheetOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSheetOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [sheetOpen]);
+
   const switchOffering = (next: Offering) => {
     setOffering(next);
     /* Sale and rent scales are not comparable — start the range fresh. */
@@ -380,6 +403,7 @@ export default function HeroSearch() {
     if (beds) params.set('beds', bedsParam(beds));
     if (min) params.set('min', String(min.value));
     if (max && !max.open) params.set('max', String(max.value));
+    setSheetOpen(false);
     router.push(`${heroSearch.destinations[offering]}?${params.toString()}`);
   };
 
@@ -402,10 +426,12 @@ export default function HeroSearch() {
     }
   };
 
-  const listboxId = `${uid}-locations`;
-
-  return (
-    <div ref={rootRef}>
+  /* One body, rendered inline on desktop and inside the sheet on mobile.
+     `pfx` keeps the two copies' element ids distinct. */
+  const searchBody = (pfx: string) => {
+    const listboxId = `${pfx}-locations`;
+    return (
+      <>
       {/* ---------- Row 1: offering tabs ---------- */}
       <div
         role="group"
@@ -516,7 +542,7 @@ export default function HeroSearch() {
           <div className="hidden items-stretch sm:flex">
             <BedsDropdown
               variant="bar"
-              idPrefix={`${uid}-bar`}
+              idPrefix={`${pfx}-bar`}
               value={beds}
               onChange={setBeds}
               open={panel === 'beds'}
@@ -525,7 +551,7 @@ export default function HeroSearch() {
             <div aria-hidden="true" className="w-px self-stretch bg-line" />
             <PriceDropdown
               variant="bar"
-              idPrefix={`${uid}-bar`}
+              idPrefix={`${pfx}-bar`}
               options={priceOptions}
               min={min}
               max={max}
@@ -543,7 +569,7 @@ export default function HeroSearch() {
         <div className="flex gap-3 sm:hidden">
           <BedsDropdown
             variant="pill"
-            idPrefix={`${uid}-pill`}
+            idPrefix={`${pfx}-pill`}
             value={beds}
             onChange={setBeds}
             open={panel === 'beds'}
@@ -551,7 +577,7 @@ export default function HeroSearch() {
           />
           <PriceDropdown
             variant="pill"
-            idPrefix={`${uid}-pill`}
+            idPrefix={`${pfx}-pill`}
             options={priceOptions}
             min={min}
             max={max}
@@ -571,6 +597,81 @@ export default function HeroSearch() {
           Search
         </button>
       </form>
+      </>
+    );
+  };
+
+  return (
+    <div ref={rootRef}>
+      {/* ---------- Desktop: full inline search (unchanged) ---------- */}
+      <div className="hidden md:block">{searchBody(`${uid}-d`)}</div>
+
+      {/* ---------- Mobile: one compact trigger bar ---------- */}
+      <button
+        type="button"
+        onClick={() => setSheetOpen(true)}
+        aria-haspopup="dialog"
+        aria-expanded={sheetOpen}
+        className="flex h-[52px] w-full items-center gap-3 rounded-md bg-white pl-4 pr-2 text-left shadow-[0_8px_30px_rgba(26,26,26,0.14)] md:hidden"
+      >
+        <Search aria-hidden="true" strokeWidth={1.75} className="h-4 w-4 shrink-0 text-charcoal" />
+        <span className="min-w-0 flex-1 truncate text-[15px] text-charcoal-muted">
+          {query.trim() ? query : 'Search properties in Dubai'}
+        </span>
+        <span
+          aria-hidden="true"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-[linear-gradient(180deg,#f47b49_0%,#e0662f_100%)] text-white"
+        >
+          <Search strokeWidth={2} className="h-4 w-4" />
+        </span>
+      </button>
+
+      {/* ---------- Mobile: full-screen bottom sheet (portalled) ---------- */}
+      {mounted
+        ? createPortal(
+            <AnimatePresence>
+              {sheetOpen ? (
+                <div className="md:hidden">
+            <motion.div
+              initial={reduceMotion ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: reduceMotion ? 0 : 0.25 }}
+              onClick={() => setSheetOpen(false)}
+              className="fixed inset-0 z-[80] bg-ink/70 backdrop-blur-sm"
+              aria-hidden="true"
+            />
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-label="Search properties"
+              initial={reduceMotion ? false : { y: '100%' }}
+              animate={{ y: 0 }}
+              exit={reduceMotion ? { opacity: 0 } : { y: '100%' }}
+              transition={{ duration: reduceMotion ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed inset-x-0 bottom-0 z-[90] max-h-[90svh] overflow-y-auto overscroll-contain rounded-t-2xl bg-cream px-5 pb-[calc(env(safe-area-inset-bottom)+20px)] pt-5"
+            >
+              <div className="mb-5 flex items-center justify-between">
+                <p className="text-[11px] font-medium uppercase tracking-eyebrow text-charcoal-muted">
+                  Find a property
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSheetOpen(false)}
+                  aria-label="Close search"
+                  className="-mr-2 flex h-11 w-11 items-center justify-center text-charcoal"
+                >
+                  <X className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
+                </button>
+              </div>
+              {searchBody(`${uid}-s`)}
+            </motion.div>
+                </div>
+              ) : null}
+            </AnimatePresence>,
+            document.body,
+          )
+        : null}
     </div>
   );
 }

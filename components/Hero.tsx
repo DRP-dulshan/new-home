@@ -33,7 +33,7 @@ export default function Hero() {
   return (
     <section
       aria-label="Introduction"
-      className="relative flex min-h-[100dvh] flex-col bg-ink lg:min-h-screen"
+      className="relative flex min-h-[100svh] flex-col bg-ink lg:min-h-screen"
     >
       {/* ---------- Background: poster underneath, video fading in over it ---------- */}
       <div className="absolute inset-0 overflow-hidden">
@@ -55,7 +55,7 @@ export default function Hero() {
             allow="autoplay; fullscreen"
             onLoad={() => setVideoReady(true)}
             /* 16:9 cover trick — always overflow the shorter axis */
-            className={`pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78dvh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0 transition-opacity duration-1000 ${
+            className={`pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78svh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0 transition-opacity duration-1000 ${
               videoReady ? 'opacity-100' : 'opacity-0'
             }`}
           />
@@ -77,7 +77,7 @@ export default function Hero() {
       />
 
       {/* ---------- Content ---------- */}
-      <div className="relative z-20 flex flex-1 items-end pb-6 pt-24 sm:pb-14 sm:pt-32 lg:pb-20">
+      <div className="relative z-20 flex flex-1 items-end pb-5 pt-24 sm:pb-14 sm:pt-32 lg:pb-20">
         <div className="container-drp">
           <motion.p {...rise(0.15)} className="eyebrow text-white/70">
             {hero.eyebrow}
@@ -85,14 +85,14 @@ export default function Hero() {
 
           <motion.h1
             {...rise(0.28)}
-            className="heading-display mt-4 max-w-[16ch] text-[clamp(2.35rem,7vw,5.6rem)] text-white sm:mt-6"
+            className="heading-display mt-3 max-w-[16ch] text-[clamp(2.2rem,7vw,5.6rem)] text-white sm:mt-6"
           >
             {hero.heading}
           </motion.h1>
 
           <motion.p
             {...rise(0.42)}
-            className="mt-4 max-w-xl text-sm font-light leading-relaxed text-white/75 sm:mt-6 sm:text-base"
+            className="mt-3 line-clamp-2 max-w-xl text-[15px] font-light leading-relaxed text-white/75 sm:mt-6 sm:line-clamp-none sm:text-base"
           >
             {hero.paragraph}
           </motion.p>
@@ -107,14 +107,14 @@ export default function Hero() {
           <motion.nav
             {...rise(0.66)}
             aria-label="Hero quick links"
-            className="mt-10 mb-12"
+            className="mt-5 mb-6 pr-[72px] md:mt-10 md:mb-12 md:pr-0"
           >
-            <ul className="flex flex-wrap items-center gap-x-14 gap-y-5">
+            <ul className="flex flex-col divide-y divide-white/15 border-y border-white/15 md:flex-row md:flex-wrap md:items-center md:gap-x-14 md:gap-y-5 md:divide-y-0 md:border-0">
               {hero.quickLinks.map((link) => (
                 <li key={link.href}>
                   <SmartLink
                     href={link.href}
-                    className="group inline-flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.18em] text-white"
+                    className="group flex h-10 items-center justify-between gap-2 text-[11px] font-medium uppercase tracking-[0.12em] text-white md:inline-flex md:h-auto md:justify-start md:text-[13px] md:tracking-[0.18em]"
                   >
                     <span className="relative after:absolute after:bottom-[-4px] after:left-0 after:h-px after:w-0 after:bg-white after:transition-all after:duration-300 group-hover:after:w-full group-focus-visible:after:w-full">
                       {link.label}
