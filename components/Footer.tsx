@@ -53,7 +53,6 @@ export default function Footer() {
                     <li key={link.label}>
                       <SmartLink
                         href={link.href}
-                        external={link.external}
                         className="text-sm font-light text-white/75 transition-colors duration-300 hover:text-orange"
                       >
                         {link.label}

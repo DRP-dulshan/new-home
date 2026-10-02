@@ -1,13 +1,8 @@
-import PlaceholderPage from '@/components/ui/PlaceholderPage';
+import LegalDocument from '@/components/legal/LegalDocument';
+import { terms } from '@/data/legal';
 
-export const metadata = { title: "Terms & Conditions | Dubai Rapid Properties" };
+export const metadata = { title: 'Terms & Conditions | Dubai Rapid Properties' };
 
 export default function Page() {
-  return (
-    <PlaceholderPage
-      eyebrow={"Legal"}
-      title={"Terms & Conditions"}
-      copy={"The terms that apply to using the Dubai Rapid Properties website."}
-    />
-  );
+  return <LegalDocument doc={terms} other={{ label: 'Privacy Policy', href: '/privacy' }} />;
 }

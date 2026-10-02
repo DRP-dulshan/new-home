@@ -53,7 +53,6 @@ export default function NewsCarousel() {
                 <ArrowLink
                   href={news.viewAll.href}
                   label={news.viewAll.label}
-                  external
                   tone="dark"
                 />
               </div>
@@ -150,7 +149,7 @@ export default function NewsCarousel() {
 
       {/* View-all falls below the rail on small screens */}
       <div className="container-drp mt-10 sm:hidden">
-        <ArrowLink href={news.viewAll.href} label={news.viewAll.label} external tone="dark" />
+        <ArrowLink href={news.viewAll.href} label={news.viewAll.label} tone="dark" />
       </div>
     </section>
   );

@@ -12,6 +12,8 @@
  */
 
 import { featuredProjects, formatAed, handoverLabel, projectHref } from './offPlan';
+import { articleHref, articles, formatArticleDate } from './news';
+import { homepageRent, homepageSale, toPropertyCard } from './properties';
 
 /** Helper so Unsplash URLs stay readable and consistently sized. */
 const unsplash = (id: string, w = 1600) =>
@@ -344,8 +346,7 @@ export const solutions = {
       id: 'holiday',
       title: 'Holiday Homes',
       subtitle: 'Stay with DRP or list your property',
-      href: 'https://dubairapidproperties.com/holiday-home',
-      external: true,
+      href: '/holiday-homes',
       image: unsplash('1564013799919-ab600027ffc6'),
       alt: 'A sunlit holiday home terrace with sea views',
       span: 'standard',
@@ -399,65 +400,10 @@ export type ReadyProperty = {
   href: string;
 };
 
-/** Real DRP listings. */
-export const readyProperties: ReadyProperty[] = [
-  {
-    id: 'palm-garden-home',
-    title: 'Exquisite Garden Home Villa on Palm Jumeirah',
-    price: 'AED 30,000,000',
-    type: 'Villa',
-    location: 'Palm Jumeirah',
-    beds: '4 BR',
-    baths: '5 BA',
-    area: '5,200 sq ft',
-    status: 'For Sale',
-    image: unsplash('1600585154340-be6161a56a0c'),
-    alt: 'A garden home villa with private beach frontage on Palm Jumeirah',
-    href: '/properties/exquisite-garden-home-villa-palm-jumeirah',
-  },
-  {
-    id: 'beach-access-furnished',
-    title: 'Beach Access | Prime Location | Furnished',
-    price: 'AED 3,800,000',
-    type: 'Apartment',
-    location: 'Jumeirah Beach Residence',
-    beds: '2 BR',
-    baths: '3 BA',
-    area: '1,480 sq ft',
-    status: 'For Sale',
-    image: unsplash('1493809842364-78817add7ffb'),
-    alt: 'A furnished apartment living area with floor to ceiling windows',
-    href: '/properties/beach-access-prime-location-furnished',
-  },
-  {
-    id: 'luxurious-best-deal',
-    title: 'Luxurious | Prime Location | Best Deal',
-    price: 'AED 2,100,000',
-    type: 'Apartment',
-    location: 'Business Bay',
-    beds: '1 BR',
-    baths: '1 BA',
-    area: '860 sq ft',
-    status: 'For Sale',
-    image: unsplash('1600607687939-ce8a6c25118c'),
-    alt: 'A contemporary one bedroom apartment interior',
-    href: '/properties/luxurious-prime-location-best-deal',
-  },
-  {
-    id: 'private-pool-2br',
-    title: 'Luxury 2BR Apartment with Private Pool',
-    price: 'AED 1,900,000',
-    type: 'Apartment',
-    location: 'Dubai Hills Estate',
-    beds: '2 BR',
-    baths: '2 BA',
-    area: '1,240 sq ft',
-    status: 'For Sale',
-    image: unsplash('1600566753086-00f18fb6b3ea'),
-    alt: 'An apartment terrace with a private plunge pool',
-    href: '/properties/luxury-2br-apartment-private-pool',
-  },
-];
+/** Homepage "Ready to Buy" tab — from /data/properties.ts. */
+export const readyProperties: ReadyProperty[] = homepageSale.map(
+  (l) => toPropertyCard(l).item as ReadyProperty,
+);
 
 export type RentalProperty = {
   id: string;
@@ -476,69 +422,10 @@ export type RentalProperty = {
   href: string;
 };
 
-// DEMO PLACEHOLDERS – replace with real rental listings
-export const rentalProperties: RentalProperty[] = [
-  {
-    id: 'palm-shoreline-2br',
-    title: 'Sea View 2BR | Shoreline Apartments | Furnished',
-    price: 'AED 240,000',
-    period: '/ year',
-    type: 'Apartment',
-    location: 'Palm Jumeirah',
-    beds: '2 BR',
-    baths: '3 BA',
-    area: '1,650 sq ft',
-    status: 'For Rent',
-    image: unsplash('1522708323590-d24dbb6b0267'),
-    alt: 'A furnished sea-view living room on Palm Jumeirah',
-    href: '/properties/sea-view-2br-shoreline-apartments',
-  },
-  {
-    id: 'marina-upgraded-1br',
-    title: 'Upgraded 1BR | Marina View | Chiller Free',
-    price: 'AED 125,000',
-    period: '/ year',
-    type: 'Apartment',
-    location: 'Dubai Marina',
-    beds: '1 BR',
-    baths: '2 BA',
-    area: '850 sq ft',
-    status: 'For Rent',
-    image: unsplash('1524758631624-e2822e304c36'),
-    alt: 'An upgraded one bedroom apartment overlooking Dubai Marina',
-    href: '/properties/upgraded-1br-marina-view',
-  },
-  {
-    id: 'downtown-burj-view-3br',
-    title: 'Burj Khalifa View 3BR | High Floor',
-    price: 'AED 330,000',
-    period: '/ year',
-    type: 'Apartment',
-    location: 'Downtown Dubai',
-    beds: '3 BR',
-    baths: '4 BA',
-    area: '1,950 sq ft',
-    status: 'For Rent',
-    image: unsplash('1600607687920-4e2a09cf159d'),
-    alt: 'A high-floor Downtown Dubai apartment interior',
-    href: '/properties/burj-khalifa-view-3br-high-floor',
-  },
-  {
-    id: 'ranches-family-villa',
-    title: 'Family Villa | Private Garden | Vacant',
-    price: 'AED 290,000',
-    period: '/ year',
-    type: 'Villa',
-    location: 'Arabian Ranches',
-    beds: '4 BR',
-    baths: '5 BA',
-    area: '3,800 sq ft',
-    status: 'For Rent',
-    image: unsplash('1613977257363-707ba9348227'),
-    alt: 'A family villa with a private garden in Arabian Ranches',
-    href: '/properties/family-villa-private-garden-arabian-ranches',
-  },
-];
+/** Homepage "For Rent" tab — from /data/properties.ts. */
+export const rentalProperties: RentalProperty[] = homepageRent.map(
+  (l) => toPropertyCard(l).item as RentalProperty,
+);
 
 export type OffPlanProject = {
   id: string;
@@ -609,96 +496,25 @@ export type Article = {
   href: string;
 };
 
-/**
- * DEMO PLACEHOLDERS — replace with real posts from the DRP Magazine feed.
- * Titles, excerpts and dates are illustrative but written in DRP's voice.
- */
+/** Articles live in /data/news.ts (DEMO PLACEHOLDERS until the magazine feed is connected). */
 export const news = {
   eyebrow: 'News & Insights',
   heading: 'Stay Ahead Of The Market.',
   viewAll: {
     label: 'View All News',
-    href: 'https://dubairapidproperties.com/drp-magazine/',
+    href: '/news',
   },
-  articles: [
-    {
-      id: 'h1-2026-report',
-      category: 'Market Reports',
-      title: 'Dubai Residential Market: What H1 2026 Tells Us',
-      excerpt:
-        'Transaction volumes, prime price movement and where the next wave of demand is forming across the city.',
-      date: '12 September 2026',
-      image: unsplash('1512453979798-5ea266f8880c'),
-      alt: 'An aerial view of the Dubai skyline at dusk',
-      href: '/magazine/dubai-residential-market-h1-2026',
-    },
-    {
-      id: 'palm-prime',
-      category: 'Dubai Property News',
-      title: 'Why Palm Jumeirah Still Sets the Benchmark for Prime',
-      excerpt:
-        'Limited supply, beachfront scarcity and a maturing resale market continue to underpin values on the island.',
-      date: '28 August 2026',
-      image: unsplash('1518684079-3c830dcef090'),
-      alt: 'The Jumeirah beachfront and Burj Al Arab',
-      href: '/magazine/palm-jumeirah-prime-benchmark',
-    },
-    {
-      id: 'offplan-vs-ready',
-      category: 'Investment Insights',
-      title: 'Off-Plan or Ready? Structuring a Dubai Portfolio in 2026',
-      excerpt:
-        'Payment plans, yield timing and exit liquidity — how experienced investors are balancing the two.',
-      date: '15 August 2026',
-      image: unsplash('1454165804606-c3d57bc86b40'),
-      alt: 'Investors reviewing documents around a meeting table',
-      href: '/magazine/off-plan-or-ready-2026',
-    },
-    {
-      id: 'new-launches',
-      category: 'New Launches',
-      title: 'Five Launches Worth Watching This Quarter',
-      excerpt:
-        'A shortlist of new releases from Emaar, Nakheel and Sobha, and what makes each one worth a second look.',
-      date: '02 August 2026',
-      image: unsplash('1541976590-713941681591'),
-      alt: 'A newly launched residential tower in Dubai',
-      href: '/magazine/launches-worth-watching',
-    },
-    {
-      id: 'golden-visa',
-      category: 'Investment Insights',
-      title: 'Property and the Golden Visa: A Practical Guide',
-      excerpt:
-        'Thresholds, eligibility and the paperwork sequence — what property buyers actually need to prepare.',
-      date: '19 July 2026',
-      image: unsplash('1521791136064-7986c2920216'),
-      alt: 'Two people shaking hands after completing a property transaction',
-      href: '/magazine/property-and-the-golden-visa',
-    },
-    {
-      id: 'arabian-business',
-      category: 'Arabian Business',
-      title: 'DRP in Arabian Business: Two Decades on the Island',
-      excerpt:
-        'Our founders on building a Palm Jumeirah agency through three market cycles since 2007.',
-      date: '04 July 2026',
-      image: unsplash('1556761175-5973dc0f32e7'),
-      alt: 'A business interview taking place in a Dubai office',
-      href: '/magazine/drp-arabian-business-feature',
-    },
-    {
-      id: 'holiday-home-yields',
-      category: 'Market Reports',
-      title: 'Holiday Home Yields: Reading the 2026 Season',
-      excerpt:
-        'Occupancy, average daily rates and which communities outperformed over the winter season.',
-      date: '21 June 2026',
-      image: unsplash('1567767292278-a4f21aa2d36e'),
-      alt: 'The living room of a furnished Dubai holiday home',
-      href: '/magazine/holiday-home-yields-2026',
-    },
-  ] satisfies Article[],
+  /** From /data/news.ts, newest first. */
+  articles: articles.map((a) => ({
+    id: a.slug,
+    category: a.category,
+    title: a.title,
+    excerpt: a.excerpt,
+    date: formatArticleDate(a.date),
+    image: a.image,
+    alt: a.alt,
+    href: articleHref(a.slug),
+  })) satisfies Article[],
 };
 
 /* -------------------------------------------------------------------------- */
@@ -847,8 +663,8 @@ export const footer = {
         { label: 'Meet the Team', href: '/about/team' },
         { label: 'Careers', href: '/careers' },
         { label: 'DRP Ecosystem', href: '/ecosystem' },
-        { label: 'News & Blogs', href: 'https://dubairapidproperties.com/drp-magazine/', external: true },
-        { label: 'Contact Us', href: '#contact' },
+        { label: 'News & Blogs', href: '/news' },
+        { label: 'Contact Us', href: '/contact' },
       ],
     },
     {
@@ -863,7 +679,7 @@ export const footer = {
     {
       heading: 'Services',
       links: [
-        { label: 'Holiday Homes', href: 'https://dubairapidproperties.com/holiday-home', external: true },
+        { label: 'Holiday Homes', href: '/holiday-homes' },
         { label: 'Fit Out', href: '/fit-out' },
         { label: 'Interior Design', href: '/interior-design' },
         { label: 'Furnishings', href: '/furnishings' },

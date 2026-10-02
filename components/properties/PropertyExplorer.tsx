@@ -1,0 +1,123 @@
+'use client';
+
+import { Suspense, useMemo, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import {
+  listingFacets,
+  priceBandsFor,
+  rentListings,
+  saleListings,
+  toPropertyCard,
+  type Listing,
+  type Offering,
+} from '@/data/properties';
+import { bandsForRange, type Selection } from '@/lib/filters';
+import { toSlug } from '@/lib/slug';
+import PropertyCard from '../PropertyCard';
+import FilterExplorer, { type SortOption } from '../filters/FilterExplorer';
+
+const sortOptions: SortOption<Listing>[] = [
+  { id: 'newest', label: 'Newest', compare: (a, b) => b.listedAt.localeCompare(a.listedAt) },
+  { id: 'price-asc', label: 'Price: low to high', compare: (a, b) => a.price - b.price },
+  { id: 'price-desc', label: 'Price: high to low', compare: (a, b) => b.price - a.price },
+  { id: 'size-desc', label: 'Largest first', compare: (a, b) => b.size - a.size },
+];
+
+const tabs: { id: Offering; label: string }[] = [
+  { id: 'buy', label: 'Buy' },
+  { id: 'rent', label: 'Rent' },
+];
+
+const matching = (offering: Offering, key: string, value: string | null) => {
+  if (!value) return [];
+  const facet = listingFacets[offering].find((f) => f.key === key)!;
+  return facet.options.filter((o) => o.id === value || toSlug(o.label) === value).map((o) => o.id);
+};
+
+/**
+ * The search bars send ?offering=buy&q=dubai-marina&type=apartment&beds=2&min=…&max=…
+ * `q` matches an area; anything else typed is ignored rather than hiding everything.
+ */
+function selectionFromParams(offering: Offering, params: URLSearchParams): Selection {
+  const min = Number(params.get('min')) || undefined;
+  const max = Number(params.get('max')) || undefined;
+  return {
+    area: matching(offering, 'area', params.get('q')),
+    type: matching(offering, 'type', params.get('type')),
+    beds: matching(offering, 'beds', params.get('beds')),
+    price: min || max ? bandsForRange(priceBandsFor[offering], min, max).map((b) => b.id) : [],
+  };
+}
+
+function Explorer({
+  initialOffering = 'buy',
+  initialSelection,
+}: {
+  initialOffering?: Offering;
+  initialSelection?: Selection;
+}) {
+  const [offering, setOffering] = useState<Offering>(initialOffering);
+
+  const switchTo = (next: Offering) => {
+    setOffering(next);
+    /* Keep the address shareable without a navigation */
+    const url = new URL(window.location.href);
+    url.searchParams.set('offering', next);
+    window.history.replaceState(null, '', url);
+  };
+
+  const leading = (
+    <div role="group" aria-label="Buy or rent" className="mr-2 flex rounded-md border border-line bg-white p-1">
+      {tabs.map((t) => {
+        const active = offering === t.id;
+        return (
+          <button
+            key={t.id}
+            type="button"
+            aria-pressed={active}
+            onClick={() => switchTo(t.id)}
+            className={`h-9 rounded px-5 text-[13px] transition-colors duration-300 ${
+              active ? 'bg-charcoal text-white' : 'text-charcoal-light hover:text-charcoal'
+            }`}
+          >
+            {t.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+
+  return (
+    <FilterExplorer
+      items={offering === 'buy' ? saleListings : rentListings}
+      facets={listingFacets[offering]}
+      getKey={(l) => l.slug}
+      renderItem={(l) => <PropertyCard {...toPropertyCard(l)} />}
+      noun={['property', 'properties']}
+      initialSelection={initialSelection}
+      sortOptions={sortOptions}
+      leading={leading}
+      emptyHint="Try removing a filter, or tell a specialist what you are looking for — many listings are shared privately."
+    />
+  );
+}
+
+function ExplorerFromUrl() {
+  const params = useSearchParams();
+  const initial = useMemo(() => {
+    const p = new URLSearchParams(params.toString());
+    const offering: Offering = p.get('offering') === 'rent' ? 'rent' : 'buy';
+    return { offering, selection: selectionFromParams(offering, p) };
+    /* Read once: later changes are the visitor's, not the URL's */
+  }, []);
+  return <Explorer initialOffering={initial.offering} initialSelection={initial.selection} />;
+}
+
+/** Ready-property explorer for /properties. */
+export default function PropertyExplorer() {
+  return (
+    <Suspense fallback={<Explorer />}>
+      <ExplorerFromUrl />
+    </Suspense>
+  );
+}

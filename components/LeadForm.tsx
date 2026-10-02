@@ -74,6 +74,13 @@ function normalisePhone(dial: string, raw: string): string | null {
 
 type Props = {
   config: LeadFormConfig;
+  /** Extra fields sent with the submission, e.g. the listing reference. */
+  context?: Record<string, string>;
+  /**
+   * How much room the card has. `medium` (a half-width column) caps option
+   * cards at two across; `compact` (a sidebar) also stacks the contact fields.
+   */
+  density?: 'regular' | 'medium' | 'compact';
   className?: string;
 };
 
@@ -82,7 +89,7 @@ type Props = {
  * One question per step, a thin progress bar, Back / Next, and an animated
  * success state. Contact details are always collected on a `contact` step.
  */
-export default function LeadForm({ config, className = '' }: Props) {
+export default function LeadForm({ config, context, density = 'regular', className = '' }: Props) {
   const uid = useId();
   const reduce = useReducedMotion();
   const { steps } = config;
@@ -101,6 +108,7 @@ export default function LeadForm({ config, className = '' }: Props) {
   const step = steps[stepIndex];
   const isLast = stepIndex === steps.length - 1;
   const progress = sent ? 1 : (stepIndex + 1) / steps.length;
+  const single = steps.length === 1;
 
   useEffect(() => () => window.clearTimeout(advanceTimer.current), []);
 
@@ -147,6 +155,9 @@ export default function LeadForm({ config, className = '' }: Props) {
             ? 'Please enter a valid UAE number, e.g. 50 123 4567.'
             : 'Please enter a valid phone number.';
 
+      if (s.message && !s.message.optional && !str('message'))
+        next.message = 'Please add a short message.';
+
       if (!str('email')) next.email = 'Please enter your email address.';
       else if (!EMAIL_PATTERN.test(str('email'))) next.email = 'Please enter a valid email address.';
     }
@@ -157,6 +168,7 @@ export default function LeadForm({ config, className = '' }: Props) {
     const dial = String(values.dialCode ?? DEFAULT_DIAL);
     const payload: Record<string, string | boolean> = {
       form: config.formId,
+      ...context,
       submittedAt: new Date().toISOString(),
       page: window.location.pathname,
     };
@@ -166,6 +178,7 @@ export default function LeadForm({ config, className = '' }: Props) {
         payload.name = String(values.name).trim();
         payload.phone = normalisePhone(dial, String(values.phone)) ?? '';
         payload.email = String(values.email).trim();
+        if (s.message) payload.message = String(values.message ?? '').trim();
         if (s.checkbox) payload[s.checkbox.id] = values[s.checkbox.id] === true;
       } else {
         payload[s.id] = String(values[s.id] ?? '').trim();
@@ -239,7 +252,9 @@ export default function LeadForm({ config, className = '' }: Props) {
               role="group"
               aria-labelledby={headingId}
               aria-describedby={describedBy(s.id)}
-              className={`grid grid-cols-1 gap-3 ${choiceColumns[s.columns ?? 2]}`}
+              className={`grid grid-cols-1 gap-3 ${
+                density === 'regular' ? choiceColumns[s.columns ?? 2] : 'sm:grid-cols-2'
+              }`}
             >
               {s.options.map((o, i) => {
                 const selected = values[s.id] === o.value;
@@ -339,7 +354,7 @@ export default function LeadForm({ config, className = '' }: Props) {
               {errorText('name')}
             </div>
 
-            <div className="grid grid-cols-1 gap-9 sm:grid-cols-2">
+            <div className={`grid grid-cols-1 gap-9 ${density === 'compact' ? '' : 'sm:grid-cols-2'}`}>
               {/* Phone / WhatsApp — dial code + local number */}
               <div>
                 <div className="flex items-end gap-4">
@@ -417,6 +432,27 @@ export default function LeadForm({ config, className = '' }: Props) {
               </div>
             </div>
 
+            {s.message ? (
+              <div className="relative">
+                <textarea
+                  id={`${uid}-message`}
+                  name="message"
+                  rows={3}
+                  placeholder=" "
+                  value={String(values.message ?? '')}
+                  onChange={(e) => setValue('message', e.target.value)}
+                  aria-invalid={!!errors.message}
+                  aria-describedby={describedBy('message')}
+                  className={`${inputBase} resize-none ${errors.message ? 'border-orange' : ''}`}
+                />
+                <label htmlFor={`${uid}-message`} className={labelBase}>
+                  {s.message.label}
+                  {s.message.optional ? ' (optional)' : ''}
+                </label>
+                {errorText('message')}
+              </div>
+            ) : null}
+
             {s.checkbox ? (
               <label className="flex cursor-pointer items-start gap-4 py-1">
                 <input
@@ -451,8 +487,8 @@ export default function LeadForm({ config, className = '' }: Props) {
       ref={cardRef}
       className={`scroll-mt-24 bg-white px-5 py-8 shadow-[0_24px_70px_-30px_rgba(26,26,26,0.18)] sm:px-10 sm:py-12 lg:px-14 lg:py-14 ${className}`}
     >
-      {/* ---------- Progress ---------- */}
-      <div className="flex items-baseline justify-between gap-4">
+      {/* ---------- Progress (hidden on single-step forms) ---------- */}
+      <div className={`flex items-baseline justify-between gap-4 ${single ? 'hidden' : ''}`}>
         <p className="eyebrow text-orange">
           {sent ? 'Complete' : `Step ${stepIndex + 1} of ${steps.length}`}
         </p>
@@ -468,7 +504,7 @@ export default function LeadForm({ config, className = '' }: Props) {
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={Math.round(progress * 100)}
-        className="mt-4 h-[2px] w-full overflow-hidden bg-line"
+        className={`mt-4 h-[2px] w-full overflow-hidden bg-line ${single ? 'hidden' : ''}`}
       >
         <div
           className="h-full origin-left bg-orange transition-transform duration-700 ease-premium"
@@ -504,7 +540,7 @@ export default function LeadForm({ config, className = '' }: Props) {
                 animate="center"
                 exit="exit"
                 transition={{ duration: reduce ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="pt-10 sm:pt-12"
+                className={single ? '' : 'pt-10 sm:pt-12'}
               >
                 <h2
                   id={headingId}

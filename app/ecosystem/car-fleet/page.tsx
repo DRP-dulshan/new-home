@@ -1,20 +1,17 @@
 import Image from 'next/image';
-import { MessageCircle, Phone } from 'lucide-react';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import PageHero from '@/components/PageHero';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
 import Reveal from '@/components/ui/Reveal';
 import SectionHeading from '@/components/ui/SectionHeading';
-import SmartLink from '@/components/ui/SmartLink';
+import CtaBand from '@/components/sections/CtaBand';
 import { carFleet as page } from '@/data/carFleet';
-import { contact, site } from '@/data/homepage';
+import { site } from '@/data/homepage';
 
 export const metadata = { title: page.metaTitle };
 
 export default function Page() {
-  const whatsappHref = `${contact.whatsappHref}?text=${encodeURIComponent(page.cta.whatsappText)}`;
-
   return (
     <>
       <Header />
@@ -96,57 +93,12 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ---------- Single CTA ---------- */}
-        <section aria-labelledby="fleet-cta-heading" className="section-y bg-ink text-white">
-          <div className="container-drp flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <p className="eyebrow text-orange">{page.cta.eyebrow}</p>
-              <h2
-                id="fleet-cta-heading"
-                className="heading-display mt-5 text-[clamp(2rem,4.6vw,3.75rem)] text-white"
-              >
-                {page.cta.heading}
-              </h2>
-            </div>
-
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-10">
-              <SmartLink
-                href={page.cta.href}
-                className="group inline-flex h-14 items-center justify-center gap-3 bg-orange px-10 text-[11px] font-medium uppercase tracking-eyebrow text-white transition-colors duration-300 hover:bg-orange-600"
-              >
-                {page.cta.label}
-                <span
-                  aria-hidden="true"
-                  className="transition-transform duration-500 ease-premium group-hover:translate-x-1.5"
-                >
-                  &rarr;
-                </span>
-              </SmartLink>
-              <ul className="flex flex-col gap-3 text-sm font-light sm:gap-2">
-                <li>
-                  <a
-                    href={contact.phoneHref}
-                    className="inline-flex items-center gap-2.5 text-white/80 transition-colors duration-300 hover:text-orange"
-                  >
-                    <Phone aria-hidden="true" strokeWidth={1.5} className="h-4 w-4" />
-                    {contact.phone}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={whatsappHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 text-white/80 transition-colors duration-300 hover:text-orange"
-                  >
-                    <MessageCircle aria-hidden="true" strokeWidth={1.5} className="h-4 w-4" />
-                    WhatsApp {contact.whatsapp}
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
+        <CtaBand
+          eyebrow={page.cta.eyebrow}
+          heading={page.cta.heading}
+          button={{ label: page.cta.label, href: page.cta.href }}
+          whatsappText={page.cta.whatsappText}
+        />
       </main>
       <Footer />
       <WhatsAppFloat />
