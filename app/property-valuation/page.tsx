@@ -47,7 +47,7 @@ export default function Page() {
             </div>
 
             <Reveal delay={0.1} className="lg:col-span-7">
-              <LeadForm config={page.form} />
+              <LeadForm config={page.form} density="medium" />
             </Reveal>
           </div>
         </section>

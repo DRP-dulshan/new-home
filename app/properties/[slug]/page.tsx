@@ -1,31 +1,180 @@
 import { notFound } from 'next/navigation';
-import PlaceholderPage from '@/components/ui/PlaceholderPage';
-import { humanize } from '@/lib/humanize';
+import SiteShell from '@/components/layout/SiteShell';
+import LeadForm from '@/components/LeadForm';
+import PropertyCard from '@/components/PropertyCard';
+import ListingGallery from '@/components/properties/ListingGallery';
+import ArrowLink from '@/components/ui/ArrowLink';
+import Reveal from '@/components/ui/Reveal';
+import SectionHeading from '@/components/ui/SectionHeading';
+import SmartLink from '@/components/ui/SmartLink';
+import { contactStep, type LeadFormConfig } from '@/data/leadPages';
+import {
+  bedsLong,
+  formatPrice,
+  getListing,
+  similarListings,
+  toPropertyCard,
+} from '@/data/properties';
+import { toSlug } from '@/lib/slug';
 import { staticSlugs } from './slugs';
 
 /** Next 16: route params arrive as a Promise and must be awaited. */
 type PageProps = { params: Promise<{ slug: string }> };
 
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return staticSlugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const { slug } = await params;
-  return { title: `${humanize(slug)} | Dubai Rapid Properties` };
+  const listing = getListing((await params).slug);
+  return { title: listing ? `${listing.title} | Dubai Rapid Properties` : 'Property | Dubai Rapid Properties' };
 }
 
+const enquiryForm: LeadFormConfig = {
+  formId: 'property-enquiry',
+  submitLabel: 'Send Enquiry',
+  successTitle: 'Thank you.',
+  successBody: 'A DRP specialist will contact you shortly about this property.',
+  steps: [
+    contactStep(
+      { id: 'viewing', label: 'I would like to arrange a viewing' },
+      {
+        question: 'Enquire about this property',
+        helper: 'The specialist handling this listing will reply personally.',
+        message: { label: 'Message', optional: true },
+      },
+    ),
+  ],
+};
+
 export default async function Page({ params }: PageProps) {
-  const { slug } = await params;
-  if (!staticSlugs.includes(slug)) notFound();
+  const listing = getListing((await params).slug);
+  if (!listing) notFound();
+
+  const isRent = listing.offering === 'rent';
+  const backHref = `/properties?offering=${listing.offering}`;
+  const facts = [
+    ['Bedrooms', bedsLong(listing.beds)],
+    ['Bathrooms', String(listing.baths)],
+    ['Size', `${listing.size.toLocaleString('en-US')} sq ft`],
+    ['Type', listing.type],
+    ['Furnishing', listing.furnishing],
+    ['Reference', listing.ref],
+  ];
+  const similar = similarListings(listing);
 
   return (
-    <PlaceholderPage
-      eyebrow="Explore Real Estate"
-      title={humanize(slug)}
-      copy="Full listing details, gallery and floor plans will appear here."
-    />
+    <SiteShell>
+      <section className="bg-white pb-[var(--section-y)] pt-24 lg:pt-28">
+        <div className="container-drp">
+          <nav aria-label="Breadcrumb" className="py-5 text-[11px] uppercase tracking-eyebrow text-charcoal-muted sm:py-6">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <SmartLink href="/properties" className="hover:text-orange">Properties</SmartLink>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <SmartLink href={backHref} className="hover:text-orange">
+                  {isRent ? 'For Rent' : 'For Sale'}
+                </SmartLink>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-charcoal">{listing.area}</li>
+            </ol>
+          </nav>
+
+          <ListingGallery images={listing.images} title={listing.title} />
+
+          <div className="mt-10 grid grid-cols-1 gap-14 sm:mt-14 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-7">
+              <p className="eyebrow text-orange">
+                {isRent ? 'For Rent' : 'For Sale'} · {listing.ref}
+              </p>
+              <h1 className="heading-display mt-4 text-[clamp(2rem,4vw,3.25rem)] text-charcoal">
+                {listing.title}
+              </h1>
+              <p className="mt-4 text-sm font-light text-charcoal-muted">
+                {listing.building ? `${listing.building}, ` : ''}
+                <SmartLink href={`/areas/${toSlug(listing.area)}`} className="underline-offset-4 hover:text-orange hover:underline">
+                  {listing.area}
+                </SmartLink>
+              </p>
+              <p className="mt-6 font-serif text-[clamp(1.8rem,3vw,2.4rem)] text-charcoal">
+                {formatPrice(listing)}
+                {isRent ? (
+                  <span className="ml-2 font-sans text-sm font-light text-charcoal-muted">/ year</span>
+                ) : null}
+              </p>
+
+              <dl className="mt-10 grid grid-cols-2 border-t border-line sm:grid-cols-3">
+                {facts.map(([label, value]) => (
+                  <div key={label} className="border-b border-line py-5 pr-4">
+                    <dt className="text-[10px] uppercase tracking-eyebrow text-charcoal-muted">{label}</dt>
+                    <dd className="mt-2 text-[15px] font-light text-charcoal">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              <h2 className="mt-14 font-serif text-[1.75rem] font-light text-charcoal">About this property</h2>
+              <div className="mt-5 space-y-5">
+                {listing.description.map((p, i) => (
+                  <p key={i} className="text-[15px] font-light leading-relaxed text-charcoal-light sm:text-base">
+                    {p}
+                  </p>
+                ))}
+              </div>
+
+              <h2 className="mt-14 font-serif text-[1.75rem] font-light text-charcoal">Features</h2>
+              <ul className="mt-5 grid grid-cols-1 border-t border-line sm:grid-cols-2 sm:gap-x-10">
+                {listing.features.map((f) => (
+                  <li key={f} className="flex items-baseline gap-4 border-b border-line py-4 text-[15px] font-light text-charcoal">
+                    <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 -translate-y-0.5 rounded-full bg-orange" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4">
+                <ArrowLink href={`/areas/${toSlug(listing.area)}`} label={`${listing.area} area guide`} />
+                {isRent ? null : (
+                  <ArrowLink href={`/ecosystem/mortgage?price=${listing.price}`} label="Estimate your mortgage" />
+                )}
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="lg:sticky lg:top-28">
+                <LeadForm
+                  config={enquiryForm}
+                  context={{ listingRef: listing.ref, listingTitle: listing.title }}
+                  density="compact"
+                  className="lg:!px-10 lg:!py-10"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {similar.length ? (
+        <section aria-labelledby="similar-heading" className="section-y bg-cream">
+          <div className="container-drp">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <SectionHeading eyebrow="You may also like" heading="Similar Properties" headingId="similar-heading" />
+              <ArrowLink href={backHref} label={`All properties ${isRent ? 'for rent' : 'for sale'}`} />
+            </div>
+            <ul className="mt-12 grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
+              {similar.map((l, i) => (
+                <Reveal as="li" key={l.slug} delay={i * 0.08}>
+                  <PropertyCard {...toPropertyCard(l)} />
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+    </SiteShell>
   );
 }

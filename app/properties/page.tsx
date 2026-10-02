@@ -1,13 +1,40 @@
-import PlaceholderPage from '@/components/ui/PlaceholderPage';
+import SiteShell from '@/components/layout/SiteShell';
+import PageHero from '@/components/PageHero';
+import PropertyExplorer from '@/components/properties/PropertyExplorer';
+import CtaBand from '@/components/sections/CtaBand';
+import SectionHeading from '@/components/ui/SectionHeading';
+import { unsplash } from '@/lib/media';
 
-export const metadata = { title: "Ready Properties | Dubai Rapid Properties" };
+export const metadata = { title: 'Properties for Sale and Rent in Dubai | Dubai Rapid Properties' };
 
 export default function Page() {
   return (
-    <PlaceholderPage
-      eyebrow={"Explore Real Estate"}
-      title={"Ready Properties"}
-      copy={"Apartments, villas and townhouses available now to buy or rent."}
-    />
+    <SiteShell>
+      <PageHero
+        eyebrow="Ready Properties"
+        heading="Properties for Sale and Rent"
+        intro="Apartments, villas, townhouses and penthouses available now across Dubai, each one personally viewed by a DRP specialist."
+        // DEMO PLACEHOLDER – swap for DRP photography
+        image={unsplash('1522708323590-d24dbb6b0267', 2000)}
+        imageAlt="A furnished sea-view living room on Palm Jumeirah"
+      />
+      <section aria-labelledby="listings-heading" className="bg-cream pb-[var(--section-y)]">
+        <div className="container-drp pb-10 pt-[var(--section-y)] sm:pb-12">
+          <SectionHeading
+            eyebrow="Explore Real Estate"
+            heading="Available Now"
+            headingId="listings-heading"
+          />
+        </div>
+        <PropertyExplorer />
+      </section>
+      <CtaBand
+        eyebrow="Off-Market"
+        heading="Not seeing the right home?"
+        text="Many of our best properties are shared privately before they are listed. Tell us what you are looking for."
+        button={{ label: 'Speak With a Specialist', href: '/contact' }}
+        whatsappText="Hello DRP, I am looking for a property in Dubai."
+      />
+    </SiteShell>
   );
 }

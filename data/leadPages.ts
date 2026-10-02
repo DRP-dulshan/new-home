@@ -37,7 +37,12 @@ export type LeadStep =
   /** Single free-text field. `optional` adds a Skip action. */
   | (StepBase & { kind: 'text'; placeholder: string; optional?: boolean })
   /** Name, Phone / WhatsApp and Email, plus an optional consent-style checkbox. */
-  | (StepBase & { kind: 'contact'; checkbox?: { id: string; label: string } });
+  | (StepBase & {
+      kind: 'contact';
+      checkbox?: { id: string; label: string };
+      /** Adds a free-text message field under the contact details. */
+      message?: { label: string; optional?: boolean };
+    });
 
 export type LeadFormConfig = {
   /** Identifies the form in the submitted payload. */
@@ -92,13 +97,20 @@ const bedroomsStep: LeadStep = {
   })),
 };
 
-const contactStep = (checkbox?: { id: string; label: string }): LeadStep => ({
+export const contactStep = (
+  checkbox?: { id: string; label: string },
+  extra: Partial<Pick<StepBase, 'question' | 'helper'>> & {
+    message?: { label: string; optional?: boolean };
+  } = {},
+): LeadStep => ({
   id: 'contact',
   label: 'Your Details',
-  question: 'How can we reach you?',
+  question: extra.question ?? 'How can we reach you?',
   helper: 'A DRP specialist will contact you personally. We never share your details.',
   kind: 'contact',
   checkbox,
+  message: extra.message,
+  ...(extra.helper ? { helper: extra.helper } : {}),
 });
 
 /* -------------------------------------------------------------------------- */

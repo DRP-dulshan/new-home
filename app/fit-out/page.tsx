@@ -1,13 +1,29 @@
-import PlaceholderPage from '@/components/ui/PlaceholderPage';
+import PageHero from '@/components/PageHero';
+import SiteShell from '@/components/layout/SiteShell';
+import FaqList from '@/components/sections/FaqList';
+import FeatureGrid from '@/components/sections/FeatureGrid';
+import FormSection from '@/components/sections/FormSection';
+import IntroSplit from '@/components/sections/IntroSplit';
+import ProcessSteps from '@/components/sections/ProcessSteps';
+import { fitOut as page } from '@/data/services';
 
-export const metadata = { title: "Fit Out | Dubai Rapid Properties" };
+export const metadata = { title: 'Fit Out | Dubai Rapid Properties' };
 
 export default function Page() {
   return (
-    <PlaceholderPage
-      eyebrow={"Services"}
-      title={"Fit Out"}
-      copy={"Turnkey fit-out management from handover through to a rent-ready home."}
-    />
+    <SiteShell>
+      <PageHero {...page.hero} />
+      <IntroSplit eyebrow="DRP Fit Out" heading="One team, from drawings to keys" paragraphs={page.intro} />
+      <FeatureGrid eyebrow="Scope" heading="What We Deliver" items={page.scope} tone="cream" />
+      <ProcessSteps eyebrow="How It Works" heading="Four Stages" steps={page.steps} />
+      <FaqList items={page.faqs} tone="cream" />
+      <FormSection
+        eyebrow="Site Survey"
+        heading="Plan your fit-out"
+        intro="Tell us what the property needs and we will arrange a survey."
+        config={page.form}
+        tone="white"
+      />
+    </SiteShell>
   );
 }
