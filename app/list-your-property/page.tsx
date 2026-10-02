@@ -1,13 +1,49 @@
-import PlaceholderPage from '@/components/ui/PlaceholderPage';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import LeadForm from '@/components/LeadForm';
+import LeadHero from '@/components/LeadHero';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
+import Reveal from '@/components/ui/Reveal';
+import { listYourProperty as page } from '@/data/leadPages';
 
-export const metadata = { title: "List With DRP | Dubai Rapid Properties" };
+export const metadata = { title: page.metaTitle };
 
 export default function Page() {
   return (
-    <PlaceholderPage
-      eyebrow={"Sell Your Property"}
-      title={"List With DRP"}
-      copy={"Pricing strategy, professional media and a qualified buyer list from day one."}
-    />
+    <>
+      <Header />
+      <main>
+        <LeadHero {...page.hero} />
+
+        <section aria-label="Property details" className="section-y bg-cream">
+          <div className="container-drp">
+            <Reveal className="mx-auto max-w-3xl">
+              <LeadForm config={page.form} />
+            </Reveal>
+
+            {/* Three facts, separated by hairline rules */}
+            <ul className="mt-16 grid grid-cols-1 divide-y divide-line border-y border-line sm:mt-24 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+              {page.strip.map((item, i) => (
+                <Reveal
+                  as="li"
+                  key={item.index}
+                  delay={i * 0.1}
+                  className="py-7 sm:px-6 sm:py-10 sm:text-center"
+                >
+                  <p className="text-[11px] font-medium tracking-eyebrow text-orange">
+                    {item.index}
+                  </p>
+                  <p className="mt-3 font-serif text-[1.6rem] font-light leading-tight text-charcoal sm:text-[1.85rem]">
+                    {item.label}
+                  </p>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </main>
+      <Footer />
+      <WhatsAppFloat />
+    </>
   );
 }
