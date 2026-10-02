@@ -40,7 +40,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    /* data-scroll-behavior lets Next 16 switch off the smooth scrolling set in
+       globals.css while it resets scroll on navigation, so new pages always
+       open at the top. In-page anchors keep their smooth scroll. */
+    <html lang="en" data-scroll-behavior="smooth" className={`${display.variable} ${body.variable}`}>
       <head>
         {/* The hero video is the largest first-paint asset — warm the connection early. */}
         <link rel="preconnect" href="https://player.vimeo.com" />
