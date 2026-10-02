@@ -25,7 +25,7 @@ export const carFleet = {
   metaTitle: 'Car Fleet | Dubai Rapid Properties',
   hero: {
     eyebrow: 'DRP Car Fleet',
-    heading: 'Mobility, Part of the DRP Experience',
+    heading: 'Mobility, Part of\nthe DRP Experience',
     // DEMO PLACEHOLDER – swap for real DRP vehicle photography
     image: unsplash('1503376780353-7e6692767b70', 2400),
     imageAlt: 'A DRP fleet car parked outside a modern residence',
