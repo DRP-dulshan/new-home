@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Check, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { contact, contactSection } from '@/data/homepage';
+import { EMAIL_PATTERN, inputBase, labelBase } from './ui/formStyles';
 
 type Fields = {
   name: string;
@@ -17,12 +18,6 @@ type Fields = {
 type Errors = Partial<Record<keyof Fields, string>>;
 
 const EMPTY: Fields = { name: '', phone: '', email: '', interest: '', message: '' };
-
-/** Shared classes for the underline inputs */
-const inputBase =
-  'peer w-full border-0 border-b border-line bg-transparent pb-2.5 pt-6 text-[15px] font-light text-charcoal outline-none transition-colors duration-300 placeholder-shown:pt-6 focus:border-orange';
-const labelBase =
-  'pointer-events-none absolute left-0 top-0 text-[11px] font-medium uppercase tracking-eyebrow text-charcoal-muted transition-all duration-300 peer-placeholder-shown:top-6 peer-placeholder-shown:text-sm peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-placeholder-shown:text-charcoal-muted/70 peer-focus:top-0 peer-focus:text-[11px] peer-focus:uppercase peer-focus:tracking-eyebrow peer-focus:text-orange';
 
 export default function ContactSection() {
   const uid = useId();
@@ -41,7 +36,7 @@ export default function ContactSection() {
     if (!v.name.trim()) next.name = 'Please enter your name.';
     if (!v.phone.trim()) next.phone = 'Please enter a phone or WhatsApp number.';
     if (!v.email.trim()) next.email = 'Please enter your email address.';
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.email.trim()))
+    else if (!EMAIL_PATTERN.test(v.email.trim()))
       next.email = 'Please enter a valid email address.';
     if (!v.interest) next.interest = 'Please choose what you are interested in.';
     return next;

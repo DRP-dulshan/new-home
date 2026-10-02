@@ -22,6 +22,11 @@ heading), `shortLabel` the condensed desktop label. The Header renders entirely 
 **All copy, links, images, listings, articles and reviews live in one file:
 [`/data/homepage.ts`](data/homepage.ts).** No copy is hard-coded in components.
 
+The two lead-generation pages (`/list-your-property`, `/property-valuation`) read their copy,
+hero images and form steps from [`/data/leadPages.ts`](data/leadPages.ts). Each form is a
+`steps` array rendered by `components/LeadForm.tsx`, so steps can be added, removed or
+reordered there without touching the component.
+
 Search that file for `DEMO PLACEHOLDER` to find everything that needs real
 content before launch.
 
@@ -38,6 +43,7 @@ content before launch.
 | H1 2026 market report | **Placeholder** — tile links to `/market-report`, no PDF attached. |
 | Photography | Unsplash stock, plus DRP's own photos for the specialist tile and contact panel. Swap for DRP shoots. |
 | Contact form | Client-side validation and success state only — **no backend**. Wire `onSubmit` in `components/ContactSection.tsx` to a CRM/endpoint. |
+| Lead forms (`/list-your-property`, `/property-valuation`) | Multi-step form, client-side validation and success state only — **no backend**. The payload is logged to the console; wire `submitLead` in `components/LeadForm.tsx` (marked `TODO`) to a CRM/endpoint. Hero photos are Unsplash placeholders. |
 | Placeholder routes (33) | **Placeholder** — every internal link resolves to a stub page (title, one line, back to home) so nothing 404s in the demo. Replace with the real pages as they are built. |
 | Mega-menu promo cards (3) | **Placeholder** — Unsplash imagery and copy for the Off-Plan, Areas and Holiday Homes panels. |
 | Hero search | Fully wired: tabs, typeahead, Beds and Price Range all build a real query string and navigate. The destinations (`/properties`, `/off-plan`) are not built in this demo, so they 404. |
