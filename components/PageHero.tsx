@@ -4,6 +4,7 @@ import Reveal from './ui/Reveal';
 
 type Props = {
   eyebrow: string;
+  /** A "\n" forces a line break and lifts the default width cap. */
   heading: string;
   intro?: string;
   subline?: string;
@@ -29,6 +30,8 @@ export default function PageHero({
   size = 'short',
   children,
 }: Props) {
+  const lines = heading.split('\n');
+
   return (
     <section
       aria-labelledby="page-heading"
@@ -54,9 +57,15 @@ export default function PageHero({
         <Reveal delay={0.08}>
           <h1
             id="page-heading"
-            className="heading-display mt-5 max-w-[16ch] text-[clamp(2.4rem,6vw,4.75rem)] text-white"
+            className={`heading-display mt-5 text-[clamp(2.4rem,6vw,4.75rem)] text-white ${
+              lines.length > 1 ? '' : 'max-w-[16ch]'
+            }`}
           >
-            {heading}
+            {lines.map((line, i) => (
+              <span key={i} className="block">
+                {line}
+              </span>
+            ))}
           </h1>
         </Reveal>
         {intro ? (
