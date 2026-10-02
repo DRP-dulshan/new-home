@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadForm from '@/components/LeadForm';
-import LeadHero from '@/components/LeadHero';
+import PageHero from '@/components/PageHero';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
 import Reveal from '@/components/ui/Reveal';
 import { listYourProperty as page } from '@/data/leadPages';
@@ -13,7 +13,7 @@ export default function Page() {
     <>
       <Header />
       <main>
-        <LeadHero {...page.hero} />
+        <PageHero {...page.hero} />
 
         <section aria-label="Property details" className="section-y bg-cream">
           <div className="container-drp">

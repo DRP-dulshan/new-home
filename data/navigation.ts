@@ -62,7 +62,7 @@ const ecosystemLinks: NavLink[] = [
   { label: 'Partner Network', href: '/ecosystem/partner-network' },
   { label: 'Mortgage Assistance', href: '/ecosystem/mortgage' },
   { label: 'Company Formation', href: '/ecosystem/company-formation' },
-  { label: 'DRP Car Fleet', href: '/ecosystem/car-fleet' },
+  { label: 'Car Fleet', href: '/ecosystem/car-fleet' },
 ];
 
 export const navigation: NavNode[] = [
@@ -128,7 +128,7 @@ export const navigation: NavNode[] = [
         title: 'Off-Plan Collections',
         links: [
           { label: 'Explore Investment Collections', href: '/off-plan' },
-          { label: 'Latest Launches', href: '/off-plan/latest-launches' },
+          { label: 'Latest Launches', href: '/off-plan#latest-launches' },
           { label: 'Construction Tracker', href: '/off-plan/construction-tracker' },
         ],
       },
@@ -166,7 +166,7 @@ export const navigation: NavNode[] = [
       },
       {
         title: 'Guest Services',
-        links: [{ label: 'DRP Car Fleet', href: '/ecosystem/car-fleet', accent: true }],
+        links: [{ label: 'Car Fleet', href: '/ecosystem/car-fleet', accent: true }],
       },
     ],
     promo: {
