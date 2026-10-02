@@ -10,7 +10,7 @@ npm run dev
 
 ## Editing content
 
-Both search bars — the hero's and Section 03's — read their areas, bedroom counts and price
+Both search bars — the hero's and Section 02's — read their areas, bedroom counts and price
 scales from a single `searchData` export, so they never drift apart.
 
 **The header menu lives in [`/data/navigation.ts`](data/navigation.ts)** as a typed array.

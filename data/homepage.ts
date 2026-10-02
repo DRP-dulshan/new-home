@@ -83,7 +83,7 @@ export const hero = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/*  SEARCH — shared by the hero search and Section 03                          */
+/*  SEARCH — shared by the hero search and Section 02                          */
 /* -------------------------------------------------------------------------- */
 /*  Both search bars read areas, bedroom counts and price scales from here, so
     the two stay in step. Change a value once and it updates in both places.   */
@@ -97,7 +97,7 @@ export type PriceOption = {
   open?: boolean;
 };
 
-/** A selectable range in the Section 03 dropdown, derived from the scale below. */
+/** A selectable range in the Section 02 dropdown, derived from the scale below. */
 export type PriceBand = { id: string; label: string; min?: number; max?: number };
 
 const salePrices: PriceOption[] = [
@@ -146,7 +146,7 @@ function buildPriceBands(options: PriceOption[], anyLabel: string): PriceBand[] 
 }
 
 export const searchData = {
-  /** Areas offered as hero typeahead suggestions and in the Section 03 select. */
+  /** Areas offered as hero typeahead suggestions and in the Section 02 select. */
   locations: [
     'Palm Jumeirah',
     'Dubai Marina',
@@ -184,7 +184,7 @@ export const searchData = {
 };
 
 /**
- * Section 03's search bar keeps four fields on every tab; only the third and
+ * Section 02's search bar keeps four fields on every tab; only the third and
  * fourth change meaning with the offering.
  */
 export const searchFields: Record<
@@ -260,7 +260,7 @@ export const partners: Partner[] = [
 export const partnersLabel = 'Our Development Partners';
 
 /* -------------------------------------------------------------------------- */
-/*  SECTION 02 — SOLUTIONS (bento grid)                                       */
+/*  SECTION 03 — SOLUTIONS (bento grid)                                       */
 /* -------------------------------------------------------------------------- */
 
 export type SolutionTile = {
@@ -381,7 +381,7 @@ export const solutions = {
 };
 
 /* -------------------------------------------------------------------------- */
-/*  SECTION 03 — EXPLORE PROPERTIES                                           */
+/*  SECTION 02 — EXPLORE PROPERTIES                                           */
 /* -------------------------------------------------------------------------- */
 
 export type ReadyProperty = {

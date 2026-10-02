@@ -14,8 +14,8 @@ export default function HomePage() {
       <Header />
       <main id="main">
         <Hero />
-        <Solutions />
         <ExploreProperties />
+        <Solutions />
         <NewsCarousel />
         <TrustSection />
         <ContactSection />
