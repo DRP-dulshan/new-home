@@ -9,6 +9,7 @@
  */
 
 import { drpPhoto, unsplash } from '@/lib/media';
+import { HOLIDAY_HOMES_URL } from './external';
 import { contactStep, type LeadFormConfig } from './leadPages';
 
 /* -------------------------------------------------------------------------- */
@@ -40,7 +41,7 @@ export const ecosystem = {
         { name: 'List Your Property', text: 'Sell or let with DRP.', href: '/list-your-property' },
         { name: 'Property Valuation', text: 'An evidence-based view of what it is worth.', href: '/property-valuation' },
         { name: 'Property Management', text: 'Letting, maintenance and reporting handled.', href: '/property-management' },
-        { name: 'Holiday Homes', text: 'Licensed short-stay management.', href: '/holiday-homes' },
+        { name: 'Holiday Homes', text: 'Short-stay management, on the DRP Holiday Homes site.', href: HOLIDAY_HOMES_URL },
       ],
     },
     {

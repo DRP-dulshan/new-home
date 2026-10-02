@@ -1,0 +1,65 @@
+import Image from 'next/image';
+import { Mail, MessageCircle } from 'lucide-react';
+import { about, team } from '@/data/company';
+import { contact } from '@/data/homepage';
+import Reveal from '../ui/Reveal';
+import SectionHeading from '../ui/SectionHeading';
+
+/** Portrait grid: slow photo zoom and a lifting name on hover or focus. */
+export default function TeamGrid() {
+  return (
+    <section id="team" aria-labelledby="team-heading" className="section-y scroll-mt-16 bg-white">
+      <div className="container-drp">
+        <SectionHeading eyebrow={about.team.eyebrow} heading={about.team.heading} headingId="team-heading" />
+        <ul className="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
+          {team.map((m, i) => (
+            <Reveal as="li" key={m.id} delay={(i % 4) * 0.08} className="group">
+              <div className="relative aspect-[4/5] overflow-hidden bg-line">
+                <Image
+                  src={m.photo}
+                  alt={`${m.name}, ${m.role}`}
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-[900ms] ease-premium group-hover:scale-[1.05] group-focus-within:scale-[1.05]"
+                />
+                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5 transition-transform duration-500 ease-premium group-hover:-translate-y-2 group-focus-within:-translate-y-2 sm:p-6">
+                  <h3 className="font-serif text-[1.6rem] leading-tight text-white">{m.name}</h3>
+                  <p className="mt-1.5 text-[10px] uppercase tracking-eyebrow text-white/75">{m.role}</p>
+                </div>
+              </div>
+              <div className="mt-4 flex items-start justify-between gap-4">
+                <p className="text-sm font-light leading-relaxed text-charcoal-muted">{m.line}</p>
+                {m.whatsapp || m.email ? (
+                  <div className="flex shrink-0 items-center gap-3 pt-0.5">
+                    {m.whatsapp ? (
+                      <a
+                        href={`${contact.whatsappHref}?text=${encodeURIComponent(`Hello DRP, I would like to speak to ${m.name}.`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`WhatsApp ${m.name}`}
+                        className="text-charcoal transition-colors duration-300 hover:text-orange"
+                      >
+                        <MessageCircle aria-hidden="true" strokeWidth={1.5} className="h-[18px] w-[18px]" />
+                      </a>
+                    ) : null}
+                    {m.email ? (
+                      <a
+                        href={`${contact.emailHref}?subject=${encodeURIComponent(`For the attention of ${m.name}`)}`}
+                        aria-label={`Email ${m.name}`}
+                        className="text-charcoal transition-colors duration-300 hover:text-orange"
+                      >
+                        <Mail aria-hidden="true" strokeWidth={1.5} className="h-[18px] w-[18px]" />
+                      </a>
+                    ) : null}
+                  </div>
+                ) : null}
+              </div>
+            </Reveal>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}

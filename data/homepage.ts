@@ -12,6 +12,7 @@
  */
 
 import { featuredProjects, formatAed, handoverLabel, projectHref } from './offPlan';
+import { HOLIDAY_HOMES_URL } from './external';
 import { articleHref, articles, formatArticleDate } from './news';
 import { homepageRent, homepageSale, toPropertyCard } from './properties';
 
@@ -346,7 +347,8 @@ export const solutions = {
       id: 'holiday',
       title: 'Holiday Homes',
       subtitle: 'Stay with DRP or list your property',
-      href: '/holiday-homes',
+      href: HOLIDAY_HOMES_URL,
+      external: true,
       image: unsplash('1564013799919-ab600027ffc6'),
       alt: 'A sunlit holiday home terrace with sea views',
       span: 'standard',
@@ -660,7 +662,7 @@ export const footer = {
       heading: 'Company',
       links: [
         { label: 'About', href: '/about' },
-        { label: 'Meet the Team', href: '/about/team' },
+        { label: 'Meet the Team', href: '/about#team' },
         { label: 'Careers', href: '/careers' },
         { label: 'DRP Ecosystem', href: '/ecosystem' },
         { label: 'News & Blogs', href: '/news' },
@@ -679,7 +681,7 @@ export const footer = {
     {
       heading: 'Services',
       links: [
-        { label: 'Holiday Homes', href: '/holiday-homes' },
+        { label: 'Holiday Homes', href: HOLIDAY_HOMES_URL },
         { label: 'Fit Out', href: '/fit-out' },
         { label: 'Interior Design', href: '/interior-design' },
         { label: 'Furnishings', href: '/furnishings' },

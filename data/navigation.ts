@@ -46,6 +46,8 @@ export type NavNode = {
   promo?: NavPromo;
 };
 
+import { HOLIDAY_HOMES_URL } from './external';
+
 const unsplash = (id: string, w = 800) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -111,6 +113,14 @@ export const navigation: NavNode[] = [
           { label: 'Company Formation', href: '/ecosystem/company-formation' },
         ],
       },
+      {
+        title: 'Owner Services',
+        links: [
+          { label: 'Property Management', href: '/property-management' },
+          { label: 'Furnishing Packages', href: '/furnishings' },
+          { label: 'Why Furnishing Matters', href: '/furnishings/why-it-matters' },
+        ],
+      },
     ],
     promo: {
       title: 'Free property valuation',
@@ -145,38 +155,8 @@ export const navigation: NavNode[] = [
       alt: 'A contemporary Dubai building against a clear sky',
     },
   },
-  {
-    id: 'holiday',
-    label: 'Holiday Homes',
-    columns: [
-      {
-        title: 'Holiday Homes & Property Management',
-        links: [
-          { label: 'List Your Property', href: '/holiday-homes/list-your-property' },
-          { label: 'Book a Stay', href: '/holiday-homes/book-a-stay' },
-          { label: 'Property Management — How Does It Work?', href: '/property-management' },
-        ],
-      },
-      {
-        title: 'Furnishings',
-        links: [
-          { label: 'Furnishing Packages', href: '/furnishings' },
-          { label: 'Why Is It Important For Returns?', href: '/furnishings/why-it-matters' },
-        ],
-      },
-      {
-        title: 'Guest Services',
-        links: [{ label: 'Car Fleet', href: '/ecosystem/car-fleet', accent: true }],
-      },
-    ],
-    promo: {
-      title: 'Furnished to perform',
-      linkLabel: 'See packages',
-      href: '/furnishings',
-      image: unsplash('1512917774080-9991f1c4c750'),
-      alt: 'A furnished living space opening onto a terrace',
-    },
-  },
+  /* Holiday Homes is a separate DRP website — opens in a new tab */
+  { id: 'holiday', label: 'Holiday Homes', href: HOLIDAY_HOMES_URL },
   {
     id: 'about',
     label: 'About',
@@ -185,7 +165,7 @@ export const navigation: NavNode[] = [
         title: 'About DRP',
         links: [
           { label: 'Our Story', href: '/about' },
-          { label: 'Meet the Team', href: '/about/team' },
+          { label: 'Meet the Team', href: '/about#team' },
           { label: 'Careers', href: '/careers' },
         ],
       },
@@ -212,7 +192,7 @@ export const fullMenu: NavLink[] = [
   { label: 'Buy', href: '/properties?offering=buy' },
   { label: 'Rent', href: '/properties?offering=rent' },
   { label: 'Off-Plan', href: '/off-plan' },
-  { label: 'Holiday Homes', href: '/holiday-homes' },
+  { label: 'Holiday Homes', href: HOLIDAY_HOMES_URL, external: true },
   { label: 'Property Management', href: '/property-management' },
   { label: 'Interior Design', href: '/interior-design' },
   { label: 'Car Fleet', href: '/ecosystem/car-fleet' },

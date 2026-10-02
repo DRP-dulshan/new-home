@@ -25,9 +25,10 @@ needs real content before launch.
 | [`leadPages.ts`](data/leadPages.ts) | `/list-your-property`, `/property-valuation`, the `LeadForm` config types |
 | [`services.ts`](data/services.ts) | Holiday homes (incl. Book a Stay), property management, furnishings, interior design, fit-out |
 | [`ecosystem.ts`](data/ecosystem.ts) | `/ecosystem`, mortgage calculator, company formation, partner network, owner portal |
-| [`company.ts`](data/company.ts) | `/about`, `/about/team`, `/careers`, `/contact` |
+| [`company.ts`](data/company.ts) | `/about` (incl. the `#team` grid), `/careers`, `/contact` |
 | [`carFleet.ts`](data/carFleet.ts) | `/ecosystem/car-fleet` |
 | [`legal.ts`](data/legal.ts) | `/privacy`, `/terms` |
+| [`external.ts`](data/external.ts) | `HOLIDAY_HOMES_URL` — the separate Holiday Homes website the nav, footer and tiles link out to |
 
 **Forms.** Every enquiry form is a `LeadForm` driven by a `steps` array (choice cards, area
 search, free text, contact details with optional message and checkbox). Submissions are
@@ -48,7 +49,9 @@ search lands on a filtered list. Both explorers share `components/filters/Filter
 | Off-plan projects (12) | **Placeholder** — names, prices, handover dates, payment plans, construction progress and launch dates. Replace with the real project database. |
 | Area guides (12) | **Placeholder** figures — price per sq ft, yields and drive times. |
 | News articles (7) | **Placeholder** — written in DRP's voice, not real posts. |
-| Team, careers, timeline | **Placeholder** — team cards show roles only until names and photos are supplied; vacancies and milestones are illustrative. |
+| Team (8) | **Placeholder** — invented names, roles, lines and Unsplash portraits on `/about#team`. Replace with real DRP team photos from the IT team. |
+| Careers hero | **Placeholder** — Unsplash office photo; replace with the DRP team group photo taken in front of the office. The application form logs its payload (CV name, size and type only); the file itself needs a multipart upload endpoint. |
+| Holiday Homes URL | **Placeholder** — `HOLIDAY_HOMES_URL` in `data/external.ts` points at the current DRP site's holiday-home page. The internal `/holiday-homes/*` pages still build but are no longer linked from the site. |
 | Holiday homes, packages, fees | **Placeholder** — stays, nightly rates, furnishing package prices and management fees. |
 | Mortgage calculator | Real formula; fee and rate defaults are estimates to confirm with DRP's mortgage partners. |
 | Market report | **Placeholder** figures; the form promises an email, no PDF is attached yet. |

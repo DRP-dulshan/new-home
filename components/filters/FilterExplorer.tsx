@@ -63,7 +63,10 @@ export default function FilterExplorer<T>({
   const [sheetOpen, setSheetOpen] = useState(false);
   const sheetTriggerRef = useRef<HTMLButtonElement>(null);
   const gridTopRef = useRef<HTMLDivElement>(null);
-  const firstRender = useRef(true);
+  /* Bumped only by the visitor's own filter or sort changes, so the grid never
+     scrolls itself on load, on navigation or when settings resolve. */
+  const [revision, setRevision] = useState(0);
+  const bump = () => setRevision((r) => r + 1);
 
   /* A new item set (e.g. switching Buy / Rent) keeps the selection only for
      options that still exist in the new facets. */
@@ -101,7 +104,8 @@ export default function FilterExplorer<T>({
     })),
   );
 
-  const toggle = (f: Facet<T>, id: string) =>
+  const toggle = (f: Facet<T>, id: string) => {
+    bump();
     setSelected((s) => {
       const current = s[f.key] ?? [];
       const next = current.includes(id)
@@ -111,21 +115,24 @@ export default function FilterExplorer<T>({
           : [...current, id];
       return { ...s, [f.key]: next };
     });
+  };
 
   /* Stable so the sheet's setup effect (scroll lock, focus) runs once per open */
   const closeSheet = useCallback(() => setSheetOpen(false), []);
 
-  const clearFacet = (f: Facet<T>) => setSelected((s) => ({ ...s, [f.key]: [] }));
-  const clearAll = () => setSelected(emptySelection(facets));
+  const clearFacet = (f: Facet<T>) => {
+    bump();
+    setSelected((s) => ({ ...s, [f.key]: [] }));
+  };
+  const clearAll = () => {
+    bump();
+    setSelected(emptySelection(facets));
+  };
 
   /* If the grid's top has scrolled out of view, bring it back after a change
      so a shorter result list does not leave the visitor staring at the footer. */
   useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
-    if (sheetOpen) return;
+    if (revision === 0 || sheetOpen) return;
     const el = gridTopRef.current;
     if (!el) return;
     const top = el.getBoundingClientRect().top;
@@ -135,7 +142,7 @@ export default function FilterExplorer<T>({
         behavior: reduce ? 'auto' : 'smooth',
       });
     }
-  }, [selected, sortId, sheetOpen, reduce]);
+  }, [revision, sheetOpen]);
 
   const [one, many] = noun;
   const countLabel =
@@ -205,7 +212,10 @@ export default function FilterExplorer<T>({
                 <select
                   id={`${uid}-sort`}
                   value={sortId}
-                  onChange={(e) => setSortId(e.target.value)}
+                  onChange={(e) => {
+                    bump();
+                    setSortId(e.target.value);
+                  }}
                   className="h-11 cursor-pointer appearance-none rounded-md border border-line bg-white pl-4 pr-10 text-[13px] text-charcoal outline-none transition-colors duration-300 hover:border-charcoal/40 focus-visible:border-orange"
                 >
                   {sortOptions.map((o) => (
