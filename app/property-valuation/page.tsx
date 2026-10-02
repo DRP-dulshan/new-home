@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadForm from '@/components/LeadForm';
-import LeadHero from '@/components/LeadHero';
+import PageHero from '@/components/PageHero';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
 import Reveal from '@/components/ui/Reveal';
 import { propertyValuation as page } from '@/data/leadPages';
@@ -13,7 +13,7 @@ export default function Page() {
     <>
       <Header />
       <main>
-        <LeadHero {...page.hero} />
+        <PageHero {...page.hero} />
 
         <section aria-label="Request a valuation" className="section-y bg-cream">
           <div className="container-drp grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">

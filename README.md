@@ -10,7 +10,7 @@ npm run dev
 
 ## Editing content
 
-Both search bars — the hero's and Section 03's — read their areas, bedroom counts and price
+Both search bars — the hero's and Section 02's — read their areas, bedroom counts and price
 scales from a single `searchData` export, so they never drift apart.
 
 **The header menu lives in [`/data/navigation.ts`](data/navigation.ts)** as a typed array.
@@ -36,7 +36,8 @@ content before launch.
 | --- | --- |
 | Client reviews (6) | **Placeholder** — invented quotes and names. Replace with real Google reviews. |
 | "Rated 4.9 on Google" | **Placeholder** — confirm the live rating. |
-| Off-plan projects (4) | **Placeholder** — invented project names, developers, prices, handover dates and payment plans. |
+| Off-plan projects (12) | **Placeholder** — invented project names, prices, handover dates, payment plans and launch dates in [`/data/offPlan.ts`](data/offPlan.ts). They drive `/off-plan` (Latest Launches carousel + filterable grid), the homepage off-plan tab and the `/off-plan/[slug]` stubs. Replace with the real project database. |
+| Car fleet (6 vehicles) | **Placeholder** — Unsplash stock photos that do not match the listed models, in [`/data/carFleet.ts`](data/carFleet.ts). Swap for real DRP vehicle photography and confirm models/specs. |
 | Rental listings (4) | **Placeholder** — realistic Dubai rents, but invented. Marked `DEMO PLACEHOLDERS` in the data file. |
 | News articles (7) | **Placeholder** — realistic titles/excerpts/dates written in DRP's voice, but not real posts. Links point at `/magazine/...`. |
 | Partner logos (10) | **Placeholder wordmarks** — see [`/public/partners/README.md`](public/partners/README.md) to swap in SVGs. |

@@ -1,24 +1,40 @@
+import type { ReactNode } from 'react';
 import Image from 'next/image';
 import Reveal from './ui/Reveal';
 
 type Props = {
   eyebrow: string;
   heading: string;
-  intro: string;
+  intro?: string;
   subline?: string;
   image: string;
   imageAlt: string;
+  /** `short` (~60vh) for most inner pages; `tall` for photo-led pages. */
+  size?: 'short' | 'tall';
+  /** Rendered under the copy, e.g. a brand lockup. */
+  children?: ReactNode;
 };
 
 /**
- * Short (~60vh) photographic hero for the lead-generation pages. One image,
- * a dark overlay and the eyebrow + serif heading pattern used site-wide.
+ * Photographic hero for inner pages. One image, a dark overlay and the
+ * eyebrow + serif heading pattern used site-wide.
  */
-export default function LeadHero({ eyebrow, heading, intro, subline, image, imageAlt }: Props) {
+export default function PageHero({
+  eyebrow,
+  heading,
+  intro,
+  subline,
+  image,
+  imageAlt,
+  size = 'short',
+  children,
+}: Props) {
   return (
     <section
       aria-labelledby="page-heading"
-      className="relative flex min-h-[60svh] items-end overflow-hidden bg-ink"
+      className={`relative flex items-end overflow-hidden bg-ink ${
+        size === 'tall' ? 'min-h-[85svh] lg:min-h-[92svh]' : 'min-h-[60svh]'
+      }`}
     >
       <Image src={image} alt={imageAlt} fill priority sizes="100vw" className="object-cover" />
       <div aria-hidden="true" className="absolute inset-0 bg-ink/55" />
@@ -43,11 +59,13 @@ export default function LeadHero({ eyebrow, heading, intro, subline, image, imag
             {heading}
           </h1>
         </Reveal>
-        <Reveal delay={0.16}>
-          <p className="mt-6 max-w-2xl text-[15px] font-light leading-relaxed text-white/75 sm:text-base">
-            {intro}
-          </p>
-        </Reveal>
+        {intro ? (
+          <Reveal delay={0.16}>
+            <p className="mt-6 max-w-2xl text-[15px] font-light leading-relaxed text-white/75 sm:text-base">
+              {intro}
+            </p>
+          </Reveal>
+        ) : null}
         {subline ? (
           <Reveal delay={0.24}>
             <p className="mt-5 max-w-2xl border-l border-orange pl-4 text-sm font-light leading-relaxed text-white/60">
@@ -55,6 +73,7 @@ export default function LeadHero({ eyebrow, heading, intro, subline, image, imag
             </p>
           </Reveal>
         ) : null}
+        {children ? <Reveal delay={0.3}>{children}</Reveal> : null}
       </div>
     </section>
   );

@@ -11,6 +11,8 @@
  * ============================================================================
  */
 
+import { featuredProjects, formatAed, handoverLabel, projectHref } from './offPlan';
+
 /** Helper so Unsplash URLs stay readable and consistently sized. */
 const unsplash = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
@@ -81,7 +83,7 @@ export const hero = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/*  SEARCH — shared by the hero search and Section 03                          */
+/*  SEARCH — shared by the hero search and Section 02                          */
 /* -------------------------------------------------------------------------- */
 /*  Both search bars read areas, bedroom counts and price scales from here, so
     the two stay in step. Change a value once and it updates in both places.   */
@@ -95,7 +97,7 @@ export type PriceOption = {
   open?: boolean;
 };
 
-/** A selectable range in the Section 03 dropdown, derived from the scale below. */
+/** A selectable range in the Section 02 dropdown, derived from the scale below. */
 export type PriceBand = { id: string; label: string; min?: number; max?: number };
 
 const salePrices: PriceOption[] = [
@@ -144,7 +146,7 @@ function buildPriceBands(options: PriceOption[], anyLabel: string): PriceBand[] 
 }
 
 export const searchData = {
-  /** Areas offered as hero typeahead suggestions and in the Section 03 select. */
+  /** Areas offered as hero typeahead suggestions and in the Section 02 select. */
   locations: [
     'Palm Jumeirah',
     'Dubai Marina',
@@ -182,7 +184,7 @@ export const searchData = {
 };
 
 /**
- * Section 03's search bar keeps four fields on every tab; only the third and
+ * Section 02's search bar keeps four fields on every tab; only the third and
  * fourth change meaning with the offering.
  */
 export const searchFields: Record<
@@ -258,7 +260,7 @@ export const partners: Partner[] = [
 export const partnersLabel = 'Our Development Partners';
 
 /* -------------------------------------------------------------------------- */
-/*  SECTION 02 — SOLUTIONS (bento grid)                                       */
+/*  SECTION 03 — SOLUTIONS (bento grid)                                       */
 /* -------------------------------------------------------------------------- */
 
 export type SolutionTile = {
@@ -361,7 +363,7 @@ export const solutions = {
       id: 'fleet',
       title: 'DRP Car Fleet',
       subtitle: 'Explore our vehicle services',
-      href: '/car-fleet',
+      href: '/ecosystem/car-fleet',
       image: unsplash('1503376780353-7e6692767b70'),
       alt: 'A luxury car parked outside a modern residence',
       span: 'standard',
@@ -379,7 +381,7 @@ export const solutions = {
 };
 
 /* -------------------------------------------------------------------------- */
-/*  SECTION 03 — EXPLORE PROPERTIES                                           */
+/*  SECTION 02 — EXPLORE PROPERTIES                                           */
 /* -------------------------------------------------------------------------- */
 
 export type ReadyProperty = {
@@ -551,61 +553,19 @@ export type OffPlanProject = {
   href: string;
 };
 
-/**
- * DEMO PLACEHOLDERS — replace with DRP's real off-plan inventory before launch.
- * Project names, developers, prices, handover dates and payment plans are all
- * illustrative.
- */
-export const offPlanProjects: OffPlanProject[] = [
-  {
-    id: 'marina-horizon',
-    title: 'Marina Horizon Residences',
-    developer: 'Emaar Properties',
-    community: 'Dubai Marina',
-    fromPrice: 'From AED 2,400,000',
-    handover: 'Q4 2027',
-    paymentPlan: '60/40',
-    image: unsplash('1486406146926-c627a92ad1ab'),
-    alt: 'A rendered residential tower overlooking Dubai Marina',
-    href: '/off-plan/marina-horizon-residences',
-  },
-  {
-    id: 'palm-shore',
-    title: 'Palm Shore Collection',
-    developer: 'Nakheel',
-    community: 'Palm Jumeirah',
-    fromPrice: 'From AED 8,900,000',
-    handover: 'Q2 2028',
-    paymentPlan: '50/50',
-    image: unsplash('1600047509807-ba8f99d2cdde'),
-    alt: 'A beachfront residence rendering on Palm Jumeirah',
-    href: '/off-plan/palm-shore-collection',
-  },
-  {
-    id: 'hills-park',
-    title: 'The Hills Park Villas',
-    developer: 'Sobha Realty',
-    community: 'Dubai Hills Estate',
-    fromPrice: 'From AED 5,750,000',
-    handover: 'Q1 2027',
-    paymentPlan: '70/30',
-    image: unsplash('1613490493576-7fde63acd811'),
-    alt: 'A contemporary villa rendering set within landscaped gardens',
-    href: '/off-plan/the-hills-park-villas',
-  },
-  {
-    id: 'downtown-quarter',
-    title: 'Downtown Quarter Tower',
-    developer: 'Ellington Properties',
-    community: 'Downtown Dubai',
-    fromPrice: 'From AED 1,850,000',
-    handover: 'Q3 2027',
-    paymentPlan: '80/20',
-    image: unsplash('1582407947304-fd86f028f716'),
-    alt: 'A tower rendering with Burj Khalifa views in Downtown Dubai',
-    href: '/off-plan/downtown-quarter-tower',
-  },
-];
+/** The homepage's off-plan tab shows four projects from /data/offPlan.ts. */
+export const offPlanProjects: OffPlanProject[] = featuredProjects.map((p) => ({
+  id: p.slug,
+  title: p.name,
+  developer: p.developer,
+  community: p.area,
+  fromPrice: `From ${formatAed(p.fromPrice)}`,
+  handover: handoverLabel(p),
+  paymentPlan: p.paymentPlan,
+  image: p.image,
+  alt: p.alt,
+  href: projectHref(p.slug),
+}));
 
 export const exploreProperties = {
   eyebrow: 'Explore Real Estate',
@@ -907,6 +867,7 @@ export const footer = {
         { label: 'Fit Out', href: '/fit-out' },
         { label: 'Interior Design', href: '/interior-design' },
         { label: 'Furnishings', href: '/furnishings' },
+        { label: 'Car Fleet', href: '/ecosystem/car-fleet' },
         { label: 'Owner Portal', href: '/owner-portal' },
       ],
     },
