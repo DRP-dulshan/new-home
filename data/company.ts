@@ -1,171 +1,125 @@
 /**
  * ============================================================================
- *  COMPANY — /about, /about/team, /careers, /contact
+ *  COMPANY — /about (incl. #team), /careers, /contact
  * ============================================================================
  *  Facts used as-is: established 2007, office on Golden Mile 9, Palm Jumeirah,
- *  clients from 40+ countries, full property ecosystem.
+ *  and the About / Careers copy supplied by DRP.
  *
- *  DEMO PLACEHOLDERS – the timeline milestones after 2007, every team member,
- *  every open role and the office hours are illustrative. Replace before launch.
+ *  DEMO PLACEHOLDERS – every team member (name, role, line, portrait), the
+ *  careers hero photo, the ecosystem photography and the office hours.
  * ============================================================================
  */
 
-import { drpPhoto } from '@/lib/media';
+import { drpPhoto, unsplash } from '@/lib/media';
+import { HOLIDAY_HOMES_URL } from './external';
 
 export const about = {
   hero: {
     eyebrow: 'About DRP',
-    heading: 'A Palm Jumeirah Agency Since 2007',
-    intro:
-      'Dubai Rapid Properties connects clients from around the world with property, investment and opportunity across the UAE — from our office on the Golden Mile.',
-    image: drpPhoto(2),
-    imageAlt: 'The DRP office on Golden Mile, Palm Jumeirah',
-  },
-  story: [
-    'DRP opened on Palm Jumeirah in 2007, when the island was still welcoming its first residents. From the start we chose depth over breadth: knowing a small number of communities building by building, and the people who live in them.',
-    'Three market cycles later, that local knowledge is still the foundation. What has grown is everything around it. Clients asked us to furnish the homes they bought, then to let them, manage them and look after their guests. Today DRP is a full property ecosystem under one roof.',
-    'Our clients come from more than forty countries. Many buy remotely, so we work the way they need us to: honest advice, clear communication and a team that handles every step on the ground in Dubai.',
-  ],
-  // DEMO PLACEHOLDER – confirm milestones and years with DRP
-  timeline: [
-    { year: '2007', text: 'DRP opens on Palm Jumeirah as one of the island’s first agencies.' },
-    { year: '2012', text: 'Leasing and property management added for owners living abroad.' },
-    { year: '2016', text: 'DRP Holiday Homes launches, licensed for short-stay rentals.' },
-    { year: '2019', text: 'Furnishing and interior design join the group.' },
-    { year: '2023', text: 'Off-plan advisory expands with the city’s new launches.' },
-    { year: '2026', text: 'The DRP ecosystem: sales, leasing, holiday homes, interiors, management and mobility.' },
-  ],
-  values: [
-    { title: 'Honest advice', text: 'We tell clients what a property is really worth, and when not to buy.' },
-    { title: 'Local depth', text: 'Building-by-building knowledge of the communities we work in.' },
-    { title: 'One team', text: 'Sales, leasing, interiors and management that talk to each other.' },
-    { title: 'Global perspective', text: 'A multilingual team working with clients in over forty countries.' },
-    { title: 'Accountability', text: 'Clear reporting, so owners always know where they stand.' },
-    { title: 'Long relationships', text: 'Most new business comes from returning clients and referrals.' },
-  ],
-  office: {
+    heading: 'Dubai Real Estate. One Team. Since 2007.',
     image: drpPhoto(12),
     imageAlt: 'Inside the DRP office on Palm Jumeirah',
+  },
+  intro: [
+    "Dubai Rapid Properties has been part of Dubai\u2019s real estate market since 2007. Over the years, we have grown from a real estate brokerage into a wider property ecosystem, supporting clients across property sales, rentals, off-plan investments, Holiday Homes and complementary services.",
+    'Our approach remains personal: long-term relationships, local market knowledge and direct access to specialists who understand every stage of the property journey.',
+  ],
+  facts: [
+    { id: 'year', value: '2007', label: 'Established in Dubai' },
+    {
+      id: 'home',
+      value: 'Palm Jumeirah',
+      label: 'Our home and headquarters',
+      image: drpPhoto(2),
+      imageAlt: 'The DRP office on the Golden Mile, Palm Jumeirah',
+    },
+    {
+      id: 'ecosystem',
+      value: ['Sales', 'Rentals', 'Off-Plan', 'Holiday Homes'],
+      label: 'One property ecosystem',
+    },
+  ],
+  ecosystem: {
+    eyebrow: 'More Than a Brokerage',
+    heading: 'One Team, Every Part of Property',
+    // DEMO PLACEHOLDER – Unsplash photography; swap for DRP shoots
+    services: [
+      { name: 'Real Estate Brokerage', href: '/properties', image: unsplash('1600585154340-be6161a56a0c', 900), alt: 'A villa on Palm Jumeirah' },
+      { name: 'Off-Plan Investments', href: '/off-plan', image: unsplash('1541976590-713941681591', 900), alt: 'A new residential tower in Dubai' },
+      { name: 'Holiday Homes', href: HOLIDAY_HOMES_URL, image: unsplash('1567767292278-a4f21aa2d36e', 900), alt: 'A furnished holiday home living room' },
+      { name: 'Car Fleet', href: '/ecosystem/car-fleet', image: unsplash('1503376780353-7e6692767b70', 900), alt: 'A car outside a modern residence' },
+      { name: 'Furnishing & Property Support', href: '/furnishings', image: unsplash('1586023492125-27b2c045efd7', 900), alt: 'A styled living room' },
+      { name: 'Partner Network', href: '/ecosystem/partner-network', image: unsplash('1521791136064-7986c2920216', 900), alt: 'Two people shaking hands' },
+    ],
+  },
+  team: {
+    eyebrow: 'Meet the People Behind DRP',
+    heading: 'The Team',
   },
 };
 
 export type TeamMember = {
   id: string;
-  /** Names and photos are added when DRP supplies them. */
+  name: string;
   role: string;
-  department: 'Leadership' | 'Sales' | 'Leasing' | 'Off-Plan' | 'Holiday Homes' | 'Client Services';
-  languages: string[];
-  focus: string;
+  line: string;
+  photo: string;
+  /** Adds a WhatsApp shortcut to the main DRP number, addressed to this person. */
+  whatsapp?: boolean;
+  /** Adds an email shortcut to the DRP office inbox, addressed to this person. */
+  email?: boolean;
 };
 
-// DEMO PLACEHOLDERS – roles only; add each person's name and photo from DRP
+// Replace with real DRP team photos from the IT team.
+// DEMO PLACEHOLDERS – names, roles, lines and Unsplash portraits are invented.
 export const team: TeamMember[] = [
-  { id: 't1', role: 'Managing Director', department: 'Leadership', languages: ['English', 'Arabic'], focus: 'Strategy, key client relationships' },
-  { id: 't2', role: 'Director of Sales', department: 'Leadership', languages: ['English', 'French'], focus: 'Palm Jumeirah prime sales' },
-  { id: 't3', role: 'Palm Jumeirah Specialist', department: 'Sales', languages: ['English', 'Russian'], focus: 'Frond villas and Golden Mile' },
-  { id: 't4', role: 'Dubai Marina & JBR', department: 'Sales', languages: ['English', 'Hindi', 'Urdu'], focus: 'Waterfront apartments' },
-  { id: 't5', role: 'Downtown & Business Bay', department: 'Sales', languages: ['English', 'German'], focus: 'City apartments and penthouses' },
-  { id: 't6', role: 'Head of Off-Plan', department: 'Off-Plan', languages: ['English', 'Arabic'], focus: 'New launches and developer relations' },
-  { id: 't7', role: 'Investment Advisor', department: 'Off-Plan', languages: ['English', 'Mandarin'], focus: 'Payment plans and portfolios' },
-  { id: 't8', role: 'Head of Leasing', department: 'Leasing', languages: ['English', 'Tagalog'], focus: 'Annual lets and renewals' },
-  { id: 't9', role: 'Villa Communities', department: 'Leasing', languages: ['English', 'Spanish'], focus: 'Dubai Hills and Arabian Ranches' },
-  { id: 't10', role: 'Head of Holiday Homes', department: 'Holiday Homes', languages: ['English', 'Italian'], focus: 'Revenue and guest experience' },
-  { id: 't11', role: 'Guest Experience Lead', department: 'Holiday Homes', languages: ['English', 'Arabic', 'French'], focus: 'Check-in, concierge and car fleet' },
-  { id: 't12', role: 'Conveyancing & Golden Visa', department: 'Client Services', languages: ['English', 'Arabic'], focus: 'Transfers, visas and paperwork' },
+  { id: 'p1', name: 'Daniel Harper', role: 'Managing Director', line: 'Leading DRP since its first year on the island.', photo: unsplash('1560250097-0b93528c311a', 900), email: true },
+  { id: 'p2', name: 'Layla Haddad', role: 'Head of Sales', line: 'Twenty years of Palm Jumeirah villa sales.', photo: unsplash('1573496359142-b8d87734a5a2', 900), whatsapp: true, email: true },
+  { id: 'p3', name: 'Marcus Webb', role: 'Senior Property Consultant', line: 'Frond villas and the Golden Mile, building by building.', photo: unsplash('1500648767791-00dcc994a43e', 900), whatsapp: true },
+  { id: 'p4', name: 'Sofia Rossi', role: 'Property Consultant', line: 'Dubai Marina and JBR apartments for buyers abroad.', photo: unsplash('1494790108377-be9c29b29330', 900), whatsapp: true },
+  { id: 'p5', name: 'Arjun Mehta', role: 'Off-Plan Investment Advisor', line: 'New launches, payment plans and portfolio planning.', photo: unsplash('1507003211169-0a1dd7228f2d', 900), whatsapp: true },
+  { id: 'p6', name: 'Elena Volkova', role: 'Leasing Manager', line: 'Finding the right tenant, and keeping them.', photo: unsplash('1438761681033-6461ffad8d80', 900), whatsapp: true },
+  { id: 'p7', name: 'Omar Farouk', role: 'Holiday Homes Manager', line: 'Guests, pricing and five-star reviews.', photo: unsplash('1472099645785-5658abf4ff4e', 900), whatsapp: true },
+  { id: 'p8', name: 'Grace Okafor', role: 'Client Relations Manager', line: 'Transfers, Golden Visas and everything in between.', photo: unsplash('1580489944761-15a19d654956', 900), email: true },
 ];
 
-export type Role = {
-  id: string;
-  title: string;
-  department: string;
-  type: string;
-  summary: string;
-  responsibilities: string[];
-};
-
-// DEMO PLACEHOLDERS – replace with live vacancies
 export const careers = {
   hero: {
-    eyebrow: 'Careers',
-    heading: 'Build Your Career With DRP',
+    eyebrow: 'Careers at DRP',
+    heading: 'Build Your Real Estate Career with DRP',
     intro:
-      'Join a Palm Jumeirah team that has grown through three market cycles — across sales, leasing, holiday homes, interiors and operations.',
-    image: drpPhoto(5),
-    imageAlt: 'The DRP team at work in the office',
+      'Dubai Rapid Properties has been operating in Dubai since 2007. We believe successful agents need more than a desk and a phone \u2014 they need market knowledge, guidance and the right environment to grow.',
+    // Replace with the real DRP team group photos taken in front of the office
+    image: unsplash('1522071820081-009f0129c71c', 2400),
+    imageAlt: 'The DRP team together in the office',
   },
-  why: [
-    { title: 'A real pipeline', text: 'Returning clients and referrals mean you start with relationships, not cold calls.' },
-    { title: 'One ecosystem', text: 'Cross-refer clients to leasing, holiday homes and interiors — and share in it.' },
-    { title: 'Training', text: 'RERA certification support, market training and mentoring from senior advisors.' },
-    { title: 'Prime address', text: 'Work from the Golden Mile on Palm Jumeirah, in the communities you sell.' },
-  ],
-  roles: [
-    {
-      id: 'senior-sales-advisor',
-      title: 'Senior Sales Advisor — Palm Jumeirah',
-      department: 'Sales',
-      type: 'Full time · Palm Jumeirah',
-      summary: 'Advise buyers and sellers of prime villas and apartments on the island.',
-      responsibilities: [
-        'Manage a portfolio of sale listings from valuation to transfer',
-        'Advise international buyers, often remotely',
-        'Work with leasing and holiday homes on investor clients',
-        'At least three years of Dubai sales experience and a RERA card',
-      ],
-    },
-    {
-      id: 'off-plan-advisor',
-      title: 'Off-Plan Investment Advisor',
-      department: 'Off-Plan',
-      type: 'Full time · Palm Jumeirah',
-      summary: 'Guide investors through new launches, payment plans and developer relationships.',
-      responsibilities: [
-        'Assess new launches against DRP’s criteria',
-        'Build investment cases and payment schedules for clients',
-        'Attend launches and maintain developer relationships',
-        'Off-plan experience with major Dubai developers',
-      ],
-    },
-    {
-      id: 'leasing-consultant',
-      title: 'Leasing Consultant',
-      department: 'Leasing',
-      type: 'Full time · Palm Jumeirah',
-      summary: 'Let and renew homes for owners, many of whom live outside the UAE.',
-      responsibilities: [
-        'Market and let annual-rental properties',
-        'Manage tenancy contracts, Ejari and renewals',
-        'Coordinate move-ins with the property management team',
-        'Leasing experience in Dubai preferred',
-      ],
-    },
-    {
-      id: 'guest-experience-coordinator',
-      title: 'Guest Experience Coordinator',
-      department: 'Holiday Homes',
-      type: 'Full time · Shift based',
-      summary: 'Look after holiday-home guests from booking to check-out.',
-      responsibilities: [
-        'Handle guest communication and check-ins',
-        'Coordinate housekeeping, maintenance and the car fleet',
-        'Keep review scores and response times high',
-        'Hospitality background and excellent English',
-      ],
-    },
-    {
-      id: 'marketing-executive',
-      title: 'Marketing Executive',
-      department: 'Marketing',
-      type: 'Full time · Palm Jumeirah',
-      summary: 'Bring DRP listings, launches and insights to the right audiences.',
-      responsibilities: [
-        'Run listing campaigns across portals and social channels',
-        'Produce the monthly market insights newsletter',
-        'Coordinate photography, video and launch events',
-        'Real estate or luxury marketing experience',
-      ],
-    },
-  ] satisfies Role[],
+  starting: {
+    eyebrow: 'Starting at DRP',
+    heading: 'The DRP Academy',
+    text: 'New agents receive hands-on support, particularly during their first months with the company. Through our internal DRP Academy, agents are introduced to the Dubai real estate market, communities, pricing, developers, sales processes and real situations they will encounter when working with buyers, sellers and investors.',
+    pillars: [
+      'Market & Area Training',
+      'Pricing Knowledge',
+      'Sales Guidance',
+      'Developer & Project Knowledge',
+      'Practical Case Training',
+      'Ongoing Team Support',
+    ],
+  },
+  join: {
+    eyebrow: 'Want to Join DRP?',
+    heading: 'Apply to the team',
+    text: 'Whether you already have Dubai real estate experience or are looking to build your career in the market, we would like to hear from you.',
+    submitLabel: 'Join the DRP Team',
+    successTitle: 'Thank you for your interest.',
+    successBody: 'Our team will review your application and get back to you.',
+    experienceYears: ['Less than 1 year', '1 \u2013 3 years', '3 \u2013 5 years', '5 \u2013 10 years', '10+ years'],
+    languages: [
+      'English', 'Arabic', 'Russian', 'French', 'German', 'Italian', 'Spanish',
+      'Hindi', 'Urdu', 'Persian', 'Mandarin', 'Tagalog', 'Other',
+    ],
+    cv: { maxBytes: 5 * 1024 * 1024, accept: '.pdf,.doc,.docx', extensions: ['pdf', 'doc', 'docx'] },
+  },
 };
 
 export const contactPage = {

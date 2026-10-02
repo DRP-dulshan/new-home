@@ -5,6 +5,8 @@ const nextConfig = {
     return [
       /* Latest Launches is now a section of /off-plan, not its own page */
       { source: '/off-plan/latest-launches', destination: '/off-plan#latest-launches', permanent: true },
+      /* The team is now a section of /about */
+      { source: '/about/team', destination: '/about#team', permanent: true },
       /* One car fleet page, under the DRP Ecosystem */
       { source: '/car-fleet', destination: '/ecosystem/car-fleet', permanent: true },
     ];

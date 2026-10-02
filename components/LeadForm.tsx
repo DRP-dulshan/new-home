@@ -10,67 +10,21 @@ import {
   type KeyboardEvent,
 } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ArrowLeft, Check, ChevronDown, Search } from 'lucide-react';
+import { ArrowLeft, Check, Search } from 'lucide-react';
 import type { LeadFormConfig, LeadStep } from '@/data/leadPages';
+import { DEFAULT_DIAL, normalisePhone, phoneError } from '@/lib/phone';
+import PhoneField from './ui/PhoneField';
 import { EMAIL_PATTERN, inputBase, labelBase } from './ui/formStyles';
 
 type Values = Record<string, string | boolean>;
 type Errors = Record<string, string | undefined>;
 
-/** Dial codes offered beside the phone field. UAE first and selected by default. */
-const DIAL_CODES = [
-  { code: '+971', country: 'United Arab Emirates' },
-  { code: '+966', country: 'Saudi Arabia' },
-  { code: '+974', country: 'Qatar' },
-  { code: '+965', country: 'Kuwait' },
-  { code: '+973', country: 'Bahrain' },
-  { code: '+968', country: 'Oman' },
-  { code: '+44', country: 'United Kingdom' },
-  { code: '+1', country: 'United States / Canada' },
-  { code: '+91', country: 'India' },
-  { code: '+92', country: 'Pakistan' },
-  { code: '+7', country: 'Russia / Kazakhstan' },
-  { code: '+49', country: 'Germany' },
-  { code: '+33', country: 'France' },
-  { code: '+39', country: 'Italy' },
-  { code: '+41', country: 'Switzerland' },
-  { code: '+31', country: 'Netherlands' },
-  { code: '+961', country: 'Lebanon' },
-  { code: '+20', country: 'Egypt' },
-  { code: '+86', country: 'China' },
-  { code: '+61', country: 'Australia' },
-  { code: '+27', country: 'South Africa' },
-];
-
-const DEFAULT_DIAL = '+971';
 const INITIAL: Values = { dialCode: DEFAULT_DIAL };
 
 /** Pause after a card is picked so the selected state registers before moving on. */
 const ADVANCE_DELAY = 320;
 
 const choiceColumns = { 2: 'sm:grid-cols-2', 3: 'sm:grid-cols-3' } as const;
-
-/**
- * Returns the number in E.164 form, or null if it does not look valid.
- * A number typed with its own "+" or "00" prefix overrides the dial code.
- */
-function normalisePhone(dial: string, raw: string): string | null {
-  const trimmed = raw.trim();
-  let digits = trimmed.replace(/\D/g, '');
-
-  if (trimmed.startsWith('+') || trimmed.startsWith('00')) {
-    if (trimmed.startsWith('00')) digits = digits.slice(2);
-    return /^\d{8,15}$/.test(digits) ? `+${digits}` : null;
-  }
-
-  digits = digits.replace(/^0+/, '');
-  if (dial === '+971') {
-    if (digits.startsWith('971') && digits.length > 9) digits = digits.slice(3);
-    /* Mobiles are 5X XXX XXXX, landlines a one-digit area code plus seven */
-    return /^(5\d{8}|[2-9]\d{7})$/.test(digits) ? `+971${digits}` : null;
-  }
-  return /^\d{6,14}$/.test(digits) ? `${dial}${digits}` : null;
-}
 
 type Props = {
   config: LeadFormConfig;
@@ -147,13 +101,8 @@ export default function LeadForm({ config, context, density = 'regular', classNa
     if (s.kind === 'contact') {
       if (!str('name')) next.name = 'Please enter your name.';
 
-      const dial = String(values.dialCode ?? DEFAULT_DIAL);
-      if (!str('phone')) next.phone = 'Please enter a phone or WhatsApp number.';
-      else if (!normalisePhone(dial, str('phone')))
-        next.phone =
-          dial === '+971'
-            ? 'Please enter a valid UAE number, e.g. 50 123 4567.'
-            : 'Please enter a valid phone number.';
+      const phoneMsg = phoneError(String(values.dialCode ?? DEFAULT_DIAL), str('phone'));
+      if (phoneMsg) next.phone = phoneMsg;
 
       if (s.message && !s.message.optional && !str('message'))
         next.message = 'Please add a short message.';
@@ -355,60 +304,15 @@ export default function LeadForm({ config, context, density = 'regular', classNa
             </div>
 
             <div className={`grid grid-cols-1 gap-9 ${density === 'compact' ? '' : 'sm:grid-cols-2'}`}>
-              {/* Phone / WhatsApp — dial code + local number */}
-              <div>
-                <div className="flex items-end gap-4">
-                  <div className="relative shrink-0">
-                    <span className="block text-[11px] font-medium uppercase tracking-eyebrow text-charcoal-muted">
-                      Code
-                    </span>
-                    {/* The native select sits invisibly over the short code so
-                        mobile visitors get the system picker. */}
-                    <div className="relative mt-[9px] flex items-center gap-1.5 border-b border-line pb-2.5 text-[15px] font-light text-charcoal transition-colors duration-300 focus-within:border-orange has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-4 has-[:focus-visible]:outline-orange">
-                      {String(values.dialCode ?? DEFAULT_DIAL)}
-                      <ChevronDown
-                        aria-hidden="true"
-                        strokeWidth={1.5}
-                        className="h-3.5 w-3.5 text-charcoal-muted"
-                      />
-                      <select
-                        id={`${uid}-dialCode`}
-                        name="dialCode"
-                        aria-label="Country dialling code"
-                        value={String(values.dialCode ?? DEFAULT_DIAL)}
-                        onChange={(e) => setValue('dialCode', e.target.value)}
-                        className="absolute inset-0 cursor-pointer opacity-0"
-                      >
-                        {DIAL_CODES.map((d) => (
-                          <option key={d.code} value={d.code}>
-                            {d.country} ({d.code})
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="relative min-w-0 flex-1">
-                    <input
-                      id={`${uid}-phone`}
-                      name="phone"
-                      type="tel"
-                      inputMode="tel"
-                      autoComplete="tel-national"
-                      placeholder=" "
-                      value={String(values.phone ?? '')}
-                      onChange={(e) => setValue('phone', e.target.value)}
-                      aria-invalid={!!errors.phone}
-                      aria-describedby={describedBy('phone')}
-                      className={`${inputBase} ${errors.phone ? 'border-orange' : ''}`}
-                    />
-                    <label htmlFor={`${uid}-phone`} className={labelBase}>
-                      Phone / WhatsApp
-                    </label>
-                  </div>
-                </div>
-                {errorText('phone')}
-              </div>
+              <PhoneField
+                id={`${uid}-phone`}
+                dial={String(values.dialCode ?? DEFAULT_DIAL)}
+                onDialChange={(v) => setValue('dialCode', v)}
+                value={String(values.phone ?? '')}
+                onChange={(v) => setValue('phone', v)}
+                error={errors.phone}
+                errorId={`${uid}-phone-error`}
+              />
 
               {/* Email */}
               <div className="relative">
@@ -772,16 +676,19 @@ function SearchSelect({
 /*  Success                                                                   */
 /* -------------------------------------------------------------------------- */
 
-function SuccessState({
+/** Animated check, title and body shown after a form is sent. Shared with other forms. */
+export function SuccessState({
   title,
   body,
   headingRef,
   onReset,
+  resetLabel = 'Start a new enquiry',
 }: {
   title: string;
   body: string;
   headingRef: (el: HTMLHeadingElement | null) => void;
   onReset: () => void;
+  resetLabel?: string;
 }) {
   const reduce = useReducedMotion();
   const draw = (delay: number) =>
@@ -852,7 +759,7 @@ function SuccessState({
           onClick={onReset}
           className="link-underline group text-[11px] font-medium text-charcoal"
         >
-          Start a new enquiry
+          {resetLabel}
           <span
             aria-hidden="true"
             className="transition-[transform,color] duration-500 ease-premium group-hover:translate-x-1.5 group-hover:text-orange"
