@@ -69,12 +69,18 @@ export default function FilterExplorer<T>({
   const bump = () => setRevision((r) => r + 1);
 
   /* A new item set (e.g. switching Buy / Rent) keeps the selection only for
-     options that still exist in the new facets. */
+     options that still exist in the new facets. An exact range from the search
+     bar is kept on first render but not across a switch: sale and rent prices
+     are on different scales. */
+  const firstFacets = useRef(facets);
   useEffect(() => {
+    const initial = facets === firstFacets.current;
     setSelected((s) => {
       const next = emptySelection(facets);
       for (const f of facets) {
-        next[f.key] = (s[f.key] ?? []).filter((id) => f.options.some((o) => o.id === id));
+        next[f.key] = (s[f.key] ?? []).filter(
+          (id) => f.options.some((o) => o.id === id) || (initial && !!f.describe?.(id)),
+        );
       }
       const same = facets.every((f) => next[f.key].length === (s[f.key] ?? []).length);
       return same ? s : next;
@@ -100,14 +106,15 @@ export default function FilterExplorer<T>({
     (selected[f.key] ?? []).map((id) => ({
       facet: f,
       id,
-      label: f.options.find((o) => o.id === id)?.label ?? id,
+      label: f.options.find((o) => o.id === id)?.label ?? f.describe?.(id) ?? id,
     })),
   );
 
   const toggle = (f: Facet<T>, id: string) => {
     bump();
     setSelected((s) => {
-      const current = s[f.key] ?? [];
+      /* Picking a listed option replaces an exact range from the search bar */
+      const current = (s[f.key] ?? []).filter((x) => f.options.some((o) => o.id === x));
       const next = current.includes(id)
         ? current.filter((x) => x !== id)
         : f.single

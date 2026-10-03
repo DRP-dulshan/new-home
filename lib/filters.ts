@@ -13,6 +13,8 @@ export type Facet<T> = {
   single?: boolean;
   options: FacetOption[];
   test: (item: T, selected: string[]) => boolean;
+  /** Labels ids that are valid but not listed as options, e.g. an exact price range from the search bar. */
+  describe?: (id: string) => string | null;
 };
 
 export type Selection = Record<string, string[]>;
@@ -44,6 +46,57 @@ export type PriceBand = { id: string; label: string; min?: number; max?: number 
 export const inBand = (price: number, b: PriceBand) =>
   price >= (b.min ?? 0) && price < (b.max ?? Infinity);
 
-/** Bands that overlap a [min, max) range read from a search query string. */
-export const bandsForRange = (bands: PriceBand[], min?: number, max?: number) =>
-  bands.filter((b) => (b.max ?? Infinity) > (min ?? 0) && (b.min ?? 0) < (max ?? Infinity));
+/* ---------------------------------------------------------------------------
+   Exact price range from the search bars (?min=…&max=…). It travels through
+   the price facet as one id, "range-3000000-4000000" ("up" = no maximum), so
+   it filters precisely and shows as a single removable chip.
+--------------------------------------------------------------------------- */
+
+export const rangeId = (min?: number, max?: number) => `range-${min ?? 0}-${max ?? 'up'}`;
+
+export function parseRange(id: string): { min: number; max: number } | null {
+  const m = /^range-(\d+)-(\d+|up)$/.exec(id);
+  return m ? { min: Number(m[1]), max: m[2] === 'up' ? Infinity : Number(m[2]) } : null;
+}
+
+/** 3_000_000 → "3M", 150_000 → "150K", 1_500_000 → "1.5M" */
+export const compactAed = (n: number) =>
+  n >= 1_000_000 ? `${+(n / 1_000_000).toFixed(2)}M` : n >= 1_000 ? `${+(n / 1_000).toFixed(1)}K` : String(n);
+
+export function rangeLabel(id: string, suffix = '') {
+  const r = parseRange(id);
+  if (!r) return null;
+  const text =
+    r.min && r.max !== Infinity
+      ? `AED ${compactAed(r.min)} – ${compactAed(r.max)}`
+      : r.min
+        ? `AED ${compactAed(r.min)}+`
+        : r.max !== Infinity
+          ? `Up to AED ${compactAed(r.max)}`
+          : 'Any price';
+  return `${text}${suffix}`;
+}
+
+/** Both ends inclusive: "up to 4M" includes a 4M listing. */
+export const inRange = (price: number, id: string) => {
+  const r = parseRange(id);
+  return !!r && price >= r.min && price <= r.max;
+};
+
+/** The search bar's ?min / ?max as a price-facet selection. */
+export const priceSelection = (min?: number, max?: number) => (min || max ? [rangeId(min, max)] : []);
+
+/** A price facet over preset bands that also accepts an exact range. */
+export function priceFacet<T>(label: string, bands: PriceBand[], price: (item: T) => number, suffix = ''): Facet<T> {
+  return {
+    key: 'price',
+    label,
+    options: bands.map(({ id, label: l }) => ({ id, label: l })),
+    test: (item, sel) =>
+      sel.some((id) => {
+        const band = bands.find((b) => b.id === id);
+        return band ? inBand(price(item), band) : inRange(price(item), id);
+      }),
+    describe: (id) => rangeLabel(id, suffix),
+  };
+}

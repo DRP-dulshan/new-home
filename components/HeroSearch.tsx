@@ -307,6 +307,8 @@ export default function HeroSearch() {
   const router = useRouter();
   const uid = useId();
   const rootRef = useRef<HTMLDivElement>(null);
+  /* The mobile sheet is portalled to <body>, outside rootRef */
+  const sheetRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [offering, setOffering] = useState<Offering>('buy');
@@ -348,7 +350,9 @@ export default function HeroSearch() {
     if (!panel && !suggestOpen) return;
 
     const onPointerDown = (e: MouseEvent | TouchEvent) => {
-      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      const inside = rootRef.current?.contains(target) || sheetRef.current?.contains(target);
+      if (!inside) {
         setPanel(null);
         setSuggestOpen(false);
       }
@@ -427,8 +431,9 @@ export default function HeroSearch() {
   };
 
   /* One body, rendered inline on desktop and inside the sheet on mobile.
-     `pfx` keeps the two copies' element ids distinct. */
-  const searchBody = (pfx: string) => {
+     `pfx` keeps the two copies' element ids distinct; `onLight` restyles the
+     offering tabs for the cream sheet (they are white-on-photo in the hero). */
+  const searchBody = (pfx: string, onLight = false) => {
     const listboxId = `${pfx}-locations`;
     return (
       <>
@@ -447,10 +452,14 @@ export default function HeroSearch() {
               aria-pressed={active}
               onClick={() => switchOffering(tab.id)}
               className={`rounded-md border px-4 py-3 text-[15px] transition-colors duration-300 sm:px-10 ${
-                active
-                  ? /* inset ring thickens the 1px border to 1.5px without shifting layout */
-                    'border-white text-white shadow-[inset_0_0_0_0.5px_#fff]'
-                  : 'border-white/35 text-white/85 hover:border-white/70'
+                onLight
+                  ? active
+                    ? 'border-charcoal bg-charcoal font-medium text-white'
+                    : 'border-charcoal/15 bg-white text-charcoal hover:border-charcoal/40'
+                  : active
+                    ? /* inset ring thickens the 1px border to 1.5px without shifting layout */
+                      'border-white text-white shadow-[inset_0_0_0_0.5px_#fff]'
+                    : 'border-white/35 text-white/85 hover:border-white/70'
               }`}
             >
               {tab.label}
@@ -642,6 +651,7 @@ export default function HeroSearch() {
               aria-hidden="true"
             />
             <motion.div
+              ref={sheetRef}
               role="dialog"
               aria-modal="true"
               aria-label="Search properties"
@@ -664,7 +674,7 @@ export default function HeroSearch() {
                   <X className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
                 </button>
               </div>
-              {searchBody(`${uid}-s`)}
+              {searchBody(`${uid}-s`, true)}
             </motion.div>
                 </div>
               ) : null}

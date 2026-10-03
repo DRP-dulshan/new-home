@@ -4,14 +4,13 @@ import { Suspense, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import {
   listingFacets,
-  priceBandsFor,
   rentListings,
   saleListings,
   toPropertyCard,
   type Listing,
   type Offering,
 } from '@/data/properties';
-import { bandsForRange, type Selection } from '@/lib/filters';
+import { priceSelection, type Selection } from '@/lib/filters';
 import { toSlug } from '@/lib/slug';
 import PropertyCard from '../PropertyCard';
 import FilterExplorer, { type SortOption } from '../filters/FilterExplorer';
@@ -45,7 +44,7 @@ function selectionFromParams(offering: Offering, params: URLSearchParams): Selec
     area: matching(offering, 'area', params.get('q')),
     type: matching(offering, 'type', params.get('type')),
     beds: matching(offering, 'beds', params.get('beds')),
-    price: min || max ? bandsForRange(priceBandsFor[offering], min, max).map((b) => b.id) : [],
+    price: priceSelection(min, max),
   };
 }
 

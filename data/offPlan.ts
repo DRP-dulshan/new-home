@@ -12,7 +12,7 @@
 import {
   asOptions,
   bedroomOptions,
-  inBand,
+  priceFacet,
   uniqueSorted,
   type Facet,
   type PriceBand,
@@ -225,12 +225,7 @@ export const facets: Facet<Project>[] = [
     test: (p, sel) => p.propertyTypes.some((t) => sel.includes(t)),
   },
   bedroomFacet,
-  {
-    key: 'price',
-    label: 'Price Range',
-    options: priceBands.map(({ id, label }) => ({ id, label })),
-    test: (p, sel) => priceBands.some((b) => sel.includes(b.id) && inBand(p.fromPrice, b)),
-  },
+  priceFacet<Project>('Price Range', priceBands, (p) => p.fromPrice),
   {
     key: 'handover',
     label: 'Handover',

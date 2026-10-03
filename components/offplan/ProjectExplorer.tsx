@@ -2,8 +2,8 @@
 
 import { Suspense, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { facets, priceBands, projects, type Project } from '@/data/offPlan';
-import { bandsForRange, type Selection } from '@/lib/filters';
+import { facets, projects, type Project } from '@/data/offPlan';
+import { priceSelection, type Selection } from '@/lib/filters';
 import { toSlug } from '@/lib/slug';
 import FilterExplorer, { type SortOption } from '../filters/FilterExplorer';
 import SectionHeading from '../ui/SectionHeading';
@@ -38,14 +38,13 @@ function selectionFromParams(params: URLSearchParams): Selection {
   const max = Number(params.get('max')) || undefined;
 
   const handoverYears = facets.find((f) => f.key === 'handover')!.options.map((o) => o.id);
-  const price = min || max ? bandsForRange(priceBands, min, max) : [];
 
   return {
     area: optionIdsMatching('area', q),
     developer: optionIdsMatching('developer', q),
     type: optionIdsMatching('type', params.get('type')),
     beds: optionIdsMatching('beds', params.get('beds')),
-    price: price.map((b) => b.id),
+    price: priceSelection(min, max),
     handover:
       handover === '2029-plus'
         ? handoverYears.filter((y) => Number(y) >= 2029)
