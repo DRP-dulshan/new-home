@@ -106,8 +106,10 @@ export type PriceBand = { id: string; label: string; min?: number; max?: number 
 const salePrices: PriceOption[] = [
   { value: 500_000, label: '500K' },
   { value: 1_000_000, label: '1M' },
+  { value: 1_500_000, label: '1.5M' },
   { value: 2_000_000, label: '2M' },
   { value: 3_000_000, label: '3M' },
+  { value: 4_000_000, label: '4M' },
   { value: 5_000_000, label: '5M' },
   { value: 10_000_000, label: '10M' },
   { value: 20_000_000, label: '20M' },
@@ -119,7 +121,9 @@ const rentPrices: PriceOption[] = [
   { value: 50_000, label: '50K' },
   { value: 100_000, label: '100K' },
   { value: 150_000, label: '150K' },
+  { value: 200_000, label: '200K' },
   { value: 250_000, label: '250K' },
+  { value: 300_000, label: '300K' },
   { value: 500_000, label: '500K' },
   { value: 1_000_000, label: '1M+', open: true },
 ];

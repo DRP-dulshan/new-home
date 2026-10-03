@@ -10,7 +10,7 @@
 import {
   asOptions,
   bedroomOptions,
-  inBand,
+  priceFacet,
   uniqueSorted,
   type Facet,
   type PriceBand,
@@ -146,7 +146,7 @@ export const rentBands: PriceBand[] = [
   { id: '350k-up', label: 'AED 350K+ / yr', min: 350_000 },
 ];
 
-function buildFacets(items: Listing[], bands: PriceBand[]): Facet<Listing>[] {
+function buildFacets(items: Listing[], bands: PriceBand[], suffix = ''): Facet<Listing>[] {
   return [
     {
       key: 'area',
@@ -166,12 +166,7 @@ function buildFacets(items: Listing[], bands: PriceBand[]): Facet<Listing>[] {
       options: bedroomOptions.map(({ id, label }) => ({ id, label })),
       test: (l, sel) => bedroomOptions.some((o) => sel.includes(o.id) && o.test(l.beds)),
     },
-    {
-      key: 'price',
-      label: 'Price Range',
-      options: bands.map(({ id, label }) => ({ id, label })),
-      test: (l, sel) => bands.some((b) => sel.includes(b.id) && inBand(l.price, b)),
-    },
+    priceFacet<Listing>('Price Range', bands, (l) => l.price, suffix),
     {
       key: 'completion',
       label: 'Status',
@@ -184,10 +179,9 @@ function buildFacets(items: Listing[], bands: PriceBand[]): Facet<Listing>[] {
 /** Module constants, so the explorer sees stable facets per tab. */
 export const listingFacets: Record<Offering, Facet<Listing>[]> = {
   buy: buildFacets(saleListings, saleBands),
-  rent: buildFacets(rentListings, rentBands),
+  rent: buildFacets(rentListings, rentBands, ' / yr'),
 };
 
-export const priceBandsFor: Record<Offering, PriceBand[]> = { buy: saleBands, rent: rentBands };
 
 /* -------------------------------------------------------------------------- */
 /*  CARD SHAPE                                                                */
