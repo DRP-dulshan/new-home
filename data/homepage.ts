@@ -697,11 +697,12 @@ export const footer = {
       ],
     },
   ] satisfies { heading: string; links: NavItem[] }[],
+  /** REAL – DRP's official social accounts */
   socials: [
-    { label: 'Instagram', href: 'https://www.instagram.com/' },
-    { label: 'Facebook', href: 'https://www.facebook.com/' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-    { label: 'YouTube', href: 'https://www.youtube.com/' },
+    { label: 'Instagram', href: 'https://www.instagram.com/drp_dubairapidproperties' },
+    { label: 'Facebook', href: 'https://www.facebook.com/dubairapidproperties/' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/dubairapidproperties' },
+    { label: 'X', href: 'https://x.com/drp_realestate' },
   ],
   /** Subtle closing line above the legal bar. */
   careersNote: {
