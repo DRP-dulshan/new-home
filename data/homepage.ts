@@ -11,7 +11,7 @@
  * ============================================================================
  */
 
-import { featuredProjects, formatAed, handoverLabel, projectHref } from './offPlan';
+import { featuredProjects, formatAed, handoverLabel, projectHref, unitTypesLabel } from './offPlan';
 import { HOLIDAY_HOMES_URL } from './external';
 import { articleHref, articles, formatArticleDate } from './news';
 import { homepageRent, homepageSale, toPropertyCard } from './properties';
@@ -432,11 +432,13 @@ export const rentalProperties: RentalProperty[] = homepageRent.map(
 export type OffPlanProject = {
   id: string;
   title: string;
-  developer: string;
+  developer: string | null;
   community: string;
   fromPrice: string;
   handover: string;
-  paymentPlan: string;
+  paymentPlan: string | null;
+  /** Shown in place of the payment plan when none is published */
+  units: string;
   image: string;
   alt: string;
   href: string;
@@ -451,6 +453,7 @@ export const offPlanProjects: OffPlanProject[] = featuredProjects.map((p) => ({
   fromPrice: `From ${formatAed(p.fromPrice)}`,
   handover: handoverLabel(p),
   paymentPlan: p.paymentPlan,
+  units: unitTypesLabel(p),
   image: p.image,
   alt: p.alt,
   href: projectHref(p.slug),

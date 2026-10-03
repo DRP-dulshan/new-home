@@ -16,8 +16,8 @@ const sortOptions: SortOption<Project>[] = [
   {
     id: 'handover',
     label: 'Earliest handover',
-    compare: (a, b) =>
-      a.handover.year - b.handover.year || a.handover.quarter - b.handover.quarter,
+    /* Projects without a confirmed year go last */
+    compare: (a, b) => (a.handoverYear ?? 9999) - (b.handoverYear ?? 9999),
   },
 ];
 

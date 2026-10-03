@@ -5,13 +5,16 @@
  *  Facts used as-is: established 2007, office on Golden Mile 9, Palm Jumeirah,
  *  and the About / Careers copy supplied by DRP.
  *
- *  DEMO PLACEHOLDERS – every team member (name, role, line, portrait), the
- *  careers hero photo, the ecosystem photography and the office hours.
+ *  The team comes from the current DRP website (see data/imported/).
+ *
+ *  DEMO PLACEHOLDERS – the careers hero photo, the ecosystem photography and
+ *  the office hours.
  * ============================================================================
  */
 
 import { drpPhoto, unsplash } from '@/lib/media';
 import { HOLIDAY_HOMES_URL } from './external';
+import importedTeam from './imported/team.json';
 
 export const about = {
   hero: {
@@ -62,7 +65,10 @@ export type TeamMember = {
   id: string;
   name: string;
   role: string;
-  line: string;
+  /** Short line under the role, drawn from the person's own bio. */
+  line?: string;
+  /** Full bio from the current DRP website */
+  bio: string[];
   photo: string;
   /** Adds a WhatsApp shortcut to the main DRP number, addressed to this person. */
   whatsapp?: boolean;
@@ -70,18 +76,27 @@ export type TeamMember = {
   email?: boolean;
 };
 
-// Replace with real DRP team photos from the IT team.
-// DEMO PLACEHOLDERS – names, roles, lines and Unsplash portraits are invented.
-export const team: TeamMember[] = [
-  { id: 'p1', name: 'Daniel Harper', role: 'Managing Director', line: 'Leading DRP since its first year on the island.', photo: unsplash('1560250097-0b93528c311a', 900), email: true },
-  { id: 'p2', name: 'Layla Haddad', role: 'Head of Sales', line: 'Twenty years of Palm Jumeirah villa sales.', photo: unsplash('1573496359142-b8d87734a5a2', 900), whatsapp: true, email: true },
-  { id: 'p3', name: 'Marcus Webb', role: 'Senior Property Consultant', line: 'Frond villas and the Golden Mile, building by building.', photo: unsplash('1500648767791-00dcc994a43e', 900), whatsapp: true },
-  { id: 'p4', name: 'Sofia Rossi', role: 'Property Consultant', line: 'Dubai Marina and JBR apartments for buyers abroad.', photo: unsplash('1494790108377-be9c29b29330', 900), whatsapp: true },
-  { id: 'p5', name: 'Arjun Mehta', role: 'Off-Plan Investment Advisor', line: 'New launches, payment plans and portfolio planning.', photo: unsplash('1507003211169-0a1dd7228f2d', 900), whatsapp: true },
-  { id: 'p6', name: 'Elena Volkova', role: 'Leasing Manager', line: 'Finding the right tenant, and keeping them.', photo: unsplash('1438761681033-6461ffad8d80', 900), whatsapp: true },
-  { id: 'p7', name: 'Omar Farouk', role: 'Holiday Homes Manager', line: 'Guests, pricing and five-star reviews.', photo: unsplash('1472099645785-5658abf4ff4e', 900), whatsapp: true },
-  { id: 'p8', name: 'Grace Okafor', role: 'Client Relations Manager', line: 'Transfers, Golden Visas and everything in between.', photo: unsplash('1580489944761-15a19d654956', 900), email: true },
+/**
+ * REAL – the team, names, roles, bios and office portraits from the current
+ * DRP website (imported by `npm run import:drp`). Order and the short lines
+ * are set here; the lines paraphrase each person's own bio.
+ */
+const teamOrder: { slug: string; line?: string; whatsapp?: boolean; email?: boolean }[] = [
+  { slug: 'darren-hayes', line: "Active in Dubai's real estate market since 2007.", email: true },
+  { slug: '3107-2', line: 'Guiding buyers and sellers through every step, with a keen eye for detail.', whatsapp: true, email: true },
+  { slug: '8342-2', line: "Matching buyers and investors to the right opportunities across Dubai's key communities.", whatsapp: true },
+  { slug: 'neelt', line: "Investments matched to each client's lifestyle and financial goals.", whatsapp: true },
+  { slug: 'dulshan-imantha', line: "Telling each property's story to the buyers and investors it suits.", email: true },
+  { slug: 'anne-artisan', line: 'Keeping the office, agents and clients running smoothly.', email: true },
+  { slug: 'delia-cuadrante' },
 ];
+
+export const team: TeamMember[] = teamOrder.flatMap(({ slug, ...extra }) => {
+  const person = importedTeam.find((t) => t.slug === slug);
+  return person
+    ? [{ id: slug, name: person.name, role: person.role, bio: person.bio, photo: person.photo, ...extra }]
+    : [];
+});
 
 export const careers = {
   hero: {

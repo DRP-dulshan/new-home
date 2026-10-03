@@ -1,0 +1,962 @@
+[
+ {
+  "id": "8026",
+  "slug": "sky-tower",
+  "name": "Sky Tower",
+  "area": "Business Bay",
+  "location": "Business Bay",
+  "progress": 9.3,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-8_page-0008.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8025",
+  "slug": "auresta-tower",
+  "name": "Auresta Tower",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-8_page-0007.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8024",
+  "slug": "ananda-residences",
+  "name": "Ananda Residences",
+  "area": "Motor City",
+  "location": "Motor City",
+  "progress": 2.6,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-8_page-0006.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8023",
+  "slug": "jade-tower",
+  "name": "Jade Tower",
+  "area": "Dubailand",
+  "location": "Majan",
+  "progress": 9.4,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-8_page-0005.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8022",
+  "slug": "red-square",
+  "name": "Red Square",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 26.7,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-8_page-0004.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8021",
+  "slug": "volga-tower",
+  "name": "Volga Tower",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 37.9,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-8_page-0003.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8013",
+  "slug": "altai",
+  "name": "Altai",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 95,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-8_page-0002.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8011",
+  "slug": "sol-levante",
+  "name": "Sol Levante",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 7.2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-8_page-0001.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8010",
+  "slug": "fairmont-residences-2",
+  "name": "Fairmont Residences",
+  "area": "Downtown Dubai",
+  "location": "Burj Khalifa Downtown",
+  "progress": 20.7,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-7_page-0010.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8009",
+  "slug": "samana-sky-views",
+  "name": "Samana Sky Views",
+  "area": "Dubailand",
+  "location": "Dubai Production City",
+  "progress": 2.2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-7_page-0009.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8008",
+  "slug": "rome-2",
+  "name": "Rome 2",
+  "area": "Mohammed Bin Rashid City",
+  "location": "Mohammed Bin Rashid City",
+  "progress": 20.6,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-7_page-0008.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8007",
+  "slug": "greenfield",
+  "name": "Greenfield",
+  "area": "International City 2",
+  "location": "International City 2",
+  "progress": 1.5,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-7_page-0007.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8006",
+  "slug": "samana-ibiza",
+  "name": "Samana Ibiza",
+  "area": "Dubailand",
+  "location": "Dubailand",
+  "progress": 3.1,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-7_page-0006.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8005",
+  "slug": "samana-miami",
+  "name": "Samana Miami",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 66.3,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-7_page-0005.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "8004",
+  "slug": "samana-waves-2",
+  "name": "Samana Waves 2",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 47.3,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-7_page-0004.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7997",
+  "slug": "mykonos",
+  "name": "Mykonos",
+  "area": "Dubai Studio City",
+  "location": "Dubai Studio City",
+  "progress": 81,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-7_page-0003.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7993",
+  "slug": "natuzzi-harmony-residences",
+  "name": "Natuzzi Harmony Residences",
+  "area": "Dubai Islands",
+  "location": "Dubai Islands",
+  "progress": 19.6,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-7_page-0002.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7991",
+  "slug": "skyliving",
+  "name": "Skyliving",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 60,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-7_page-0001.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7989",
+  "slug": "sky-suites",
+  "name": "Sky Suites",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 55.5,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-6_page-0011.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7988",
+  "slug": "sky-vista",
+  "name": "Sky Vista",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 61,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-6_page-0010.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7987",
+  "slug": "peace-lagoon",
+  "name": "Peace Lagoon",
+  "area": "Dubailand",
+  "location": "Dubailand",
+  "progress": 4,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-6_page-0009.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7986",
+  "slug": "vistara-house",
+  "name": "Vistara House",
+  "area": "Al Furjan",
+  "location": "Al Furjan",
+  "progress": 7,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-6_page-0008.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7985",
+  "slug": "essenlife-residence",
+  "name": "Essenlife Residence",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 6.1,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-6_page-0007.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7984",
+  "slug": "elaris-rise",
+  "name": "Elaris Rise",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 1.7,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-6_page-0006.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7983",
+  "slug": "elaris-sky",
+  "name": "Elaris Sky",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 0.2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-6_page-0005.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7981",
+  "slug": "the-fifth-tower",
+  "name": "The Fifth Tower",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 50.3,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-6_page-0004.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7975",
+  "slug": "ozone-1-residence",
+  "name": "Ozone 1 Residence",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 56.8,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-6_page-0003.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7970",
+  "slug": "aurelia-residence",
+  "name": "Aurelia Residence",
+  "area": "Dubai Sports City",
+  "location": "Dubai Sports City",
+  "progress": 4.5,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-6_page-0002.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7968",
+  "slug": "alta-view-skyhomes",
+  "name": "Alta View Skyhomes",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 4.1,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-6_page-0001.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7967",
+  "slug": "winner-tower",
+  "name": "Winner Tower",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 27.8,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-5_page-0010.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7966",
+  "slug": "liv-maritime",
+  "name": "Liv Maritime",
+  "area": "Dubai Maritime City",
+  "location": "Dubai Maritime City",
+  "progress": 18.7,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-5_page-0009.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7965",
+  "slug": "liv-lux-2",
+  "name": "Liv Lux",
+  "area": "Dubai Marina",
+  "location": "Dubai Marina",
+  "progress": 79,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-5_page-0008.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7963",
+  "slug": "beach-walk-grand",
+  "name": "Beach Walk Grand",
+  "area": "Dubai Islands",
+  "location": "Dubai Islands",
+  "progress": 53.2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-5_page-0006.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7962",
+  "slug": "cove-edition-residence-3",
+  "name": "Cove Edition Residence 3",
+  "area": "Dubailand",
+  "location": "Dubailand",
+  "progress": 37.1,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-5_page-0005.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7961",
+  "slug": "sunset-bay-3",
+  "name": "Sunset Bay 3",
+  "area": "Dubai Islands",
+  "location": "Dubai Islands",
+  "progress": 38.3,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-5_page-0004.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7957",
+  "slug": "beach-walk-3-2",
+  "name": "Beach Walk 3",
+  "area": "Dubai Islands",
+  "location": "Dubai Islands",
+  "progress": 82,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-5_page-0003.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7951",
+  "slug": "cotier-house-1",
+  "name": "Cotier House 1",
+  "area": "Dubai Islands",
+  "location": "Dubai Islands",
+  "progress": 43.5,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-5_page-0002.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7948",
+  "slug": "address-the-bay-2",
+  "name": "Address The Bay",
+  "area": "Dubai Harbour",
+  "location": "Dubai Harbour",
+  "progress": 70.1,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-5_page-0001.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7947",
+  "slug": "elitz-2",
+  "name": "Elitz 2",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 16.8,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-4_page-0010.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7946",
+  "slug": "diamondz-3",
+  "name": "Diamondz",
+  "area": "Jumeirah Lake Towers",
+  "location": "JLT (Jumeirah Lake Towers)",
+  "progress": 16.3,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-4_page-0009.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7945",
+  "slug": "sun-city",
+  "name": "Sun City",
+  "area": "Dubailand",
+  "location": "Dubailand",
+  "progress": 19.2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-4_page-0008.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7944",
+  "slug": "aykon-city-3",
+  "name": "Aykon City 3",
+  "area": "Business Bay",
+  "location": "Business Bay",
+  "progress": 31.4,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-4_page-0007.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7943",
+  "slug": "damac-riverside-views-marine-3",
+  "name": "Damac Riverside Views – Marine 3",
+  "area": "Dip 2",
+  "location": "Dip 2",
+  "progress": 9.8,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-4_page-0006.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7942",
+  "slug": "damac-hills-golf-green-2",
+  "name": "Damac Hills – Golf Green 2",
+  "area": "Damac Hills",
+  "location": "Damac Hills",
+  "progress": 28.4,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-4_page-0005.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7941",
+  "slug": "coral-reef-2",
+  "name": "Coral Reef",
+  "area": "Dubai Maritime City",
+  "location": "Dubai Maritime City",
+  "progress": 32.9,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-4_page-0004.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7940",
+  "slug": "damac-bay-2-2",
+  "name": "Damac Bay 2",
+  "area": "Dubai Harbour",
+  "location": "Dubai Harbour",
+  "progress": 30.3,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-4_page-0003.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7930",
+  "slug": "cavalli-tower-3",
+  "name": "Cavalli Tower",
+  "area": "Dubai Marina",
+  "location": "Dubai Marina",
+  "progress": 85.1,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-4_page-0002.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7928",
+  "slug": "binghatti-starlight",
+  "name": "Binghatti Starlight",
+  "area": "Al Jaddaf",
+  "location": "Al Jaddaf",
+  "progress": 63.1,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-4_page-0001.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7927",
+  "slug": "binghatti-twilight",
+  "name": "Binghatti Twilight",
+  "area": "Al Jaddaf",
+  "location": "Al Jaddaf",
+  "progress": 32,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-3_page-0005.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7925",
+  "slug": "binghatti-grove",
+  "name": "Binghatti Grove",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 84,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-3_page-0003.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7924",
+  "slug": "binghatti-ghost",
+  "name": "Binghatti Ghost",
+  "area": "Al Jaddaf",
+  "location": "Al Jaddaf",
+  "progress": 98.9,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-3_page-0002.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7918",
+  "slug": "binghatti-haven",
+  "name": "Binghatti Haven",
+  "area": "Dubai Sports City",
+  "location": "Dubai Sports City",
+  "progress": 76.1,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-3_page-0001.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7916",
+  "slug": "binghatti-elite",
+  "name": "Binghatti Elite",
+  "area": "Dubai Production City",
+  "location": "Dubai Production City",
+  "progress": 53.3,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-2_page-0010.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7915",
+  "slug": "binghatti-moonlight",
+  "name": "Binghatti Moonlight",
+  "area": "Al Jaddaf",
+  "location": "Al Jaddaf",
+  "progress": 19.2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-2_page-0009.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7914",
+  "slug": "one-by-binghatti",
+  "name": "One By Binghatti",
+  "area": "Business Bay",
+  "location": "Business Bay",
+  "progress": 50.2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-2_page-0008.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7913",
+  "slug": "aquarise",
+  "name": "Aquarise",
+  "area": "Business Bay",
+  "location": "Business Bay",
+  "progress": 21,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-2_page-0007.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7912",
+  "slug": "skyblade-2",
+  "name": "Skyblade",
+  "area": "Downtown Dubai",
+  "location": "Burj Khalifa Downtown",
+  "progress": 17.1,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-2_page-0006.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7911",
+  "slug": "mercedes-benz",
+  "name": "Mercedes Benz",
+  "area": "Downtown Dubai",
+  "location": "Burj Khalifa Downtown",
+  "progress": 65.3,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-2_page-0005.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7910",
+  "slug": "ruby-2",
+  "name": "Ruby",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 46.4,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-2_page-0004.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7909",
+  "slug": "flare-2",
+  "name": "Flare",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 20,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-2_page-0003.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7908",
+  "slug": "baccarat-residences-2",
+  "name": "Baccarat Residences",
+  "area": "Downtown Dubai",
+  "location": "Burj Khalifa Downtown",
+  "progress": 18.1,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-2_page-0002.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7897",
+  "slug": "adeba-azizi",
+  "name": "Adeba Azizi",
+  "area": "Al Jaddaf",
+  "location": "Al Jaddaf",
+  "progress": 75.5,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-2_page-0001.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7895",
+  "slug": "azizi-lina",
+  "name": "Azizi Lina",
+  "area": "Jebel Ali",
+  "location": "Jebel Ali",
+  "progress": 2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-1_page-0010.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7894",
+  "slug": "wasl-by-azizi",
+  "name": "Wasl By Azizi",
+  "area": "Dubai Islands",
+  "location": "Dubai Islands",
+  "progress": 2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-1_page-0009.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7893",
+  "slug": "riviera-reve",
+  "name": "Riviera Reve",
+  "area": "Mohammed Bin Rashid City",
+  "location": "Mohammed Bin Rashid City",
+  "progress": 76.6,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-1_page-0008.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7892",
+  "slug": "arian",
+  "name": "Arian",
+  "area": "Jebel Ali",
+  "location": "Jebel Ali",
+  "progress": 2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-1_page-0007.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7891",
+  "slug": "azizi-david",
+  "name": "Azizi David",
+  "area": "Al Jaddaf",
+  "location": "Al Jaddaf",
+  "progress": 2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-1_page-0006.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7890",
+  "slug": "burj-azizi",
+  "name": "Burj Azizi",
+  "area": "Sheikh Zayed Road",
+  "location": "Sheikh Zayed Road",
+  "progress": 0.5,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-1_page-0005.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7889",
+  "slug": "azizi-zain",
+  "name": "Azizi Zain",
+  "area": "Al Furjan",
+  "location": "Al Furjan",
+  "progress": 66.2,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-1_page-0004.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7888",
+  "slug": "riviera-62",
+  "name": "Riviera 62",
+  "area": "Mohammed Bin Rashid City",
+  "location": "Mohammed Bin Rashid City",
+  "progress": 90.8,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-1_page-0003.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7887",
+  "slug": "venice",
+  "name": "Venice",
+  "area": "Dubai South",
+  "location": "Dubai South",
+  "progress": 67.4,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-1_page-0002.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7876",
+  "slug": "celestara",
+  "name": "Celestara",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 3.1,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/09/CONSTRUCTION-STATUS-1_page-0001.jpg",
+  "updated": "2026-09-07"
+ },
+ {
+  "id": "7684",
+  "slug": "cavalli-tower-2",
+  "name": "Cavalli Tower",
+  "area": "Dubai Marina",
+  "location": "Dubai Marina",
+  "progress": 75,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-20-at-5.51.22-PM-1.webp",
+  "updated": "2026-08-20"
+ },
+ {
+  "id": "7682",
+  "slug": "damac-bay-2",
+  "name": "Damac Bay 2",
+  "area": "Dubai Harbour",
+  "location": "Dubai Harbour",
+  "progress": 20,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-20-at-5.51.22-PM.webp",
+  "updated": "2026-08-20"
+ },
+ {
+  "id": "7676",
+  "slug": "diamondz-2",
+  "name": "Diamondz",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 27,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-20-at-5.51.21-PM.webp",
+  "updated": "2026-08-20"
+ },
+ {
+  "id": "7652",
+  "slug": "flare",
+  "name": "Flare",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 18,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-20.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7651",
+  "slug": "altai-tower",
+  "name": "Altai Tower",
+  "area": "Jumeirah Village Triangle",
+  "location": "JVT (Jumeirah Village Triangle)",
+  "progress": 82,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-19.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7650",
+  "slug": "azizi-venice-2",
+  "name": "Azizi Venice",
+  "area": "Dubai South",
+  "location": "Dubai South",
+  "progress": 67,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-21-1.jpg",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7644",
+  "slug": "beach-walk-3",
+  "name": "Beach Walk 3",
+  "area": "Dubai Islands",
+  "location": "Dubai Islands",
+  "progress": 82,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-17.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7642",
+  "slug": "cotier-house",
+  "name": "Cotier House",
+  "area": "Dubai Islands",
+  "location": "Dubai Islands",
+  "progress": 29,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-16.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7645",
+  "slug": "elitz",
+  "name": "Elitz",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 72,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-15.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7643",
+  "slug": "celestara-residences",
+  "name": "Celestara Residences",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 3,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-14.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7632",
+  "slug": "ruby",
+  "name": "Ruby",
+  "area": "JVC",
+  "location": "JVC (Jumeirah Village Circle)",
+  "progress": 46,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-13.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7631",
+  "slug": "address-residences",
+  "name": "Address Residences",
+  "area": "Dubai Hills Estate",
+  "location": "Dubai Hills Estate",
+  "progress": 26,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-12.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7630",
+  "slug": "oceanz",
+  "name": "Oceanz",
+  "area": "Dubai Maritime City",
+  "location": "Dubai Maritime City",
+  "progress": 32,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-11.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7633",
+  "slug": "coral-reef",
+  "name": "Coral Reef",
+  "area": "Dubai Maritime City",
+  "location": "Maritime City",
+  "progress": 27,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-9.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7629",
+  "slug": "liv-maritime-dubai",
+  "name": "Liv Maritime Dubai",
+  "area": "Dubai Maritime City",
+  "location": "Maritime City",
+  "progress": 19,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-10-1.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7628",
+  "slug": "liv-lux",
+  "name": "Liv Lux",
+  "area": "Dubai Marina",
+  "location": "Dubai Marina",
+  "progress": 79,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-8.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7626",
+  "slug": "bayview-by-address-2",
+  "name": "Bayview By Address",
+  "area": "Dubai Harbour",
+  "location": "Dubai Harbour",
+  "progress": 49,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/images.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7624",
+  "slug": "aeternitas-tower",
+  "name": "Aeternitas Tower",
+  "area": "Dubai Marina",
+  "location": "Dubai Marina",
+  "progress": 49,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-6.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7621",
+  "slug": "address-the-bay",
+  "name": "Address The Bay",
+  "area": "Dubai Harbour",
+  "location": "Dubai Harbour",
+  "progress": 70,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-5.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7619",
+  "slug": "society-house",
+  "name": "Society House",
+  "area": "Downtown Dubai",
+  "location": "Downtown Dubai",
+  "progress": 86,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-4.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7617",
+  "slug": "baccarat-residences",
+  "name": "Baccarat Residences",
+  "area": "Downtown Dubai",
+  "location": "Downtown Dubai",
+  "progress": 18,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-3-1.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7614",
+  "slug": "mercedes-benz-places",
+  "name": "Mercedes Benz Places",
+  "area": "Downtown Dubai",
+  "location": "Downtown Dubai",
+  "progress": 65,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-2-1.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7612",
+  "slug": "fairmont-residences",
+  "name": "Fairmont Residences",
+  "area": "Downtown Dubai",
+  "location": "Downtown Dubai",
+  "progress": 21,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-1-1.webp",
+  "updated": "2026-08-19"
+ },
+ {
+  "id": "7596",
+  "slug": "skyblade",
+  "name": "Skyblade",
+  "area": "Downtown Dubai",
+  "location": "Downtown Dubai",
+  "progress": 17,
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/image-3.webp",
+  "updated": "2026-08-19"
+ }
+]
