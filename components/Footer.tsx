@@ -19,7 +19,14 @@ export default function Footer() {
             </p>
 
             <address className="mt-8 space-y-2 text-sm font-light not-italic text-white/70">
-              <p className="text-white/45">{contact.addressFull}</p>
+              <a
+                href={contact.mapHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-white/45 transition-colors duration-300 hover:text-orange"
+              >
+                {contact.addressFull}
+              </a>
               <a
                 href={contact.phoneHref}
                 className="block transition-colors duration-300 hover:text-orange"

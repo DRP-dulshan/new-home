@@ -135,7 +135,14 @@ export default function FullMenu({ id, onClose, toggleRef }: Props) {
         <div className="container-drp flex flex-col gap-6 py-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="space-y-2 text-sm font-light text-white/60">
             <p className="text-[10px] uppercase tracking-eyebrow text-white/35">Office</p>
-            <p className="text-white/75">{contact.addressLine}, Dubai</p>
+            <a
+              href={contact.mapHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-white/75 transition-colors duration-300 hover:text-orange"
+            >
+              {contact.addressLine}, Dubai
+            </a>
             <a
               href={contact.phoneHref}
               className="block transition-colors duration-300 hover:text-orange"

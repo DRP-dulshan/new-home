@@ -14,6 +14,7 @@
 
 import { drpPhoto, unsplash } from '@/lib/media';
 import { HOLIDAY_HOMES_URL } from './external';
+import { contact } from './homepage';
 import importedTeam from './imported/team.json';
 import { toSlug } from '@/lib/slug';
 
@@ -184,7 +185,6 @@ export const contactPage = {
     { days: 'Saturday', time: '10:00 – 16:00' },
     { days: 'Sunday', time: 'By appointment' },
   ],
-  mapEmbed:
-    'https://www.google.com/maps?q=Golden+Mile+9,+Palm+Jumeirah,+Dubai&output=embed',
-  mapLink: 'https://maps.google.com/?q=Golden+Mile+9,+Palm+Jumeirah,+Dubai',
+  mapEmbed: contact.mapEmbed,
+  mapLink: contact.mapHref,
 };

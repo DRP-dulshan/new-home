@@ -65,7 +65,7 @@ export default function ContactSection() {
       external: true,
     },
     { icon: Mail, label: 'Email', value: contact.email, href: contact.emailHref },
-    { icon: MapPin, label: 'Office', value: contact.addressLine },
+    { icon: MapPin, label: 'Office', value: contact.addressLine, href: contact.mapHref, external: true },
   ];
 
   return (

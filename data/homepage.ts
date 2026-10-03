@@ -44,7 +44,12 @@ export const site = {
 
 export const contact = {
   addressLine: 'Golden Mile 9, Palm Jumeirah',
-  addressFull: 'DRP, Golden Mile 9, Palm Jumeirah, Dubai, UAE',
+  addressFull: 'DRP, Golden Mile 9, Palm Jumeirah, Dubai',
+  /** REAL – DRP's own Google Maps listing */
+  mapHref: 'https://maps.app.goo.gl/7gaPDDcJJritEb746',
+  /** Searches for the DRP listing itself (place 0x3e5f6be4264ce0bd:0x57c31faf4c750f69), not the building */
+  mapEmbed:
+    'https://www.google.com/maps?q=DRP+Dubai+Rapid+Properties,+Golden+Mile+9,+Palm+Jumeirah,+Dubai&z=17&output=embed',
   phone: '+971 4 529 4904',
   phoneHref: 'tel:+97145294904',
   whatsapp: '+971 56 777 0272',
