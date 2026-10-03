@@ -228,7 +228,7 @@ function inferUnits(text) {
   if (/\bvillas?\b|mansion/.test(t)) types.push('Villa');
   const beds = new Set();
   if (/\bstudios?\b/.test(t)) beds.add(0);
-  for (const m of t.matchAll(/((?:\d\s*(?:,|&|and|to|-|–)?\s*)+)\s*(?:bed(?:room)?s?|br|bhk)\b/g)) {
+  for (const m of t.matchAll(/(?<![\d.])((?:\d\s*(?:,|&|and|to|-|–)?\s*)+)\s*(?:bed(?:room)?s?|br|bhk)\b/g)) {
     const nums = m[1].match(/\d/g)?.map(Number) ?? [];
     if (/to|-|–/.test(m[1]) && nums.length === 2) for (let n = nums[0]; n <= nums[1]; n++) beds.add(n);
     else nums.forEach((n) => n >= 1 && n <= 9 && beds.add(n));
@@ -310,7 +310,8 @@ async function importListings() {
       sourceUrl: url,
     };
   });
-  return rows.filter((r) => r && r.price && r.images.length);
+  /* Sorted so re-runs only diff when the content changes */
+  return rows.filter((r) => r && r.price && r.images.length).sort((a, b) => a.slug.localeCompare(b.slug));
 }
 
 /* -------------------------------------------------------------------------- */
@@ -403,7 +404,7 @@ async function importProjects() {
   )
     .filter((p) => p && p.image)
     /* Some projects were published twice; keep the newest post */
-    .sort((a, b) => b.launchedAt.localeCompare(a.launchedAt))
+    .sort((a, b) => b.launchedAt.localeCompare(a.launchedAt) || a.slug.localeCompare(b.slug))
     .filter((p, i, all) => all.findIndex((x) => x.name === p.name) === i);
 
   /* Construction progress cards: base page, then /page/2/, /page/3/ … */
@@ -468,7 +469,7 @@ async function importTeam() {
       .find((u) => !/drp-(white|black)|aed-symbol|logo/i.test(u));
     return { slug: url.replace(/\/$/, '').split('/').pop(), name, role, bio, photo: photo ?? null, sourceUrl: url };
   });
-  return rows.filter((r) => r && r.photo);
+  return rows.filter((r) => r && r.photo).sort((a, b) => a.slug.localeCompare(b.slug));
 }
 
 /* -------------------------------------------------------------------------- */

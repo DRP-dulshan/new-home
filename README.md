@@ -39,17 +39,42 @@ CRM. The contact form, Book a Stay request and owner sign-in carry their own `TO
 `/off-plan` read on load (`q` area, `type`, `beds`, `min` / `max`, `handover`), so a homepage
 search lands on a filtered list. Both explorers share `components/filters/FilterExplorer.tsx`.
 
+## Real content from the current DRP website
+
+`npm run import:drp` ([`scripts/import-drp-content.mjs`](scripts/import-drp-content.mjs))
+reads the public pages and WordPress API of dubairapidproperties.com and writes
+[`data/imported/`](data/imported). The data files read those JSON files, so re-running
+the script and rebuilding refreshes the site.
+
+| File | What it holds |
+| --- | --- |
+| `listings.json` | Every DRP Property Finder listing: title, price, specs, gallery, description, features, DLD permit, agent. Commercial units are skipped on the site. |
+| `projects.json` | Off-plan projects: starting price, handover year, collections, highlights, about and location copy, gallery. |
+| `construction.json` | Construction progress from DRP's status reports (the latest figure per project is shown). |
+| `team.json` | Names, roles, bios and office portraits. |
+
+Details the old site does not publish, so the new one infers or leaves out:
+
+- **Area**, unit types and bedrooms are read from each listing's or project's text; 2 listings
+  fall back to "Dubai", and a few projects use a sub-community name (e.g. Wadi Al Safa 3).
+- **Developer** is named on 46 of 77 projects; the rest show the area only.
+- **Payment plans** are not published, so cards and project pages hide them. The
+  homepage Off-Plan tab shows unit types in their place.
+- **Furnishing** appears only when the listing text says so.
+- Construction updates and sale projects rarely share a name, so only matching rows
+  link through to a project page.
+
 ## Placeholder content (replace before launch)
 
 | Area | Status |
 | --- | --- |
 | Client reviews (6) | **Placeholder** — invented quotes and names. Replace with real Google reviews. |
 | "Rated 4.9 on Google" | **Placeholder** — confirm the live rating. |
-| Ready listings (16) | The four sale listings marked `REAL` are DRP's own; their descriptions, features and references, and all other listings, are placeholders. |
-| Off-plan projects (12) | **Placeholder** — names, prices, handover dates, payment plans, construction progress and launch dates. Replace with the real project database. |
 | Area guides (12) | **Placeholder** figures — price per sq ft, yields and drive times. |
 | News articles (7) | **Placeholder** — written in DRP's voice, not real posts. |
-| Team (8) | **Placeholder** — invented names, roles, lines and Unsplash portraits on `/about#team`. Replace with real DRP team photos from the IT team. |
+| Team lines | The short line under each portrait paraphrases the person's bio; Delia Cuadrante has no bio on the old site. |
+| Office hours | **Placeholder** — not published on the current site. |
+| Construction tracker hero | **Placeholder** — Unsplash photo. |
 | Careers hero | **Placeholder** — Unsplash office photo; replace with the DRP team group photo taken in front of the office. The application form logs its payload (CV name, size and type only); the file itself needs a multipart upload endpoint. |
 | Holiday Homes URL | **Placeholder** — `HOLIDAY_HOMES_URL` in `data/external.ts` points at the current DRP site's holiday-home page. The internal `/holiday-homes/*` pages still build but are no longer linked from the site. |
 | Holiday homes, packages, fees | **Placeholder** — stays, nightly rates, furnishing package prices and management fees. |
@@ -58,10 +83,11 @@ search lands on a filtered list. Both explorers share `components/filters/Filter
 | Legal pages | **Template wording** — must be reviewed by DRP's legal advisors. |
 | Car fleet (6 vehicles) | **Placeholder** — Unsplash stock photos that do not match the listed models. Swap for real DRP vehicle photography. |
 | Partner logos (10) | **Placeholder wordmarks** — see [`/public/partners/README.md`](public/partners/README.md) to swap in SVGs. |
-| Photography | Unsplash stock, plus DRP's own office photos. Swap for DRP shoots. |
+| Photography | Listings, projects, team, fit-out and interior photos are DRP's own; heroes and section images elsewhere are Unsplash stock or DRP office photos. Swap for DRP shoots. |
 
 Real content already in place: contact details, office address, logos, favicon,
-the hero Vimeo video, the four real sale listings, and all navigation labels.
+the hero Vimeo video, all listings, off-plan projects, construction progress, the team,
+and all navigation labels.
 
 ## Structure
 
