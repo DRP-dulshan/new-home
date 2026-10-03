@@ -3,6 +3,7 @@ import PageHero from '@/components/PageHero';
 import SiteShell from '@/components/layout/SiteShell';
 import ProjectCard from '@/components/offplan/ProjectCard';
 import ListingGallery from '@/components/properties/ListingGallery';
+import PropertyMap from '@/components/properties/PropertyMap';
 import FormSection from '@/components/sections/FormSection';
 import ArrowLink from '@/components/ui/ArrowLink';
 import Reveal from '@/components/ui/Reveal';
@@ -17,6 +18,7 @@ import {
   getProject,
   handoverLabel,
   projectEyebrow,
+  projectLocation,
   similarProjects,
   unitTypesLabel,
 } from '@/data/offPlan';
@@ -175,21 +177,29 @@ export default async function Page({ params }: PageProps) {
         </section>
       ) : null}
 
-      {/* ---------- Location + construction ---------- */}
-      {project.locationText.length || construction ? (
-        <section aria-labelledby="location-heading" className="section-y bg-ink text-white">
-          <div className="container-drp grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
-            <div>
-              <SectionHeading eyebrow="Location" heading={project.area} headingId="location-heading" tone="light" />
-              <div className="mt-8 space-y-5">
-                {project.locationText.slice(0, 2).map((p, i) => (
-                  <p key={i} className="text-[15px] font-light leading-relaxed text-white/70">
-                    {p}
-                  </p>
-                ))}
-              </div>
+      {/* ---------- Location: map + the area ---------- */}
+      <section aria-label="Location" className={`section-y ${project.gallery.length > 1 ? 'bg-white' : 'bg-cream'}`}>
+        <div className="container-drp grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-7">
+            <PropertyMap {...projectLocation(project)} headingId="location-heading" />
+          </div>
+          {project.locationText.length ? (
+            <div className="space-y-5 lg:col-span-5 lg:pt-12">
+              <p className="eyebrow text-charcoal-muted">About {project.area}</p>
+              {project.locationText.slice(0, 2).map((p, i) => (
+                <p key={i} className="text-[15px] font-light leading-relaxed text-charcoal-light">
+                  {p}
+                </p>
+              ))}
             </div>
+          ) : null}
+        </div>
+      </section>
 
+      {/* ---------- Construction progress, or the expected handover ---------- */}
+      <section aria-label="Construction" className="section-y bg-ink text-white">
+        <div className="container-drp">
+          <div className="max-w-3xl">
             {construction ? (
               <div>
                 <SectionHeading eyebrow="Construction" heading={constructionStage(construction.progress)} tone="light" />
@@ -217,7 +227,7 @@ export default async function Page({ params }: PageProps) {
                 </div>
               </div>
             ) : (
-              <div className="lg:pt-16">
+              <div>
                 <p className="eyebrow text-white/50">Expected handover</p>
                 <p className="mt-3 font-serif text-[clamp(2rem,4vw,3rem)] font-light leading-none">{handoverLabel(project)}</p>
                 <p className="mt-6 max-w-sm text-sm font-light leading-relaxed text-white/60">
@@ -226,8 +236,8 @@ export default async function Page({ params }: PageProps) {
               </div>
             )}
           </div>
-        </section>
-      ) : null}
+        </div>
+      </section>
 
       <FormSection
         eyebrow="Register Interest"

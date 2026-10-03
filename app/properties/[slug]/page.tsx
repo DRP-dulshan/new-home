@@ -3,6 +3,7 @@ import SiteShell from '@/components/layout/SiteShell';
 import LeadForm from '@/components/LeadForm';
 import PropertyCard from '@/components/PropertyCard';
 import ListingGallery from '@/components/properties/ListingGallery';
+import PropertyMap from '@/components/properties/PropertyMap';
 import ArrowLink from '@/components/ui/ArrowLink';
 import Reveal from '@/components/ui/Reveal';
 import SectionHeading from '@/components/ui/SectionHeading';
@@ -12,10 +13,12 @@ import {
   bedsLong,
   formatPrice,
   getListing,
+  listingLocation,
   similarListings,
   toPropertyCard,
 } from '@/data/properties';
 import { areaHref, areas } from '@/data/areas';
+import { teamHref, teamMemberForAgent } from '@/data/company';
 import { staticSlugs } from './slugs';
 
 /** Next 16: route params arrive as a Promise and must be awaited. */
@@ -66,6 +69,8 @@ export default async function Page({ params }: PageProps) {
   ];
   /* Only link areas that have a guide */
   const guide = areas.find((a) => a.name === listing.area);
+  const location = listingLocation(listing);
+  const agent = teamMemberForAgent(listing.agent);
   const similar = similarListings(listing);
 
   return (
@@ -100,12 +105,19 @@ export default async function Page({ params }: PageProps) {
                 {listing.title}
               </h1>
               <p className="mt-4 text-sm font-light text-charcoal-muted">
-                {guide ? (
-                  <SmartLink href={areaHref(guide.name)} className="underline-offset-4 hover:text-orange hover:underline">
-                    {listing.area}
-                  </SmartLink>
+                {location.label === listing.building ? (
+                  listing.building
                 ) : (
-                  listing.area
+                  <>
+                    {listing.building ? `${listing.building}, ` : ''}
+                    {guide ? (
+                      <SmartLink href={areaHref(guide.name)} className="underline-offset-4 hover:text-orange hover:underline">
+                        {listing.area}
+                      </SmartLink>
+                    ) : (
+                      listing.area
+                    )}
+                  </>
                 )}
               </p>
               <p className="mt-6 font-serif text-[clamp(1.8rem,3vw,2.4rem)] text-charcoal">
@@ -147,9 +159,21 @@ export default async function Page({ params }: PageProps) {
                 </>
               ) : null}
 
+              <section aria-labelledby="location-heading" className="mt-14">
+                <PropertyMap {...location} headingId="location-heading" />
+              </section>
+
               {listing.agent ? (
                 <p className="mt-12 text-sm font-light text-charcoal-muted">
-                  Listed by <span className="text-charcoal">{listing.agent}</span> · Ref. {listing.ref}
+                  Listed by{' '}
+                  {agent ? (
+                    <SmartLink href={teamHref(agent)} className="text-charcoal underline-offset-4 hover:text-orange hover:underline">
+                      {agent.name}
+                    </SmartLink>
+                  ) : (
+                    <span className="text-charcoal">{listing.agent}</span>
+                  )}{' '}
+                  · Ref. {listing.ref}
                 </p>
               ) : null}
 

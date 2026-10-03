@@ -15,6 +15,7 @@
 import { drpPhoto, unsplash } from '@/lib/media';
 import { HOLIDAY_HOMES_URL } from './external';
 import importedTeam from './imported/team.json';
+import { toSlug } from '@/lib/slug';
 
 export const about = {
   hero: {
@@ -63,6 +64,8 @@ export const about = {
 
 export type TeamMember = {
   id: string;
+  /** URL slug for /about/team/[slug], from the name */
+  slug: string;
   name: string;
   role: string;
   /** Short line under the role, drawn from the person's own bio. */
@@ -74,6 +77,8 @@ export type TeamMember = {
   whatsapp?: boolean;
   /** Adds an email shortcut to the DRP office inbox, addressed to this person. */
   email?: boolean;
+  /** Other spellings used on Property Finder listings, e.g. "Adithya Mitter" */
+  agentNames?: string[];
 };
 
 /**
@@ -81,10 +86,16 @@ export type TeamMember = {
  * DRP website (imported by `npm run import:drp`). Order and the short lines
  * are set here; the lines paraphrase each person's own bio.
  */
-const teamOrder: { slug: string; line?: string; whatsapp?: boolean; email?: boolean }[] = [
+const teamOrder: {
+  slug: string;
+  line?: string;
+  whatsapp?: boolean;
+  email?: boolean;
+  agentNames?: string[];
+}[] = [
   { slug: 'darren-hayes', line: "Active in Dubai's real estate market since 2007.", email: true },
   { slug: '3107-2', line: 'Guiding buyers and sellers through every step, with a keen eye for detail.', whatsapp: true, email: true },
-  { slug: '8342-2', line: "Matching buyers and investors to the right opportunities across Dubai's key communities.", whatsapp: true },
+  { slug: '8342-2', line: "Matching buyers and investors to the right opportunities across Dubai's key communities.", whatsapp: true, agentNames: ['Adithya Mitter'] },
   { slug: 'neelt', line: "Investments matched to each client's lifestyle and financial goals.", whatsapp: true },
   { slug: 'dulshan-imantha', line: "Telling each property's story to the buyers and investors it suits.", email: true },
   { slug: 'anne-artisan', line: 'Keeping the office, agents and clients running smoothly.', email: true },
@@ -94,9 +105,31 @@ const teamOrder: { slug: string; line?: string; whatsapp?: boolean; email?: bool
 export const team: TeamMember[] = teamOrder.flatMap(({ slug, ...extra }) => {
   const person = importedTeam.find((t) => t.slug === slug);
   return person
-    ? [{ id: slug, name: person.name, role: person.role, bio: person.bio, photo: person.photo, ...extra }]
+    ? [{ id: slug, slug: toSlug(person.name), name: person.name, role: person.role, bio: person.bio, photo: person.photo, ...extra }]
     : [];
 });
+
+export const teamHref = (m: TeamMember) => `/about/team/${m.slug}`;
+export const getTeamMember = (slug: string) => team.find((m) => m.slug === slug);
+
+/** The team member behind a Property Finder agent name, if they are on the team. */
+export const teamMemberForAgent = (agent: string | null) =>
+  agent ? team.find((m) => m.name === agent || m.agentNames?.includes(agent)) : undefined;
+
+/**
+ * REAL – "From the Management" on the current DRP About page, shown on the
+ * founder's profile.
+ */
+export const managementMessage = {
+  memberSlug: 'jasko-miletic',
+  heading: 'From the Management',
+  paragraphs: [
+    'We are a company with big ambitions. We have achieved a lot in the last 19 years, but our sights are set much higher.',
+    'We want our brand to become a byword for innovation. We will earn the trust of our customers by exceeding their expectations. We want to be known as a company that pushes the boundaries in all aspects of its business operations.',
+  ],
+  image: 'https://dubairapidproperties.com/wp-content/uploads/2026/09/Mr-Jasko-2-1-scaled.jpeg',
+  imageAlt: 'Jasko Miletic, Founder & CEO of Dubai Rapid Properties',
+};
 
 export const careers = {
   hero: {

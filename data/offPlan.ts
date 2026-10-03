@@ -47,6 +47,8 @@ export type Project = {
   image: string;
   alt: string;
   gallery: { src: string; alt: string }[];
+  /** Google Maps search, checked at import; `exact` is false when it shows the community */
+  map: { query: string; exact: boolean };
   sourceUrl: string;
 };
 
@@ -85,6 +87,7 @@ export const projects: Project[] = importedProjects
     image: r.image!,
     alt: `${r.name}, ${r.area}`,
     gallery: r.gallery.map((src, i) => ({ src, alt: `${r.name}, image ${i + 1}` })),
+    map: r.map,
     sourceUrl: r.sourceUrl,
   }))
   .sort((a, b) => b.launchedAt.localeCompare(a.launchedAt));
@@ -135,6 +138,18 @@ export const constructionFor = (p: Project) =>
 /* -------------------------------------------------------------------------- */
 
 export const projectHref = (slug: string) => `/off-plan/${slug}`;
+
+/* Communities DRP sells in outside Dubai */
+const EMIRATE: Record<string, string> = {
+  'Al Marjan Island': 'Ras Al Khaimah',
+  'Ghadeer Al Tayr': 'Abu Dhabi',
+};
+
+/** The map's heading and its Google search, as checked by the importer. */
+export function projectLocation(p: Project) {
+  const where = EMIRATE[p.area] ? `${p.area}, ${EMIRATE[p.area]}` : p.area;
+  return { label: p.map.exact ? `${p.name}, ${where}` : where, ...p.map };
+}
 
 /** DRP's "Latest Launch" collection, newest first; the carousel shows six. */
 export const latestLaunches = projects.filter((p) => p.collections.includes('Latest Launch')).slice(0, 6);
