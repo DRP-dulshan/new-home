@@ -2,6 +2,7 @@ import Image from 'next/image';
 import {
   formatAed,
   handoverLabel,
+  projectEyebrow,
   projectHref,
   unitTypesLabel,
   type Project,
@@ -38,15 +39,17 @@ export default function ProjectCard({
                 New Launch
               </span>
             ) : null}
-            <span className="bg-white/95 px-3 py-1.5 text-[10px] font-medium uppercase tracking-eyebrow text-charcoal backdrop-blur-sm">
-              {project.paymentPlan} Payment Plan
-            </span>
+            {project.paymentPlan ? (
+              <span className="bg-white/95 px-3 py-1.5 text-[10px] font-medium uppercase tracking-eyebrow text-charcoal backdrop-blur-sm">
+                {project.paymentPlan} Payment Plan
+              </span>
+            ) : null}
           </div>
         </div>
 
         <div className="flex flex-1 flex-col pt-5">
           <p className="text-[10px] uppercase leading-4 tracking-eyebrow text-charcoal-muted">
-            {project.developer} · {project.area}
+            {projectEyebrow(project)}
           </p>
 
           <h3 className="mt-3 font-serif text-[1.5rem] font-normal leading-snug text-charcoal transition-colors duration-300 group-hover:text-orange sm:text-[1.65rem]">

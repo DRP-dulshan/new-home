@@ -17,280 +17,118 @@ import {
   type Facet,
   type PriceBand,
 } from '@/lib/filters';
-import { unsplash as unsplashAt } from '@/lib/media';
-
-const unsplash = (id: string) => unsplashAt(id, 1400);
+import importedConstruction from './imported/construction.json';
+import importedProjects from './imported/projects.json';
 
 export type ProjectType = 'Apartment' | 'Penthouse' | 'Townhouse' | 'Villa';
 
 export type Project = {
   slug: string;
   name: string;
-  developer: string;
+  /** Null when the DRP project page does not name the developer. */
+  developer: string | null;
   area: string;
+  /** DRP's own collections, e.g. "Luxury", "Latest Launch". */
+  collections: string[];
   propertyTypes: ProjectType[];
-  /** Bedroom configurations on offer. 0 = studio. */
+  /** Bedroom configurations on offer. 0 = studio. Empty when not stated. */
   bedrooms: number[];
   /** Starting price in AED. */
   fromPrice: number;
-  handover: { quarter: 1 | 2 | 3 | 4; year: number };
-  /** During construction / on handover, e.g. "60/40". */
-  paymentPlan: string;
-  /** Sales launch date (ISO). The newest launches lead the carousel. */
+  /** Expected handover year; null until the developer confirms it. */
+  handoverYear: number | null;
+  /** During construction / on handover, e.g. "60/40". Null when not published. */
+  paymentPlan: string | null;
+  /** Date DRP published the project. The newest launches lead the carousel. */
   launchedAt: string;
   description: string[];
-  amenities: string[];
-  /** Placeholder site progress (0–100) and the date of the last update. */
-  construction: { progress: number; updated: string };
+  highlights: { title: string; text: string }[];
+  locationText: string[];
   image: string;
   alt: string;
+  gallery: { src: string; alt: string }[];
+  sourceUrl: string;
 };
 
-// DEMO PLACEHOLDERS – replace with the real project database.
-// Project names, prices, handover dates, payment plans and launch dates are
-// invented; developers and areas are real so the filters read naturally.
-export const projects: Project[] = [
-  {
-    slug: 'marina-horizon-residences',
-    name: 'Marina Horizon Residences',
-    developer: 'Emaar Properties',
-    area: 'Dubai Marina',
-    propertyTypes: ['Apartment'],
-    bedrooms: [1, 2, 3],
-    fromPrice: 2_400_000,
-    handover: { quarter: 4, year: 2027 },
-    paymentPlan: '60/40',
-    launchedAt: '2026-03-12',
-    description: [
-      'A waterfront tower on the edge of Dubai Marina, with one- to three-bedroom residences framed by marina and sea views.',
-      'Residents share a podium of pools, a gym and lounges, with the Marina Walk, tram and beach a few minutes away on foot.',
-    ],
-    amenities: ['Infinity pool', "Residents' gym", "Children's play area", 'Marina Walk access'],
-    construction: { progress: 46, updated: '2026-09-20' },
-    image: unsplash('1486406146926-c627a92ad1ab'),
-    alt: 'A rendered residential tower overlooking Dubai Marina',
-  },
-  {
-    slug: 'palm-shore-collection',
-    name: 'Palm Shore Collection',
-    developer: 'Nakheel',
-    area: 'Palm Jumeirah',
-    propertyTypes: ['Apartment', 'Penthouse'],
-    bedrooms: [2, 3, 4],
-    fromPrice: 8_900_000,
-    handover: { quarter: 2, year: 2028 },
-    paymentPlan: '50/50',
-    launchedAt: '2026-05-20',
-    description: [
-      'A limited collection of beachfront apartments and penthouses on Palm Jumeirah, each with a private terrace facing the sea.',
-      "A private beach, a residents' club and a spa make it one of the island's most complete new addresses.",
-    ],
-    amenities: ['Private beach', "Residents' club", 'Spa and wellness', 'Concierge'],
-    construction: { progress: 18, updated: '2026-09-12' },
-    image: unsplash('1600047509807-ba8f99d2cdde'),
-    alt: 'A beachfront residence rendering on Palm Jumeirah',
-  },
-  {
-    slug: 'the-hills-park-villas',
-    name: 'The Hills Park Villas',
-    developer: 'Sobha Realty',
-    area: 'Dubai Hills Estate',
-    propertyTypes: ['Villa'],
-    bedrooms: [4, 5, 6],
-    fromPrice: 5_750_000,
-    handover: { quarter: 1, year: 2027 },
-    paymentPlan: '70/30',
-    launchedAt: '2025-11-04',
-    description: [
-      'Contemporary four- to six-bedroom villas set around a central park in Dubai Hills Estate.',
-      'Each villa has a private garden and pool deck, with schools, the golf course and Dubai Hills Mall within a short drive.',
-    ],
-    amenities: ['Private gardens', 'Community park', 'Golf course nearby', 'Gated community'],
-    construction: { progress: 84, updated: '2026-09-25' },
-    image: unsplash('1613490493576-7fde63acd811'),
-    alt: 'A contemporary villa rendering set within landscaped gardens',
-  },
-  {
-    slug: 'downtown-quarter-tower',
-    name: 'Downtown Quarter Tower',
-    developer: 'Ellington Properties',
-    area: 'Downtown Dubai',
-    propertyTypes: ['Apartment'],
-    bedrooms: [0, 1, 2],
-    fromPrice: 1_850_000,
-    handover: { quarter: 3, year: 2027 },
-    paymentPlan: '80/20',
-    launchedAt: '2025-09-18',
-    description: [
-      'Studios to two-bedroom apartments a short walk from the Burj Khalifa and Dubai Mall.',
-      'Designed for owner-occupiers and holiday-home investors alike, with strong short-stay demand in the area all year.',
-    ],
-    amenities: ['Rooftop pool', 'Boulevard views', 'Co-working lounge', 'Valet parking'],
-    construction: { progress: 71, updated: '2026-09-18' },
-    image: unsplash('1582407947304-fd86f028f716'),
-    alt: 'A tower rendering with Burj Khalifa views in Downtown Dubai',
-  },
-  {
-    slug: 'creek-vista-heights',
-    name: 'Creek Vista Heights',
-    developer: 'Emaar Properties',
-    area: 'Dubai Creek Harbour',
-    propertyTypes: ['Apartment'],
-    bedrooms: [1, 2, 3],
-    fromPrice: 1_450_000,
-    handover: { quarter: 2, year: 2028 },
-    paymentPlan: '80/20',
-    launchedAt: '2026-08-28',
-    description: [
-      "Apartments overlooking the Creek and the Dubai skyline, in one of the city's fastest-growing waterfront communities.",
-      'Waterside promenades, parks and a future retail district are all part of the masterplan.',
-    ],
-    amenities: ['Creek promenade', 'Infinity pool', 'Retail podium', 'Parks and cycle tracks'],
-    construction: { progress: 4, updated: '2026-09-28' },
-    image: unsplash('1512453979798-5ea266f8880c'),
-    alt: 'An aerial view of the Dubai skyline at dusk',
-  },
-  {
-    slug: 'boulevard-line-residences',
-    name: 'Boulevard Line Residences',
-    developer: 'DAMAC Properties',
-    area: 'Downtown Dubai',
-    propertyTypes: ['Apartment', 'Penthouse'],
-    bedrooms: [0, 1, 2, 4],
-    fromPrice: 1_250_000,
-    handover: { quarter: 4, year: 2026 },
-    paymentPlan: '60/40',
-    launchedAt: '2025-06-10',
-    description: [
-      'A boulevard-facing tower in Downtown Dubai with studios, apartments and four-bedroom penthouses.',
-      'Nearing completion, it offers one of the shortest waits to handover in the area.',
-    ],
-    amenities: ['Pool deck', 'Gym and spa', 'Boulevard retail', 'Concierge'],
-    construction: { progress: 93, updated: '2026-09-22' },
-    image: unsplash('1541976590-713941681591'),
-    alt: 'A newly launched residential tower in Dubai',
-  },
-  {
-    slug: 'islands-beach-villas',
-    name: 'Islands Beach Villas',
-    developer: 'Nakheel',
-    area: 'Dubai Islands',
-    propertyTypes: ['Townhouse', 'Villa'],
-    bedrooms: [3, 4, 5],
-    fromPrice: 6_400_000,
-    handover: { quarter: 4, year: 2028 },
-    paymentPlan: '60/40',
-    launchedAt: '2026-09-15',
-    description: [
-      'Beachfront townhouses and villas on Dubai Islands, the new island destination off Deira.',
-      'Private beach frontage, marinas and a planned hotel district give the community a resort feel.',
-    ],
-    amenities: ['Beachfront', 'Marina', 'Clubhouse', 'Hotel district'],
-    construction: { progress: 3, updated: '2026-09-26' },
-    image: unsplash('1600596542815-ffad4c1539a9'),
-    alt: 'A waterfront villa with a private pool at dusk',
-  },
-  {
-    slug: 'frond-estate-palm-jebel-ali',
-    name: 'Frond Estate',
-    developer: 'Nakheel',
-    area: 'Palm Jebel Ali',
-    propertyTypes: ['Villa'],
-    bedrooms: [5, 6],
-    fromPrice: 18_500_000,
-    handover: { quarter: 1, year: 2029 },
-    paymentPlan: '70/30',
-    launchedAt: '2026-07-02',
-    description: [
-      "Five- and six-bedroom villas on the fronds of Palm Jebel Ali, the city's newest island.",
-      'Every villa has direct beach access and a private pool, on wide plots with open water views.',
-    ],
-    amenities: ['Direct beach access', 'Private pools', 'Large plots', 'Island clubhouse'],
-    construction: { progress: 9, updated: '2026-09-10' },
-    image: unsplash('1600585154340-be6161a56a0c'),
-    alt: 'A garden villa with private beach frontage',
-  },
-  {
-    slug: 'jvc-garden-lofts',
-    name: 'Garden Lofts JVC',
-    developer: 'Ellington Properties',
-    area: 'JVC',
-    propertyTypes: ['Apartment'],
-    bedrooms: [0, 1, 2],
-    fromPrice: 950_000,
-    handover: { quarter: 3, year: 2026 },
-    paymentPlan: '70/30',
-    launchedAt: '2025-04-22',
-    description: [
-      "Studios to two-bedroom apartments in Jumeirah Village Circle, one of Dubai's most popular rental communities.",
-      'Well priced for first-time investors, with dependable rental demand and handover within the year.',
-    ],
-    amenities: ['Pool', 'Gym', 'Landscaped courtyard', 'Retail units'],
-    construction: { progress: 89, updated: '2026-09-24' },
-    image: unsplash('1487958449943-2429e8be8625'),
-    alt: 'A contemporary residential building against a clear sky',
-  },
-  {
-    slug: 'ranches-row-townhouses',
-    name: 'Ranches Row Townhouses',
-    developer: 'Emaar Properties',
-    area: 'Arabian Ranches',
-    propertyTypes: ['Townhouse'],
-    bedrooms: [3, 4],
-    fromPrice: 2_950_000,
-    handover: { quarter: 2, year: 2027 },
-    paymentPlan: '80/20',
-    launchedAt: '2025-12-09',
-    description: [
-      'Three- and four-bedroom family townhouses in the Arabian Ranches family of communities.',
-      'Each home has a garden and covered parking, close to schools, pools and parks.',
-    ],
-    amenities: ['Community pools', 'Parks', 'Schools nearby', 'Retail centre'],
-    construction: { progress: 62, updated: '2026-09-15' },
-    image: unsplash('1613977257363-707ba9348227'),
-    alt: 'A family home with a private garden in a gated community',
-  },
-  {
-    slug: 'marina-crest-penthouses',
-    name: 'Marina Crest',
-    developer: 'DAMAC Properties',
-    area: 'Dubai Marina',
-    propertyTypes: ['Apartment', 'Penthouse'],
-    bedrooms: [1, 2, 3, 4],
-    fromPrice: 3_600_000,
-    handover: { quarter: 3, year: 2028 },
-    paymentPlan: '60/40',
-    launchedAt: '2026-06-18',
-    description: [
-      'Apartments and penthouses on the Dubai Marina waterfront, with marina-facing balconies on every floor.',
-      'Upper floors are reserved for four-bedroom penthouses with private terraces.',
-    ],
-    amenities: ['Marina-facing balconies', 'Sky lounge', 'Infinity pool', 'Valet parking'],
-    construction: { progress: 22, updated: '2026-09-19' },
-    image: unsplash('1580674684081-7617fbf3d745'),
-    alt: 'The Dubai skyline seen across the city',
-  },
-  {
-    slug: 'hartland-waterside',
-    name: 'Hartland Waterside',
-    developer: 'Sobha Realty',
-    area: 'Mohammed Bin Rashid City',
-    propertyTypes: ['Apartment', 'Villa'],
-    bedrooms: [1, 2, 3, 4],
-    fromPrice: 1_980_000,
-    handover: { quarter: 4, year: 2027 },
-    paymentPlan: '60/40',
-    launchedAt: '2026-04-30',
-    description: [
-      'Apartments and villas set along the lagoons of Mohammed Bin Rashid City, ten minutes from Downtown.',
-      'A green, low-rise community with lagoons, parks and international schools inside the masterplan.',
-    ],
-    amenities: ['Crystal lagoons', 'International schools', 'Parks', 'Cycling tracks'],
-    construction: { progress: 38, updated: '2026-09-21' },
-    image: unsplash('1504307651254-35680f356dfd'),
-    alt: 'Construction under way on a new waterside development',
-  },
-];
+/** WordPress collection names, tidied for the filter bar. */
+const COLLECTION_LABELS: Record<string, string> = {
+  'Investment Collection': 'Investment',
+  'Luxury Collection': 'Luxury',
+  'Best roi & Capital Growth Projects)': 'Best ROI & Capital Growth',
+  'Best Projects Under AED 1.5M': 'Under AED 1.5M',
+  'Best Affordable Townhouse & Villa Projects': 'Affordable Townhouses & Villas',
+  'Latest Launch': 'Latest Launch',
+};
+
+/**
+ * REAL – the off-plan projects on the current DRP website, imported by
+ * `npm run import:drp` (see scripts/import-drp-content.mjs). Payment plans are
+ * not published there, so cards show them only once the data includes one.
+ */
+export const projects: Project[] = importedProjects
+  .filter((r) => r.startingPrice)
+  .map((r) => ({
+    slug: r.slug,
+    name: r.name,
+    developer: r.developer,
+    area: r.area,
+    collections: r.collections.map((c) => COLLECTION_LABELS[c] ?? c),
+    propertyTypes: r.propertyTypes as ProjectType[],
+    bedrooms: r.bedrooms,
+    fromPrice: r.startingPrice!,
+    handoverYear: r.handoverYear,
+    paymentPlan: r.paymentPlan as string | null,
+    launchedAt: r.launchedAt,
+    description: r.about.length ? r.about : [r.summary],
+    highlights: r.highlights,
+    locationText: r.locationText,
+    image: r.image!,
+    alt: `${r.name}, ${r.area}`,
+    gallery: r.gallery.map((src, i) => ({ src, alt: `${r.name}, image ${i + 1}` })),
+    sourceUrl: r.sourceUrl,
+  }))
+  .sort((a, b) => b.launchedAt.localeCompare(a.launchedAt));
+
+/* -------------------------------------------------------------------------- */
+/*  CONSTRUCTION UPDATES                                                      */
+/* -------------------------------------------------------------------------- */
+
+export type ConstructionUpdate = {
+  id: string;
+  name: string;
+  area: string;
+  /** Site progress, 0–100, as reported by the developer */
+  progress: number;
+  image: string;
+  updated: string;
+  /** The project page, when DRP also sells the project */
+  href: string | null;
+};
+
+const normalise = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+/** REAL – DRP's construction updates, imported with the projects. */
+export const constructionUpdates: ConstructionUpdate[] = importedConstruction
+  .filter((c) => c.progress != null && c.updated)
+  /* Reports repeat a project month to month; keep its latest figure */
+  .sort((a, b) => b.updated.localeCompare(a.updated))
+  .filter((c, i, all) => all.findIndex((x) => normalise(x.name) === normalise(c.name)) === i)
+  .map((c) => {
+    const match = projects.find((p) => normalise(p.name) === normalise(c.name));
+    return {
+      id: c.id,
+      name: c.name,
+      area: c.area,
+      progress: c.progress,
+      image: c.image,
+      updated: c.updated,
+      href: match ? `/off-plan/${match.slug}` : null,
+    };
+  })
+  .sort((a, b) => b.progress - a.progress || a.name.localeCompare(b.name));
+
+export const constructionFor = (p: Project) =>
+  constructionUpdates.find((c) => c.href === `/off-plan/${p.slug}`);
 
 /* -------------------------------------------------------------------------- */
 /*  DERIVED LISTS + FORMATTING                                                */
@@ -298,27 +136,25 @@ export const projects: Project[] = [
 
 export const projectHref = (slug: string) => `/off-plan/${slug}`;
 
-/** Newest first; the carousel shows the latest six. */
-export const latestLaunches = [...projects]
-  .sort((a, b) => b.launchedAt.localeCompare(a.launchedAt))
-  .slice(0, 6);
+/** DRP's "Latest Launch" collection, newest first; the carousel shows six. */
+export const latestLaunches = projects.filter((p) => p.collections.includes('Latest Launch')).slice(0, 6);
 
-/** The four projects featured in the homepage's off-plan tab. */
-export const featuredProjects = [
-  'marina-horizon-residences',
-  'palm-shore-collection',
-  'the-hills-park-villas',
-  'downtown-quarter-tower',
-].map((slug) => projects.find((p) => p.slug === slug)!);
+/** The homepage's off-plan tab: the four newest launches. */
+export const featuredProjects = latestLaunches.slice(0, 4);
 
 export const formatAed = (n: number) => `AED ${n.toLocaleString('en-US')}`;
 
-export const handoverLabel = (p: Project) => `Q${p.handover.quarter} ${p.handover.year}`;
+export const handoverLabel = (p: Project) => (p.handoverYear ? String(p.handoverYear) : 'TBC');
+
+/** "Developer · Area", or just the area when the developer is not named. */
+export const projectEyebrow = (p: Project) => (p.developer ? `${p.developer} · ${p.area}` : p.area);
 
 const bedLabel = (n: number) => (n === 0 ? 'Studio' : String(n));
 
-/** "Studio – 2 Bed · Apartments" / "4 – 6 Bed · Villas" */
+/** "Studio – 2 Bed · Apartments" / "4 – 6 Bed · Villas" / "Apartments & Penthouses" */
 export function unitTypesLabel(p: Project): string {
+  const types = p.propertyTypes.map((t) => `${t}s`).join(' & ');
+  if (!p.bedrooms.length) return types;
   const min = Math.min(...p.bedrooms);
   const max = Math.max(...p.bedrooms);
   const beds =
@@ -327,7 +163,6 @@ export function unitTypesLabel(p: Project): string {
         ? 'Studio'
         : `${min} Bed`
       : `${bedLabel(min)} – ${max} Bed`;
-  const types = p.propertyTypes.map((t) => `${t}s`).join(' & ');
   return `${beds} · ${types}`;
 }
 
@@ -357,10 +192,16 @@ export const facets: Facet<Project>[] = [
     test: (p, sel) => sel.includes(p.area),
   },
   {
+    key: 'collection',
+    label: 'Collection',
+    options: asOptions(uniqueSorted(projects.flatMap((p) => p.collections))),
+    test: (p, sel) => p.collections.some((c) => sel.includes(c)),
+  },
+  {
     key: 'developer',
     label: 'Developer',
-    options: asOptions(uniqueSorted(projects.map((p) => p.developer))),
-    test: (p, sel) => sel.includes(p.developer),
+    options: asOptions(uniqueSorted(projects.flatMap((p) => (p.developer ? [p.developer] : [])))),
+    test: (p, sel) => !!p.developer && sel.includes(p.developer),
   },
   {
     key: 'type',
@@ -378,8 +219,8 @@ export const facets: Facet<Project>[] = [
   {
     key: 'handover',
     label: 'Handover',
-    options: asOptions(uniqueSorted(projects.map((p) => String(p.handover.year)))),
-    test: (p, sel) => sel.includes(String(p.handover.year)),
+    options: asOptions(uniqueSorted(projects.flatMap((p) => (p.handoverYear ? [String(p.handoverYear)] : [])))),
+    test: (p, sel) => sel.includes(String(p.handoverYear)),
   },
 ];
 
@@ -398,22 +239,9 @@ export function constructionStage(progress: number) {
   return 'Enabling works';
 }
 
-/**
- * Indicative schedule from a "60/40" plan: a 10% booking deposit, the rest of
- * the first figure during construction, the second figure on handover.
- */
-export function paymentSchedule(plan: string) {
-  const [during, onHandover] = plan.split('/').map(Number);
-  return [
-    { label: 'On booking', percent: 10 },
-    { label: 'During construction', percent: during - 10 },
-    { label: 'On handover', percent: onHandover },
-  ];
-}
-
 /** Same area or developer first. */
 export function similarProjects(p: Project, count = 3) {
-  const score = (x: Project) => (x.area === p.area ? 2 : 0) + (x.developer === p.developer ? 1 : 0);
+  const score = (x: Project) => (x.area === p.area ? 2 : 0) + (x.developer && x.developer === p.developer ? 1 : 0);
   return projects
     .filter((x) => x.slug !== p.slug)
     .sort((a, b) => score(b) - score(a) || b.launchedAt.localeCompare(a.launchedAt))

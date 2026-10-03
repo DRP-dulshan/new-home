@@ -18,6 +18,12 @@ const nextConfig = {
         hostname: 'dubairapidproperties.com',
         pathname: '/**',
       },
+      /* Listing photos, served by Property Finder */
+      {
+        protocol: 'https',
+        hostname: 'static.shared.propertyfinder.ae',
+        pathname: '/media/images/**',
+      },
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',

@@ -415,9 +415,15 @@ export const interiorDesign = {
     heading: 'Interiors That Work as Hard as They Look',
     intro:
       'Concept, sourcing and styling for owners preparing a home to live in, to let or to sell.',
-    image: unsplash('1616486338812-3dadae4b4ace', 2000),
-    imageAlt: 'A bright double-height living room',
+    // REAL – from the current DRP Interior Design page
+    image: 'https://dubairapidproperties.com/wp-content/uploads/2023/02/interior-design.jpg',
+    imageAlt: 'A living room styled by DRP Interiors',
   },
+  /** REAL – the Signature and Essentials package images from the current DRP site */
+  gallery: [
+    { src: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.webp', alt: 'A living room from the DRP Signature package' },
+    { src: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.jpg', alt: 'A living and dining space from the DRP Essentials package' },
+  ],
   intro: [
     'DRP Interiors designs homes with a clear purpose. A family villa, a holiday apartment and a property going to market each need something different, and we design for the outcome as much as the look.',
     'Because we also sell, let and manage property, our designers know what buyers, tenants and guests in Dubai respond to, and what lasts.',
@@ -469,9 +475,19 @@ export const fitOut = {
     heading: 'Turnkey Fit-Out, Handover to Move-In',
     intro:
       'From shell-and-core handover to a finished, rent-ready home: design, approvals and construction managed by one team.',
-    image: unsplash('1504307651254-35680f356dfd', 2000),
-    imageAlt: 'Construction under way on a new development',
+    // REAL – a DRP bathroom fit-out, from the current DRP Fit Out page
+    image: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/79E2A9DE-11AB-4413-9377-9FD50F843346-scaled.jpeg',
+    imageAlt: 'A marble bathroom finished by the DRP fit-out team',
   },
+  /** REAL – one completed DRP bathroom, from the current DRP site */
+  gallery: [
+    { src: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/79E2A9DE-11AB-4413-9377-9FD50F843346-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 1' },
+    { src: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/C2891D1F-11A0-4C1C-A205-2460A194A674-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 2' },
+    { src: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/4916688E-4CDC-44CC-82C3-E78AE898C8F7-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 3' },
+    { src: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/8CEC8744-7500-4A04-B056-47C77699B5C2-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 4' },
+    { src: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/BEA1BE7A-DF42-4A27-A0EB-4AC3078D9795-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 5' },
+    { src: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/98AA7D81-C180-428D-953E-A1E0FCA2CB65-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 6' },
+  ],
   intro: [
     'Many new villas and penthouses are handed over needing significant work before anyone can move in. Others need upgrading to compete in the rental market. Our fit-out team manages the whole process.',
     'We handle the drawings, the building and community approvals, the contractors and the snagging, and keep you updated with photos at every stage.',

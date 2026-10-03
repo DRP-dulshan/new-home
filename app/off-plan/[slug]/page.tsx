@@ -2,22 +2,24 @@ import { notFound } from 'next/navigation';
 import PageHero from '@/components/PageHero';
 import SiteShell from '@/components/layout/SiteShell';
 import ProjectCard from '@/components/offplan/ProjectCard';
+import ListingGallery from '@/components/properties/ListingGallery';
 import FormSection from '@/components/sections/FormSection';
 import ArrowLink from '@/components/ui/ArrowLink';
 import Reveal from '@/components/ui/Reveal';
 import SectionHeading from '@/components/ui/SectionHeading';
 import SmartLink from '@/components/ui/SmartLink';
+import { areaHref, areas } from '@/data/areas';
 import { contactStep, type LeadFormConfig } from '@/data/leadPages';
 import {
+  constructionFor,
   constructionStage,
   formatAed,
   getProject,
   handoverLabel,
-  paymentSchedule,
+  projectEyebrow,
   similarProjects,
   unitTypesLabel,
 } from '@/data/offPlan';
-import { toSlug } from '@/lib/slug';
 import { staticSlugs } from './slugs';
 
 /** Next 16: route params arrive as a Promise and must be awaited. */
@@ -32,7 +34,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps) {
   const project = getProject((await params).slug);
   return {
-    title: project ? `${project.name} by ${project.developer} | Dubai Rapid Properties` : 'Off-Plan | Dubai Rapid Properties',
+    title: project
+      ? `${project.name}${project.developer ? ` by ${project.developer}` : ''} | Dubai Rapid Properties`
+      : 'Off-Plan | Dubai Rapid Properties',
   };
 }
 
@@ -42,15 +46,21 @@ export default async function Page({ params }: PageProps) {
   const project = getProject((await params).slug);
   if (!project) notFound();
 
-  const schedule = paymentSchedule(project.paymentPlan);
-  const { progress, updated } = project.construction;
+  const construction = constructionFor(project);
+  /* Only link areas that have a guide */
+  const guide = areas.find((a) => a.name === project.area);
   const facts = [
     ['Starting price', formatAed(project.fromPrice)],
     ['Handover', handoverLabel(project)],
-    ['Payment plan', `${project.paymentPlan}`],
     ['Units', unitTypesLabel(project)],
-    ['Developer', project.developer],
-  ];
+    ['Location', project.area],
+    ...(project.paymentPlan ? [['Payment plan', project.paymentPlan]] : []),
+    ...(project.developer ? [['Developer', project.developer]] : []),
+  ].slice(0, 5);
+  /* Unit-type step: bedrooms when known, otherwise property types */
+  const unitOptions = project.bedrooms.length
+    ? project.bedrooms.map(bedLabel)
+    : project.propertyTypes.map((t) => `${t}`);
 
   const interestForm: LeadFormConfig = {
     formId: 'off-plan-interest',
@@ -63,8 +73,8 @@ export default async function Page({ params }: PageProps) {
         label: 'Unit Type',
         question: 'Which unit type interests you?',
         kind: 'choice',
-        columns: project.bedrooms.length > 2 ? 3 : 2,
-        options: project.bedrooms.map((b) => ({ value: bedLabel(b), label: bedLabel(b) })),
+        columns: unitOptions.length > 2 ? 3 : 2,
+        options: [...unitOptions, 'Not sure yet'].map((v) => ({ value: v, label: v })),
       },
       {
         id: 'purpose',
@@ -84,9 +94,9 @@ export default async function Page({ params }: PageProps) {
   return (
     <SiteShell>
       <PageHero
-        eyebrow={`${project.developer} · ${project.area}`}
+        eyebrow={projectEyebrow(project)}
         heading={project.name}
-        intro={project.description[0]}
+        intro={project.description[0].length > 260 ? `${project.description[0].slice(0, 250).replace(/\s+\S*$/, '')}…` : project.description[0]}
         image={project.image}
         imageAlt={project.alt}
       />
@@ -110,7 +120,7 @@ export default async function Page({ params }: PageProps) {
         </div>
       </section>
 
-      {/* ---------- About ---------- */}
+      {/* ---------- About + highlights ---------- */}
       <section aria-labelledby="about-heading" className="section-y bg-white">
         <div className="container-drp grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
@@ -123,87 +133,101 @@ export default async function Page({ params }: PageProps) {
               ))}
             </div>
             <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
-              <ArrowLink href={`/areas/${toSlug(project.area)}`} label={`${project.area} area guide`} />
+              {guide ? <ArrowLink href={areaHref(guide.name)} label={`${guide.name} area guide`} /> : null}
               <ArrowLink href="/ecosystem/mortgage" label="Mortgage assistance" />
             </div>
           </div>
           <div className="lg:col-span-5 lg:pt-16">
-            <p className="eyebrow text-charcoal-muted">Amenities</p>
-            <ul className="mt-5 border-t border-line">
-              {project.amenities.map((a) => (
-                <li key={a} className="flex items-baseline gap-4 border-b border-line py-4 text-[15px] font-light text-charcoal">
-                  <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 -translate-y-0.5 rounded-full bg-orange" />
-                  {a}
-                </li>
-              ))}
-            </ul>
+            {project.highlights.length ? (
+              <>
+                <p className="eyebrow text-charcoal-muted">Highlights</p>
+                <ul className="mt-5 border-t border-line">
+                  {project.highlights.map((h) => (
+                    <li key={h.title} className="border-b border-line py-5">
+                      <p className="flex items-baseline gap-4 text-[15px] text-charcoal">
+                        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 -translate-y-0.5 rounded-full bg-orange" />
+                        {h.title}
+                      </p>
+                      {h.text ? <p className="mt-1.5 pl-[1.375rem] text-sm font-light leading-relaxed text-charcoal-muted">{h.text}</p> : null}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
             <p className="eyebrow mt-10 text-charcoal-muted">Configurations</p>
             <p className="mt-3 text-[15px] font-light text-charcoal">
-              {project.bedrooms.map(bedLabel).join(' · ')} — {project.propertyTypes.join(', ')}
+              {project.bedrooms.length ? `${project.bedrooms.map(bedLabel).join(' · ')} — ` : ''}
+              {project.propertyTypes.join(', ')}
             </p>
           </div>
         </div>
       </section>
 
-      {/* ---------- Payment plan + construction ---------- */}
-      <section aria-labelledby="plan-heading" className="section-y bg-ink text-white">
-        <div className="container-drp grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <SectionHeading
-              eyebrow="Payment Plan"
-              heading={`${project.paymentPlan} Payment Plan`}
-              headingId="plan-heading"
-              tone="light"
-            />
-            <div aria-hidden="true" className="mt-10 flex h-1.5 w-full overflow-hidden bg-white/10">
-              {schedule.map((s, i) => (
+      {/* ---------- Gallery ---------- */}
+      {project.gallery.length > 1 ? (
+        <section aria-labelledby="gallery-heading" className="section-y bg-cream">
+          <div className="container-drp">
+            <SectionHeading eyebrow="Gallery" heading={`Inside ${project.name}`} headingId="gallery-heading" />
+            <div className="mt-12">
+              <ListingGallery images={project.gallery} title={project.name} />
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* ---------- Location + construction ---------- */}
+      {project.locationText.length || construction ? (
+        <section aria-labelledby="location-heading" className="section-y bg-ink text-white">
+          <div className="container-drp grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
+            <div>
+              <SectionHeading eyebrow="Location" heading={project.area} headingId="location-heading" tone="light" />
+              <div className="mt-8 space-y-5">
+                {project.locationText.slice(0, 2).map((p, i) => (
+                  <p key={i} className="text-[15px] font-light leading-relaxed text-white/70">
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {construction ? (
+              <div>
+                <SectionHeading eyebrow="Construction" heading={constructionStage(construction.progress)} tone="light" />
                 <div
-                  key={s.label}
-                  style={{ width: `${s.percent}%` }}
-                  className={i === 0 ? 'bg-orange' : i === 1 ? 'bg-orange/60' : 'bg-white/70'}
-                />
-              ))}
-            </div>
-            <dl className="mt-8 grid grid-cols-3 gap-6">
-              {schedule.map((s) => (
-                <div key={s.label}>
-                  <dd className="font-serif text-[clamp(2rem,4vw,3rem)] font-light leading-none">{s.percent}%</dd>
-                  <dt className="mt-3 text-[10px] uppercase tracking-eyebrow text-white/50">{s.label}</dt>
+                  role="progressbar"
+                  aria-label="Construction progress"
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={construction.progress}
+                  className="mt-10 h-1.5 w-full bg-white/10"
+                >
+                  <div className="h-full bg-orange" style={{ width: `${construction.progress}%` }} />
                 </div>
-              ))}
-            </dl>
-            <p className="mt-8 text-xs font-light text-white/40">
-              Indicative schedule. The developer&rsquo;s sales and purchase agreement sets the final instalment dates.
-            </p>
+                <div className="mt-8 flex items-end justify-between gap-6">
+                  <p className="font-serif text-[clamp(2rem,4vw,3rem)] font-light leading-none">{construction.progress}%</p>
+                  <p className="text-right text-[11px] uppercase tracking-eyebrow text-white/50">
+                    Expected handover {handoverLabel(project)}
+                    <br />
+                    Updated{' '}
+                    {new Date(construction.updated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  </p>
+                </div>
+                <div className="mt-10">
+                  <ArrowLink href="/off-plan/construction-tracker" label="Construction tracker" tone="light" />
+                </div>
+              </div>
+            ) : (
+              <div className="lg:pt-16">
+                <p className="eyebrow text-white/50">Expected handover</p>
+                <p className="mt-3 font-serif text-[clamp(2rem,4vw,3rem)] font-light leading-none">{handoverLabel(project)}</p>
+                <p className="mt-6 max-w-sm text-sm font-light leading-relaxed text-white/60">
+                  Starting from {formatAed(project.fromPrice)}. Ask a DRP specialist for the payment plan and current availability.
+                </p>
+              </div>
+            )}
           </div>
-
-          <div>
-            <SectionHeading eyebrow="Construction" heading={constructionStage(progress)} tone="light" />
-            <div
-              role="progressbar"
-              aria-label="Construction progress"
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-valuenow={progress}
-              className="mt-10 h-1.5 w-full bg-white/10"
-            >
-              <div className="h-full bg-orange" style={{ width: `${progress}%` }} />
-            </div>
-            <div className="mt-8 flex items-end justify-between gap-6">
-              <p className="font-serif text-[clamp(2rem,4vw,3rem)] font-light leading-none">{progress}%</p>
-              <p className="text-right text-[11px] uppercase tracking-eyebrow text-white/50">
-                Expected handover {handoverLabel(project)}
-                <br />
-                Updated{' '}
-                {new Date(updated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
-              </p>
-            </div>
-            <div className="mt-10">
-              <ArrowLink href="/off-plan/construction-tracker" label="Construction tracker" tone="light" />
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <FormSection
         eyebrow="Register Interest"

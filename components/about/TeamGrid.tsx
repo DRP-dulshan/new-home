@@ -21,7 +21,7 @@ export default function TeamGrid() {
                   fill
                   loading="lazy"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-[900ms] ease-premium group-hover:scale-[1.05] group-focus-within:scale-[1.05]"
+                  className="object-cover object-[50%_18%] transition-transform duration-[900ms] ease-premium group-hover:scale-[1.05] group-focus-within:scale-[1.05]"
                 />
                 <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-5 transition-transform duration-500 ease-premium group-hover:-translate-y-2 group-focus-within:-translate-y-2 sm:p-6">
@@ -30,7 +30,7 @@ export default function TeamGrid() {
                 </div>
               </div>
               <div className="mt-4 flex items-start justify-between gap-4">
-                <p className="text-sm font-light leading-relaxed text-charcoal-muted">{m.line}</p>
+                {m.line ? <p className="text-sm font-light leading-relaxed text-charcoal-muted">{m.line}</p> : null}
                 {m.whatsapp || m.email ? (
                   <div className="flex shrink-0 items-center gap-3 pt-0.5">
                     {m.whatsapp ? (

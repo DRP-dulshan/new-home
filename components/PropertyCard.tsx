@@ -14,8 +14,12 @@ export default function PropertyCard(props: Props) {
   const isProject = kind === 'offplan';
 
   /* Sale and rental cards share the same shape; only the price line differs. */
-  const badge = isProject ? item.paymentPlan : item.status;
-  const eyebrow = isProject ? `${item.developer} · ${item.community}` : item.location;
+  const badge = isProject ? item.paymentPlan ?? 'New Launch' : item.status;
+  const eyebrow = isProject
+    ? item.developer
+      ? `${item.developer} · ${item.community}`
+      : item.community
+    : item.location;
 
   return (
     <article className="group">
@@ -65,7 +69,7 @@ export default function PropertyCard(props: Props) {
             {isProject ? (
               <>
                 <span>Handover {item.handover}</span>
-                <span className="shrink-0 whitespace-nowrap">{item.paymentPlan} plan</span>
+                <span className="text-right">{item.paymentPlan ? `${item.paymentPlan} plan` : item.units}</span>
               </>
             ) : (
               <>

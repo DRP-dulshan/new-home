@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "import:drp": "node scripts/import-drp-content.mjs"
   },
   "dependencies": {
     "embla-carousel-react": "^8.3.0",

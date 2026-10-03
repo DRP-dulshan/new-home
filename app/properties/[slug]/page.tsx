@@ -15,7 +15,7 @@ import {
   similarListings,
   toPropertyCard,
 } from '@/data/properties';
-import { toSlug } from '@/lib/slug';
+import { areaHref, areas } from '@/data/areas';
 import { staticSlugs } from './slugs';
 
 /** Next 16: route params arrive as a Promise and must be awaited. */
@@ -60,9 +60,12 @@ export default async function Page({ params }: PageProps) {
     ['Bathrooms', String(listing.baths)],
     ['Size', `${listing.size.toLocaleString('en-US')} sq ft`],
     ['Type', listing.type],
-    ['Furnishing', listing.furnishing],
-    ['Reference', listing.ref],
+    ['Status', listing.completion],
+    ...(listing.furnishing ? [['Furnishing', listing.furnishing]] : []),
+    ...(listing.permit ? [['DLD Permit', listing.permit]] : []),
   ];
+  /* Only link areas that have a guide */
+  const guide = areas.find((a) => a.name === listing.area);
   const similar = similarListings(listing);
 
   return (
@@ -90,16 +93,20 @@ export default async function Page({ params }: PageProps) {
           <div className="mt-10 grid grid-cols-1 gap-14 sm:mt-14 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
               <p className="eyebrow text-orange">
-                {isRent ? 'For Rent' : 'For Sale'} · {listing.ref}
+                {isRent ? 'For Rent' : 'For Sale'}
+                {listing.completion === 'Off-Plan' ? ' · Off-Plan' : ''}
               </p>
               <h1 className="heading-display mt-4 text-[clamp(2rem,4vw,3.25rem)] text-charcoal">
                 {listing.title}
               </h1>
               <p className="mt-4 text-sm font-light text-charcoal-muted">
-                {listing.building ? `${listing.building}, ` : ''}
-                <SmartLink href={`/areas/${toSlug(listing.area)}`} className="underline-offset-4 hover:text-orange hover:underline">
-                  {listing.area}
-                </SmartLink>
+                {guide ? (
+                  <SmartLink href={areaHref(guide.name)} className="underline-offset-4 hover:text-orange hover:underline">
+                    {listing.area}
+                  </SmartLink>
+                ) : (
+                  listing.area
+                )}
               </p>
               <p className="mt-6 font-serif text-[clamp(1.8rem,3vw,2.4rem)] text-charcoal">
                 {formatPrice(listing)}
@@ -126,18 +133,28 @@ export default async function Page({ params }: PageProps) {
                 ))}
               </div>
 
-              <h2 className="mt-14 font-serif text-[1.75rem] font-light text-charcoal">Features</h2>
-              <ul className="mt-5 grid grid-cols-1 border-t border-line sm:grid-cols-2 sm:gap-x-10">
-                {listing.features.map((f) => (
-                  <li key={f} className="flex items-baseline gap-4 border-b border-line py-4 text-[15px] font-light text-charcoal">
-                    <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 -translate-y-0.5 rounded-full bg-orange" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
+              {listing.features.length ? (
+                <>
+                  <h2 className="mt-14 font-serif text-[1.75rem] font-light text-charcoal">Features</h2>
+                  <ul className="mt-5 grid grid-cols-1 border-t border-line sm:grid-cols-2 sm:gap-x-10">
+                    {listing.features.map((f) => (
+                      <li key={f} className="flex items-baseline gap-4 border-b border-line py-4 text-[15px] font-light text-charcoal">
+                        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 -translate-y-0.5 rounded-full bg-orange" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
 
-              <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4">
-                <ArrowLink href={`/areas/${toSlug(listing.area)}`} label={`${listing.area} area guide`} />
+              {listing.agent ? (
+                <p className="mt-12 text-sm font-light text-charcoal-muted">
+                  Listed by <span className="text-charcoal">{listing.agent}</span> · Ref. {listing.ref}
+                </p>
+              ) : null}
+
+              <div className="mt-8 flex flex-wrap gap-x-10 gap-y-4">
+                {guide ? <ArrowLink href={areaHref(guide.name)} label={`${guide.name} area guide`} /> : null}
                 {isRent ? null : (
                   <ArrowLink href={`/ecosystem/mortgage?price=${listing.price}`} label="Estimate your mortgage" />
                 )}
