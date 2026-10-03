@@ -2,16 +2,25 @@
 
 import { useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { contact, footer } from '@/data/homepage';
 import { fullMenu } from '@/data/navigation';
 import SmartLink from '../ui/SmartLink';
 
-const socialIcons: Record<string, typeof Instagram> = {
+/** The X logo (lucide only ships the old bird). */
+function XLogo({ className }: { className?: string; strokeWidth?: number }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77L17.75 3Zm-1.08 16.18h1.7L7.4 4.73H5.58l11.09 14.45Z" />
+    </svg>
+  );
+}
+
+const socialIcons: Record<string, typeof Instagram | typeof XLogo> = {
   Instagram,
   Facebook,
   LinkedIn: Linkedin,
-  YouTube: Youtube,
+  X: XLogo,
 };
 
 type Props = {
