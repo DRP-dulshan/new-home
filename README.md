@@ -55,8 +55,15 @@ the script and rebuilding refreshes the site.
 
 Details the old site does not publish, so the new one infers or leaves out:
 
-- **Area**, unit types and bedrooms are read from each listing's or project's text; 2 listings
-  fall back to "Dubai", and a few projects use a sub-community name (e.g. Wadi Al Safa 3).
+- **Location.** Neither the old site nor the listings carry coordinates. A listing is placed by
+  the building it names, from the `BUILDINGS` list in the import script (96 of 101 do), then by
+  the first community it mentions. A project uses DRP's own Location field, falling back to its
+  name and text only when that field just says "Dubai". Add a row to `BUILDINGS` when a new
+  building appears.
+- **Maps.** Every listing and project page embeds a Google map searched by building (or
+  project name) and community, with an *Open in Google Maps* link. Listings without a named
+  building say the pin marks the community.
+- Unit types and bedrooms are read from each project's text.
 - **Developer** is named on 46 of 77 projects; the rest show the area only.
 - **Payment plans** are not published, so cards and project pages hide them. The
   homepage Off-Plan tab shows unit types in their place.
@@ -72,7 +79,7 @@ Details the old site does not publish, so the new one infers or leaves out:
 | "Rated 4.9 on Google" | **Placeholder** — confirm the live rating. |
 | Area guides (12) | **Placeholder** figures — price per sq ft, yields and drive times. |
 | News articles (7) | **Placeholder** — written in DRP's voice, not real posts. |
-| Team lines | The short line under each portrait paraphrases the person's bio; Delia Cuadrante has no bio on the old site. |
+| Team lines | Each card on `/about#team` opens a profile at `/about/team/[slug]` with the full bio, contact buttons, the person's own listings and an enquiry form. The short card line paraphrases the bio. Delia Cuadrante has no bio on the old site, so her profile shows one line about the office. No direct phone numbers or emails are published, so contact goes through the office. |
 | Office hours | **Placeholder** — not published on the current site. |
 | Construction tracker hero | **Placeholder** — Unsplash photo. |
 | Careers hero | **Placeholder** — Unsplash office photo; replace with the DRP team group photo taken in front of the office. The application form logs its payload (CV name, size and type only); the file itself needs a multipart upload endpoint. |

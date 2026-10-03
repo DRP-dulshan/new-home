@@ -8,6 +8,7 @@
   "price": 1350000,
   "type": "Apartment",
   "area": "Business Bay",
+  "building": "Aykon City",
   "beds": 1,
   "baths": 1,
   "size": 631,
@@ -39,7 +40,11 @@
    "Shared Pool",
    "Shared Gym"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/1-br-apartment-for-sale-in-aykon-city-tower-b/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/1-br-apartment-for-sale-in-aykon-city-tower-b/",
+  "map": {
+   "query": "Aykon City, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "1-br-balcony-prime-location",
@@ -50,6 +55,7 @@
   "price": 75000,
   "type": "Apartment",
   "area": "Dubai Silicon Oasis",
+  "building": "Binghatti Stars",
   "beds": 1,
   "baths": 1,
   "size": 885,
@@ -94,7 +100,11 @@
    "Lobby In Building",
    "Security"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/1-br-balcony-prime-location/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/1-br-balcony-prime-location/",
+  "map": {
+   "query": "Binghatti Stars, Dubai Silicon Oasis, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "1-br-fully-furnished-prime-location",
@@ -104,7 +114,8 @@
   "offering": "buy",
   "price": 1450000,
   "type": "Apartment",
-  "area": "Jumeirah Beach Residence",
+  "area": "Dubai Marina",
+  "building": "The Waves Tower A",
   "beds": 1,
   "baths": 1,
   "size": 971,
@@ -144,7 +155,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/1-br-fully-furnished-prime-location/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/1-br-fully-furnished-prime-location/",
+  "map": {
+   "query": "The Waves Tower A, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "1-br-waterfront-living",
@@ -154,7 +169,8 @@
   "offering": "buy",
   "price": 1450000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "Mohammed Bin Rashid City",
+  "building": "320 Riverside Crescent, Sobha Hartland II",
   "beds": 1,
   "baths": 1,
   "size": 679,
@@ -187,7 +203,11 @@
    "Shared Gym",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/1-br-waterfront-living/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/1-br-waterfront-living/",
+  "map": {
+   "query": "320 Riverside Crescent, Sobha Hartland II, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "2br-i-high-floor-and-sunset-view",
@@ -198,6 +218,7 @@
   "price": 2350000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Marina Residence 4",
   "beds": 2,
   "baths": 3,
   "size": 1746,
@@ -242,7 +263,11 @@
    "Covered Parking",
    "Kitchen Appliances"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/2br-i-high-floor-and-sunset-view/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/2br-i-high-floor-and-sunset-view/",
+  "map": {
+   "query": "Marina Residence 4, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "2br-unfurnished-apartment-prime-location",
@@ -253,6 +278,7 @@
   "price": 165000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Golden Mile 1",
   "beds": 2,
   "baths": 3,
   "size": 1887,
@@ -308,7 +334,11 @@
    "Lobby In Building",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/2br-unfurnished-apartment-prime-location/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/2br-unfurnished-apartment-prime-location/",
+  "map": {
+   "query": "Golden Mile 1, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "5br-stunning-best-layout-corner-unit",
@@ -318,7 +348,8 @@
   "offering": "buy",
   "price": 4000000,
   "type": "Townhouse",
-  "area": "Dubai Marina",
+  "area": "Damac Lagoons",
+  "building": "Mykonos, DAMAC Lagoons",
   "beds": 5,
   "baths": 5,
   "size": 2404,
@@ -357,7 +388,11 @@
    "Walk In Closet",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/5br-stunning-best-layout-corner-unit/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/5br-stunning-best-layout-corner-unit/",
+  "map": {
+   "query": "Mykonos, DAMAC Lagoons, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "beach-access-prime-location-furnished",
@@ -368,6 +403,7 @@
   "price": 3900000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Al Khuskar, Shoreline Apartments",
   "beds": 2,
   "baths": 3,
   "size": 1589,
@@ -411,7 +447,11 @@
    "Lobby In Building",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/beach-access-prime-location-furnished/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/beach-access-prime-location-furnished/",
+  "map": {
+   "query": "Al Khuskar, Shoreline Apartments, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "beautiful-1-br-balcony-vacant",
@@ -421,7 +461,8 @@
   "offering": "rent",
   "price": 72000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "Business Bay",
+  "building": "Mayfair Residency",
   "beds": 1,
   "baths": 1,
   "size": 614,
@@ -458,7 +499,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-1-br-balcony-vacant/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-1-br-balcony-vacant/",
+  "map": {
+   "query": "Mayfair Residency, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "beautiful-1-br-ready-to-move-in-prime-location",
@@ -468,7 +513,8 @@
   "offering": "buy",
   "price": 1250000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "Business Bay",
+  "building": "Mayfair Tower",
   "beds": 1,
   "baths": 1,
   "size": 614,
@@ -508,7 +554,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-1-br-ready-to-move-in-prime-location/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-1-br-ready-to-move-in-prime-location/",
+  "map": {
+   "query": "Mayfair Tower, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "beautiful-1br-best-offer",
@@ -518,7 +568,8 @@
   "offering": "buy",
   "price": 1210000,
   "type": "Apartment",
-  "area": "Palm Jumeirah",
+  "area": "JVC",
+  "building": "Helvetia Residences",
   "beds": 1,
   "baths": 1,
   "size": 813,
@@ -557,7 +608,11 @@
    "Lobby In Building",
    "Security"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-1br-best-offer/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-1br-best-offer/",
+  "map": {
+   "query": "Helvetia Residences, JVC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "beautiful-1br-prime-location",
@@ -567,7 +622,8 @@
   "offering": "rent",
   "price": 130000,
   "type": "Apartment",
-  "area": "Jumeirah Beach Residence",
+  "area": "Dubai Marina",
+  "building": "The Waves Tower",
   "beds": 1,
   "baths": 1,
   "size": 1190,
@@ -610,7 +666,11 @@
    "Shared Spa",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-1br-prime-location/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-1br-prime-location/",
+  "map": {
+   "query": "The Waves Tower, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "beautiful-2br-full-atlantis-view-high-floor",
@@ -621,6 +681,7 @@
   "price": 4400000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Marina Residence 6",
   "beds": 2,
   "baths": 3,
   "size": 1745,
@@ -660,7 +721,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-2br-full-atlantis-view-high-floor/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-2br-full-atlantis-view-high-floor/",
+  "map": {
+   "query": "Marina Residence 6, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "beautiful-2br-sea-view-ready-to-movein",
@@ -671,6 +736,7 @@
   "price": 5900000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Azure Residences",
   "beds": 2,
   "baths": 2,
   "size": 2015,
@@ -720,7 +786,11 @@
    "Shared Spa",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-2br-sea-view-ready-to-movein/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-2br-sea-view-ready-to-movein/",
+  "map": {
+   "query": "Azure Residences, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "beautiful-studio-best-deal",
@@ -731,6 +801,7 @@
   "price": 900000,
   "type": "Apartment",
   "area": "Jumeirah Lake Towers",
+  "building": "Seven City",
   "beds": 0,
   "baths": 1,
   "size": 411,
@@ -762,7 +833,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-studio-best-deal/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/beautiful-studio-best-deal/",
+  "map": {
+   "query": "Seven City, Jumeirah Lake Towers, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "best-deal-high-roi-prime-location",
@@ -772,7 +847,8 @@
   "offering": "buy",
   "price": 1750000,
   "type": "Apartment",
-  "area": "Palm Jumeirah",
+  "area": "Dubai Marina",
+  "building": "Silverene Tower A",
   "beds": 1,
   "baths": 1,
   "size": 606,
@@ -810,7 +886,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/best-deal-high-roi-prime-location/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/best-deal-high-roi-prime-location/",
+  "map": {
+   "query": "Silverene Tower A, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "best-deal-lagoon-community-best-layout",
@@ -820,7 +900,8 @@
   "offering": "buy",
   "price": 1900000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "Mohammed Bin Rashid City",
+  "building": "340 Riverside Crescent, Sobha Hartland II",
   "beds": 1,
   "baths": 1,
   "size": 502,
@@ -853,7 +934,11 @@
    "View Of Water",
    "Shared Gym"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/best-deal-lagoon-community-best-layout/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/best-deal-lagoon-community-best-layout/",
+  "map": {
+   "query": "340 Riverside Crescent, Sobha Hartland II, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "best-deal-studio-samana-park-meadows",
@@ -864,6 +949,7 @@
   "price": 720000,
   "type": "Apartment",
   "area": "Dubailand",
+  "building": "Samana Park Meadows",
   "beds": 0,
   "baths": 1,
   "size": 479,
@@ -902,7 +988,11 @@
    "Lobby In Building",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/best-deal-studio-samana-park-meadows/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/best-deal-studio-samana-park-meadows/",
+  "map": {
+   "query": "Samana Park Meadows, Dubailand, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "brand-new-ready-to-move-in-spacious",
@@ -912,7 +1002,8 @@
   "offering": "rent",
   "price": 100000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "Dubai Hills Estate",
+  "building": "Park Heights",
   "beds": 1,
   "baths": 1,
   "size": 657,
@@ -949,7 +1040,11 @@
    "Shared Pool",
    "Shared Gym"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/brand-new-ready-to-move-in-spacious/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/brand-new-ready-to-move-in-spacious/",
+  "map": {
+   "query": "Park Heights, Dubai Hills Estate, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "brightest-sea-view-1br-apartment",
@@ -960,6 +1055,7 @@
   "price": 2650000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Serenia Residences",
   "beds": 1,
   "baths": 2,
   "size": 1004,
@@ -1004,7 +1100,11 @@
    "View Of Landmark",
    "Shared Gym"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/brightest-sea-view-1br-apartment/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/brightest-sea-view-1br-apartment/",
+  "map": {
+   "query": "Serenia Residences, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "brightest-sea-view-private-beach-2br-maids",
@@ -1015,6 +1115,7 @@
   "price": 3300000,
   "type": "Apartment",
   "area": "Jumeirah Beach Residence",
+  "building": "Al Bateen Residences",
   "beds": 2,
   "baths": 4,
   "size": 1700,
@@ -1063,7 +1164,11 @@
    "Shared Gym",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/brightest-sea-view-private-beach-2br-maids/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/brightest-sea-view-private-beach-2br-maids/",
+  "map": {
+   "query": "Al Bateen Residences, Jumeirah Beach Residence, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "charming-1-br-cotier-house",
@@ -1073,7 +1178,8 @@
   "offering": "buy",
   "price": 2600000,
   "type": "Apartment",
-  "area": "Dubai",
+  "area": "Dubai Islands",
+  "building": "Cotier House",
   "beds": 1,
   "baths": 1,
   "size": 908,
@@ -1112,7 +1218,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/charming-1-br-cotier-house/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/charming-1-br-cotier-house/",
+  "map": {
+   "query": "Cotier House, Dubai Islands, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "corner-unit-high-floor-full-sea-view",
@@ -1123,6 +1233,7 @@
   "price": 4800000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "The Palm Tower",
   "beds": 1,
   "baths": 1,
   "size": 1112,
@@ -1171,7 +1282,11 @@
    "Lobby In Building",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/corner-unit-high-floor-full-sea-view/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/corner-unit-high-floor-full-sea-view/",
+  "map": {
+   "query": "The Palm Tower, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "cozy-3br-high-floor-marina-view",
@@ -1182,6 +1297,7 @@
   "price": 275000,
   "type": "Apartment",
   "area": "Dubai Marina",
+  "building": "No. 9",
   "beds": 3,
   "baths": 4,
   "size": 1766,
@@ -1227,7 +1343,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/cozy-3br-high-floor-marina-view/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/cozy-3br-high-floor-marina-view/",
+  "map": {
+   "query": "No. 9, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "distressed-deal-damac-bay-2-by-cavalli",
@@ -1237,7 +1357,8 @@
   "offering": "buy",
   "price": 3075000,
   "type": "Apartment",
-  "area": "Palm Jumeirah",
+  "area": "Dubai Harbour",
+  "building": "DAMAC Bay 2",
   "beds": 1,
   "baths": 1,
   "size": 740,
@@ -1278,7 +1399,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/distressed-deal-damac-bay-2-by-cavalli/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/distressed-deal-damac-bay-2-by-cavalli/",
+  "map": {
+   "query": "DAMAC Bay 2, Dubai Harbour, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "elegance-on-the-waterfront-chelsea-by-damac",
@@ -1289,6 +1414,7 @@
   "price": 2160000,
   "type": "Apartment",
   "area": "Dubai Maritime City",
+  "building": "Chelsea Residences",
   "beds": 1,
   "baths": 1,
   "size": 700,
@@ -1316,7 +1442,11 @@
    "Shared Pool",
    "View Of Water"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/elegance-on-the-waterfront-chelsea-by-damac/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/elegance-on-the-waterfront-chelsea-by-damac/",
+  "map": {
+   "query": "Chelsea Residences, Dubai Maritime City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "elegant-3-bedroom-villa-maids-room-la-rosa-5",
@@ -1326,7 +1456,8 @@
   "offering": "rent",
   "price": 180000,
   "type": "Villa",
-  "area": "Dubai South",
+  "area": "Villanova",
+  "building": "La Rosa 5",
   "beds": 3,
   "baths": 4,
   "size": 1733,
@@ -1370,7 +1501,11 @@
    "Private Garden",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/elegant-3-bedroom-villa-maids-room-la-rosa-5/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/elegant-3-bedroom-villa-maids-room-la-rosa-5/",
+  "map": {
+   "query": "La Rosa 5, Villanova, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "elegant-studio-sea-view-high-floor",
@@ -1381,6 +1516,7 @@
   "price": 150000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": null,
   "beds": 0,
   "baths": 1,
   "size": 528,
@@ -1416,7 +1552,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/elegant-studio-sea-view-high-floor/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/elegant-studio-sea-view-high-floor/",
+  "map": {
+   "query": "Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": false
+  }
  },
  {
   "slug": "exceptional-1br-burj-khalifa-view",
@@ -1426,7 +1566,8 @@
   "offering": "buy",
   "price": 1700000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "Business Bay",
+  "building": "Peninsula",
   "beds": 1,
   "baths": 1,
   "size": 695,
@@ -1461,7 +1602,11 @@
    "Childrens Pool",
    "Shared Pool"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/exceptional-1br-burj-khalifa-view/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/exceptional-1br-burj-khalifa-view/",
+  "map": {
+   "query": "Peninsula, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "exclusive-5-bedroom-luxurious-frond-villa-2",
@@ -1471,7 +1616,8 @@
   "offering": "buy",
   "price": 24500000,
   "type": "Villa",
-  "area": "Palm Jumeirah",
+  "area": "Palm Jebel Ali",
+  "building": "Frond A, Palm Jebel Ali",
   "beds": 5,
   "baths": 6,
   "size": 7640,
@@ -1509,7 +1655,11 @@
    "View Of Water",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/exclusive-5-bedroom-luxurious-frond-villa-2/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/exclusive-5-bedroom-luxurious-frond-villa-2/",
+  "map": {
+   "query": "Palm Jebel Ali, Dubai, United Arab Emirates",
+   "exact": false
+  }
  },
  {
   "slug": "exquisite-penthouse-full-sea-view-upgraded",
@@ -1520,6 +1670,7 @@
   "price": 13900000,
   "type": "Penthouse",
   "area": "Palm Jumeirah",
+  "building": "Fairmont Palm Residence North",
   "beds": 4,
   "baths": 5,
   "size": 4181,
@@ -1572,7 +1723,11 @@
    "Childrens Play Area",
    "Barbecue Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/exquisite-penthouse-full-sea-view-upgraded/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/exquisite-penthouse-full-sea-view-upgraded/",
+  "map": {
+   "query": "Fairmont Palm Residence North, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "fantastic-skyline-and-sea-view-high-floor-1br",
@@ -1582,7 +1737,8 @@
   "offering": "buy",
   "price": 1600000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "DIFC",
+  "building": "Burj Daman",
   "beds": 1,
   "baths": 1,
   "size": 889,
@@ -1622,7 +1778,11 @@
    "Shared Gym",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/fantastic-skyline-and-sea-view-high-floor-1br/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/fantastic-skyline-and-sea-view-high-floor-1br/",
+  "map": {
+   "query": "Burj Daman, DIFC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "fully-furnished-2br-prime-location-high-roi",
@@ -1633,6 +1793,7 @@
   "price": 2600000,
   "type": "Apartment",
   "area": "Dubai Marina",
+  "building": "Silverene Tower A",
   "beds": 2,
   "baths": 2,
   "size": 1105,
@@ -1668,7 +1829,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/fully-furnished-2br-prime-location-high-roi/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/fully-furnished-2br-prime-location-high-roi/",
+  "map": {
+   "query": "Silverene Tower A, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "fully-furnished-4br-villa-private-beach",
@@ -1679,6 +1844,7 @@
   "price": 900000,
   "type": "Villa",
   "area": "Palm Jumeirah",
+  "building": null,
   "beds": 4,
   "baths": 5,
   "size": 6699,
@@ -1736,7 +1902,11 @@
    "Walk In Closet",
    "Private Garden"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/fully-furnished-4br-villa-private-beach/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/fully-furnished-4br-villa-private-beach/",
+  "map": {
+   "query": "Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": false
+  }
  },
  {
   "slug": "fully-furnished-bills-included-beach-access",
@@ -1747,6 +1917,7 @@
   "price": 140000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "NH Collection Dubai The Palm",
   "beds": 0,
   "baths": 1,
   "size": 366,
@@ -1779,7 +1950,11 @@
    "Shared Gym",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/fully-furnished-bills-included-beach-access/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/fully-furnished-bills-included-beach-access/",
+  "map": {
+   "query": "NH Collection Dubai The Palm, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "fully-renovated-high-floor-beach-access",
@@ -1790,6 +1965,7 @@
   "price": 4300000,
   "type": "Apartment",
   "area": "Jumeirah Beach Residence",
+  "building": "Al Bateen Residences",
   "beds": 2,
   "baths": 3,
   "size": 1704,
@@ -1836,7 +2012,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/fully-renovated-high-floor-beach-access/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/fully-renovated-high-floor-beach-access/",
+  "map": {
+   "query": "Al Bateen Residences, Jumeirah Beach Residence, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "furnished-1-br-apartment-with-shared-pool-and-gym",
@@ -1847,6 +2027,7 @@
   "price": 1100000,
   "type": "Apartment",
   "area": "Dubai",
+  "building": null,
   "beds": 1,
   "baths": 2,
   "size": 652,
@@ -1885,7 +2066,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/furnished-1-br-apartment-with-shared-pool-and-gym/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/furnished-1-br-apartment-with-shared-pool-and-gym/",
+  "map": {
+   "query": "Dubai, United Arab Emirates",
+   "exact": false
+  }
  },
  {
   "slug": "great-deal-brand-new-excellent-roi",
@@ -1896,6 +2081,7 @@
   "price": 3500000,
   "type": "Commercial",
   "area": "Mohammed Bin Rashid City",
+  "building": "Azizi Riviera",
   "beds": 1,
   "baths": 684,
   "size": null,
@@ -1921,7 +2107,11 @@
   "features": [
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/great-deal-brand-new-excellent-roi/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/great-deal-brand-new-excellent-roi/",
+  "map": {
+   "query": "Azizi Riviera, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "greenviews-2-spacious-townhouse-with-modern-amenities",
@@ -1932,6 +2122,7 @@
   "price": 130000,
   "type": "Townhouse",
   "area": "Dubai South",
+  "building": "Greenview 2",
   "beds": 3,
   "baths": 4,
   "size": 1880,
@@ -1974,7 +2165,11 @@
    "Shared Gym",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/greenviews-2-spacious-townhouse-with-modern-amenities/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/greenviews-2-spacious-townhouse-with-modern-amenities/",
+  "map": {
+   "query": "Greenview 2, Dubai South, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "handover-soon-spacious-1-bedroom-apartment",
@@ -1985,6 +2180,7 @@
   "price": 1080000,
   "type": "Apartment",
   "area": "Town Square",
+  "building": "Holland Gardens",
   "beds": 1,
   "baths": 1,
   "size": 895,
@@ -2023,7 +2219,11 @@
    "Childrens Play Area",
    "Security"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/handover-soon-spacious-1-bedroom-apartment/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/handover-soon-spacious-1-bedroom-apartment/",
+  "map": {
+   "query": "Holland Gardens, Town Square, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "luxurious-1br-apartment-full-marina-view",
@@ -2034,6 +2234,7 @@
   "price": 2800000,
   "type": "Apartment",
   "area": "Dubai Marina",
+  "building": "Silverene Tower B",
   "beds": 1,
   "baths": 2,
   "size": 800,
@@ -2071,7 +2272,11 @@
    "View Of Water",
    "Shared Gym"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-1br-apartment-full-marina-view/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-1br-apartment-full-marina-view/",
+  "map": {
+   "query": "Silverene Tower B, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "luxurious-1br-fully-upgraded-prime-location",
@@ -2082,6 +2287,7 @@
   "price": 4000000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Oceana",
   "beds": 1,
   "baths": 2,
   "size": 1491,
@@ -2132,7 +2338,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-1br-fully-upgraded-prime-location/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-1br-fully-upgraded-prime-location/",
+  "map": {
+   "query": "Oceana, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "luxurious-2-bedroom-maids-vacant",
@@ -2143,6 +2353,7 @@
   "price": 370000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Fairmont Palm Residence North",
   "beds": 2,
   "baths": 3,
   "size": 1766,
@@ -2184,7 +2395,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-2-bedroom-maids-vacant/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-2-bedroom-maids-vacant/",
+  "map": {
+   "query": "Fairmont Palm Residence North, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "luxurious-2br-ain-and-sea-view-prime-location",
@@ -2195,6 +2410,7 @@
   "price": 245000,
   "type": "Apartment",
   "area": "Dubai Harbour",
+  "building": "Sunrise Bay",
   "beds": 2,
   "baths": 3,
   "size": 1140,
@@ -2238,7 +2454,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-2br-ain-and-sea-view-prime-location/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-2br-ain-and-sea-view-prime-location/",
+  "map": {
+   "query": "Sunrise Bay, Dubai Harbour, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "luxurious-2br-sea-view-huge-balcony",
@@ -2249,6 +2469,7 @@
   "price": 5900000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Azure Residences",
   "beds": 2,
   "baths": 3,
   "size": 2015,
@@ -2295,7 +2516,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-2br-sea-view-huge-balcony/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-2br-sea-view-huge-balcony/",
+  "map": {
+   "query": "Azure Residences, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "luxurious-2br-skyline-view-furnished",
@@ -2305,7 +2530,8 @@
   "offering": "buy",
   "price": 2600000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "DIFC",
+  "building": "DAMAC Park Towers",
   "beds": 2,
   "baths": 3,
   "size": 1647,
@@ -2354,7 +2580,11 @@
    "Childrens Pool",
    "Shared Spa"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-2br-skyline-view-furnished/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-2br-skyline-view-furnished/",
+  "map": {
+   "query": "DAMAC Park Towers, DIFC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "luxurious-3br-full-sea-view-brand-new",
@@ -2365,6 +2595,7 @@
   "price": 7850000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "The 8",
   "beds": 3,
   "baths": 4,
   "size": 2013,
@@ -2417,7 +2648,11 @@
    "Childrens Play Area",
    "Barbecue Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-3br-full-sea-view-brand-new/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-3br-full-sea-view-brand-new/",
+  "map": {
+   "query": "The 8, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "luxurious-prime-location-best-deal",
@@ -2427,7 +2662,8 @@
   "offering": "buy",
   "price": 2100000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "Business Bay",
+  "building": "East Heights 4",
   "beds": 1,
   "baths": 1,
   "size": 1362,
@@ -2481,7 +2717,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-prime-location-best-deal/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/luxurious-prime-location-best-deal/",
+  "map": {
+   "query": "East Heights 4, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "luxury-1br-elie-saab-interiors-beachfront",
@@ -2492,6 +2732,7 @@
   "price": 165000,
   "type": "Apartment",
   "area": "Dubai Harbour",
+  "building": null,
   "beds": 1,
   "baths": 1,
   "size": 780,
@@ -2530,7 +2771,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/luxury-1br-elie-saab-interiors-beachfront/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/luxury-1br-elie-saab-interiors-beachfront/",
+  "map": {
+   "query": "Dubai Harbour, Dubai, United Arab Emirates",
+   "exact": false
+  }
  },
  {
   "slug": "luxury-2br-apartment-with-private-pool",
@@ -2540,7 +2785,8 @@
   "offering": "buy",
   "price": 1900000,
   "type": "Apartment",
-  "area": "Damac Lagoons",
+  "area": "Dubailand",
+  "building": "Samana Barari Lagoons",
   "beds": 2,
   "baths": 2,
   "size": 1311,
@@ -2577,7 +2823,11 @@
    "Shared Gym",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/luxury-2br-apartment-with-private-pool/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/luxury-2br-apartment-with-private-pool/",
+  "map": {
+   "query": "Samana Barari Lagoons, Dubailand, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "luxury-tower-lagoon-view-high-floor",
@@ -2587,7 +2837,8 @@
   "offering": "buy",
   "price": 2250000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "Mohammed Bin Rashid City",
+  "building": "310 Riverside Crescent, Sobha Hartland II",
   "beds": 2,
   "baths": 2,
   "size": 904,
@@ -2622,7 +2873,11 @@
    "View Of Water",
    "Shared Gym"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/luxury-tower-lagoon-view-high-floor/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/luxury-tower-lagoon-view-high-floor/",
+  "map": {
+   "query": "310 Riverside Crescent, Sobha Hartland II, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "magnificent-3br-ain-view-private-pool",
@@ -2632,7 +2887,8 @@
   "offering": "buy",
   "price": 15300000,
   "type": "Apartment",
-  "area": "Palm Jumeirah",
+  "area": "Jumeirah Beach Residence",
+  "building": "FIVE Luxe",
   "beds": 3,
   "baths": 4,
   "size": 2396,
@@ -2689,7 +2945,11 @@
    "View Of Water",
    "Shared Gym"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/magnificent-3br-ain-view-private-pool/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/magnificent-3br-ain-view-private-pool/",
+  "map": {
+   "query": "FIVE Luxe, Jumeirah Beach Residence, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "marina-residences-4-2-br-waterfront-gem",
@@ -2699,7 +2959,8 @@
   "offering": "rent",
   "price": 230000,
   "type": "Apartment",
-  "area": "Dubai Marina",
+  "area": "Palm Jumeirah",
+  "building": "Marina Residence 4",
   "beds": 2,
   "baths": 3,
   "size": 1778,
@@ -2745,7 +3006,11 @@
    "Lobby In Building",
    "Security"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/marina-residences-4-2-br-waterfront-gem/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/marina-residences-4-2-br-waterfront-gem/",
+  "map": {
+   "query": "Marina Residence 4, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "marina-view-spacious-unit-ready-to-move-in",
@@ -2756,6 +3021,7 @@
   "price": 145000,
   "type": "Apartment",
   "area": "Dubai Marina",
+  "building": "Al Murjan Tower",
   "beds": 1,
   "baths": 1,
   "size": 1170,
@@ -2790,7 +3056,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/marina-view-spacious-unit-ready-to-move-in/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/marina-view-spacious-unit-ready-to-move-in/",
+  "map": {
+   "query": "Al Murjan Tower, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "middle-unit-l-ready-soon-l-motivated-seller",
@@ -2800,7 +3070,8 @@
   "offering": "buy",
   "price": 2200000,
   "type": "Townhouse",
-  "area": "Damac Hills",
+  "area": "Damac Hills 2",
+  "building": "Violet 1",
   "beds": 4,
   "baths": 4,
   "size": 2352,
@@ -2833,7 +3104,11 @@
    "Childrens Play Area",
    "Barbecue Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/middle-unit-l-ready-soon-l-motivated-seller/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/middle-unit-l-ready-soon-l-motivated-seller/",
+  "map": {
+   "query": "Violet 1, Damac Hills 2, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "modern-1-br-apartment-in-dunya-tower-downtown-dubai",
@@ -2844,6 +3119,7 @@
   "price": 2100000,
   "type": "Apartment",
   "area": "Downtown Dubai",
+  "building": "Dunya Tower",
   "beds": 1,
   "baths": 1,
   "size": 796,
@@ -2880,7 +3156,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/modern-1-br-apartment-in-dunya-tower-downtown-dubai/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/modern-1-br-apartment-in-dunya-tower-downtown-dubai/",
+  "map": {
+   "query": "Dunya Tower, Downtown Dubai, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "modern-2br-prime-location-best-deal",
@@ -2891,6 +3171,7 @@
   "price": 4000000,
   "type": "Apartment",
   "area": "Downtown Dubai",
+  "building": "Society House",
   "beds": 2,
   "baths": 3,
   "size": 1485,
@@ -2930,7 +3211,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/modern-2br-prime-location-best-deal/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/modern-2br-prime-location-best-deal/",
+  "map": {
+   "query": "Society House, Downtown Dubai, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "premium-studio-high-floor-genuine-resale",
@@ -2940,7 +3225,8 @@
   "offering": "buy",
   "price": 800000,
   "type": "Apartment",
-  "area": "Dubai Hills Estate",
+  "area": "Arjan",
+  "building": "Garden 2",
   "beds": 0,
   "baths": 1,
   "size": 429,
@@ -2975,7 +3261,11 @@
    "Security",
    "Shared Gym"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/premium-studio-high-floor-genuine-resale/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/premium-studio-high-floor-genuine-resale/",
+  "map": {
+   "query": "Garden 2, Arjan, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "premium-waterfront-1br-best-deal",
@@ -2986,6 +3276,7 @@
   "price": 2000000,
   "type": "Apartment",
   "area": "Business Bay",
+  "building": "Canal Heights",
   "beds": 1,
   "baths": 1,
   "size": 779,
@@ -3026,7 +3317,11 @@
    "Shared Spa",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/premium-waterfront-1br-best-deal/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/premium-waterfront-1br-best-deal/",
+  "map": {
+   "query": "Canal Heights, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "prime-location-1-bedroom-apartment-exceptional-layout",
@@ -3037,6 +3332,7 @@
   "price": 710000,
   "type": "Apartment",
   "area": "JVC",
+  "building": "Dana Tower",
   "beds": 1,
   "baths": 2,
   "size": 999,
@@ -3079,7 +3375,11 @@
    "Shared Gym",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/prime-location-1-bedroom-apartment-exceptional-layout/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/prime-location-1-bedroom-apartment-exceptional-layout/",
+  "map": {
+   "query": "Dana Tower, JVC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "sea-and-dubai-eye-view-l-vacant-on-transfer",
@@ -3089,7 +3389,8 @@
   "offering": "buy",
   "price": 3300000,
   "type": "Apartment",
-  "area": "Palm Jumeirah",
+  "area": "Jumeirah Beach Residence",
+  "building": "Murjan",
   "beds": 3,
   "baths": 3,
   "size": 1881,
@@ -3131,7 +3432,11 @@
    "Built In Wardrobes",
    "Security"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/sea-and-dubai-eye-view-l-vacant-on-transfer/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/sea-and-dubai-eye-view-l-vacant-on-transfer/",
+  "map": {
+   "query": "Murjan, Jumeirah Beach Residence, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "sea-and-dubai-eye-view-l-vacant-on-transfer-2",
@@ -3141,7 +3446,8 @@
   "offering": "buy",
   "price": 3300000,
   "type": "Apartment",
-  "area": "Palm Jumeirah",
+  "area": "Jumeirah Beach Residence",
+  "building": "Murjan",
   "beds": 3,
   "baths": 3,
   "size": 1881,
@@ -3183,7 +3489,11 @@
    "Built In Wardrobes",
    "Security"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/sea-and-dubai-eye-view-l-vacant-on-transfer-2/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/sea-and-dubai-eye-view-l-vacant-on-transfer-2/",
+  "map": {
+   "query": "Murjan, Jumeirah Beach Residence, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "selling-below-op-l-high-floor-l-investment",
@@ -3193,7 +3503,8 @@
   "offering": "buy",
   "price": 1180000,
   "type": "Apartment",
-  "area": "Damac Hills",
+  "area": "Damac Hills 2",
+  "building": "ELO 2",
   "beds": 2,
   "baths": 2,
   "size": 834,
@@ -3234,7 +3545,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/selling-below-op-l-high-floor-l-investment/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/selling-below-op-l-high-floor-l-investment/",
+  "map": {
+   "query": "ELO 2, Damac Hills 2, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "spacious-1-br-in-east-heights-4-perfect-urban-retreat",
@@ -3245,6 +3560,7 @@
   "price": 2100000,
   "type": "Apartment",
   "area": "Business Bay",
+  "building": "East Heights 4",
   "beds": 1,
   "baths": 1,
   "size": 1357,
@@ -3277,7 +3593,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-1-br-in-east-heights-4-perfect-urban-retreat/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-1-br-in-east-heights-4-perfect-urban-retreat/",
+  "map": {
+   "query": "East Heights 4, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "spacious-1br-apartment-i-community-and-sea-view",
@@ -3288,6 +3608,7 @@
   "price": 2650000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Serenia Residences",
   "beds": 1,
   "baths": 2,
   "size": 1034,
@@ -3326,7 +3647,11 @@
    "The apartment is located on the middle floor of the building. This property also comes with direct beach access as well as access to some other convenient and practical amenities such as state of the art (Tecno) gym, tennis court, mini golf, jacuzzi, lap pool, barbecue area, fire pit (for reading books at night) and many other great features such as watersport activity tools (kayaks, paddle boards, etc…exclusively reserved for the residents of this project) By owning an apartment in Serenia you are also eligible to various discounts on Spa, Hotel and f&b at the neighbouring hotels (Anantara & Waldorf)."
   ],
   "features": [],
-  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-1br-apartment-i-community-and-sea-view/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-1br-apartment-i-community-and-sea-view/",
+  "map": {
+   "query": "Serenia Residences, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "spacious-1br-for-sale-prime-spot-high-roi",
@@ -3336,7 +3661,8 @@
   "offering": "buy",
   "price": 2300000,
   "type": "Apartment",
-  "area": "Palm Jumeirah",
+  "area": "Dubai Marina",
+  "building": "Sparkle Tower A",
   "beds": 1,
   "baths": 2,
   "size": 862,
@@ -3385,7 +3711,11 @@
    "Shared Spa",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-1br-for-sale-prime-spot-high-roi/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-1br-for-sale-prime-spot-high-roi/",
+  "map": {
+   "query": "Sparkle Tower A, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "spacious-1br-high-roi-mid-floor",
@@ -3396,6 +3726,7 @@
   "price": 1020000,
   "type": "Apartment",
   "area": "Dubai Marina",
+  "building": "Marina Diamond 4",
   "beds": 1,
   "baths": 1,
   "size": 757,
@@ -3435,7 +3766,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-1br-high-roi-mid-floor/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-1br-high-roi-mid-floor/",
+  "map": {
+   "query": "Marina Diamond 4, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "spacious-1br-prime-location",
@@ -3446,6 +3781,7 @@
   "price": 130000,
   "type": "Apartment",
   "area": "Dubai Marina",
+  "building": "The Waves Tower B",
   "beds": 1,
   "baths": 1,
   "size": 1192,
@@ -3487,7 +3823,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-1br-prime-location/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-1br-prime-location/",
+  "map": {
+   "query": "The Waves Tower B, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "spacious-2-br-apartment-in-golden-mile-9",
@@ -3498,6 +3838,7 @@
   "price": 200000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Golden Mile 9",
   "beds": 2,
   "baths": 3,
   "size": 1887,
@@ -3529,7 +3870,11 @@
    "Lobby In Building",
    "Shared Gym"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-2-br-apartment-in-golden-mile-9/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-2-br-apartment-in-golden-mile-9/",
+  "map": {
+   "query": "Golden Mile 9, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "spacious-2-br-apartment-ready-to-move-in",
@@ -3539,7 +3884,8 @@
   "offering": "rent",
   "price": 390000,
   "type": "Apartment",
-  "area": "Dubailand",
+  "area": "Al Barari",
+  "building": "Seventh Heaven",
   "beds": 2,
   "baths": 3,
   "size": 2733,
@@ -3574,7 +3920,11 @@
    "Shared Pool",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-2-br-apartment-ready-to-move-in/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-2-br-apartment-ready-to-move-in/",
+  "map": {
+   "query": "Seventh Heaven, Al Barari, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "spacious-2-br-at-330-riverside-crescent",
@@ -3584,7 +3934,8 @@
   "offering": "buy",
   "price": 2800000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "Mohammed Bin Rashid City",
+  "building": "330 Riverside Crescent, Sobha Hartland II",
   "beds": 2,
   "baths": 2,
   "size": 1052,
@@ -3620,7 +3971,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-2-br-at-330-riverside-crescent/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-2-br-at-330-riverside-crescent/",
+  "map": {
+   "query": "330 Riverside Crescent, Sobha Hartland II, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "spacious-2-br-in-petalz-by-danube-international-city",
@@ -3630,7 +3985,8 @@
   "offering": "buy",
   "price": 1468800,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "International City",
+  "building": "Petalz by Danube",
   "beds": 2,
   "baths": 2,
   "size": 1216,
@@ -3670,7 +4026,11 @@
    "Shared Gym",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-2-br-in-petalz-by-danube-international-city/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-2-br-in-petalz-by-danube-international-city/",
+  "map": {
+   "query": "Petalz by Danube, International City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "spacious-3-br-apartment-in-al-dabas-palm-jumeirah",
@@ -3681,6 +4041,7 @@
   "price": 5500000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Al Dabas, Shoreline Apartments",
   "beds": 3,
   "baths": 3,
   "size": 2181,
@@ -3715,7 +4076,11 @@
    "Shared Spa",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-3-br-apartment-in-al-dabas-palm-jumeirah/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-3-br-apartment-in-al-dabas-palm-jumeirah/",
+  "map": {
+   "query": "Al Dabas, Shoreline Apartments, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "spacious-3-br-apartment-in-al-tamr-for-sale",
@@ -3726,6 +4091,7 @@
   "price": 5590000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Al Tamr, Shoreline Apartments",
   "beds": 3,
   "baths": 4,
   "size": 2158,
@@ -3778,7 +4144,11 @@
    "Security",
    "Built In Wardrobes"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-3-br-apartment-in-al-tamr-for-sale/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/spacious-3-br-apartment-in-al-tamr-for-sale/",
+  "map": {
+   "query": "Al Tamr, Shoreline Apartments, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "studio-at-binghatti-aquarise-prime-sale",
@@ -3788,7 +4158,8 @@
   "offering": "buy",
   "price": 1000000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "Business Bay",
+  "building": "Binghatti Aquarise",
   "beds": 0,
   "baths": 1,
   "size": 467,
@@ -3830,7 +4201,11 @@
    "Shared Gym",
    "Shared Spa"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/studio-at-binghatti-aquarise-prime-sale/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/studio-at-binghatti-aquarise-prime-sale/",
+  "map": {
+   "query": "Binghatti Aquarise, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-1-br-waterfront-living-best-deal",
@@ -3840,7 +4215,8 @@
   "offering": "buy",
   "price": 1450000,
   "type": "Apartment",
-  "area": "Dubai Harbour",
+  "area": "Damac Lagoons",
+  "building": "Lagoon Views 11",
   "beds": 1,
   "baths": 1,
   "size": 800,
@@ -3881,7 +4257,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-1-br-waterfront-living-best-deal/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-1-br-waterfront-living-best-deal/",
+  "map": {
+   "query": "Lagoon Views 11, Damac Lagoons, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-1br-brand-new-unbeatable-offer",
@@ -3892,6 +4272,7 @@
   "price": 1350000,
   "type": "Apartment",
   "area": "Business Bay",
+  "building": "Aykon City",
   "beds": 1,
   "baths": 1,
   "size": 630,
@@ -3927,7 +4308,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-1br-brand-new-unbeatable-offer/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-1br-brand-new-unbeatable-offer/",
+  "map": {
+   "query": "Aykon City, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-1br-pet-friendly-serviced-apartments",
@@ -3938,6 +4323,7 @@
   "price": 224490,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Cheval Maison The Palm",
   "beds": 1,
   "baths": 2,
   "size": 904,
@@ -3985,7 +4371,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-1br-pet-friendly-serviced-apartments/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-1br-pet-friendly-serviced-apartments/",
+  "map": {
+   "query": "Cheval Maison The Palm, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-1br-saba-4-by-marriott",
@@ -3995,7 +4385,8 @@
   "offering": "buy",
   "price": 2350000,
   "type": "Apartment",
-  "area": "Palm Jumeirah",
+  "area": "Jumeirah Lake Towers",
+  "building": "Saba 4",
   "beds": 1,
   "baths": 2,
   "size": 891,
@@ -4030,7 +4421,11 @@
    "Shared Pool",
    "Covered Parking"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-1br-saba-4-by-marriott/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-1br-saba-4-by-marriott/",
+  "map": {
+   "query": "Saba 4, Jumeirah Lake Towers, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-2-br-apartment-in-princess-tower",
@@ -4041,6 +4436,7 @@
   "price": 150000,
   "type": "Apartment",
   "area": "Dubai Marina",
+  "building": "Princess Tower",
   "beds": 2,
   "baths": 2,
   "size": 1313,
@@ -4070,7 +4466,11 @@
    "Private Pool",
    "Shared Gym"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2-br-apartment-in-princess-tower/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2-br-apartment-in-princess-tower/",
+  "map": {
+   "query": "Princess Tower, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-2-br-fully-upgraded-best-deal",
@@ -4080,7 +4480,8 @@
   "offering": "buy",
   "price": 2800000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "DIFC",
+  "building": "DAMAC Park Towers",
   "beds": 2,
   "baths": 2,
   "size": 1406,
@@ -4121,7 +4522,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2-br-fully-upgraded-best-deal/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2-br-fully-upgraded-best-deal/",
+  "map": {
+   "query": "DAMAC Park Towers, DIFC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-2-br-marina-view-high-floor",
@@ -4132,6 +4537,7 @@
   "price": 230000,
   "type": "Apartment",
   "area": "Dubai Marina",
+  "building": "DAMAC Heights",
   "beds": 2,
   "baths": 2,
   "size": 1352,
@@ -4170,7 +4576,11 @@
    "Lobby In Building",
    "Security"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2-br-marina-view-high-floor/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2-br-marina-view-high-floor/",
+  "map": {
+   "query": "DAMAC Heights, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-2-br-prime-location",
@@ -4180,7 +4590,8 @@
   "offering": "buy",
   "price": 3264000,
   "type": "Apartment",
-  "area": "Palm Jumeirah",
+  "area": "Dubai Marina",
+  "building": "Sparkle Tower 2",
   "beds": 2,
   "baths": 2,
   "size": 1520,
@@ -4221,7 +4632,11 @@
    "Childrens Pool",
    "Shared Gym"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2-br-prime-location/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2-br-prime-location/",
+  "map": {
+   "query": "Sparkle Tower 2, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-2br-full-marina-view-corner-unit",
@@ -4232,6 +4647,7 @@
   "price": 4000000,
   "type": "Apartment",
   "area": "Dubai Marina",
+  "building": "Silverene Tower A",
   "beds": 2,
   "baths": 3,
   "size": 1427,
@@ -4281,7 +4697,11 @@
    "Lobby In Building",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2br-full-marina-view-corner-unit/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2br-full-marina-view-corner-unit/",
+  "map": {
+   "query": "Silverene Tower A, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-2br-furnished-partial-sea-view",
@@ -4292,6 +4712,7 @@
   "price": 250000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Al Das, Shoreline Apartments",
   "beds": 2,
   "baths": 4,
   "size": 1616,
@@ -4331,7 +4752,11 @@
    "Shared Gym",
    "Barbecue Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2br-furnished-partial-sea-view/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2br-furnished-partial-sea-view/",
+  "map": {
+   "query": "Al Das, Shoreline Apartments, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-2br-penthouse-skyline-view",
@@ -4341,7 +4766,8 @@
   "offering": "buy",
   "price": 3300000,
   "type": "Penthouse",
-  "area": "Downtown Dubai",
+  "area": "DIFC",
+  "building": "DAMAC Park Towers",
   "beds": 2,
   "baths": 3,
   "size": 2057,
@@ -4388,7 +4814,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2br-penthouse-skyline-view/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2br-penthouse-skyline-view/",
+  "map": {
+   "query": "DAMAC Park Towers, DIFC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-2br-penthouse-skyline-view-2",
@@ -4398,7 +4828,8 @@
   "offering": "buy",
   "price": 3300000,
   "type": "Penthouse",
-  "area": "Downtown Dubai",
+  "area": "DIFC",
+  "building": "DAMAC Park Towers",
   "beds": 2,
   "baths": 3,
   "size": 2057,
@@ -4444,7 +4875,11 @@
    "Lobby In Building",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2br-penthouse-skyline-view-2/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2br-penthouse-skyline-view-2/",
+  "map": {
+   "query": "DAMAC Park Towers, DIFC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-2br-sea-view-high-roi",
@@ -4455,6 +4890,7 @@
   "price": 2700000,
   "type": "Apartment",
   "area": "Dubai Islands",
+  "building": "Sunset Bay",
   "beds": 2,
   "baths": 2,
   "size": 1475,
@@ -4496,7 +4932,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2br-sea-view-high-roi/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2br-sea-view-high-roi/",
+  "map": {
+   "query": "Sunset Bay, Dubai Islands, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-2br-sea-view-prime-location",
@@ -4507,6 +4947,7 @@
   "price": 5900000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "Azure Residences",
   "beds": 2,
   "baths": 2,
   "size": 2017,
@@ -4546,7 +4987,11 @@
    "Central Ac",
    "Built In Wardrobes"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2br-sea-view-prime-location/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-2br-sea-view-prime-location/",
+  "map": {
+   "query": "Azure Residences, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stunning-studio-best-deal",
@@ -4556,7 +5001,8 @@
   "offering": "buy",
   "price": 1000000,
   "type": "Apartment",
-  "area": "Jumeirah Beach Residence",
+  "area": "Mohammed Bin Rashid City",
+  "building": "Azizi Riviera",
   "beds": 0,
   "baths": 1,
   "size": 300,
@@ -4602,7 +5048,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-studio-best-deal/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stunning-studio-best-deal/",
+  "map": {
+   "query": "Azizi Riviera, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stylish-1-br-great-roi",
@@ -4612,7 +5062,8 @@
   "offering": "buy",
   "price": 1450000,
   "type": "Apartment",
-  "area": "Palm Jumeirah",
+  "area": "Dubai Science Park",
+  "building": "Binghatti Hills",
   "beds": 1,
   "baths": 2,
   "size": 936,
@@ -4652,7 +5103,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stylish-1-br-great-roi/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stylish-1-br-great-roi/",
+  "map": {
+   "query": "Binghatti Hills, Dubai Science Park, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stylish-1br-brand-new-move-in-ready",
@@ -4662,7 +5117,8 @@
   "offering": "buy",
   "price": 1500000,
   "type": "Apartment",
-  "area": "Jumeirah Beach Residence",
+  "area": "Jumeirah Village Triangle",
+  "building": "Cloud Tower",
   "beds": 1,
   "baths": 1,
   "size": 742,
@@ -4699,7 +5155,11 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stylish-1br-brand-new-move-in-ready/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stylish-1br-brand-new-move-in-ready/",
+  "map": {
+   "query": "Cloud Tower, Jumeirah Village Triangle, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stylish-3br-ready-to-move-in-spacious",
@@ -4710,6 +5170,7 @@
   "price": 215000,
   "type": "Villa",
   "area": "Damac Hills",
+  "building": "Richmond",
   "beds": 3,
   "baths": 4,
   "size": 2043,
@@ -4754,7 +5215,11 @@
    "Covered Parking",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stylish-3br-ready-to-move-in-spacious/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stylish-3br-ready-to-move-in-spacious/",
+  "map": {
+   "query": "Richmond, Damac Hills, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "stylish-3brm-townhouse-private-garden",
@@ -4764,7 +5229,8 @@
   "offering": "buy",
   "price": 3700000,
   "type": "Townhouse",
-  "area": "Palm Jumeirah",
+  "area": "Al Furjan",
+  "building": null,
   "beds": 3,
   "baths": 4,
   "size": 1959,
@@ -4804,7 +5270,11 @@
    "Covered Parking",
    "Maids Room"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stylish-3brm-townhouse-private-garden/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stylish-3brm-townhouse-private-garden/",
+  "map": {
+   "query": "Al Furjan, Dubai, United Arab Emirates",
+   "exact": false
+  }
  },
  {
   "slug": "stylish-studio-ready-to-move-in",
@@ -4814,7 +5284,8 @@
   "offering": "buy",
   "price": 825000,
   "type": "Apartment",
-  "area": "Downtown Dubai",
+  "area": "Al Jaddaf",
+  "building": "Farhad Azizi Residence",
   "beds": 0,
   "baths": 1,
   "size": 352,
@@ -4853,7 +5324,11 @@
    "Shared Gym",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/stylish-studio-ready-to-move-in/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/stylish-studio-ready-to-move-in/",
+  "map": {
+   "query": "Farhad Azizi Residence, Al Jaddaf, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "the-palm-tower-1-br-apartment",
@@ -4864,6 +5339,7 @@
   "price": 185000,
   "type": "Apartment",
   "area": "Palm Jumeirah",
+  "building": "The Palm Tower",
   "beds": 1,
   "baths": 2,
   "size": 1039,
@@ -4908,7 +5384,11 @@
    "Lobby In Building",
    "Childrens Pool"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/the-palm-tower-1-br-apartment/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/the-palm-tower-1-br-apartment/",
+  "map": {
+   "query": "The Palm Tower, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "ultra-luxurious-penthouse-best-deal-private-pool",
@@ -4919,6 +5399,7 @@
   "price": 16900000,
   "type": "Penthouse",
   "area": "Palm Jumeirah",
+  "building": "One Crescent",
   "beds": 3,
   "baths": 4,
   "size": 4295,
@@ -4956,7 +5437,11 @@
    "Lobby In Building",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/ultra-luxurious-penthouse-best-deal-private-pool/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/ultra-luxurious-penthouse-best-deal-private-pool/",
+  "map": {
+   "query": "One Crescent, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "ultra-luxury-3br-sea-view-private-pool",
@@ -4966,7 +5451,8 @@
   "offering": "buy",
   "price": 16200000,
   "type": "Apartment",
-  "area": "Palm Jumeirah",
+  "area": "Jumeirah Beach Residence",
+  "building": "FIVE Luxe",
   "beds": 3,
   "baths": 4,
   "size": 3219,
@@ -5013,7 +5499,11 @@
    "Lobby In Building",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/ultra-luxury-3br-sea-view-private-pool/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/ultra-luxury-3br-sea-view-private-pool/",
+  "map": {
+   "query": "FIVE Luxe, Jumeirah Beach Residence, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "upgraded-penthouse-private-pool",
@@ -5024,6 +5514,7 @@
   "price": 1200000,
   "type": "Penthouse",
   "area": "Jumeirah",
+  "building": "Madinat Jumeirah Living",
   "beds": 4,
   "baths": 3,
   "size": 3598,
@@ -5069,7 +5560,11 @@
    "Shared Gym",
    "Security"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/upgraded-penthouse-private-pool/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/upgraded-penthouse-private-pool/",
+  "map": {
+   "query": "Madinat Jumeirah Living, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "vacant-fully-furnished-spacious",
@@ -5079,7 +5574,8 @@
   "offering": "buy",
   "price": 470000,
   "type": "Apartment",
-  "area": "Palm Jumeirah",
+  "area": "Dubai Silicon Oasis",
+  "building": "Silicon Gates 1",
   "beds": 0,
   "baths": 1,
   "size": 419,
@@ -5118,7 +5614,11 @@
    "Lobby In Building",
    "Childrens Play Area"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/vacant-fully-furnished-spacious/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/vacant-fully-furnished-spacious/",
+  "map": {
+   "query": "Silicon Gates 1, Dubai Silicon Oasis, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "waterfront-3-br-apartment-in-marina-residences-4",
@@ -5128,7 +5628,8 @@
   "offering": "rent",
   "price": 280000,
   "type": "Apartment",
-  "area": "Dubai Marina",
+  "area": "Palm Jumeirah",
+  "building": "Marina Residence 4",
   "beds": 3,
   "baths": 3,
   "size": 2438,
@@ -5168,6 +5669,10 @@
    "Childrens Play Area",
    "Lobby In Building"
   ],
-  "sourceUrl": "https://dubairapidproperties.com/properties/waterfront-3-br-apartment-in-marina-residences-4/"
+  "sourceUrl": "https://dubairapidproperties.com/properties/waterfront-3-br-apartment-in-marina-residences-4/",
+  "map": {
+   "query": "Marina Residence 4, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  }
 ]

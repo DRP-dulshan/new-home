@@ -36,6 +36,10 @@ export type Listing = {
   type: ListingType;
   /** Matched against /data/areas.ts so the area guide can list it. */
   area: string;
+  /** The building or cluster the listing names, e.g. "Silverene Tower A" */
+  building: string | null;
+  /** Google Maps search, checked at import; `exact` is false when it shows the community */
+  map: { query: string; exact: boolean };
   /** 0 = studio */
   beds: number;
   baths: number;
@@ -69,6 +73,8 @@ const toListing = (r: ImportedListing): Listing => {
     price: r.price,
     type: r.type as ListingType,
     area: r.area,
+    building: r.building,
+    map: r.map,
     beds: r.beds ?? 0,
     baths: r.baths ?? 1,
     size: r.size ?? 0,
@@ -98,6 +104,13 @@ export const listings: Listing[] = imported
 /* -------------------------------------------------------------------------- */
 
 export const listingHref = (slug: string) => `/properties/${slug}`;
+
+/** "Silverene Tower A, Dubai Marina" — without repeating a community the building name already carries. */
+export const listingPlace = (l: Listing) =>
+  l.building && !l.building.toLowerCase().includes(l.area.toLowerCase()) ? `${l.building}, ${l.area}` : l.building ?? l.area;
+
+/** The map's heading and its Google search, as checked by the importer. */
+export const listingLocation = (l: Listing) => ({ label: listingPlace(l), ...l.map });
 export const getListing = (slug: string) => listings.find((l) => l.slug === slug);
 
 export const saleListings = listings.filter((l) => l.offering === 'buy');

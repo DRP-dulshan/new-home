@@ -10,6 +10,10 @@
  *   construction.json  Construction progress — /construction-updates/ (paginated cards)
  *   team.json          Team — /teams-detail/<slug>/ pages (sitemap: drp_teams)
  *
+ * Each listing and project also gets `map: { query, exact }`, checked against
+ * Google Maps (see placeOnMap). `npm run import:drp -- --maps-only` re-checks
+ * the maps without downloading the content again.
+ *
  * News is not imported: the WordPress posts are short 2023 social updates, so
  * /data/news.ts keeps its own articles until DRP publishes new ones.
  *
@@ -18,7 +22,7 @@
  */
 
 import { spawnSync } from 'node:child_process';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 
 // Node's built-in fetch only honours HTTPS_PROXY when NODE_USE_ENV_PROXY is set.
 if ((process.env.HTTPS_PROXY || process.env.https_proxy) && !process.env.NODE_USE_ENV_PROXY) {
@@ -155,6 +159,7 @@ const GAZETTEER = [
   ['DIFC', ['difc', 'index tower', 'liberty house']],
   ['Business Bay', ['business bay', 'aykon', 'canal', 'peninsula', 'paramount', 'executive towers', 'bay square']],
   ['City Walk', ['city walk']],
+  ['Safa Park', ['safa park']],
   ['Dubai Hills Estate', ['dubai hills', 'park heights', 'collective', 'socio']],
   ['Mohammed Bin Rashid City', ['mbr city', 'mohammed bin rashid', 'sobha hartland', 'hartland', 'district one', 'district 11', 'meydan', 'creek vistas', '350 riverside']],
   ['Dubai Creek Harbour', ['creek harbour', 'creek beach', 'dubai creek', 'creek rise', 'creek gate', 'harbour gate']],
@@ -163,9 +168,15 @@ const GAZETTEER = [
   ['JVC', ['jvc', 'jumeirah village circle']],
   ['Jumeirah Village Triangle', ['jvt', 'jumeirah village triangle']],
   ['Arabian Ranches', ['arabian ranches']],
-  ['Damac Hills', ['damac hills', 'akoya']],
+  ['Damac Hills 2', ['damac hills 2', 'damac hills-2', 'akoya']],
+  ['Damac Hills', ['damac hills', 'damac hills-1']],
   ['Damac Lagoons', ['damac lagoons', 'lagoons']],
-  ['Dubailand', ['majan', 'dubailand', 'arjan', 'samana', 'barari']],
+  ['Arjan', ['arjan']],
+  ['Al Barari', ['al barari']],
+  ['Dubailand', ['majan', 'dubailand', 'dlrc', 'samana']],
+  ['International City', ['international city']],
+  ['Dubai Science Park', ['science park']],
+  ['Villanova', ['villanova']],
   ['Al Furjan', ['al furjan', 'furjan']],
   ['Town Square', ['town square']],
   ['Dubai South', ['dubai south', 'emaar south', 'expo']],
@@ -186,6 +197,146 @@ function inferArea(...texts) {
     for (const [name, keys] of GAZETTEER) {
       if (keys.some((k) => new RegExp(`(?<![a-z])${k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![a-z])`).test(hay))) return name;
     }
+  }
+  return null;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Buildings — the most precise location a listing names                     */
+/* -------------------------------------------------------------------------- */
+
+/*
+ * [display name, pattern, community]. `$1` in the name is the first capture.
+ * Checked before the community gazetteer: a listing that names its building
+ * ("Silverene Tower A, Dubai Marina") is placed by the building, not by the
+ * first community word in its text ("…views of Palm Jumeirah").
+ */
+const BUILDINGS = [
+  /* Palm Jumeirah */
+  ['Golden Mile $1', /\bgolden mile (\d{1,2})\b/i, 'Palm Jumeirah'],
+  ['$1, Shoreline Apartments', /\b(al (?:khus?h?kar|das|dabas|tamr|haseer|hallawi|hamri|msalli|nabat|sarrood|shahla|basri|anbara|habool|sultana|khudrawi)|abu keibal|jash (?:hamad|falqa))\b/i, 'Palm Jumeirah'],
+  ['Marina Residence $1', /\bmarina residences? (\d)\b/i, 'Palm Jumeirah'],
+  ['Azure Residences', /\bazure(?: residences)?\b/i, 'Palm Jumeirah'],
+  ['The Palm Tower', /\bthe palm tower\b/i, 'Palm Jumeirah'],
+  ['Serenia Residences', /\bserenia\b/i, 'Palm Jumeirah'],
+  ['Oceana', /\boceana\b/i, 'Palm Jumeirah'],
+  ['Fairmont Palm Residence $1', /\bfairmont(?: the)?(?: palm)? residences? (north|south)\b/i, 'Palm Jumeirah'],
+  ['The 8', /\bthe 8\b/i, 'Palm Jumeirah'],
+  ['One Crescent', /\bone crescent\b/i, 'Palm Jumeirah'],
+  ['NH Collection Dubai The Palm', /\bnh collection\b/i, 'Palm Jumeirah'],
+  ['Cheval Maison The Palm', /\bcheval maison\b/i, 'Palm Jumeirah'],
+  ['Seven Palm', /\bseven palm\b/i, 'Palm Jumeirah'],
+  ['Tiara Residences', /\btiara\b/i, 'Palm Jumeirah'],
+  ['Balqis Residence', /\bbalqis\b/i, 'Palm Jumeirah'],
+  /* Palm Jebel Ali */
+  ['Frond $1, Palm Jebel Ali', /\bfrond ([a-p])\b[^.]{0,20}palm jebel ali/i, 'Palm Jebel Ali'],
+  /* JBR */
+  ['Murjan', /(?<!al )\bmurjan\b/i, 'Jumeirah Beach Residence'],
+  ['Al Bateen Residences', /\bal bateen\b/i, 'Jumeirah Beach Residence'],
+  ['FIVE Luxe', /\bfive luxe\b/i, 'Jumeirah Beach Residence'],
+  ['$1', /\b((?:sadaf|bahar|rimal|amwaj|shams) \d)\b/i, 'Jumeirah Beach Residence'],
+  /* Dubai Marina */
+  ['Al Murjan Tower', /\bal murjan\b/i, 'Dubai Marina'],
+  ['The Waves Tower $1', /\b(?:the )?waves tower(?: ([ab])\b)?/i, 'Dubai Marina'],
+  ['Silverene Tower $1', /\bsilverene(?: tower)?(?: ([ab])\b)?/i, 'Dubai Marina'],
+  ['Sparkle Tower $1', /\bsparkle towers?(?: (\w)\b)?/i, 'Dubai Marina'],
+  ['Marina Diamond $1', /\bmarina diamond (\d)\b/i, 'Dubai Marina'],
+  ['Princess Tower', /\bprincess tower\b/i, 'Dubai Marina'],
+  ['DAMAC Heights', /\bdamac heights\b/i, 'Dubai Marina'],
+  ['No. 9', /\bno\.? ?9\b/i, 'Dubai Marina'],
+  ['Marina Gate', /\bmarina gate\b/i, 'Dubai Marina'],
+  ['Cayan Tower', /\bcayan\b/i, 'Dubai Marina'],
+  ['Elite Residence', /\belite residence\b/i, 'Dubai Marina'],
+  /* Dubai Harbour / Emaar Beachfront */
+  ['DAMAC Bay $1', /\bdamac bay(?: (\d))?\b/i, 'Dubai Harbour'],
+  ['Sunrise Bay', /\bsunrise bay\b/i, 'Dubai Harbour'],
+  ['$1', /\b(beach vista|marina vista|grand bleu|seapoint|bayview|beach isle|palace beach residence)\b/i, 'Dubai Harbour'],
+  /* Business Bay */
+  ['Aykon City', /\baykon city\b/i, 'Business Bay'],
+  ['Mayfair $1', /\bmayfair (residency|tower)\b/i, 'Business Bay'],
+  ['Peninsula', /\bpeninsula\b/i, 'Business Bay'],
+  ['East Heights $1', /\beast heights (\d)\b/i, 'Business Bay'],
+  ['Canal Heights', /\bcanal heights\b/i, 'Business Bay'],
+  ['Binghatti Aquarise', /\baquarise\b/i, 'Business Bay'],
+  ['Executive Towers', /\bexecutive towers?\b/i, 'Business Bay'],
+  /* DIFC */
+  ['DAMAC Park Towers', /\bpark towers\b/i, 'DIFC'],
+  ['Burj Daman', /\bburj daman\b/i, 'DIFC'],
+  ['Index Tower', /\bindex tower\b/i, 'DIFC'],
+  /* Downtown */
+  ['Dunya Tower', /\bdunya tower\b/i, 'Downtown Dubai'],
+  ['Society House', /\bsociety house\b/i, 'Downtown Dubai'],
+  ['Burj Royale', /\bburj royale\b/i, 'Downtown Dubai'],
+  /* Mohammed Bin Rashid City */
+  ['$1 Riverside Crescent, Sobha Hartland II', /\b(\d{3}) riverside crescent\b/i, 'Mohammed Bin Rashid City'],
+  ['Azizi Riviera', /\bazizi riviera\b/i, 'Mohammed Bin Rashid City'],
+  /* Dubai Hills Estate */
+  ['Park Heights', /\bpark heights\b/i, 'Dubai Hills Estate'],
+  /* JVC / JVT / JLT */
+  ['Helvetia Residences', /\bhelvetia\b/i, 'JVC'],
+  ['Dana Tower', /\bdana tower\b/i, 'JVC'],
+  ['Cloud Tower', /\bcloud tower\b/i, 'Jumeirah Village Triangle'],
+  ['Seven City', /\bseven city\b/i, 'Jumeirah Lake Towers'],
+  ['Saba $1', /\bsaba (\d)\b/i, 'Jumeirah Lake Towers'],
+  /* Other communities */
+  ['Binghatti Hills', /\bbinghatti hills\b/i, 'Dubai Science Park'],
+  ['Binghatti Stars', /\bbinghatti stars\b/i, 'Dubai Silicon Oasis'],
+  ['Silicon Gates $1', /\bsilicon gates? (\d)\b/i, 'Dubai Silicon Oasis'],
+  ['Farhad Azizi Residence', /\bfarhad azizi\b/i, 'Al Jaddaf'],
+  ['Petalz by Danube', /\bpetalz\b/i, 'International City'],
+  ['Samana Park Meadows', /\bpark meadows\b/i, 'Dubailand'],
+  ['Samana Barari Lagoons', /\bbarari lagoons\b/i, 'Dubailand'],
+  ['Seventh Heaven', /\bseventh heaven\b/i, 'Al Barari'],
+  ['Mykonos, DAMAC Lagoons', /\bmykonos\b/i, 'Damac Lagoons'],
+  ['Lagoon Views $1', /\blagoon views (\d+)\b/i, 'Damac Lagoons'],
+  ['ELO $1', /\belo (\d)\b/i, 'Damac Hills 2'],
+  ['Violet $1', /\bviolet (\d)\b/i, 'Damac Hills 2'],
+  ['Richmond', /\brichmond\b/i, 'Damac Hills'],
+  ['Greenview $1', /\bgreenviews? (\d)\b/i, 'Dubai South'],
+  ['La Rosa $1', /\bla rosa (\d)\b/i, 'Villanova'],
+  ['Holland Gardens', /\bholland gardens\b/i, 'Town Square'],
+  ['Garden 2', /\bgardens? 2\b(?=[^.]{0,12}arjan)/i, 'Arjan'],
+  ['Madinat Jumeirah Living', /\bmadinat jumeirah living\b/i, 'Jumeirah'],
+  ['Chelsea Residences', /\bchelsea\b/i, 'Dubai Maritime City'],
+  ['Sunset Bay', /\bsunset bay\b/i, 'Dubai Islands'],
+  ['Cotier House', /\bcotier house\b/i, 'Dubai Islands'],
+];
+
+/* DRP's sign-off names its own office, not the property */
+const SIGN_OFF = /(?:your trusted real estate partner|dubai rapid properties)[^.]{0,40}located in palm jumeirah[^.]*\.?/gi;
+
+/** Earliest building named in the title, then the text: { building, area } or null. */
+function inferBuilding(title, text) {
+  for (const hay of [title, text.replace(SIGN_OFF, '')]) {
+    let best = null;
+    for (const [name, re, area] of BUILDINGS) {
+      const m = hay.match(re);
+      if (m && (!best || m.index < best.index)) {
+        const building = name.replace('$1', m[1] ? titleCase(m[1]) : '').replace(/\s+,/, ',').trim();
+        best = { index: m.index, building, area };
+      }
+    }
+    if (best) return { building: best.building, area: best.area };
+  }
+  return null;
+}
+
+/* Words too common in listing copy ("marina views", "palm-shaped") to place a property on their own */
+const VAGUE = new Set(['palm', 'marina', 'canal', 'lagoons', 'beachfront', 'the walk', 'boulevard', 'grande', 'opera', 'collective', 'expo', 'the palm', 'frond', 'downtown', 'burj khalifa', 'meydan']);
+
+/** The community mentioned first, title before text, ignoring vague words. */
+function inferAreaEarliest(title, text) {
+  for (const raw of [title, text.replace(SIGN_OFF, '')]) {
+    const hay = (raw || '').toLowerCase();
+    let best = null;
+    for (const [name, keys] of GAZETTEER) {
+      for (const k of keys) {
+        if (VAGUE.has(k)) continue;
+        const m = new RegExp(`(?<![a-z])${k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![a-z])`).exec(hay);
+        if (m && (!best || m.index < best.index)) best = { index: m.index, name };
+      }
+    }
+    if (best) return best.name;
   }
   return null;
 }
@@ -280,6 +431,7 @@ async function importListings() {
     const published = (s.match(/"datePublished":"([^"]+)"/) || [])[1] ?? null;
     const slug = url.replace(/\/$/, '').split('/').pop();
     const text = description.join(' ');
+    const place = inferBuilding(title, text);
     const beds = /studio/i.test(counts[0] ?? '') ? 0 : digits(counts[0]) ?? (/studio/i.test(title) ? 0 : null);
     const type =
       rawType === 'villa' ? 'Villa'
@@ -296,7 +448,8 @@ async function importListings() {
       offering: (fields.Purpose ?? '').toLowerCase() === 'sale' ? 'buy' : 'rent',
       price: digits(head[3]),
       type,
-      area: inferArea(title, text) ?? 'Dubai',
+      area: place?.area ?? inferAreaEarliest(title, text) ?? 'Dubai',
+      building: place?.building ?? null,
       beds,
       baths: digits(counts[1]),
       size: digits(counts[2]),
@@ -379,11 +532,19 @@ async function importProjects() {
       const allText = [name, summary, ...page.highlights.map((h) => `${h.title} ${h.text}`), ...page.about].join(' ');
       const units = inferUnits(allText);
       const locName = p.project_location.map((id) => L[id]).find(Boolean) ?? page.location;
+      const specific = !!locName && !/^dubai$/i.test(locName.trim());
       return {
         slug: p.slug,
         name,
         collections: p.project_collection.map((id) => C[id]).filter(Boolean),
-        area: inferArea(locName, name, allText) ?? (locName && !/^dubai$/i.test(locName.trim()) ? titleCase(locName) : null) ?? leadingPlace(page.locationText[0]) ?? 'Dubai',
+        /* DRP's own Location field decides; the text is used only when it just says "Dubai" */
+        area: specific
+          ? inferArea(locName) ?? titleCase(locName)
+          : inferArea(name) ??
+            inferAreaEarliest(`${name}. ${summary ?? ''}`, page.about.join(' ')) ??
+            leadingPlace(page.locationText[0]) ??
+            inferAreaEarliest(page.locationText[0] ?? '', '') ??
+            'Dubai',
         location: locName ? titleCase(locName) : null,
         developer: inferDeveloper(allText),
         summary: summary ? decode(summary) : page.about[0] ?? '',
@@ -473,19 +634,107 @@ async function importTeam() {
 }
 
 /* -------------------------------------------------------------------------- */
+/*  4. Maps — query Google by building / project, keep only pins that check out */
+/* -------------------------------------------------------------------------- */
+
+/* Communities DRP sells in outside Dubai */
+const EMIRATE = { 'Al Marjan Island': 'Ras Al Khaimah', 'Ghadeer Al Tayr': 'Abu Dhabi' };
+/* How Google writes some communities in its place labels */
+const PLACE_ALIASES = {
+  'Mohammed Bin Rashid City': ['mbr city', 'mohammed bin rashid', 'meydan'],
+  'Palm Jumeirah': ['nakhlat jumeira', 'palm jumeirah'],
+  'Jumeirah Beach Residence': ['jumeirah beach residence', 'jbr'],
+  'Dubai Islands': ['dubai islands', 'nakhlat deira'],
+  JVC: ['jumeirah village circle', 'jvc'],
+};
+const MAX_KM = 6;
+
+const uae = (area) => `${EMIRATE[area] ?? 'Dubai'}, United Arab Emirates`;
+
+/** { pin: [lat, lng], label } for a single Google result, { multi: true } for several, null for none. */
+async function googlePlace(query) {
+  const url = `https://www.google.com/maps?q=${encodeURIComponent(query)}&z=15&output=embed`;
+  try {
+    const { text } = await fetchText(url);
+    if (text.includes('categorical-search-results')) return { multi: true };
+    const pin = text.match(/\[(-?\d+\.\d{4,}),(-?\d+\.\d{4,})\]/);
+    if (!pin) return null;
+    const label = [...text.matchAll(/"([^"\\]{6,160}?)"/g)].map((m) => m[1]).find((n) => / - |, /.test(n) && !n.startsWith('http') && !n.includes('United Arab Emirates')) ?? '';
+    return { pin: [Number(pin[1]), Number(pin[2])], label };
+  } catch {
+    return null;
+  }
+}
+
+const km = ([a, b], [c, d]) => {
+  const r = (x) => (x * Math.PI) / 180;
+  const h = Math.sin(r(c - a) / 2) ** 2 + Math.cos(r(a)) * Math.cos(r(c)) * Math.sin(r(d - b) / 2) ** 2;
+  return 12742 * Math.asin(Math.sqrt(h));
+};
+
+/**
+ * Adds `map: { query, exact }` to each item. The building (or project) query is
+ * kept when Google finds several matching buildings, or one that lies within
+ * MAX_KM of the community or is labelled with it. Otherwise the map shows the
+ * community and says so.
+ */
+async function placeOnMap(items, queryFor) {
+  const centres = new Map();
+  const centre = async (area) => {
+    if (!centres.has(area)) centres.set(area, (await googlePlace(`${area}, ${uae(area)}`))?.pin ?? null);
+    return centres.get(area);
+  };
+  let fallbacks = 0;
+  await pool(items, 6, async (item) => {
+    const area = item.area;
+    const community = { query: area === 'Dubai' ? 'Dubai, United Arab Emirates' : `${area}, ${uae(area)}`, exact: false };
+    const query = queryFor(item);
+    if (!query) return void (item.map = community);
+    const found = await googlePlace(query);
+    let ok = !!found?.multi;
+    if (found?.pin) {
+      const c = await centre(area);
+      const names = (PLACE_ALIASES[area] ?? [area.toLowerCase()]).concat(area.toLowerCase());
+      ok = (c && km(found.pin, c) <= MAX_KM) || names.some((n) => found.label.toLowerCase().includes(n));
+    }
+    item.map = ok ? { query, exact: true } : community;
+    if (!ok) fallbacks++;
+  });
+  return fallbacks;
+}
+
+const placeName = (l) =>
+  l.building && !l.building.toLowerCase().includes(l.area.toLowerCase()) ? `${l.building}, ${l.area}` : l.building;
+const listingQuery = (l) => (l.building ? `${placeName(l)}, ${uae(l.area)}` : null);
+const projectQuery = (p) => `${p.name}, ${p.area === 'Dubai' ? '' : `${p.area}, `}${uae(p.area)}`;
+
+/* -------------------------------------------------------------------------- */
 
 async function main() {
   await mkdir(OUT, { recursive: true });
   const write = (file, data) => writeFile(new URL(file, OUT), `${JSON.stringify(data, null, 1)}\n`);
+  const read = async (file) => JSON.parse(await readFile(new URL(file, OUT), 'utf8'));
+
+  /* --maps-only re-checks the maps for the content already imported */
+  if (process.argv.includes('--maps-only')) {
+    const listings = await read('listings.json');
+    const projects = await read('projects.json');
+    console.log(`Maps: ${await placeOnMap(listings, listingQuery)} listing and ${await placeOnMap(projects, projectQuery)} project maps fall back to the community`);
+    await write('listings.json', listings);
+    await write('projects.json', projects);
+    return;
+  }
 
   const listings = await importListings();
+  const listingFallbacks = await placeOnMap(listings, listingQuery);
   await write('listings.json', listings);
-  console.log(`  → ${listings.length} listings`);
+  console.log(`  → ${listings.length} listings (${listingFallbacks} maps show the community)`);
 
   const { projects, construction } = await importProjects();
+  const projectFallbacks = await placeOnMap(projects, projectQuery);
   await write('projects.json', projects);
   await write('construction.json', construction);
-  console.log(`  → ${projects.length} projects, ${construction.length} construction updates`);
+  console.log(`  → ${projects.length} projects (${projectFallbacks} maps show the community), ${construction.length} construction updates`);
 
   const team = await importTeam();
   await write('team.json', team);

@@ -65,7 +65,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/c5f47c9e8817446d9e7a5bbfecd5c615.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/avior/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/avior/",
+  "map": {
+   "query": "Avior, Sheikh Zayed Road, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "bugatti-residences-by-binghatti",
@@ -137,7 +141,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/BUGATTIRESIDENCESBYBINGHATTI_C8.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/bugatti-residences-by-binghatti/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/bugatti-residences-by-binghatti/",
+  "map": {
+   "query": "Bugatti Residences by Binghatti, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "casa-canal",
@@ -146,7 +154,7 @@
    "Investment Collection",
    "Luxury Collection"
   ],
-  "area": "Business Bay",
+  "area": "Safa Park",
   "location": "Safa Park",
   "developer": null,
   "summary": "",
@@ -200,7 +208,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/88.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/casa-canal/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/casa-canal/",
+  "map": {
+   "query": "Casa Canal, Safa Park, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "cavalli-couture",
@@ -209,7 +221,7 @@
    "Investment Collection",
    "Luxury Collection"
   ],
-  "area": "Downtown Dubai",
+  "area": "Safa Park",
   "location": "Dubai",
   "developer": null,
   "summary": "Cavalli Couture is an ultra-luxury waterfront development in Dubai, offering an exceptional lifestyle defined by glamour, exclusivity, and iconic design. Surrounded by lush greenery and cascading water features, the project creates a unique rainforest-inspired atmosphere in the heart of the city. The development features an exclusive collection of 3-, 4-, and 5-bedroom residences, along with ultra-luxurious 6-bedroom penthouses, all designed to maximize panoramic canal and skyline views.",
@@ -277,7 +289,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/Cavaliarch3.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/cavalli-couture/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/cavalli-couture/",
+  "map": {
+   "query": "Cavalli Couture, Safa Park, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "eden-house-the-park",
@@ -286,7 +302,7 @@
    "Investment Collection",
    "Luxury Collection"
   ],
-  "area": "Downtown Dubai",
+  "area": "Al Warsan",
   "location": "Al Warsan",
   "developer": null,
   "summary": "Eden House The Park is a sophisticated residential community designed to offer an elegant and harmonious lifestyle. Featuring seven low-rise buildings, the community combines contemporary architecture with lush green landscapes, creating a peaceful urban sanctuary. Currently, only the first three buildings have been launched, introducing a selection of exquisitely designed residences that blend modern aesthetics with timeless comfort.",
@@ -349,7 +365,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/cover.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/eden-house-the-park/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/eden-house-the-park/",
+  "map": {
+   "query": "Eden House The Park, Al Warsan, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "isla-private-residences",
@@ -420,7 +440,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/e24fd421660a4c41b4736176b0978564.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/isla-private-residences/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/isla-private-residences/",
+  "map": {
+   "query": "Isla Private Residences, Dubai Islands, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "jumeirah-asora-bay",
@@ -500,7 +524,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/1-10.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/jumeirah-asora-bay/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/jumeirah-asora-bay/",
+  "map": {
+   "query": "Jumeirah Asora Bay, Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "karl-lagerfeld-beach-residences",
@@ -508,7 +536,7 @@
   "collections": [
    "Latest Launch"
   ],
-  "area": "Dubai Harbour",
+  "area": "Al Marjan Island",
   "location": "Al Marjan Island",
   "developer": null,
   "summary": "Karl Lagerfeld Beach Residences represents a remarkable fusion of fashion-inspired design, world-class architecture, and refined coastal living. Located on the pristine shores of Al Marjan Island, the development introduces an extraordinary collection of residences that bring the iconic vision of Karl Lagerfeld into the world of luxury real estate. The project features an impressive selection of homes, including elegant apartments, beach villas, loft villas, and spectacular sky villas, each designed to capture uninterrupted sea views and the serene beauty of the surrounding coastline. Created by the renowned developer Aark Developers and designed by the internationally respected architectural firm Nikken Sekkei, the project blends visionary creativity with exceptional craftsma.",
@@ -569,7 +597,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/f856344f748d4467b1ba8a008dcbae91.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/karl-lagerfeld-beach-residences/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/karl-lagerfeld-beach-residences/",
+  "map": {
+   "query": "Karl Lagerfeld Beach Residences, Al Marjan Island, Ras Al Khaimah, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "le-chateau-pietrus",
@@ -649,7 +681,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/c364c0f40ed84bd081eacba79cee71d6.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/le-chateau-pietrus/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/le-chateau-pietrus/",
+  "map": {
+   "query": "Dubai Islands, Dubai, United Arab Emirates",
+   "exact": false
+  }
  },
  {
   "slug": "mira-villas-by-bentley-home",
@@ -658,7 +694,7 @@
    "Investment Collection",
    "Luxury Collection"
   ],
-  "area": "Downtown Dubai",
+  "area": "Wadi Al Safa 3",
   "location": "Wadi Al Safa 3",
   "developer": null,
   "summary": "Mira Villas by Bentley Home, developed by MIRA Developments in collaboration with Luxury Living Group and Bentley Home, presents an exclusive collection of ultra-luxury villas in the prestigious Meydan district. Designed to embody the highest standards of craftsmanship and sophistication, each residence seamlessly blends contemporary architecture with the timeless elegance of Bentley Home interiors. The project offers a truly bespoke living experience, where every detail has been carefully curated to create homes that reflect exceptional quality, comfort, and refined taste.",
@@ -728,7 +764,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/003_Big-Villa-Front-1.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/mira-villas-by-bentley-home/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/mira-villas-by-bentley-home/",
+  "map": {
+   "query": "Mira Villas by Bentley Home, Wadi Al Safa 3, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "mirari-lagoon-by-zoya",
@@ -788,7 +828,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/8ce2747c34944db6ba9b84e7d795a459.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/mirari-lagoon-by-zoya/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/mirari-lagoon-by-zoya/",
+  "map": {
+   "query": "Dubai Industrial City, Dubai, United Arab Emirates",
+   "exact": false
+  }
  },
  {
   "slug": "muraba-veil",
@@ -797,7 +841,7 @@
    "Investment Collection",
    "Luxury Collection"
   ],
-  "area": "Downtown Dubai",
+  "area": "Al Warsan",
   "location": "Al Warsan",
   "developer": "Wasl",
   "summary": "Muraba Veil is a landmark residential development by Muraba Properties that redefines vertical luxury living in Dubai. Rising 380 meters across 73 storeys, the tower is an architectural masterpiece designed by the internationally renowned consultancy WSP Parsons Brinckerhoff. With its elegant silhouette and striking contemporary design, Muraba Veil offers an exclusive collection of residences that combine exceptional craftsmanship with breathtaking panoramic views of the Dubai skyline. Every aspect of the project reflects a commitment to timeless architecture, innovation, and sophisticated urban living.",
@@ -847,7 +891,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/H05_MARCH_MurabaVeil_Hero_World_-scaled.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/muraba-veil/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/muraba-veil/",
+  "map": {
+   "query": "Muraba Veil, Al Warsan, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "one-crescent-palm",
@@ -914,7 +962,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/D0A1D0BDD0B8D0BCD0BED0BAD18DD0BAD180D0B0D0BDD0B02023-01-04D0B214_14_16.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/one-crescent-palm/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/one-crescent-palm/",
+  "map": {
+   "query": "One Crescent Palm, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "orla-dorchester-collection",
@@ -981,7 +1033,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/13-7.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/orla-dorchester-collection/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/orla-dorchester-collection/",
+  "map": {
+   "query": "Orla Dorchester Collection, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "sol-terra-casa",
@@ -1041,7 +1097,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/f1d93cec324f42c7a643f5fbd791068b.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/sol-terra-casa/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/sol-terra-casa/",
+  "map": {
+   "query": "Sol Terra Casa, JVC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "soma-residences",
@@ -1049,7 +1109,7 @@
   "collections": [
    "Latest Launch"
   ],
-  "area": "Dubai Hills Estate",
+  "area": "Dubai Islands",
   "location": "Dubai",
   "developer": null,
   "summary": "Soma Residences is a low-rise residential development by Origami. The architecture is defined by a sculptural silhouette in sun-bleached stone, sand-toned surfaces and weathered timber, with generous balconies across every residence. Residence formats include one-bedroom apartments, two-bedroom apartments and duplex residences. The project is enrolled to pursue WELL Gold Certification, reflecting a wellbeing-led design approach.",
@@ -1109,7 +1169,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/f4899fb2d44e4c779ac4a6c77cc2cecd.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/soma-residences/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/soma-residences/",
+  "map": {
+   "query": "Soma Residences, Dubai Islands, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "vela-dorchester-collection",
@@ -1181,7 +1245,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/23-5.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/vela-dorchester-collection/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/vela-dorchester-collection/",
+  "map": {
+   "query": "Vela Dorchester Collection, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "vitalia-palm-jumeirah-residences",
@@ -1247,7 +1315,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/22-4.webp"
   ],
   "launchedAt": "2026-08-04",
-  "sourceUrl": "https://dubairapidproperties.com/projects/vitalia-palm-jumeirah-residences/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/vitalia-palm-jumeirah-residences/",
+  "map": {
+   "query": "Vitalia Palm Jumeirah Residences, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "address-residences-zabeel",
@@ -1256,7 +1328,7 @@
    "Best roi & Capital Growth Projects)",
    "Investment Collection"
   ],
-  "area": "Downtown Dubai",
+  "area": "Zabeel 1&2",
   "location": "Zabeel 1&2",
   "developer": null,
   "summary": "Step into Address Residences Zabeel and embrace a life that is exceptional in every way. In the bustling heart of Dubai’s financial district, these four towers stand as landmarks of a refined existence. Here, luxury is the essence of every space, every view and every moment. This is where the city’s energy fuses with the calm of upscale living, creating an experience that’s as exhilarating as it is serene in the true signature Address style. At Address Residences Zabeel, evenings are gilded with urban brilliance and mornings are bathed in sunrise glory. This is your personal retreat where you can thrive in a world crafted for those who seek the extraordinary.",
@@ -1308,7 +1380,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/ADH_ZABEEL_IMAGES1.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/address-residences-zabeel/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/address-residences-zabeel/",
+  "map": {
+   "query": "Address Residences Zabeel, Zabeel 1&2, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "athlon-by-aldar",
@@ -1386,7 +1462,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/0dac8e4a0d4544c3b28f2150b6ba178e.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/athlon-by-aldar/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/athlon-by-aldar/",
+  "map": {
+   "query": "Athlon by Aldar, Arabian Ranches, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "avarra-by-palace",
@@ -1455,7 +1535,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/c8d8425d6f7d4ef7b50652fc5dcc313c.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/avarra-by-palace/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/avarra-by-palace/",
+  "map": {
+   "query": "Avarra by Palace, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "binghatti-etherea",
@@ -1521,7 +1605,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/80ef446a74974b43ac456818cdea10f8.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/binghatti-etherea/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/binghatti-etherea/",
+  "map": {
+   "query": "Binghatti Etherea, JVC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "burj-binghatti-jacob-and-co-residences",
@@ -1608,7 +1696,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/7-6.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/burj-binghatti-jacob-and-co-residences/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/burj-binghatti-jacob-and-co-residences/",
+  "map": {
+   "query": "Burj Binghatti Jacob and Co Residences, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "cavalli-tower",
@@ -1617,7 +1709,7 @@
    "Investment Collection",
    "Luxury Collection"
   ],
-  "area": "Palm Jumeirah",
+  "area": "Dubai Media City",
   "location": "Dubai Media City",
   "developer": null,
   "summary": "Cavalli Tower is a 70-storey luxury residential tower located in Dubai, overlooking the Palm. The project is designed by award-winning architect Shaun Killa of Killa Design, known for iconic work such as the Museum of the Future. The tower is positioned as an ultra-exclusive branded residence and features front-facing designer apartments with direct beach access and uninterrupted 24/7 views of the Palm, Burj Al Arab, and the Dubai skyline. The overall concept emphasizes bold, high-impact architecture and a lifestyle-oriented design approach.",
@@ -1660,7 +1752,11 @@
   "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/cavalli-couture-5.webp",
   "gallery": [],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/cavalli-tower/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/cavalli-tower/",
+  "map": {
+   "query": "Cavalli Tower, Dubai Media City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "chelsea-residences-1-tower-c",
@@ -1731,7 +1827,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/e954239d5efc47439bbfdb2e6b14c637.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/chelsea-residences-1-tower-c/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/chelsea-residences-1-tower-c/",
+  "map": {
+   "query": "Chelsea Residences 1 Tower C, Dubai Maritime City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "creek-waters-2",
@@ -1798,7 +1898,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/33-2.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/creek-waters-2/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/creek-waters-2/",
+  "map": {
+   "query": "Creek Waters 2, Dubai Creek Harbour, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "d-villas",
@@ -1859,7 +1963,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/71.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/d-villas/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/d-villas/",
+  "map": {
+   "query": "D Villas, Jumeirah Golf Estates, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "damac-bay",
@@ -1937,7 +2045,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/k0zyiyFStSFGnkcR4b5A_230110_Damac-Bay-5.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/damac-bay/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/damac-bay/",
+  "map": {
+   "query": "Damac Bay, Dubai Harbour, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "damac-casa",
@@ -1947,7 +2059,7 @@
    "Investment Collection",
    "Luxury Collection"
   ],
-  "area": "Palm Jumeirah",
+  "area": "Dubai Media City",
   "location": "Dubai Media City",
   "developer": "DAMAC",
   "summary": "Damac Casa is a luxury residential development by Damac Properties located in Dubai Media City, offering an exclusive urban lifestyle with panoramic views of Palm Jumeirah. The project is positioned in one of Dubai’s key media and business districts, combining a prime central location with scenic waterfront and skyline vistas. Designed with a focus on refined city living, it provides residents with immediate access to major business hubs, entertainment venues, and coastal attractions, creating a balanced environment of convenience and prestige.",
@@ -2005,7 +2117,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/WhatsAppImage2023-09-21at11.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/damac-casa/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/damac-casa/",
+  "map": {
+   "query": "Damac Casa, Dubai Media City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "damac-islands-phase-1-and-2",
@@ -2079,7 +2195,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/cover-1.jpg"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/damac-islands-phase-1-and-2/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/damac-islands-phase-1-and-2/",
+  "map": {
+   "query": "Damac Islands Phase 1 and 2, Damac Suncity, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "design-quarter",
@@ -2088,7 +2208,7 @@
    "Best roi & Capital Growth Projects)",
    "Investment Collection"
   ],
-  "area": "Downtown Dubai",
+  "area": "Dubai Design District",
   "location": "Dubai",
   "developer": null,
   "summary": "",
@@ -2145,7 +2265,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/Rh7y_3J5dHE8IQEWeslxyX_aGTO6kMnT.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/design-quarter/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/design-quarter/",
+  "map": {
+   "query": "Design Quarter, Dubai Design District, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "diamondz",
@@ -2211,7 +2335,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/2-5.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/diamondz/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/diamondz/",
+  "map": {
+   "query": "Diamondz, Jumeirah Lake Towers, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "dubai-harbour-residence",
@@ -2284,7 +2412,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/0-3.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/dubai-harbour-residence/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/dubai-harbour-residence/",
+  "map": {
+   "query": "Dubai Harbour Residence, Dubai Harbour, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "elwood",
@@ -2354,7 +2486,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/37.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/elwood/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/elwood/",
+  "map": {
+   "query": "Elwood, The Valley, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "enre-residence-by-imtiaz",
@@ -2427,7 +2563,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/b05b03540fdc4a3798144e1fd9efc814.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/enre-residence-by-imtiaz/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/enre-residence-by-imtiaz/",
+  "map": {
+   "query": "Enre Residence by Imtiaz, Dubai South, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "eywa",
@@ -2501,13 +2641,18 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/Group207.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/eywa/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/eywa/",
+  "map": {
+   "query": "Eywa, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
-  "slug": "fleurs-de-jardin-2",
+  "slug": "fleurs-de-jardin",
   "name": "Fleurs de Jardin",
   "collections": [
-   "Latest Launch"
+   "Best Affordable Townhouse & Villa Projects",
+   "Investment Collection"
   ],
   "area": "Wadi Al Safa 3",
   "location": "Dubai",
@@ -2521,26 +2666,24 @@
    "Villa"
   ],
   "bedrooms": [
-   0,
-   5,
-   6
+   0
   ],
   "highlights": [
    {
-    "title": "Branded Luxury Residences",
-    "text": "Exclusive 5 & 6-bedroom villas with bespoke interiors and premium finishes."
+    "title": "Jacob & Co. Branded Homes",
+    "text": "Exclusive luxury villas and mansions with bespoke interiors and premium craftsmanship."
    },
    {
-    "title": "Private Gated Community",
-    "text": "Landscaped gardens, serene lagoon, and 24/7 security for complete privacy."
+    "title": "Private Wellness Lifestyle",
+    "text": "Spa, fitness centre, landscaped gardens, and a tranquil lagoon environment."
    },
    {
-    "title": "Premium Lifestyle Amenities",
-    "text": "Spa, fitness centre, cinema room, golf simulator, and children's play area."
+    "title": "Luxury Entertainment Features",
+    "text": "Private cinema room, golf simulator, and exclusive clubhouse facilities."
    },
    {
-    "title": "Prime Dubai Location",
-    "text": "Located in Wadi Al Safa 3 with excellent connectivity to major destinations."
+    "title": "Gated Family Community",
+    "text": "Secure community with children's play areas, green spaces, and 24/7 privacy."
    }
   ],
   "about": [
@@ -2553,17 +2696,21 @@
    "The area benefits from convenient access to major road networks, enabling smooth movement across Dubai and easy reach of key business, retail, and leisure destinations. This accessibility supports effortless daily routines while preserving a feeling of separation from dense urban congestion. The surrounding infrastructure continues to evolve, reinforcing the area’s appeal as a long-term residential destination.",
    "With its emphasis on space, nature, and thoughtful urban planning, Wadi Al Safa 3 offers an environment that supports wellbeing and long-term livability. The district’s proximity to green communities, combined with its strategic location within Dubai, makes it an attractive choice for those seeking a lifestyle shaped by calm, connection, and future growth."
   ],
-  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/28cadcbb1b0a44c39746193766f2d9ea-1.webp",
+  "image": "https://dubairapidproperties.com/wp-content/uploads/2026/08/f7916f1efb1c46c5b367b5f9a54cc937.webp",
   "gallery": [
-   "https://dubairapidproperties.com/wp-content/uploads/2026/08/9cf90719f2e04d60aab2b94127232587-1.webp",
-   "https://dubairapidproperties.com/wp-content/uploads/2026/08/28cadcbb1b0a44c39746193766f2d9ea-1.webp",
-   "https://dubairapidproperties.com/wp-content/uploads/2026/08/96774948865645afa3ae9da2e40adb2d-1.webp",
-   "https://dubairapidproperties.com/wp-content/uploads/2026/08/a4ae3dafdd8c404ea86ad28e85867e4a-1.webp",
-   "https://dubairapidproperties.com/wp-content/uploads/2026/08/bb2a16348cb94be08fb20ac274f0b12d-1.webp",
-   "https://dubairapidproperties.com/wp-content/uploads/2026/08/f7916f1efb1c46c5b367b5f9a54cc937-1.webp"
+   "https://dubairapidproperties.com/wp-content/uploads/2026/08/96774948865645afa3ae9da2e40adb2d.webp",
+   "https://dubairapidproperties.com/wp-content/uploads/2026/08/28cadcbb1b0a44c39746193766f2d9ea.webp",
+   "https://dubairapidproperties.com/wp-content/uploads/2026/08/9cf90719f2e04d60aab2b94127232587.webp",
+   "https://dubairapidproperties.com/wp-content/uploads/2026/08/a4ae3dafdd8c404ea86ad28e85867e4a.webp",
+   "https://dubairapidproperties.com/wp-content/uploads/2026/08/f7916f1efb1c46c5b367b5f9a54cc937.webp",
+   "https://dubairapidproperties.com/wp-content/uploads/2026/08/bb2a16348cb94be08fb20ac274f0b12d.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/fleurs-de-jardin-2/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/fleurs-de-jardin/",
+  "map": {
+   "query": "Fleurs de Jardin, Wadi Al Safa 3, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "golf-trails",
@@ -2623,7 +2770,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/ef5f00053c3b4a3483f98200a38d7924.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/golf-trails/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/golf-trails/",
+  "map": {
+   "query": "Golf Trails, Dubai South, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "greenz",
@@ -2690,7 +2841,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/2fe609225b2e460084eca496adaa05d7.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/greenz/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/greenz/",
+  "map": {
+   "query": "Greenz, Al Warsan, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "hillsedge",
@@ -2747,7 +2902,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/4-3.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/hillsedge/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/hillsedge/",
+  "map": {
+   "query": "Hillsedge, Dubai Hills Estate, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "jacob-and-co-beachfront-living",
@@ -2756,7 +2915,7 @@
    "Investment Collection",
    "Luxury Collection"
   ],
-  "area": "Dubai Harbour",
+  "area": "Ghadeer Al Tayr",
   "location": "Ghadeer Al Tayr",
   "developer": null,
   "summary": "Jacob and Co Beachfront Living embodies a lifestyle where sophistication and serenity exist in perfect harmony. Nestled between the sea and the natural reserve, the residences offer an atmosphere of calm and well-being, where every day unfolds in rhythm with nature. Expansive sea views and direct beach access define a new level of coastal living — an invitation to slow down and savor the effortless elegance of life by the water.",
@@ -2829,7 +2988,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/lobby.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/jacob-and-co-beachfront-living/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/jacob-and-co-beachfront-living/",
+  "map": {
+   "query": "Jacob and Co Beachfront Living, Ghadeer Al Tayr, Abu Dhabi, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "knightsbridge",
@@ -2896,7 +3059,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/40.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/knightsbridge/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/knightsbridge/",
+  "map": {
+   "query": "Knightsbridge, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "mercer-house",
@@ -2970,7 +3137,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/223.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/mercer-house/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/mercer-house/",
+  "map": {
+   "query": "Mercer House, Jumeirah Lake Towers, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "mr-c-residences-downtown",
@@ -3042,7 +3213,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/f9abad03f87447128dbf7fa2a1cdfd0a.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/mr-c-residences-downtown/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/mr-c-residences-downtown/",
+  "map": {
+   "query": "Mr. C Residences Downtown, Downtown Dubai, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "nourelle",
@@ -3116,7 +3291,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/35f1b463ea3b46f397a738d8383701a2.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/nourelle/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/nourelle/",
+  "map": {
+   "query": "Nourelle, Jumeirah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "ovelle-the-valley",
@@ -3178,7 +3357,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/88d924556a5e4f4086dbb95484526a4d.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/ovelle-the-valley/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/ovelle-the-valley/",
+  "map": {
+   "query": "Ovelle The Valley, The Valley, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "palm-central-private-residences-phase-2",
@@ -3251,7 +3434,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/156f51dc8ec3490a9a0c0a717d8dec94.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/palm-central-private-residences-phase-2/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/palm-central-private-residences-phase-2/",
+  "map": {
+   "query": "Palm Central Private Residences Phase 2, Palm Jebel Ali, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "parkwood-emaar",
@@ -3315,7 +3502,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/26-1.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/parkwood-emaar/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/parkwood-emaar/",
+  "map": {
+   "query": "Parkwood Emaar, Dubai Hills Estate, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "reportage-hills",
@@ -3384,7 +3575,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/1-7.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/reportage-hills/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/reportage-hills/",
+  "map": {
+   "query": "Reportage Hills, Damac Lagoons, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "salva",
@@ -3450,7 +3645,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/cae7897dba4d4af0a03a6fab3509e207.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/salva/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/salva/",
+  "map": {
+   "query": "Salva, The Heights, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "selora-residences",
@@ -3529,7 +3728,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/D0A1D0BAD180D0B8D0BDD188D0BED18223-04-2025145753.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/selora-residences/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/selora-residences/",
+  "map": {
+   "query": "Selora Residences, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "serenz",
@@ -3594,7 +3797,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/b1a1f30c41734fd08b1e26d89b19bc2c.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/serenz/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/serenz/",
+  "map": {
+   "query": "Serenz, JVC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "serro",
@@ -3660,7 +3867,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/af5c945415a448e086d8c62da6b96599-2.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/serro/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/serro/",
+  "map": {
+   "query": "Serro, The Heights, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "terra-golf-collection-phase-2",
@@ -3722,7 +3933,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/abeb869a30aa440cb86f5e923d55a598.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/terra-golf-collection-phase-2/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/terra-golf-collection-phase-2/",
+  "map": {
+   "query": "Terra Golf Collection Phase 2, Jumeirah Golf Estates, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "the-edit-at-d3",
@@ -3731,7 +3946,7 @@
    "Best roi & Capital Growth Projects)",
    "Investment Collection"
   ],
-  "area": "Downtown Dubai",
+  "area": "Dubai Design District",
   "location": "Dubai",
   "developer": null,
   "summary": "",
@@ -3796,7 +4011,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/278034af73eb4e018a617f7262cc43ed.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/the-edit-at-d3/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/the-edit-at-d3/",
+  "map": {
+   "query": "The Edit at d3, Dubai Design District, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "the-residences-at-the-dubai-beach-edition",
@@ -3879,7 +4098,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/bedd65050a8740d98ebe457faabb4a46.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/the-residences-at-the-dubai-beach-edition/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/the-residences-at-the-dubai-beach-edition/",
+  "map": {
+   "query": "The Residences at The Dubai Beach EDITION, Jumeirah Beach Residence, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "the-wilds",
@@ -3951,7 +4174,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/30.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/the-wilds/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/the-wilds/",
+  "map": {
+   "query": "The Wilds, Wadi Al Safa 3, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "tilal-binghatti",
@@ -3960,7 +4187,7 @@
    "Best Affordable Townhouse & Villa Projects",
    "Investment Collection"
   ],
-  "area": "Damac Lagoons",
+  "area": "Al Rowaiyah",
   "location": "Dubai",
   "developer": "Binghatti",
   "summary": "Tilal Binghatti is presented as a thoughtfully designed masterplanned villa community that reimagines the developer’s signature architectural style on the ground, creating a calm and complete living environment. The project focuses on spacious, family-oriented living, offering elegant 4, 5, 6 and 7-bedroom villas within a private gated setting designed for long-term comfort and stability. It is positioned as “a life meant to feel steady, open, and complete,” emphasizing balance, greenery, and a sense of everyday ease.",
@@ -4024,7 +4251,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/223e3c6b61804cc8810fa28fa1a9ab25.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/tilal-binghatti/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/tilal-binghatti/",
+  "map": {
+   "query": "Tilal Binghatti, Al Rowaiyah, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "valencia",
@@ -4088,7 +4319,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/05bf017528694fbe9a13841f67e786c4.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/valencia/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/valencia/",
+  "map": {
+   "query": "Valencia, Damac Lagoons, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "valia",
@@ -4098,7 +4333,7 @@
    "Investment Collection",
    "Latest Launch"
   ],
-  "area": "Downtown Dubai",
+  "area": "Dubai Creek Harbour",
   "location": "Dubai",
   "developer": "Emaar",
   "summary": "Valia is a residential tower by Emaar Properties, standing as a slender, sculptural silhouette within a contemporary high-rise cluster. The tower is defined by refined verticality — rhythmic vertical fins, precise horizontal detailing and a facade of full-height glazing that reflects light and sky. Every residence is wrapped in floor-to-ceiling windows that draw daylight deep into the interior and frame panoramic views of the surrounding waterfront, boulevard and skyline. The tower is crowned by a discreet illuminated architectural feature that gives Valia a distinctive night-time signature. At ground level, a generously proportioned podium is wrapped in landscaped gardens, mature planting and pedestrian-friendly walkways, creating a considered arrival experience for residents and their guests. The residence collection spans one-, two-, three- and four-bedroom apartments, each thoughtfully proportioned to make the most of the tower’s uninterrupted horizons.",
@@ -4147,7 +4382,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/c348e6b98c0e448e97cba20706130800.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/valia/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/valia/",
+  "map": {
+   "query": "Valia, Dubai Creek Harbour, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "vida-residences-hillside",
@@ -4202,7 +4441,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/snapedit_174834187490528129.webp"
   ],
   "launchedAt": "2026-08-03",
-  "sourceUrl": "https://dubairapidproperties.com/projects/vida-residences-hillside/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/vida-residences-hillside/",
+  "map": {
+   "query": "Vida Residences Hillside, Dubai Hills Estate, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "alta-v1ew",
@@ -4256,7 +4499,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/snapedit_17228465045711.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/alta-v1ew/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/alta-v1ew/",
+  "map": {
+   "query": "ALTA V1EW, JVC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "azizi-venice",
@@ -4334,7 +4581,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/master.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/azizi-venice/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/azizi-venice/",
+  "map": {
+   "query": "Azizi Venice, Dubai South, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "beverly-crown",
@@ -4399,7 +4650,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/f4806b1baebc4258a73fb22e03920dc4.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/beverly-crown/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/beverly-crown/",
+  "map": {
+   "query": "Beverly Crown, JVC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "binghatti-aquarise",
@@ -4467,7 +4722,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/tfrRTvLuIp6sxAFRE4ldLhrfTQiUE8wQwlekEK80.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/binghatti-aquarise/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/binghatti-aquarise/",
+  "map": {
+   "query": "Binghatti Aquarise, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "binghatti-skyhall",
@@ -4542,7 +4801,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/Group37116828129.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/binghatti-skyhall/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/binghatti-skyhall/",
+  "map": {
+   "query": "Binghatti Skyhall, Business Bay, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "binghatti-wraith",
@@ -4609,7 +4872,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/fc808c517aba4a9ca8b2543cf1955171.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/binghatti-wraith/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/binghatti-wraith/",
+  "map": {
+   "query": "Binghatti Wraith, Al Furjan, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "breez",
@@ -4685,7 +4952,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/Studio.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/breez/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/breez/",
+  "map": {
+   "query": "Breez, Dubai Maritime City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "elar1s-rise",
@@ -4747,7 +5018,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/f428d514cbc7430bb27dae7688ccec5c.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/elar1s-rise/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/elar1s-rise/",
+  "map": {
+   "query": "ELAR1S Rise, Jumeirah Village Triangle, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "elevia-residences-3",
@@ -4810,7 +5085,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/a1ddd9280dff47a8a8fa7a932cb896a1.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/elevia-residences-3/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/elevia-residences-3/",
+  "map": {
+   "query": "Elevia Residences 3, Warsan 4, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "galleria-residences",
@@ -4877,7 +5156,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/d85840815ec84ea5979c917934e14799.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/galleria-residences/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/galleria-residences/",
+  "map": {
+   "query": "Galleria Residences, Dubai South, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "maison-elysee",
@@ -4942,7 +5225,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/MaisonElysee.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/maison-elysee/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/maison-elysee/",
+  "map": {
+   "query": "Maison Elysee, JVC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "maybach-ultimate-luxury",
@@ -4951,7 +5238,7 @@
    "Best Projects Under AED 1.5M",
    "Investment Collection"
   ],
-  "area": "Mohammed Bin Rashid City",
+  "area": "Meydan",
   "location": "Dubai",
   "developer": "Binghatti",
   "summary": "Maybach Ultimate Luxury is an iconic Mercedes-branded residential development by Binghatti, located in the prestigious Meydan district. The project features two striking towers, each comprising a basement level, ground floor, mezzanine, five podium levels, and an elegant residential structure – with nineteen floors in Tower A and twenty-five in Tower B. Designed to embody sophistication and architectural excellence, the complex stands as a symbol of branded luxury living in Dubai. The development offers a refined selection of studios and one-, two-, and three-bedroom apartments, thoughtfully designed to suit both homeowners and investors. Interiors showcase a contemporary aesthetic defined by clean architectural lines, premium materials, rich textures, and a warm, elegant color palette. Every detail is curated to reflect understated luxury and timeless style.",
@@ -5009,7 +5296,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/b85555b0b7844e78a75505d66a083458.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/maybach-ultimate-luxury/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/maybach-ultimate-luxury/",
+  "map": {
+   "query": "Maybach Ultimate Luxury, Meydan, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "peace-lagoons-2",
@@ -5079,7 +5370,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/WhatsAppImage2024-12-07at13.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/peace-lagoons-2/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/peace-lagoons-2/",
+  "map": {
+   "query": "Peace Lagoons 2, Dubailand, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "samana-hills-south-haven",
@@ -5088,7 +5383,7 @@
    "Best Projects Under AED 1.5M",
    "Investment Collection"
   ],
-  "area": "Dubailand",
+  "area": "Dubai Industrial City",
   "location": "Dubai Industrial City",
   "developer": "Samana",
   "summary": "Samana South Haven is a beautifully considered residential community where purpose truly shapes every space, delivering a lifestyle that feels natural, comfortable, and complete. Designed around the way people actually live, it brings together thoughtful layouts, modern architecture, and resort-inspired landscaping to create homes that feel intentional at every turn. The collection offers a wonderful range of residences, from smart studios to spacious one-bedroom and two-bedroom apartments, ensuring there is a perfect home to suit every stage of life.",
@@ -5141,7 +5436,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/fb62672f84dd416889ed94f790d58ca5.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/samana-hills-south-haven/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/samana-hills-south-haven/",
+  "map": {
+   "query": "Samana Hills South Haven, Dubai Industrial City, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "trussardi-residences-phase-two",
@@ -5219,7 +5518,11 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/z.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/trussardi-residences-phase-two/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/trussardi-residences-phase-two/",
+  "map": {
+   "query": "Trussardi Residences Phase Two, Discovery Gardens, Dubai, United Arab Emirates",
+   "exact": true
+  }
  },
  {
   "slug": "w1nner-tower",
@@ -5293,6 +5596,10 @@
    "https://dubairapidproperties.com/wp-content/uploads/2026/08/W1NNER.webp"
   ],
   "launchedAt": "2026-08-01",
-  "sourceUrl": "https://dubairapidproperties.com/projects/w1nner-tower/"
+  "sourceUrl": "https://dubairapidproperties.com/projects/w1nner-tower/",
+  "map": {
+   "query": "W1NNER Tower, JVC, Dubai, United Arab Emirates",
+   "exact": true
+  }
  }
 ]
