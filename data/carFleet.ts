@@ -81,7 +81,7 @@ export const carFleet = {
       seats: 5, 
       transmission: 'Automatic',
       type: 'Full-Size Ultra Luxury SUV',
-      image: unsplash('1699323472812-90r05bdfcb206'),
+      image: unsplash('1699323472812-9005bdfcb206'),
       alt: 'Rolls-Royce Cullinan',
     },
     {
@@ -90,7 +90,7 @@ export const carFleet = {
       seats: 2,
       transmission: 'Automatic',
       type: 'Sports Coupé',
-      image: unsplash('1759001462231-cd26545a499'),
+      image: unsplash('1759001462231-cd26545a499e'),
       alt: 'Porsche 911 GT3 RS',
     },
   ] satisfies Vehicle[],
