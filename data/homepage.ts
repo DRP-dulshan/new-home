@@ -376,7 +376,7 @@ export const solutions = {
       title: 'DRP Car Fleet',
       subtitle: 'Explore our vehicle services',
       href: '/ecosystem/car-fleet',
-      image: unsplash('1503376780353-7e6692767b70'),
+      image: '/images/car.jpeg',
       alt: 'A luxury car parked outside a modern residence',
       span: 'standard',
     },
