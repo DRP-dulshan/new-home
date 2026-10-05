@@ -27,7 +27,7 @@ export const carFleet = {
     eyebrow: 'DRP Car Fleet',
     heading: 'Mobility, Part of\nthe DRP Experience',
     // DEMO PLACEHOLDER – swap for real DRP vehicle photography
-    image: '/images/car2.jpeg', 2400),
+    image: '/images/car2.jpeg',
     imageAlt: 'A DRP fleet car parked outside a modern residence',
   },
   intro:
