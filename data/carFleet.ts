@@ -54,7 +54,7 @@ export const carFleet = {
       seats: 5,
       transmission: 'Automatic',
       type: 'Luxury SUV',
-      image: unsplash('-yCpz7acG20'),
+      image: unsplash('yCpz7acG20'),
       alt: 'Mercedes-Benz G 63',
     },
     {
