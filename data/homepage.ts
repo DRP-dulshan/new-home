@@ -367,7 +367,7 @@ export const solutions = {
       title: 'Furnishings',
       subtitle: 'Furnish and prepare your property',
       href: '/furnishings',
-      image: './images/furnishings.jpg',
+      image: '/images/furnishings.jpg',
       alt: 'A styled living room with designer furniture',
       span: 'standard',
     },
