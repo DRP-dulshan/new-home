@@ -358,7 +358,7 @@ export const solutions = {
       subtitle: 'Stay with DRP or list your property',
       href: HOLIDAY_HOMES_URL,
       external: true,
-      image: unsplash('1564013799919-ab600027ffc6'),
+      image: '/images/living1.jpeg',
       alt: 'A sunlit holiday home terrace with sea views',
       span: 'standard',
     },
