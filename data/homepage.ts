@@ -311,7 +311,7 @@ export const solutions = {
       title: 'List Your Property',
       subtitle: 'Sell or lease with DRP',
       href: '/list-your-property',
-      image: unsplash('1580587771525-78b9dba3b914'),
+      image: '/images/listyourproperty.webp',
       alt: 'A contemporary villa with a lit pool at twilight',
       span: 'large',
     },
