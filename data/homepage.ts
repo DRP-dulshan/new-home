@@ -320,7 +320,7 @@ export const solutions = {
       title: 'Find a Ready Property',
       subtitle: 'Explore properties available now for sale or rent',
       href: '/properties',
-      image: unsplash('1616486338812-3dadae4b4ace'),
+      image: '/images/property1.jpeg',
       alt: 'A bright, furnished living room in a ready Dubai apartment',
       span: 'standard',
     },
