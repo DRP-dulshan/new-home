@@ -58,13 +58,13 @@ export const carFleet = {
       alt: 'Mercedes-Benz G 63',
     },
     {
-      id: 'mercedes-s-class',
-      model: 'Mercedes-Benz S-Class',
+      id: 'bentley-continental',
+      model: 'Bentley Continental',
       seats: 4,
       transmission: 'Automatic',
-      type: 'Executive Saloon',
-      image: unsplash('1555215695-3004980ad54e'),
-      alt: 'Mercedes-Benz S-Class',
+      type: 'Luxury Convertible',
+      image: unsplash('1604946881982-a3321fcf07f0'),
+      alt: 'Bentley Continental',
     },
     {
       id: 'Lamborghini-aventador-s',
