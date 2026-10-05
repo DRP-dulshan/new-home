@@ -40,13 +40,13 @@ export const carFleet = {
   // for real DRP vehicle photography; models and specs need confirming too.
   vehicles: [
     {
-      id: 'range-rover-sport',
-      model: 'Range Rover Sport',
-      seats: 5,
+      id: 'ford-mustang',
+      model: 'Ford Mustang',
+      seats: 4,
       transmission: 'Automatic',
-      type: 'Luxury SUV',
-      image: unsplash('1494976388531-d1058494cdd8'),
-      alt: 'Range Rover Sport',
+      type: 'Sports Coupé',
+      image: unsplash('1503736334956-4c8f8e92946d'),
+      alt: 'Ford Mustang',
     },
     {
       id: 'mercedes-g63',
@@ -54,7 +54,7 @@ export const carFleet = {
       seats: 5,
       transmission: 'Automatic',
       type: 'Luxury SUV',
-      image: unsplash('1492144534655-ae79c964c9d7'),
+      image: unsplash('-yCpz7acG20'),
       alt: 'Mercedes-Benz G 63',
     },
     {
