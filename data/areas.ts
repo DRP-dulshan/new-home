@@ -162,7 +162,7 @@ export const areas: Area[] = [
       'Palm Jebel Ali is Nakheel’s second palm island, larger than Palm Jumeirah and planned around beachfront villas and resorts.',
       'First villa releases sold quickly, and further phases are expected through the coming years.',
     ],
-    image: '/images/listyourproperty.webp',
+    image: '/images/newproperty.webp',
     alt: 'A beachfront residence rendering',
     facts: { pricePerSqft: 'AED 3,000', rentalYield: 'Off-plan', airport: '35 min (DWC)', homes: 'Villas' },
     highlights: [
