@@ -85,6 +85,7 @@ export const navigation: NavNode[] = [
           { label: 'Rent Property', href: '/properties?offering=rent' },
         ],
       },
+      { title: 'Dubai Areas', links: areaLinks },
       {
         title: 'Mortgage & Setup',
         links: [
@@ -92,13 +93,12 @@ export const navigation: NavNode[] = [
           { label: 'Company Formation', href: '/ecosystem/company-formation' },
         ],
       },
-      { title: 'Dubai Areas', links: areaLinks },
     ],
     promo: {
       title: 'Palm Jebel Ali Villas',
       linkLabel: 'Explore the collection',
       href: '/areas/palm-jebel-ali',
-      image: unsplash('1600596542815-ffad4c1539a9'),
+      image: '/images/listyourproperty.webp',
       alt: 'A waterfront villa with a private pool at dusk',
     },
   },
