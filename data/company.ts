@@ -49,11 +49,11 @@ export const about = {
     heading: 'One Team, Every Part of Property',
     // DEMO PLACEHOLDER – Unsplash photography; swap for DRP shoots
     services: [
-      { name: 'Real Estate Brokerage', href: '/properties', image: unsplash('1600585154340-be6161a56a0c', 900), alt: 'A villa on Palm Jumeirah' },
-      { name: 'Off-Plan Investments', href: '/off-plan', image: unsplash('1541976590-713941681591', 900), alt: 'A new residential tower in Dubai' },
-      { name: 'Holiday Homes', href: HOLIDAY_HOMES_URL, image: unsplash('1567767292278-a4f21aa2d36e', 900), alt: 'A furnished holiday home living room' },
-      { name: 'Car Fleet', href: '/ecosystem/car-fleet', image: unsplash('1503376780353-7e6692767b70', 900), alt: 'A car outside a modern residence' },
-      { name: 'Furnishing & Property Support', href: '/furnishings', image: unsplash('1586023492125-27b2c045efd7', 900), alt: 'A styled living room' },
+      { name: 'Real Estate Brokerage', href: '/properties', image: '/images/property1.jpeg', alt: 'A villa on Palm Jumeirah' },
+      { name: 'Off-Plan Investments', href: '/off-plan', image: '/images/listyourproperty.webp', alt: 'A new residential tower in Dubai' },
+      { name: 'Holiday Homes', href: HOLIDAY_HOMES_URL, image: '/images/living1.jpeg', alt: 'A furnished holiday home living room' },
+      { name: 'Car Fleet', href: '/ecosystem/car-fleet', image: '/images/car.jpeg', alt: 'A car outside a modern residence' },
+      { name: 'Furnishing & Property Support', href: '/furnishings', image: '/images/furnishing1.jpeg', alt: 'A styled living room' },
       { name: 'Partner Network', href: '/ecosystem/partner-network', image: unsplash('1521791136064-7986c2920216', 900), alt: 'Two people shaking hands' },
     ],
   },
