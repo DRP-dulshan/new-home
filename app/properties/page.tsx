@@ -15,7 +15,7 @@ export default function Page() {
         heading="Properties for Sale and Rent"
         intro="Apartments, villas, townhouses and penthouses available now across Dubai, each one personally viewed by a DRP specialist."
         // DEMO PLACEHOLDER – swap for DRP photography
-        image={unsplash('1522708323590-d24dbb6b0267', 2000)}
+        image={'/images/buy.jpeg'}
         imageAlt="A furnished sea-view living room on Palm Jumeirah"
       />
       <section aria-labelledby="listings-heading" className="bg-cream pb-[var(--section-y)]">
