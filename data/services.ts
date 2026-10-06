@@ -319,7 +319,7 @@ export const furnishings = {
     heading: 'Furnishing Packages',
     intro:
       'Curated, durable interiors that prepare a property for rental or resale — designed, delivered and installed in as little as three weeks.',
-    image: unsplash('1586023492125-27b2c045efd7', 2000),
+    image: '/images/furnishing1.jpeg',
     imageAlt: 'A styled living room with designer furniture',
   },
   intro: [
