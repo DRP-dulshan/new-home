@@ -48,7 +48,7 @@ export const ecosystem = {
       title: 'Prepare & Live',
       services: [
         { name: 'Furnishings', text: 'Packages that prepare a home to let.', href: '/furnishings' },
-        { name: 'Interior Design', text: 'Concept, sourcing and styling.', href: '/interior-design' },
+        { name: 'DRP Furnishing', text: 'Concept, sourcing and styling.', href: '/drp-furnishing' },
         { name: 'Fit Out', text: 'From handover to a finished home.', href: '/fit-out' },
         { name: 'Car Fleet', text: 'Mobility for owners and guests.', href: '/ecosystem/car-fleet' },
       ],

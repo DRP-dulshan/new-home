@@ -23,7 +23,7 @@ needs real content before launch.
 | [`areas.ts`](data/areas.ts) | `/areas`, `/areas/[slug]` |
 | [`news.ts`](data/news.ts) | `/news`, `/magazine/[slug]`, homepage news carousel |
 | [`leadPages.ts`](data/leadPages.ts) | `/list-your-property`, `/property-valuation`, the `LeadForm` config types |
-| [`services.ts`](data/services.ts) | Holiday homes (incl. Book a Stay), property management, furnishings, interior design, fit-out |
+| [`services.ts`](data/services.ts) | Holiday homes (incl. Book a Stay), property management, furnishings, DRP Furnishing (`/drp-furnishing`), fit-out |
 | [`ecosystem.ts`](data/ecosystem.ts) | `/ecosystem`, mortgage calculator, company formation, partner network, owner portal |
 | [`company.ts`](data/company.ts) | `/about` (incl. the `#team` grid), `/careers`, `/contact` |
 | [`carFleet.ts`](data/carFleet.ts) | `/ecosystem/car-fleet` |
