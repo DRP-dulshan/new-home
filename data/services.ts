@@ -331,7 +331,7 @@ export const furnishings = {
       name: 'Essential',
       price: 'From AED 45,000 per bedroom',
       description: 'Complete, durable furnishing for annual lets.',
-      features: ['Living, dining and bedrooms', 'Window treatments', 'Kitchen essentials', 'Installation and styling'],
+      features: ['Smart, functional furniture', 'Basic kitchen essentials', 'Quality linen & towels', 'Smart TV & Wi-Fi setup', 'Installation & quality check'],
     },
     {
       name: 'Signature',
