@@ -5,100 +5,108 @@
  *  An added service for DRP owners, Holiday Homes guests and clients — not a
  *  rental business. No prices, booking or dates; every route leads to the
  *  team.
+ *
+ *  The fleet is one model, the VGV U70 Pro. Specs are the manufacturer's UAE
+ *  figures (ZigWheels UAE / CarNewsChina); confirm the seat count of DRP's own
+ *  car (the U70 Pro comes as a 5- or 7-seater).
+ *
+ *  PHOTOS: the hero is DRP's own branded car. Every gallery photo below is a
+ *  TEMPORARY manufacturer press image (public/images/car-fleet/) — replace
+ *  each file with DRP's own exterior and interior shots, keeping the names,
+ *  or edit the lists.
  * ============================================================================
  */
 
-const unsplash = (id: string, w = 1600) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
+export type CarPhoto = { src: string; alt: string };
 
-export type Vehicle = {
-  id: string;
-  model: string;
-  seats: number;
-  transmission: string;
-  type: string;
-  image: string;
-  alt: string;
-};
+const photo = (file: string, alt: string): CarPhoto => ({ src: `/images/car-fleet/${file}`, alt });
 
 export const carFleet = {
   metaTitle: 'Car Fleet | Dubai Rapid Properties',
   hero: {
     eyebrow: 'DRP Car Fleet',
     heading: 'Mobility, Part of\nthe DRP Experience',
-    // DEMO PLACEHOLDER – swap for real DRP vehicle photography
+    // REAL – DRP's own VGV U70 Pro outside the office
     image: '/images/car2.jpeg',
-    imageAlt: 'A DRP fleet car parked outside a modern residence',
+    imageAlt: 'The DRP-branded VGV U70 Pro outside the DRP office',
   },
   intro:
     'Our DRP car fleet is available as an additional service for our property owners, Holiday Homes guests and clients who require convenient mobility during their stay in Dubai. Speak to our team to learn more about available vehicles and arrangements.',
-  fleet: {
-    eyebrow: 'The Fleet',
-    heading: 'Selected Vehicles',
+
+  car: {
+    eyebrow: 'The DRP Car',
+    make: 'VGV',
+    model: 'U70 Pro',
+    type: 'Mid-size SUV',
+    description: [
+      'A spacious family SUV with room for passengers and luggage, chosen for comfortable airport runs, viewings and days out across Dubai.',
+      'Leather seats, a panoramic sunroof and a 10.25-inch touchscreen make every journey easy, whether you are arriving for a stay or seeing properties with our team.',
+    ],
+    image: photo('exterior-1.webp', 'The VGV U70 Pro'),
+    specs: [
+      // CONFIRM – the U70 Pro comes as a 5- or 7-seater
+      { label: 'Seats', value: '5 or 7' },
+      { label: 'Engine', value: '1.5L turbo' },
+      { label: 'Power', value: '154 hp' },
+      { label: 'Transmission', value: '6-speed automatic' },
+      { label: 'Length', value: '4,825 mm' },
+      { label: 'Ground clearance', value: '200 mm' },
+    ],
   },
-  // DEMO PLACEHOLDERS – every photo below is Unsplash stock and must be swapped
-  // for real DRP vehicle photography; models and specs need confirming too.
-  vehicles: [
-    {
-      id: 'ford-mustang',
-      model: 'Ford Mustang',
-      seats: 4,
-      transmission: 'Automatic',
-      type: 'Sports Coupé',
-      image: unsplash('1655628266959-12ec3f839a46'),
-      alt: 'Ford Mustang',
-    },
-    {
-      id: 'mercedes-g63',
-      model: 'Mercedes-Benz G 63',
-      seats: 5,
-      transmission: 'Automatic',
-      type: 'Luxury SUV',
-      image: unsplash('1669428800842-5f1d3645cef2'),
-      alt: 'Mercedes-Benz G 63',
-    },
-    {
-      id: 'bentley-continental',
-      model: 'Bentley Continental',
-      seats: 4,
-      transmission: 'Automatic',
-      type: 'Luxury Convertible',
-      image: unsplash('1604946881982-a3321fcf07f0'),
-      alt: 'Bentley Continental',
-    },
-    {
-      id: 'Lamborghini-aventador-s',
-      model: 'Lamborghini Aventador S',
-      seats: 2,
-      transmission: 'Automatic',
-      type: 'Supercar',
-      image: unsplash('1694725736570-e2343ab54550'),
-      alt: 'Lamborghini Aventador S',
-    },
-    {
-      id: 'rolls-royce-cullinan',
-      model: 'Rolls-Royce Cullinan',
-      seats: 5, 
-      transmission: 'Automatic',
-      type: 'Full-Size Ultra Luxury SUV',
-      image: unsplash('1699323472812-9005bdfcb206'),
-      alt: 'Rolls-Royce Cullinan',
-    },
-    {
-      id: 'porsche-911-gt3-rs',
-      model: 'Porsche 911 GT3 RS',
-      seats: 2,
-      transmission: 'Automatic',
-      type: 'Sports Coupé',
-      image: unsplash('1759001462231-cd26545a499e'),
-      alt: 'Porsche 911 GT3 RS',
-    },
-  ] satisfies Vehicle[],
+
+  gallery: {
+    eyebrow: 'Gallery',
+    heading: 'Inside and Out',
+    // TEMPORARY – manufacturer press photos; swap for DRP's own shots
+    exterior: [
+      { src: '/images/car2.jpeg', alt: 'The DRP-branded VGV U70 Pro outside the DRP office' },
+      photo('exterior-1.webp', 'The VGV U70 Pro from the front three-quarter'),
+      photo('exterior-2.webp', 'Front three-quarter view, low angle'),
+      photo('exterior-3.webp', 'Side profile'),
+      photo('exterior-4.webp', 'Rear three-quarter view'),
+      photo('exterior-5.webp', 'Rear three-quarter view, opposite side'),
+      photo('exterior-6.webp', 'Rear view'),
+      photo('exterior-7.webp', 'LED headlight detail'),
+    ],
+    interior: [
+      photo('interior-1.webp', 'Dashboard and front cabin'),
+      photo('interior-2.webp', 'Centre console and touchscreen'),
+      photo('interior-3.webp', 'Steering wheel and digital instrument cluster'),
+      photo('interior-4.webp', 'Gear selector and leather console'),
+      photo('interior-5.webp', '10.25-inch touchscreen'),
+      photo('interior-6.webp', 'Boot with the tailgate open'),
+    ],
+  },
+
+  features: {
+    eyebrow: 'On Board',
+    heading: 'Comfort as Standard',
+    items: [
+      { title: 'Panoramic sunroof', text: 'Light-filled cabin for the drive along the coast.' },
+      { title: '10.25-inch touchscreen', text: 'Navigation, music and calls on one clear display.' },
+      { title: 'Digital instrument cluster', text: 'Everything the driver needs, at a glance.' },
+      { title: 'Leather seating', text: 'Comfortable for longer journeys across the city.' },
+      { title: 'Voice control', text: 'Hands-free operation of the main functions.' },
+      { title: 'Hill-start and descent assist', text: 'Calm, controlled driving on every gradient.' },
+    ],
+  },
+
+  service: {
+    eyebrow: 'How It Works',
+    heading: 'Arranged by the DRP Team',
+    steps: [
+      { title: 'Ask the team', text: 'Tell us your dates and what you need the car for — a stay, a viewing day or airport transfers.' },
+      { title: 'We confirm', text: 'We check availability and set out the arrangement with you directly.' },
+      { title: 'Ready when you are', text: 'The car is prepared and handed over where and when it suits you.' },
+    ],
+    note: 'Available to DRP property owners, Holiday Homes guests and clients.',
+  },
+
   cta: {
     eyebrow: 'Car Fleet Enquiries',
     heading: 'Speak to our team',
     label: 'Contact Us',
     href: '/contact',
-    whatsappText: 'Hello DRP, I would like to ask about the DRP car fleet.',
+    whatsappText: 'Hello DRP, I would like to ask about the DRP car (VGV U70 Pro).',
   },
 };

@@ -89,7 +89,7 @@ Details the old site does not publish, so the new one infers or leaves out:
 | Mortgage calculator | Real formula; fee and rate defaults are estimates to confirm with DRP's mortgage partners. |
 | Market report | **Placeholder** figures; the form promises an email, no PDF is attached yet. |
 | Legal pages | **Template wording** — must be reviewed by DRP's legal advisors. |
-| Car fleet (6 vehicles) | **Placeholder** — Unsplash stock photos that do not match the listed models. Swap for real DRP vehicle photography. |
+| Car fleet | One car, the VGV U70 Pro. The hero is DRP's own branded car; the 13 gallery photos in `/public/images/car-fleet/` are **temporary** manufacturer press shots. Replace them with DRP's exterior and interior photos (same file names, or edit `data/carFleet.ts`) and confirm the seat count (5 or 7). |
 | Developer logos | 21 of 28 developers have their official logo. Meraas, Azizi, Wasl and Dar Global block automated downloads, and Zoya, Valores and Evera have no official site found, so these 7 show their name until a logo is added in `data/developers.ts`. |
 | Partner logos (10) | **Placeholder wordmarks** — see [`/public/partners/README.md`](public/partners/README.md) to swap in SVGs. |
 | Photography | Listings, projects, team, fit-out and interior photos are DRP's own; heroes and section images elsewhere are Unsplash stock or DRP office photos. Swap for DRP shoots. |
