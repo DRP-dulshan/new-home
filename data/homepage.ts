@@ -695,7 +695,7 @@ export const footer = {
       links: [
         { label: 'Holiday Homes', href: HOLIDAY_HOMES_URL },
         { label: 'Fit Out', href: '/fit-out' },
-        { label: 'Interior Design', href: '/interior-design' },
+        { label: 'DRP Furnishings', href: '/drp-furnishing' },
         { label: 'Furnishings', href: '/furnishings' },
         { label: 'Car Fleet', href: '/ecosystem/car-fleet' },
         { label: 'Owner Portal', href: '/owner-portal' },
