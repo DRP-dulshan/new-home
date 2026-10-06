@@ -85,6 +85,13 @@ export const navigation: NavNode[] = [
           { label: 'Rent Property', href: '/properties?offering=rent' },
         ],
       },
+      {
+        title: 'Mortgage & Setup',
+        links: [
+          { label: 'Mortgage Assistance', href: '/ecosystem/mortgage' },
+          { label: 'Company Formation', href: '/ecosystem/company-formation' },
+        ],
+      },
       { title: 'Dubai Areas', links: areaLinks },
     ],
     promo: {
@@ -104,13 +111,6 @@ export const navigation: NavNode[] = [
         links: [
           { label: 'List With DRP', href: '/list-your-property' },
           { label: 'Request a Property Valuation', href: '/property-valuation' },
-        ],
-      },
-      {
-        title: 'Mortgage & Setup',
-        links: [
-          { label: 'Mortgage Assistance', href: '/ecosystem/mortgage' },
-          { label: 'Company Formation', href: '/ecosystem/company-formation' },
         ],
       },
       {
@@ -194,7 +194,7 @@ export const fullMenu: NavLink[] = [
   { label: 'Off-Plan', href: '/off-plan' },
   { label: 'Holiday Homes', href: HOLIDAY_HOMES_URL, external: true },
   { label: 'Property Management', href: '/property-management' },
-  { label: 'Interior Design', href: '/interior-design' },
+  { label: 'DRP Furnishing', href: '/drp-furnishing' },
   { label: 'Car Fleet', href: '/ecosystem/car-fleet' },
   { label: 'About Us', href: '/about' },
   { label: 'Careers', href: '/careers' },
