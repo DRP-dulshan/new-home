@@ -416,7 +416,7 @@ export const interiorDesign = {
     intro:
       'Concept, sourcing and styling for owners preparing a home to live in, to let or to sell.',
     // REAL – from the current DRP Interior Design page
-    image: 'https://dubairapidproperties.com/wp-content/uploads/2023/02/interior-design.jpg',
+    image: '/images/furnishing1.jpeg',
     imageAlt: 'A living room styled by DRP Interiors',
   },
   /** REAL – the Signature and Essentials package images from the current DRP site */
