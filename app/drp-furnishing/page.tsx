@@ -8,7 +8,7 @@ import ProcessSteps from '@/components/sections/ProcessSteps';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { interiorDesign as page } from '@/data/services';
 
-export const metadata = { title: 'Interior Design | Dubai Rapid Properties' };
+export const metadata = { title: 'DRP Furnishing | Dubai Rapid Properties' };
 
 export default function Page() {
   return (
