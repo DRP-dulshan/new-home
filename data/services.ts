@@ -329,15 +329,15 @@ export const furnishings = {
   packages: [
     {
       name: 'Essential',
-      price: 'From AED 45,000 per bedroom',
+      price: 'Starting From AED 22,990',
       description: 'Complete, durable furnishing for annual lets.',
       features: ['Smart, functional furniture', 'Basic kitchen essentials', 'Quality linen & towels', 'Smart TV & Wi-Fi setup', 'Installation & quality check'],
     },
     {
       name: 'Signature',
-      price: 'From AED 70,000 per bedroom',
+      price: 'Starting From AED 30,990',
       description: 'Our holiday-home standard, designed to photograph well.',
-      features: ['Everything in Essential', 'Designer lighting and art', 'Hotel-standard linen', 'Professional photography'],
+      features: ['Premium furniture & finishes', 'High-end kitchen equipment', 'Luxury linen & towels', 'Premium décor & accessories', 'Installation & quality check'],
       featured: true,
     },
     {
