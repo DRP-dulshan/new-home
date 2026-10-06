@@ -24,6 +24,7 @@ needs real content before launch.
 | [`news.ts`](data/news.ts) | `/news`, `/magazine/[slug]`, homepage news carousel |
 | [`leadPages.ts`](data/leadPages.ts) | `/list-your-property`, `/property-valuation`, the `LeadForm` config types |
 | [`services.ts`](data/services.ts) | Holiday homes (incl. Book a Stay), property management, furnishings, DRP Furnishing (`/drp-furnishing`), fit-out |
+| [`developers.ts`](data/developers.ts) | `/off-plan/developers` (Developer Network): developer logos from each developer's own site, in `/public/developers/` |
 | [`ecosystem.ts`](data/ecosystem.ts) | `/ecosystem`, mortgage calculator, company formation, partner network, owner portal |
 | [`company.ts`](data/company.ts) | `/about` (incl. the `#team` grid), `/careers`, `/contact` |
 | [`carFleet.ts`](data/carFleet.ts) | `/ecosystem/car-fleet` |
@@ -89,6 +90,7 @@ Details the old site does not publish, so the new one infers or leaves out:
 | Market report | **Placeholder** figures; the form promises an email, no PDF is attached yet. |
 | Legal pages | **Template wording** — must be reviewed by DRP's legal advisors. |
 | Car fleet (6 vehicles) | **Placeholder** — Unsplash stock photos that do not match the listed models. Swap for real DRP vehicle photography. |
+| Developer logos | 21 of 28 developers have their official logo. Meraas, Azizi, Wasl and Dar Global block automated downloads, and Zoya, Valores and Evera have no official site found, so these 7 show their name until a logo is added in `data/developers.ts`. |
 | Partner logos (10) | **Placeholder wordmarks** — see [`/public/partners/README.md`](public/partners/README.md) to swap in SVGs. |
 | Photography | Listings, projects, team, fit-out and interior photos are DRP's own; heroes and section images elsewhere are Unsplash stock or DRP office photos. Swap for DRP shoots. |
 
