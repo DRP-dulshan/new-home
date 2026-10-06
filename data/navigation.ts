@@ -126,7 +126,7 @@ export const navigation: NavNode[] = [
       title: 'Free property valuation',
       linkLabel: 'Request yours',
       href: '/property-valuation',
-      image: unsplash('1709080381729-965c62ab0471'),
+      image: '/images/valuation.png',
       alt: 'A meeting room in the DRP office',
     },
   },
