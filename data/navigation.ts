@@ -143,8 +143,8 @@ export const navigation: NavNode[] = [
         ],
       },
       {
-        title: 'Partners',
-        links: [{ label: 'Partner Network', href: '/ecosystem/partner-network' }],
+        title: 'Developers',
+        links: [{ label: 'Developer Network', href: '/off-plan/developers' }],
       },
     ],
     promo: {
