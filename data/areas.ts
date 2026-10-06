@@ -34,7 +34,7 @@ export const areas: Area[] = [
       'Palm Jumeirah remains the benchmark for prime residential property in Dubai. Beachfront villas on the fronds, branded residences on the crescent and apartments along the trunk give the island a depth few communities can match.',
       'DRP is based on the Golden Mile, so our team knows the island building by building — from frond orientation and plot sizes to which towers lead resale values.',
     ],
-    image: unsplash('1600585154340-be6161a56a0c', 2000),
+    image: '/images/palmjumeirah.webp',
     alt: 'A beachfront villa on Palm Jumeirah',
     facts: { pricePerSqft: 'AED 3,900', rentalYield: '4.5 – 5.5%', airport: '35 min', homes: 'Villas, apartments, penthouses' },
     highlights: [
@@ -50,7 +50,7 @@ export const areas: Area[] = [
       'Dubai Marina wraps around a three-kilometre canal lined with residential towers, restaurants and yachts. It is one of the city’s most established rental markets.',
       'Metro, tram and the beach at JBR are all within walking distance, which keeps demand strong for both long lets and holiday homes.',
     ],
-    image: unsplash('1486406146926-c627a92ad1ab', 2000),
+    image: '/images/marina.avif',
     alt: 'A residential tower overlooking Dubai Marina',
     facts: { pricePerSqft: 'AED 2,100', rentalYield: '6 – 7%', airport: '30 min', homes: 'Apartments, penthouses' },
     highlights: [
@@ -66,7 +66,7 @@ export const areas: Area[] = [
       'Downtown Dubai is the city’s centre: the Burj Khalifa, the Dubai Fountain and Dubai Mall, surrounded by residential towers along Mohammed Bin Rashid Boulevard.',
       'It attracts professionals working in DIFC and Business Bay, and is one of the strongest holiday-home markets in the city.',
     ],
-    image: unsplash('1526495124232-a04e1849168c', 2000),
+    image: '/images/downtown.jpeg',
     alt: 'The Downtown Dubai skyline at dusk',
     facts: { pricePerSqft: 'AED 2,800', rentalYield: '5.5 – 6.5%', airport: '15 min', homes: 'Apartments, penthouses' },
     highlights: [
@@ -82,7 +82,7 @@ export const areas: Area[] = [
       'Business Bay runs along the Dubai Water Canal beside Downtown Dubai. Residential towers sit alongside offices, hotels and waterside promenades.',
       'Entry prices are lower than Downtown for comparable views, which makes it popular with investors.',
     ],
-    image: unsplash('1582407947304-fd86f028f716', 2000),
+    image: '/images/bay.webp',
     alt: 'A tower with Burj Khalifa views',
     facts: { pricePerSqft: 'AED 2,000', rentalYield: '6.5 – 7.5%', airport: '15 min', homes: 'Apartments' },
     highlights: [
@@ -98,7 +98,7 @@ export const areas: Area[] = [
       'Dubai Hills Estate is a master-planned community of villas, townhouses and apartments set around an 18-hole golf course and a large central park.',
       'Schools, a hospital and Dubai Hills Mall sit within the community, which keeps it in demand with families.',
     ],
-    image: unsplash('1613490493576-7fde63acd811', 2000),
+    image: '/images/hills.webp',
     alt: 'A contemporary villa set within landscaped gardens',
     facts: { pricePerSqft: 'AED 2,300', rentalYield: '5 – 6%', airport: '25 min', homes: 'Villas, townhouses, apartments' },
     highlights: [
@@ -114,7 +114,7 @@ export const areas: Area[] = [
       'JBR is a strip of residential towers facing one of Dubai’s most popular public beaches, with The Walk’s cafes and shops at street level.',
       'It is one of the most reliable short-stay markets in the city, especially for sea-view apartments.',
     ],
-    image: unsplash('1518684079-3c830dcef090', 2000),
+    image: '/images/jbr.jpg',
     alt: 'The Jumeirah beachfront',
     facts: { pricePerSqft: 'AED 2,000', rentalYield: '6 – 7%', airport: '30 min', homes: 'Apartments, penthouses' },
     highlights: [
@@ -130,7 +130,7 @@ export const areas: Area[] = [
       'Arabian Ranches is one of Dubai’s most established villa communities, with tree-lined streets, community pools and a golf course.',
       'Newer phases have added contemporary townhouses, keeping the area popular with families looking for space.',
     ],
-    image: unsplash('1613977257363-707ba9348227', 2000),
+    image: '/images/ranches.jpg',
     alt: 'A family home with a private garden',
     facts: { pricePerSqft: 'AED 1,500', rentalYield: '5 – 5.5%', airport: '30 min', homes: 'Villas, townhouses' },
     highlights: [
@@ -146,7 +146,7 @@ export const areas: Area[] = [
       'Dubai Islands is a group of man-made islands being developed into a resort destination with beaches, marinas and hotels.',
       'Early launches have drawn strong interest from buyers looking for beachfront homes at an earlier point in an area’s growth.',
     ],
-    image: unsplash('1600596542815-ffad4c1539a9', 2000),
+    image: '/images/island.webp',
     alt: 'A waterfront villa with a private pool at dusk',
     facts: { pricePerSqft: 'AED 1,900', rentalYield: 'Off-plan', airport: '20 min', homes: 'Villas, townhouses, apartments' },
     highlights: [
@@ -162,7 +162,7 @@ export const areas: Area[] = [
       'Palm Jebel Ali is Nakheel’s second palm island, larger than Palm Jumeirah and planned around beachfront villas and resorts.',
       'First villa releases sold quickly, and further phases are expected through the coming years.',
     ],
-    image: '/images/newproperty.webp',
+    image: '/images/jebelali.avif',
     alt: 'A beachfront residence rendering',
     facts: { pricePerSqft: 'AED 3,000', rentalYield: 'Off-plan', airport: '35 min (DWC)', homes: 'Villas' },
     highlights: [
@@ -178,7 +178,7 @@ export const areas: Area[] = [
       'Dubai Creek Harbour is a waterfront district on the banks of Dubai Creek, next to the Ras Al Khor wildlife sanctuary.',
       'Apartments look back across the water to the Downtown skyline, and the masterplan includes parks, promenades and retail.',
     ],
-    image: unsplash('1512453979798-5ea266f8880c', 2000),
+    image: '/images/creek.jpg',
     alt: 'An aerial view of the Dubai skyline at dusk',
     facts: { pricePerSqft: 'AED 2,100', rentalYield: '6 – 7%', airport: '10 min', homes: 'Apartments' },
     highlights: [
@@ -194,7 +194,7 @@ export const areas: Area[] = [
       'Jumeirah Village Circle is a community of apartments, townhouses and villas around landscaped parks, between Al Khail Road and Sheikh Mohammed Bin Zayed Road.',
       'Accessible entry prices and steady tenant demand make it one of the most-transacted areas for investors.',
     ],
-    image: unsplash('1487958449943-2429e8be8625', 2000),
+    image: '/images/jvc.jpeg',
     alt: 'A contemporary residential building',
     facts: { pricePerSqft: 'AED 1,200', rentalYield: '7 – 8%', airport: '30 min', homes: 'Apartments, townhouses' },
     highlights: [
@@ -210,7 +210,7 @@ export const areas: Area[] = [
       'Mohammed Bin Rashid City is a large master-planned district of villas and apartments built around crystal lagoons and green spaces.',
       'Its central location and family amenities make it one of the most active off-plan areas in Dubai.',
     ],
-    image: unsplash('1580674684081-7617fbf3d745', 2000),
+    image: '/images/mbr.jpg',
     alt: 'The Dubai skyline seen across the city',
     facts: { pricePerSqft: 'AED 1,900', rentalYield: '5.5 – 6.5%', airport: '20 min', homes: 'Villas, apartments' },
     highlights: [
