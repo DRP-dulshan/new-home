@@ -411,7 +411,7 @@ export const whyItMatters = {
 
 export const interiorDesign = {
   hero: {
-    eyebrow: 'Interior Design',
+    eyebrow: 'DRP Furnishing',
     heading: 'Interiors That Work as Hard as They Look',
     intro:
       'Concept, sourcing and styling for owners preparing a home to live in, to let or to sell.',
