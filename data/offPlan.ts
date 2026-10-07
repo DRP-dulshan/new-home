@@ -154,8 +154,11 @@ export function projectLocation(p: Project) {
 /** DRP's "Latest Launch" collection, newest first; the carousel shows six. */
 export const latestLaunches = projects.filter((p) => p.collections.includes('Latest Launch')).slice(0, 6);
 
-/** The homepage's off-plan tab: the four newest launches. */
-export const featuredProjects = latestLaunches.slice(0, 4);
+/** The homepage's off-plan tab: the four most exclusive Luxury projects, highest starting price first. */
+export const featuredProjects = projects
+  .filter((p) => p.collections.includes('Luxury'))
+  .sort((a, b) => b.fromPrice - a.fromPrice)
+  .slice(0, 4);
 
 export const formatAed = (n: number) => `AED ${n.toLocaleString('en-US')}`;
 
