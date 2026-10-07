@@ -40,6 +40,29 @@ CRM. The contact form, Book a Stay request and owner sign-in carry their own `TO
 `/off-plan` read on load (`q` area, `type`, `beds`, `min` / `max`, `handover`), so a homepage
 search lands on a filtered list. Both explorers share `components/filters/FilterExplorer.tsx`.
 
+## Listings from the D|R|P admin portal
+
+Sale and rental listings are added and edited in the admin portal
+(admin.dubairapidproperties.com → Website → Listings). Before every build,
+`npm run build` runs [`scripts/sync-listings.mjs`](scripts/sync-listings.mjs) (the npm `prebuild`
+step), which downloads the published listings from the portal and writes
+`data/imported/listings.json` in the same shape as before, so `data/properties.ts` and every
+page read them unchanged.
+
+| Variable (Vercel → Settings → Environment Variables) | Value |
+| --- | --- |
+| `LISTINGS_FEED_URL` | `https://admin.dubairapidproperties.com/api/public/listings` |
+| `LISTINGS_FEED_REQUIRED` | Optional. `1` fails the build when the portal cannot be read, instead of keeping the file in the repository. |
+
+The portal starts a rebuild of this site whenever a published listing changes: create a
+**Deploy Hook** for this project (Vercel → Settings → Git → Deploy Hooks, branch `main`) and set
+its URL as `WEBSITE_DEPLOY_HOOK_URL` in the **portal's** Vercel project.
+
+Without `LISTINGS_FEED_URL`, or if the portal is unreachable or returns nothing usable, the
+build keeps the listings file in the repository. `npm run sync:listings` refreshes the file
+locally. Photos uploaded in the portal are served from Supabase Storage (allowed in
+`next.config.mjs`).
+
 ## Real content from the current DRP website
 
 `npm run import:drp` ([`scripts/import-drp-content.mjs`](scripts/import-drp-content.mjs))

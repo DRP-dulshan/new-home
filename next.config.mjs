@@ -21,6 +21,12 @@ const nextConfig = {
         hostname: 'dubairapidproperties.com',
         pathname: '/**',
       },
+      /* Listing photos uploaded in the D|R|P admin portal (Supabase Storage, public bucket) */
+      {
+        protocol: 'https',
+        hostname: '*.supabase.co',
+        pathname: '/storage/v1/object/public/**',
+      },
       /* Listing photos, served by Property Finder */
       {
         protocol: 'https',
