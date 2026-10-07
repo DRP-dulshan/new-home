@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "import:drp": "node scripts/import-drp-content.mjs"
+    "import:drp": "node scripts/import-drp-content.mjs",
+    "sync:pf": "node scripts/sync-property-finder.mjs",
+    "prebuild": "node scripts/sync-property-finder.mjs"
   },
   "dependencies": {
     "embla-carousel-react": "^8.3.0",
