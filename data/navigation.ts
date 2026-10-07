@@ -110,8 +110,7 @@ export const navigation: NavNode[] = [
         title: 'Owner Services',
         links: [
           { label: 'Property Management', href: '/property-management' },
-          { label: 'Furnishing Packages', href: '/furnishings' },
-          { label: 'Why Furnishing Matters', href: '/furnishings/why-it-matters' },
+          { label: 'DRP Furnishing', href: '/drp-furnishing' },
         ],
       },
     ],

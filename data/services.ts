@@ -313,15 +313,8 @@ export const propertyManagement = {
 /*  FURNISHINGS                                                               */
 /* -------------------------------------------------------------------------- */
 
+/** The furnishing packages, shown on /drp-furnishing. */
 export const furnishings = {
-  hero: {
-    eyebrow: 'Furnishings',
-    heading: 'Furnishing Packages',
-    intro:
-      'Curated, durable interiors that prepare a property for rental or resale — designed, delivered and installed in as little as three weeks.',
-    image: '/images/furnishing1.jpeg',
-    imageAlt: 'A styled living room with designer furniture',
-  },
   intro: [
     'A well-furnished home lets faster, earns more per night and photographs better. Our packages are designed for exactly that: hard-wearing, easy to maintain and consistent with what tenants and guests expect in Dubai.',
     'Every package includes design, procurement, delivery, installation and final styling, so the property is ready to photograph the day we hand it back.',
@@ -347,45 +340,10 @@ export const furnishings = {
       features: ['Dedicated interior designer', 'Custom joinery', 'Sourced and imported pieces', 'Project management'],
     },
   ] satisfies Package[],
-  steps: [
-    { title: 'Survey', text: 'We measure, photograph and agree a brief and budget.' },
-    { title: 'Design', text: 'A layout and mood board for your approval, usually within a week.' },
-    { title: 'Delivery', text: 'Procurement, delivery and installation by our own team.' },
-    { title: 'Styling', text: 'Final styling and photography, ready to list.' },
-  ],
-  form: {
-    formId: 'furnishings',
-    submitLabel: 'Request a Quote',
-    successTitle: 'Thank you.',
-    successBody: 'A DRP interiors specialist will contact you to arrange a survey.',
-    steps: [
-      {
-        id: 'package',
-        label: 'Package',
-        question: 'Which package interests you?',
-        kind: 'choice',
-        columns: 3,
-        options: [
-          { value: 'Essential', label: 'Essential' },
-          { value: 'Signature', label: 'Signature' },
-          { value: 'Bespoke', label: 'Bespoke' },
-        ],
-      },
-      { id: 'bedrooms', label: 'Bedrooms', question: 'How many bedrooms?', kind: 'choice', columns: 3, options: bedroomChoices },
-      areaStep,
-      contactStep(),
-    ],
-  } satisfies LeadFormConfig,
 };
 
+/** Why furnishing matters, shown on /drp-furnishing. */
 export const whyItMatters = {
-  hero: {
-    eyebrow: 'Furnishings',
-    heading: 'Why Is It Important for Returns?',
-    intro: 'How furnishing quality moves occupancy, nightly rates and resale value in Dubai.',
-    image: unsplash('1512917774080-9991f1c4c750', 2000),
-    imageAlt: 'A furnished living space opening onto a terrace',
-  },
   stats: [
     { value: 'Up to 30%', label: 'Higher nightly rates' },
     { value: '+15 pts', label: 'Occupancy uplift' },
@@ -441,11 +399,24 @@ export const interiorDesign = {
     { title: 'Installation', text: 'Delivery, installation and final styling, project-managed throughout.' },
   ],
   form: {
-    formId: 'interior-design',
-    submitLabel: 'Book a Consultation',
+    formId: 'drp-furnishing',
+    submitLabel: 'Send Enquiry',
     successTitle: 'Thank you.',
-    successBody: 'A DRP interior designer will contact you to arrange a consultation.',
+    successBody: 'A DRP interiors specialist will contact you to arrange a survey or consultation.',
     steps: [
+      {
+        id: 'package',
+        label: 'Service',
+        question: 'What are you interested in?',
+        kind: 'choice',
+        columns: 2,
+        options: [
+          { value: 'Essential package', label: 'Essential package' },
+          { value: 'Signature package', label: 'Signature package' },
+          { value: 'Bespoke design', label: 'Bespoke design' },
+          { value: 'Not sure yet', label: 'Not sure yet' },
+        ],
+      },
       {
         id: 'purpose',
         label: 'Purpose',

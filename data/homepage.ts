@@ -366,7 +366,7 @@ export const solutions = {
       id: 'furnishings',
       title: 'Furnishings',
       subtitle: 'Furnish and prepare your property',
-      href: '/furnishings',
+      href: '/drp-furnishing#packages',
       image: '/images/furnishings.jpg',
       alt: 'A styled living room with designer furniture',
       span: 'standard',
@@ -695,8 +695,7 @@ export const footer = {
       links: [
         { label: 'Holiday Homes', href: HOLIDAY_HOMES_URL },
         { label: 'Fit Out', href: '/fit-out' },
-        { label: 'DRP Furnishings', href: '/drp-furnishing' },
-        { label: 'Furnishings', href: '/furnishings' },
+        { label: 'DRP Furnishing', href: '/drp-furnishing' },
         { label: 'Car Fleet', href: '/ecosystem/car-fleet' },
         { label: 'Owner Portal', href: '/owner-portal' },
       ],
