@@ -1,8 +1,10 @@
+import { ArrowUpRight } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import SiteShell from '@/components/layout/SiteShell';
-import OwnerSignIn from '@/components/ecosystem/OwnerSignIn';
 import Reveal from '@/components/ui/Reveal';
+import { contact } from '@/data/homepage';
 import { ownerPortal } from '@/data/ecosystem';
+import { OWNER_PORTAL_URL } from '@/data/external';
 import { unsplash } from '@/lib/media';
 
 export const metadata = { title: 'Owner Portal | Dubai Rapid Properties' };
@@ -34,7 +36,34 @@ export default function Page() {
             </ul>
           </div>
           <div className="lg:col-span-6">
-            <OwnerSignIn />
+            <div className="bg-white px-6 py-10 shadow-[0_24px_70px_-30px_rgba(26,26,26,0.18)] sm:px-10 sm:py-12">
+              <p className="eyebrow text-orange">Owner Portal</p>
+              <h2 className="heading-display mt-4 text-[clamp(1.9rem,3.4vw,2.6rem)] text-charcoal">Sign in</h2>
+              <p className="mt-5 max-w-md font-light leading-relaxed text-charcoal-muted">
+                Owners who list their property with DRP sign in to the owner portal with the email address registered
+                with us.
+              </p>
+              <a
+                href={OWNER_PORTAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 bg-orange px-8 py-4 text-[11px] font-medium uppercase tracking-eyebrow text-white transition-colors duration-300 hover:bg-charcoal"
+              >
+                Sign in to the Owner Portal
+                <ArrowUpRight aria-hidden="true" className="h-4 w-4" strokeWidth={1.5} />
+              </a>
+              <p className="mt-8 border-t border-line pt-6 text-sm font-light text-charcoal-muted">
+                No login yet? Your DRP account manager can set one up —{' '}
+                <a href={contact.emailHref} className="link-underline text-charcoal">
+                  email us
+                </a>{' '}
+                or call{' '}
+                <a href={contact.phoneHref} className="link-underline text-charcoal">
+                  {contact.phone}
+                </a>
+                .
+              </p>
+            </div>
           </div>
         </div>
       </section>
