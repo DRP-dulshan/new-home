@@ -260,13 +260,13 @@ export const propertyManagement = {
   packages: [
     {
       name: 'Letting Only',
-      price: '5% of annual rent',
+      price: '',
       description: 'We find and contract the tenant; you manage the tenancy.',
       features: ['Marketing and viewings', 'Tenant checks', 'Ejari and contract'],
     },
     {
       name: 'Full Management',
-      price: '8% of annual rent',
+      price: '',
       description: 'Letting plus everything that follows, for the whole tenancy.',
       features: ['Everything in Letting Only', 'Rent collection', 'Maintenance and inspections', 'Renewals', 'Owner portal'],
       featured: true,
