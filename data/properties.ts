@@ -209,7 +209,14 @@ export function toPropertyCard(
     : { kind: 'ready', item: { ...base, status: 'For Sale' } };
 }
 
-/** The four newest listings with a full gallery, per homepage tab. */
-const newestFour = (items: Listing[]) => items.filter((l) => l.images.length >= 4).slice(0, 4);
-export const homepageSale = newestFour(saleListings);
-export const homepageRent = newestFour(rentListings);
+/**
+ * The homepage's featured listings: the four most exclusive (highest priced)
+ * with a full gallery, per tab. Everything else is under "View all".
+ */
+const featuredFour = (items: Listing[]) =>
+  items
+    .filter((l) => l.images.length >= 4)
+    .sort((a, b) => b.price - a.price)
+    .slice(0, 4);
+export const homepageSale = featuredFour(saleListings);
+export const homepageRent = featuredFour(rentListings);
