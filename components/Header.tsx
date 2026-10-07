@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
+import { UserRound } from 'lucide-react';
+import { OWNER_PORTAL_URL } from '@/data/external';
 import { contact, site } from '@/data/homepage';
 import { navCta, navigation } from '@/data/navigation';
 import DesktopNav from './nav/DesktopNav';
@@ -109,6 +111,20 @@ export default function Header() {
             >
               <DesktopNav items={items} solid={solid} ctaHref={ctaHref} />
             </div>
+
+            {/* Owners who list with DRP sign in to the separate portal */}
+            <a
+              href={OWNER_PORTAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Owner sign in (opens the owner portal in a new tab)"
+              className={`inline-flex h-10 shrink-0 items-center gap-2 rounded-full border border-white/40 px-3 text-[13px] font-medium tracking-wide text-white transition-colors duration-300 hover:border-orange hover:bg-orange sm:px-4 ${
+                menuOpen ? 'pointer-events-none opacity-0' : 'opacity-100'
+              } ${solid ? '' : 'logo-shadow-video'}`}
+            >
+              <UserRound aria-hidden="true" className="h-4 w-4" strokeWidth={1.5} />
+              <span className="hidden sm:inline">Sign In</span>
+            </a>
 
             {/* The toggle is the last item, at the far right */}
             <div ref={toggleWrapRef} className={solid || menuOpen ? '' : 'logo-shadow-video'}>
