@@ -59,7 +59,7 @@ const info: DeveloperInfo[] = [
 export type Developer = DeveloperInfo & {
   /** Number of DRP off-plan projects by this developer */
   projects: number;
-  /** /off-plan filtered to this developer */
+  /** /off-plan/projects filtered to this developer */
   href: string;
 };
 
@@ -71,7 +71,7 @@ export const developers: Developer[] = [...new Set(projects.flatMap((p) => (p.de
   .map((name) => ({
     ...(info.find((d) => d.name === name) ?? { name }),
     projects: projects.filter((p) => p.developer === name).length,
-    href: `/off-plan?q=${toSlug(name)}#projects`,
+    href: `/off-plan/projects?q=${toSlug(name)}#projects`,
   }))
   .sort((a, b) => b.projects - a.projects || a.name.localeCompare(b.name));
 

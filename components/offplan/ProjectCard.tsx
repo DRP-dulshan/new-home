@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import {
-  formatAed,
   handoverLabel,
+  priceLabel,
   projectEyebrow,
   projectHref,
   unitTypesLabel,
@@ -57,10 +57,10 @@ export default function ProjectCard({
           </h3>
 
           <p className="mt-2 text-charcoal">
-            <span className="text-[11px] font-light uppercase tracking-eyebrow text-charcoal-muted">
-              From{' '}
-            </span>
-            <span className="font-serif text-lg sm:text-xl">{formatAed(project.fromPrice)}</span>
+            {project.fromPrice != null ? (
+              <span className="text-[11px] font-light uppercase tracking-eyebrow text-charcoal-muted">From </span>
+            ) : null}
+            <span className="font-serif text-lg sm:text-xl">{priceLabel(project)}</span>
           </p>
 
           {/* mt-auto pins the row to the bottom so a row of cards lines up */}

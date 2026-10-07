@@ -78,7 +78,7 @@ export default async function Page({ params }: PageProps) {
           <div className="container-drp">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <SectionHeading eyebrow="Off-Plan" heading={`New Projects in ${area.name}`} headingId="launches-heading" />
-              <ArrowLink href={`/off-plan?q=${toSlug(area.name)}#projects`} label="All off-plan here" />
+              <ArrowLink href={`/off-plan/projects?q=${toSlug(area.name)}#projects`} label="All off-plan here" />
             </div>
             <ul className="mt-12 grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
               {launches.map((p, i) => (

@@ -135,11 +135,21 @@ export const navigation: NavNode[] = [
     label: 'Off-Plan',
     columns: [
       {
-        title: 'Off-Plan Collections',
+        title: 'Our Projects',
         links: [
-          { label: 'Explore Investment Collections', href: '/off-plan' },
-          { label: 'Latest Launches', href: '/off-plan#latest-launches' },
+          { label: 'Latest Launches', href: '/off-plan/latest-launches' },
+          { label: 'Investment Collections', href: '/off-plan/collections' },
           { label: 'Construction Tracker', href: '/off-plan/construction-tracker' },
+          { label: 'All Off-Plan Projects', href: '/off-plan/projects' },
+        ],
+      },
+      {
+        title: 'Collections',
+        links: [
+          { label: 'Luxury Collection', href: '/off-plan/collections/luxury' },
+          { label: 'Townhouses & Villas', href: '/off-plan/collections/townhouses-villas' },
+          { label: 'Best ROI & Growth', href: '/off-plan/collections/roi-growth' },
+          { label: 'Under AED 1.5M', href: '/off-plan/collections/under-aed-1-5m' },
         ],
       },
       {

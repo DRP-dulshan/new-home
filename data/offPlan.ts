@@ -2,10 +2,15 @@
  * ============================================================================
  *  OFF-PLAN — PROJECT DATA + FILTER DEFINITIONS
  * ============================================================================
- *  Drives /off-plan (Latest Launches carousel + filterable project grid), the
- *  off-plan tab on the homepage and the prerendered /off-plan/[slug] routes.
- *  Filter options are derived from the projects, so adding a project with a
- *  new area or developer adds it to the filter bar automatically.
+ *  Drives the off-plan section, laid out like the current DRP website:
+ *    /off-plan                          choose: launches, collections, tracker
+ *    /off-plan/latest-launches          DRP's "Latest Launch" projects
+ *    /off-plan/collections              the investment collections
+ *    /off-plan/collections/[slug]       one collection's projects
+ *    /off-plan/projects                 every project, searchable (hero search)
+ *  plus the homepage's off-plan tab and the /off-plan/[slug] project pages.
+ *  Filter options are derived from each page's projects, so adding a project
+ *  with a new area or developer adds it to the filter bar automatically.
  * ============================================================================
  */
 
@@ -33,8 +38,8 @@ export type Project = {
   propertyTypes: ProjectType[];
   /** Bedroom configurations on offer. 0 = studio. Empty when not stated. */
   bedrooms: number[];
-  /** Starting price in AED. */
-  fromPrice: number;
+  /** Starting price in AED; null shows "Price on request". */
+  fromPrice: number | null;
   /** Expected handover year; null until the developer confirms it. */
   handoverYear: number | null;
   /** During construction / on handover, e.g. "60/40". Null when not published. */
@@ -63,6 +68,16 @@ const COLLECTION_LABELS: Record<string, string> = {
 };
 
 /**
+ * Starting prices the DRP website has wrong, by project slug. A number replaces
+ * the imported price; null shows "Price on request" until DRP confirms one.
+ */
+const PRICE_CORRECTIONS: Record<string, number | null> = {
+  // CONFIRM – the DRP site says AED 1.35M, but Cavalli Couture is 3–6 bed
+  // residences selling from roughly AED 16.5M; set the confirmed price here
+  'cavalli-couture': null,
+};
+
+/**
  * REAL – the off-plan projects on the current DRP website, imported by
  * `npm run import:drp` (see scripts/import-drp-content.mjs). Payment plans are
  * not published there, so cards show them only once the data includes one.
@@ -77,7 +92,7 @@ export const projects: Project[] = importedProjects
     collections: r.collections.map((c) => COLLECTION_LABELS[c] ?? c),
     propertyTypes: r.propertyTypes as ProjectType[],
     bedrooms: r.bedrooms,
-    fromPrice: r.startingPrice!,
+    fromPrice: r.slug in PRICE_CORRECTIONS ? PRICE_CORRECTIONS[r.slug] : r.startingPrice!,
     handoverYear: r.handoverYear,
     paymentPlan: r.paymentPlan as string | null,
     launchedAt: r.launchedAt,
@@ -151,16 +166,22 @@ export function projectLocation(p: Project) {
   return { label: p.map.exact ? `${p.name}, ${where}` : where, ...p.map };
 }
 
-/** DRP's "Latest Launch" collection, newest first; the carousel shows six. */
-export const latestLaunches = projects.filter((p) => p.collections.includes('Latest Launch')).slice(0, 6);
+/** DRP's "Latest Launch" collection, newest first. */
+export const latestLaunches = projects.filter((p) => p.collections.includes('Latest Launch'));
+
+/** Highest starting price first; projects priced on request go last. */
+export const byPriceDesc = (a: Project, b: Project) => (b.fromPrice ?? -1) - (a.fromPrice ?? -1);
 
 /** The homepage's off-plan tab: the four most exclusive Luxury projects, highest starting price first. */
 export const featuredProjects = projects
   .filter((p) => p.collections.includes('Luxury'))
-  .sort((a, b) => b.fromPrice - a.fromPrice)
+  .sort(byPriceDesc)
   .slice(0, 4);
 
 export const formatAed = (n: number) => `AED ${n.toLocaleString('en-US')}`;
+
+/** "AED 2,800,000", or "Price on request" when DRP has no confirmed price. */
+export const priceLabel = (p: Project) => (p.fromPrice == null ? 'Price on request' : formatAed(p.fromPrice));
 
 export const handoverLabel = (p: Project) => (p.handoverYear ? String(p.handoverYear) : 'TBC');
 
@@ -185,6 +206,74 @@ export function unitTypesLabel(p: Project): string {
 }
 
 /* -------------------------------------------------------------------------- */
+/*  INVESTMENT COLLECTIONS                                                    */
+/* -------------------------------------------------------------------------- */
+
+export type OffPlanCollection = {
+  slug: string;
+  /** The project collection label it lists (see COLLECTION_LABELS) */
+  collection: string;
+  title: string;
+  description: string;
+  /** REAL – the collection images from the current DRP website */
+  image: string;
+  alt: string;
+  projects: Project[];
+};
+
+const collection = (c: Omit<OffPlanCollection, 'projects'>): OffPlanCollection => ({
+  ...c,
+  projects: projects.filter((p) => p.collections.includes(c.collection)),
+});
+
+/** The four collections of /off-plan/collections, in the DRP website's order. */
+export const offPlanCollections: OffPlanCollection[] = [
+  collection({
+    slug: 'luxury',
+    collection: 'Luxury',
+    title: 'Luxury Collection',
+    description: "Dubai's finest properties offering exclusive design, prime locations and world-class living.",
+    image: '/images/off-plan/luxury-collection.webp',
+    alt: 'A sea-view terrace with a private pool',
+  }),
+  collection({
+    slug: 'townhouses-villas',
+    collection: 'Affordable Townhouses & Villas',
+    title: 'Best Affordable Townhouse & Villa Projects',
+    description: 'Spacious homes in vibrant communities, perfect for families and long-term living.',
+    image: '/images/off-plan/affordable-townhouses-villas.webp',
+    alt: 'Villas around a lagoon in a new Dubai community',
+  }),
+  collection({
+    slug: 'roi-growth',
+    collection: 'Best ROI & Capital Growth',
+    title: 'Best ROI & Growth Projects',
+    description: 'Projects selected for their high growth potential, rental demand and long-term returns.',
+    image: '/images/off-plan/best-roi-growth.webp',
+    alt: 'A balcony pool overlooking the sea',
+  }),
+  collection({
+    slug: 'under-aed-1-5m',
+    collection: 'Under AED 1.5M',
+    title: 'Best Projects Under AED 1.5M',
+    description: 'High-quality properties with great value and strong investment potential.',
+    image: '/images/off-plan/under-aed-1-5m.webp',
+    alt: 'A furnished living and dining room',
+  }),
+];
+
+export const getCollection = (slug: string) => offPlanCollections.find((c) => c.slug === slug);
+export const collectionHref = (slug: string) => `/off-plan/collections/${slug}`;
+
+/** Hand-picked signature projects, shown on /off-plan/collections as on the DRP website. */
+export const signatureProjects = [
+  'orla-dorchester-collection',
+  'bugatti-residences-by-binghatti',
+  'cavalli-couture',
+  'mira-villas-by-bentley-home',
+].flatMap((slug) => projects.filter((p) => p.slug === slug));
+
+/* -------------------------------------------------------------------------- */
 /*  FILTERS                                                                   */
 /* -------------------------------------------------------------------------- */
 
@@ -202,40 +291,51 @@ export const priceBands: PriceBand[] = [
   { id: '10m-up', label: 'AED 10M+', min: 10_000_000 },
 ];
 
-export const facets: Facet<Project>[] = [
+/**
+ * The filter bar for a set of projects; options come from those projects only.
+ * The collection filter shows only on the all-projects page.
+ */
+export const facetsFor = (items: Project[], { withCollection = false } = {}): Facet<Project>[] => [
   {
     key: 'area',
     label: 'Area',
-    options: asOptions(uniqueSorted(projects.map((p) => p.area))),
+    options: asOptions(uniqueSorted(items.map((p) => p.area))),
     test: (p, sel) => sel.includes(p.area),
   },
-  {
-    key: 'collection',
-    label: 'Collection',
-    options: asOptions(uniqueSorted(projects.flatMap((p) => p.collections))),
-    test: (p, sel) => p.collections.some((c) => sel.includes(c)),
-  },
+  ...(withCollection
+    ? [
+        {
+          key: 'collection',
+          label: 'Collection',
+          options: asOptions(uniqueSorted(items.flatMap((p) => p.collections))),
+          test: (p: Project, sel: string[]) => p.collections.some((c) => sel.includes(c)),
+        },
+      ]
+    : []),
   {
     key: 'developer',
     label: 'Developer',
-    options: asOptions(uniqueSorted(projects.flatMap((p) => (p.developer ? [p.developer] : [])))),
+    options: asOptions(uniqueSorted(items.flatMap((p) => (p.developer ? [p.developer] : [])))),
     test: (p, sel) => !!p.developer && sel.includes(p.developer),
   },
   {
     key: 'type',
     label: 'Property Type',
-    options: asOptions(uniqueSorted(projects.flatMap((p) => p.propertyTypes))),
+    options: asOptions(uniqueSorted(items.flatMap((p) => p.propertyTypes))),
     test: (p, sel) => p.propertyTypes.some((t) => sel.includes(t)),
   },
   bedroomFacet,
-  priceFacet<Project>('Price Range', priceBands, (p) => p.fromPrice),
+  /* Projects priced on request match no price band */
+  priceFacet<Project>('Price Range', priceBands, (p) => p.fromPrice ?? NaN),
   {
     key: 'handover',
     label: 'Handover',
-    options: asOptions(uniqueSorted(projects.flatMap((p) => (p.handoverYear ? [String(p.handoverYear)] : [])))),
+    options: asOptions(uniqueSorted(items.flatMap((p) => (p.handoverYear ? [String(p.handoverYear)] : [])))),
     test: (p, sel) => sel.includes(String(p.handoverYear)),
   },
 ];
+
+export const facets = facetsFor(projects, { withCollection: true });
 
 /* -------------------------------------------------------------------------- */
 /*  DETAIL HELPERS                                                            */
@@ -260,3 +360,84 @@ export function similarProjects(p: Project, count = 3) {
     .sort((a, b) => score(b) - score(a) || b.launchedAt.localeCompare(a.launchedAt))
     .slice(0, count);
 }
+
+/* -------------------------------------------------------------------------- */
+/*  SECTION PAGES (copy from the current DRP website)                         */
+/* -------------------------------------------------------------------------- */
+
+export const offPlanPages = {
+  landing: {
+    hero: {
+      eyebrow: 'Our Projects',
+      heading: "Explore Dubai's Best Off-Plan Projects",
+      intro: 'Discover the latest launches, handpicked investment collections and real-time construction updates.',
+      image: '/images/off-plan/hero.webp',
+      imageAlt: 'A penthouse terrace overlooking the Dubai skyline at dusk',
+    },
+    chooseHeading: 'Choose What You Want to Explore',
+    choices: [
+      {
+        title: 'Latest Launches',
+        text: "Be the first to discover Dubai's newest off-plan projects and opportunities.",
+        cta: 'Explore Latest Launches',
+        href: '/off-plan/latest-launches',
+        image: '/images/off-plan/card-latest-launches.webp',
+        alt: 'A new sculptural tower lit at night',
+      },
+      {
+        title: 'Investment Collections',
+        text: 'Curated collections to help you find the right investment based on your goals.',
+        cta: 'Explore Collections',
+        href: '/off-plan/collections',
+        image: '/images/off-plan/card-investment-collections.webp',
+        alt: 'A terrace overlooking Downtown Dubai and the Burj Khalifa',
+      },
+      {
+        title: 'Construction Tracker',
+        text: 'Track progress and stay updated on your favourite projects.',
+        cta: 'View Project Updates',
+        href: '/off-plan/construction-tracker',
+        image: '/images/off-plan/card-construction-tracker.webp',
+        alt: 'Cranes over a tower under construction in Dubai',
+      },
+    ],
+    benefits: [
+      { title: 'Expert Advice', text: 'Get guidance from market experts.' },
+      { title: 'Flexible Payment Plans', text: '1% monthly plans and post-handover options.' },
+      { title: 'Trusted Developers', text: "Partnered with Dubai's leading developers." },
+      { title: 'High ROI Potential', text: 'Maximise your returns with the right investment.' },
+    ],
+  },
+  latestLaunches: {
+    hero: {
+      eyebrow: 'Off-Plan',
+      heading: 'Latest Launches',
+      intro: "Explore Dubai's newest off-plan projects and be the first to invest in tomorrow's most promising opportunities.",
+      image: '/images/off-plan/card-latest-launches.webp',
+      imageAlt: 'A new sculptural tower lit at night',
+    },
+  },
+  collections: {
+    hero: {
+      eyebrow: 'Off-Plan',
+      heading: 'Investment Collections',
+      intro: 'Curated project collections to help you find the right investment based on your goals.',
+      image: '/images/off-plan/card-investment-collections.webp',
+      imageAlt: 'A terrace overlooking Downtown Dubai and the Burj Khalifa',
+    },
+    cta: {
+      eyebrow: 'Not Sure Which Investment Is Right for You?',
+      heading: 'Book a free consultation',
+      text: 'Our property experts are here to understand your goals and recommend the perfect opportunities.',
+    },
+  },
+  allProjects: {
+    hero: {
+      eyebrow: 'Off-Plan',
+      heading: 'All Off-Plan Projects',
+      intro: 'Every off-plan project DRP sells, with filters for area, developer, budget and handover.',
+      image: '/images/off-plan/hero.webp',
+      imageAlt: 'A penthouse terrace overlooking the Dubai skyline at dusk',
+    },
+  },
+};

@@ -11,7 +11,7 @@
  * ============================================================================
  */
 
-import { featuredProjects, formatAed, handoverLabel, projectHref, unitTypesLabel } from './offPlan';
+import { featuredProjects, handoverLabel, priceLabel, projectHref, unitTypesLabel } from './offPlan';
 import { HOLIDAY_HOMES_URL } from './external';
 import { articleHref, articles, formatArticleDate } from './news';
 import { homepageRent, homepageSale, toPropertyCard } from './properties';
@@ -191,7 +191,7 @@ export const searchData = {
   destinations: {
     buy: '/properties',
     rent: '/properties',
-    offplan: '/off-plan',
+    offplan: '/off-plan/projects',
   } satisfies Record<Offering, string>,
 };
 
@@ -459,7 +459,7 @@ export const offPlanProjects: OffPlanProject[] = featuredProjects.map((p) => ({
   title: p.name,
   developer: p.developer,
   community: p.area,
-  fromPrice: `From ${formatAed(p.fromPrice)}`,
+  fromPrice: p.fromPrice == null ? priceLabel(p) : `From ${priceLabel(p)}`,
   handover: handoverLabel(p),
   paymentPlan: p.paymentPlan,
   units: unitTypesLabel(p),
@@ -486,7 +486,7 @@ export const exploreProperties = {
     {
       id: 'offplan',
       label: 'Off-Plan',
-      viewAll: { label: 'View All Off-Plan Projects', href: '/off-plan' },
+      viewAll: { label: 'Explore Off-Plan Projects', href: '/off-plan' },
     },
   ] satisfies {
     id: Offering;
