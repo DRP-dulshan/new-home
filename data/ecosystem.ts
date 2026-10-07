@@ -140,7 +140,7 @@ export const companyFormation = {
     heading: 'Buying Through a Company',
     intro:
       'Free-zone, offshore and mainland structures for investors who hold Dubai property through a company — set up alongside your purchase.',
-    image: drpPhoto(9),
+    image: '/images/office.jpeg',
     imageAlt: 'A meeting in the DRP office',
   },
   intro: [
