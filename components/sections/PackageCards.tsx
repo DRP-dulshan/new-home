@@ -3,6 +3,7 @@ import Reveal from '../ui/Reveal';
 import SectionHeading from '../ui/SectionHeading';
 
 type Props = {
+  id?: string;
   eyebrow: string;
   heading: string;
   intro?: string;
@@ -16,6 +17,7 @@ type Props = {
 
 /** Two or three side-by-side packages; the featured one is inverted. */
 export default function PackageCards({
+  id,
   eyebrow,
   heading,
   intro,
@@ -26,7 +28,7 @@ export default function PackageCards({
   tone = 'white',
 }: Props) {
   return (
-    <section aria-labelledby="packages-heading" className={`section-y ${tone === 'cream' ? 'bg-cream' : 'bg-white'}`}>
+    <section id={id} aria-labelledby="packages-heading" className={`section-y scroll-mt-20 ${tone === 'cream' ? 'bg-cream' : 'bg-white'}`}>
       <div className="container-drp">
         <SectionHeading eyebrow={eyebrow} heading={heading} headingId="packages-heading" intro={intro} />
         <ul className="mt-12 grid grid-cols-1 gap-6 sm:mt-16 lg:grid-cols-3">

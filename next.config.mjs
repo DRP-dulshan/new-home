@@ -5,6 +5,9 @@ const nextConfig = {
     return [
       /* The team is now a section of /about */
       { source: '/about/team', destination: '/about#team', permanent: true },
+      /* Furnishing packages and why furnishing matters are sections of DRP Furnishing */
+      { source: '/furnishings', destination: '/drp-furnishing#packages', permanent: true },
+      { source: '/furnishings/why-it-matters', destination: '/drp-furnishing#why-it-matters', permanent: true },
       /* Interior Design is now DRP Furnishing */
       { source: '/interior-design', destination: '/drp-furnishing', permanent: true },
       /* One car fleet page, under the DRP Ecosystem */

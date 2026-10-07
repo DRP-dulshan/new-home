@@ -53,7 +53,7 @@ export const about = {
       { name: 'Off-Plan Investments', href: '/off-plan', image: '/images/listyourproperty.webp', alt: 'A new residential tower in Dubai' },
       { name: 'Holiday Homes', href: HOLIDAY_HOMES_URL, image: '/images/living1.jpeg', alt: 'A furnished holiday home living room' },
       { name: 'Car Fleet', href: '/ecosystem/car-fleet', image: '/images/car.jpeg', alt: 'A car outside a modern residence' },
-      { name: 'Furnishing & Property Support', href: '/furnishings', image: '/images/furnishing1.jpeg', alt: 'A styled living room' },
+      { name: 'Furnishing & Property Support', href: '/drp-furnishing', image: '/images/furnishing1.jpeg', alt: 'A styled living room' },
       { name: 'Partner Network', href: '/ecosystem/partner-network', image: unsplash('1521791136064-7986c2920216', 900), alt: 'Two people shaking hands' },
     ],
   },
