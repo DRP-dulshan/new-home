@@ -179,14 +179,6 @@ export const navigation: NavNode[] = [
           { label: 'Careers', href: '/careers' },
         ],
       },
-      {
-        title: 'News & Insights',
-        links: [
-          { label: 'All News & Insights', href: '/news' },
-          { label: 'Market Reports', href: '/news?category=market-reports' },
-          { label: 'Investment Insights', href: '/news?category=investment-insights' },
-        ],
-      },
       { title: 'DRP Ecosystem', links: ecosystemLinks },
     ],
   },
@@ -208,7 +200,7 @@ export const fullMenu: NavLink[] = [
   { label: 'Car Fleet', href: '/ecosystem/car-fleet' },
   { label: 'About Us', href: '/about' },
   { label: 'Careers', href: '/careers' },
-  { label: 'Blog', href: '/news' },
+  { label: 'News & Insights', href: '/news' },
   { label: 'Contact', href: '/contact' },
 ];
 
