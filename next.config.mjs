@@ -21,11 +21,16 @@ const nextConfig = {
         hostname: 'dubairapidproperties.com',
         pathname: '/**',
       },
-      /* Listing photos, served by Property Finder */
+      /* Listing photos, served by Property Finder (the API may use any of its image hosts) */
       {
         protocol: 'https',
-        hostname: 'static.shared.propertyfinder.ae',
-        pathname: '/media/images/**',
+        hostname: '**.propertyfinder.ae',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.propertyfinder.com',
+        pathname: '/**',
       },
       {
         protocol: 'https',
