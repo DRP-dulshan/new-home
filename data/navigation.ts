@@ -110,7 +110,6 @@ export const navigation: NavNode[] = [
         title: 'Owner Services',
         links: [
           { label: 'Property Management', href: '/property-management' },
-          { label: 'DRP Furnishing', href: '/drp-furnishing' },
         ],
       },
     ],
