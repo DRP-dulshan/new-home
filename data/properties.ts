@@ -219,6 +219,16 @@ export function toPropertyCard(
     : { kind: 'ready', item: { ...base, status: 'For Sale' } };
 }
 
+/** A listing with this many photos or more has a full gallery. */
+const FULL_GALLERY = 6;
+
+/**
+ * Top Picks, the default order on /properties: listings with a full gallery
+ * first, most expensive first, then the rest, most expensive first.
+ */
+export const byTopPicks = (a: Listing, b: Listing) =>
+  Number(b.images.length >= FULL_GALLERY) - Number(a.images.length >= FULL_GALLERY) || b.price - a.price;
+
 /**
  * The homepage's featured listings: the four most exclusive (highest priced)
  * with a full gallery, per tab. Everything else is under "View all".
