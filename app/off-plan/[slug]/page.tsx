@@ -14,9 +14,9 @@ import { contactStep, type LeadFormConfig } from '@/data/leadPages';
 import {
   constructionFor,
   constructionStage,
-  formatAed,
   getProject,
   handoverLabel,
+  priceLabel,
   projectEyebrow,
   projectLocation,
   similarProjects,
@@ -52,7 +52,7 @@ export default async function Page({ params }: PageProps) {
   /* Only link areas that have a guide */
   const guide = areas.find((a) => a.name === project.area);
   const facts = [
-    ['Starting price', formatAed(project.fromPrice)],
+    ['Starting price', priceLabel(project)],
     ['Handover', handoverLabel(project)],
     ['Units', unitTypesLabel(project)],
     ['Location', project.area],
@@ -231,7 +231,7 @@ export default async function Page({ params }: PageProps) {
                 <p className="eyebrow text-white/50">Expected handover</p>
                 <p className="mt-3 font-serif text-[clamp(2rem,4vw,3rem)] font-light leading-none">{handoverLabel(project)}</p>
                 <p className="mt-6 max-w-sm text-sm font-light leading-relaxed text-white/60">
-                  Starting from {formatAed(project.fromPrice)}. Ask a DRP specialist for the payment plan and current availability.
+                  {project.fromPrice != null ? `Starting from ${priceLabel(project)}. ` : ''}Ask a DRP specialist for the payment plan and current availability.
                 </p>
               </div>
             )}
@@ -251,7 +251,7 @@ export default async function Page({ params }: PageProps) {
         <div className="container-drp">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <SectionHeading eyebrow="Explore More" heading="Similar Projects" headingId="similar-heading" />
-            <SmartLink href="/off-plan#projects" className="link-underline text-[11px] font-medium text-charcoal">
+            <SmartLink href="/off-plan/projects" className="link-underline text-[11px] font-medium text-charcoal">
               All off-plan projects <span aria-hidden="true">&rarr;</span>
             </SmartLink>
           </div>

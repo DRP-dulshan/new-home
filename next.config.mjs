@@ -3,8 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   async redirects() {
     return [
-      /* Latest Launches is now a section of /off-plan, not its own page */
-      { source: '/off-plan/latest-launches', destination: '/off-plan#latest-launches', permanent: true },
       /* The team is now a section of /about */
       { source: '/about/team', destination: '/about#team', permanent: true },
       /* Interior Design is now DRP Furnishing */
