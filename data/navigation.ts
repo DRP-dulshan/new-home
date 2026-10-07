@@ -60,13 +60,6 @@ const areaLinks: NavLink[] = [
   { label: 'Palm Jebel Ali', href: '/areas/palm-jebel-ali' },
 ];
 
-const ecosystemLinks: NavLink[] = [
-  { label: 'Partner Network', href: '/ecosystem/partner-network' },
-  { label: 'Mortgage Assistance', href: '/ecosystem/mortgage' },
-  { label: 'Company Formation', href: '/ecosystem/company-formation' },
-  { label: 'Car Fleet', href: '/ecosystem/car-fleet' },
-];
-
 export const navigation: NavNode[] = [
   {
     id: 'home',
@@ -179,7 +172,6 @@ export const navigation: NavNode[] = [
           { label: 'Careers', href: '/careers' },
         ],
       },
-      { title: 'DRP Ecosystem', links: ecosystemLinks },
     ],
   },
   { id: 'contact', label: 'Contact', href: '/contact' },
@@ -201,6 +193,7 @@ export const fullMenu: NavLink[] = [
   { label: 'About Us', href: '/about' },
   { label: 'Careers', href: '/careers' },
   { label: 'News & Insights', href: '/news' },
+  { label: 'DRP Ecosystem', href: '/ecosystem', accent: true },
   { label: 'Contact', href: '/contact' },
 ];
 

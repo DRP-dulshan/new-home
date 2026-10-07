@@ -113,7 +113,9 @@ export default function FullMenu({ id, onClose, toggleRef }: Props) {
                 href={link.href}
                 external={link.external}
                 onClick={onClose}
-                className="group flex items-center gap-4 py-2 font-serif text-[clamp(1.75rem,4vw,2.75rem)] font-light leading-tight text-white transition-colors duration-300 hover:text-orange"
+                className={`group flex items-center gap-4 py-2 font-serif text-[clamp(1.75rem,4vw,2.75rem)] font-light leading-tight transition-colors duration-300 ${
+                  link.accent ? 'text-orange hover:text-white' : 'text-white hover:text-orange'
+                }`}
               >
                 <span className="relative">
                   {link.label}

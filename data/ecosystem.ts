@@ -33,6 +33,7 @@ export const ecosystem = {
         { name: 'Off-Plan', text: 'New launches, payment plans and handover tracking.', href: '/off-plan' },
         { name: 'Mortgage Assistance', text: 'Pre-approval and rate comparison alongside your purchase.', href: '/ecosystem/mortgage' },
         { name: 'Company Formation', text: 'Buying through a company, set up for you.', href: '/ecosystem/company-formation' },
+        { name: 'Partner Network', text: 'Vetted lenders, legal advisors and contractors.', href: '/ecosystem/partner-network' },
       ],
     },
     {
