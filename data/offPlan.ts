@@ -413,7 +413,7 @@ export const offPlanPages = {
       eyebrow: 'Off-Plan',
       heading: 'Latest Launches',
       intro: "Explore Dubai's newest off-plan projects and be the first to invest in tomorrow's most promising opportunities.",
-      image: '/images/off-plan/1414.png',
+      image: '/images/1414.jpeg',
       imageAlt: 'A new sculptural tower lit at night',
     },
   },
