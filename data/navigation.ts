@@ -110,7 +110,6 @@ export const navigation: NavNode[] = [
         title: 'Owner Services',
         links: [
           { label: 'Property Management', href: '/property-management' },
-          { label: 'DRP Furnishing', href: '/drp-furnishing' },
         ],
       },
     ],
@@ -153,7 +152,7 @@ export const navigation: NavNode[] = [
       title: 'H1 2026 Market Report',
       linkLabel: 'Download',
       href: '/market-report',
-      image: '/images/report.jpeg',
+      image: '/images/market.webp',
       alt: 'A contemporary Dubai building against a clear sky',
     },
   },

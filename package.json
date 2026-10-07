@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/sync-listings.mjs",
+    "prebuild": "node scripts/sync-property-finder.mjs && node scripts/sync-listings.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "import:drp": "node scripts/import-drp-content.mjs",
+    "sync:pf": "node scripts/sync-property-finder.mjs",
     "sync:listings": "node scripts/sync-listings.mjs"
   },
   "dependencies": {

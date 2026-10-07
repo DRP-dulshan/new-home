@@ -236,7 +236,7 @@ export const propertyManagement = {
     heading: 'How Does It Work?',
     intro:
       'Letting, maintenance, renewals and reporting handled end to end, so owners in Dubai or abroad never need to manage a tenant themselves.',
-    image: unsplash('1616486338812-3dadae4b4ace', 2000),
+    image: '/images/inside.webp',
     imageAlt: 'A bright, furnished living room in a Dubai apartment',
   },
   intro: [
@@ -260,13 +260,13 @@ export const propertyManagement = {
   packages: [
     {
       name: 'Letting Only',
-      price: '5% of annual rent',
+      price: '',
       description: 'We find and contract the tenant; you manage the tenancy.',
       features: ['Marketing and viewings', 'Tenant checks', 'Ejari and contract'],
     },
     {
       name: 'Full Management',
-      price: '8% of annual rent',
+      price: '',
       description: 'Letting plus everything that follows, for the whole tenancy.',
       features: ['Everything in Letting Only', 'Rent collection', 'Maintenance and inspections', 'Renewals', 'Owner portal'],
       featured: true,

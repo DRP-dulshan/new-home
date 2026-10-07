@@ -17,6 +17,7 @@ import {
 } from '@/lib/filters';
 import type { ReadyProperty, RentalProperty } from './homepage';
 import imported from './imported/listings.json';
+import portal from './imported/portal-listings.json';
 
 export type Offering = 'buy' | 'rent';
 export type ListingType = 'Apartment' | 'Penthouse' | 'Townhouse' | 'Villa';
@@ -90,11 +91,20 @@ const toListing = (r: ImportedListing): Listing => {
 };
 
 /**
- * REAL – every DRP listing on Property Finder, imported from the current DRP
- * website by `npm run import:drp` (see scripts/import-drp-content.mjs).
- * Commercial units are left out: the site covers homes only. Newest first.
+ * Listings added in the D|R|P admin portal (Website -> Listings), written by
+ * scripts/sync-listings.mjs before each build. Same shape as listings.json.
  */
-export const listings: Listing[] = imported
+const portalListings = portal as unknown as ImportedListing[];
+const portalSlugs = new Set(portalListings.map((r) => r.slug));
+
+/**
+ * REAL – every DRP listing on Property Finder (listings.json, kept current by
+ * scripts/sync-property-finder.mjs), plus the listings added in the admin
+ * portal. A portal listing with the same web address as a Property Finder one
+ * takes its place. Commercial units are left out: the site covers homes only.
+ * Newest first.
+ */
+export const listings: Listing[] = [...portalListings, ...imported.filter((r) => !portalSlugs.has(r.slug))]
   .filter((r) => r.type !== 'Commercial' && r.size)
   .map(toListing)
   .sort((a, b) => b.listedAt.localeCompare(a.listedAt));

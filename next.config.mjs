@@ -27,11 +27,16 @@ const nextConfig = {
         hostname: '*.supabase.co',
         pathname: '/storage/v1/object/public/**',
       },
-      /* Listing photos, served by Property Finder */
+      /* Listing photos, served by Property Finder (the API may use any of its image hosts) */
       {
         protocol: 'https',
-        hostname: 'static.shared.propertyfinder.ae',
-        pathname: '/media/images/**',
+        hostname: '**.propertyfinder.ae',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.propertyfinder.com',
+        pathname: '/**',
       },
       {
         protocol: 'https',

@@ -42,24 +42,27 @@ search lands on a filtered list. Both explorers share `components/filters/Filter
 
 ## Listings from the D|R|P admin portal
 
-Sale and rental listings are added and edited in the admin portal
-(admin.dubairapidproperties.com → Website → Listings). Before every build,
-`npm run build` runs [`scripts/sync-listings.mjs`](scripts/sync-listings.mjs) (the npm `prebuild`
-step), which downloads the published listings from the portal and writes
-`data/imported/listings.json` in the same shape as before, so `data/properties.ts` and every
-page read them unchanged.
+The site shows the Property Finder listings (`data/imported/listings.json`, kept current by
+`scripts/sync-property-finder.mjs`) **and** the listings added in the admin portal
+(admin.dubairapidproperties.com → Website → Listings). A portal listing with the same web address
+as a Property Finder one takes its place.
+
+Before every build, `npm run build` runs both syncs (the npm `prebuild` step): first Property
+Finder, then [`scripts/sync-listings.mjs`](scripts/sync-listings.mjs), which downloads the portal's
+published listings into `data/imported/portal-listings.json`. `data/properties.ts` combines the two
+files; every page reads them unchanged.
 
 | Variable (Vercel → Settings → Environment Variables) | Value |
 | --- | --- |
 | `LISTINGS_FEED_URL` | `https://admin.dubairapidproperties.com/api/public/listings` |
 | `LISTINGS_FEED_REQUIRED` | Optional. `1` fails the build when the portal cannot be read, instead of keeping the file in the repository. |
 
-The portal starts a rebuild of this site whenever a published listing changes: create a
-**Deploy Hook** for this project (Vercel → Settings → Git → Deploy Hooks, branch `main`) and set
-its URL as `WEBSITE_DEPLOY_HOOK_URL` in the **portal's** Vercel project.
+The portal also starts a rebuild of this site whenever a published listing changes: put the same
+Vercel **Deploy Hook** used by the hourly Property Finder workflow into the **portal's** Vercel
+project as `WEBSITE_DEPLOY_HOOK_URL`.
 
-Without `LISTINGS_FEED_URL`, or if the portal is unreachable or returns nothing usable, the
-build keeps the listings file in the repository. `npm run sync:listings` refreshes the file
+Without `LISTINGS_FEED_URL`, or if the portal is unreachable, the build keeps
+`portal-listings.json` from the repository (empty by default). `npm run sync:listings` refreshes it
 locally. Photos uploaded in the portal are served from Supabase Storage (allowed in
 `next.config.mjs`).
 

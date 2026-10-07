@@ -1,18 +1,20 @@
 #!/usr/bin/env node
 /**
- * Pulls the sale and rental listings from the D|R|P admin portal into
- * data/imported/listings.json before every build (npm "prebuild").
+ * Pulls the listings added in the D|R|P admin portal (Website -> Listings)
+ * into data/imported/portal-listings.json before every build (npm
+ * "prebuild", after the Property Finder sync).
  *
  *   LISTINGS_FEED_URL=https://admin.dubairapidproperties.com/api/public/listings npm run build
  *
- * Listings are added and edited in the portal (Website -> Listings); the
- * portal starts a rebuild of this site whenever a published listing changes.
- * The feed returns the published listings in the shape of this file, so
- * data/properties.ts and every page read them as before.
+ * The site shows these next to the Property Finder listings (listings.json);
+ * a portal listing with the same web address replaces the Property Finder one
+ * (data/properties.ts). The portal starts a rebuild of this site whenever a
+ * published listing changes.
  *
  * Safe by default: without LISTINGS_FEED_URL, or when the portal cannot be
- * reached or returns nothing usable, the file in the repository is kept and
- * the build goes on. Set LISTINGS_FEED_REQUIRED=1 to fail the build instead.
+ * reached, the file in the repository is kept and the build goes on. Set
+ * LISTINGS_FEED_REQUIRED=1 to fail the build instead. An empty list is valid:
+ * the portal simply has no listings on the website.
  */
 
 import { spawnSync } from 'node:child_process';
@@ -29,10 +31,10 @@ if ((process.env.HTTPS_PROXY || process.env.https_proxy) && !process.env.NODE_US
 
 const FEED = process.env.LISTINGS_FEED_URL?.trim();
 const REQUIRED = process.env.LISTINGS_FEED_REQUIRED === '1';
-const FILE = new URL('../data/imported/listings.json', import.meta.url);
+const FILE = new URL('../data/imported/portal-listings.json', import.meta.url);
 
 function keep(reason) {
-  const message = `[listings] ${reason} Keeping data/imported/listings.json as it is.`;
+  const message = `[listings] ${reason} Keeping data/imported/portal-listings.json as it is.`;
   if (REQUIRED) {
     console.error(message.replace('Keeping', 'LISTINGS_FEED_REQUIRED is set; not keeping'));
     process.exit(1);
@@ -95,7 +97,7 @@ for (const l of feed) {
   if (why) console.warn(`[listings] Skipping ${l?.slug ?? 'a listing'}: ${why}.`);
   else listings.push(l);
 }
-if (listings.length === 0) keep('The portal returned no usable listings.');
+if (listings.length === 0 && feed.length > 0) keep('The portal returned no usable listings.');
 
 const next = `${JSON.stringify(listings, null, 1)}\n`;
 const current = await readFile(FILE, 'utf8').catch(() => '');
@@ -103,5 +105,5 @@ if (next === current) {
   console.log(`[listings] ${listings.length} listings from the portal; no changes.`);
 } else {
   await writeFile(FILE, next);
-  console.log(`[listings] ${listings.length} listings from the portal written to data/imported/listings.json.`);
+  console.log(`[listings] ${listings.length} listings from the portal written to data/imported/portal-listings.json.`);
 }
