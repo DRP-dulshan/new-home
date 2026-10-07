@@ -36,7 +36,8 @@ export default function Hero() {
       className="relative flex min-h-[100svh] flex-col bg-ink lg:min-h-screen"
     >
       {/* ---------- Background: poster underneath, video fading in over it ---------- */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* A size container, so the video can cover the section's real box (cq units) */}
+      <div className="absolute inset-0 overflow-hidden [container-type:size]">
         <Image
           src={hero.posterImage}
           alt={hero.posterAlt}
@@ -54,8 +55,10 @@ export default function Hero() {
             tabIndex={-1}
             allow="autoplay; fullscreen"
             onLoad={() => setVideoReady(true)}
-            /* 16:9 cover trick — always overflow the shorter axis */
-            className={`pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78svh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0 transition-opacity duration-1000 ${
+            /* 16:9 cover: sized from the section itself, which grows taller than the
+               window when the window is short. Sizing from the viewport then left the
+               frame narrower than 16:9 and Vimeo letterboxed it, showing a band at the top. */
+            className={`pointer-events-none absolute left-1/2 top-1/2 h-[max(100cqh,56.25cqw)] w-[max(100cqw,177.78cqh)] -translate-x-1/2 -translate-y-1/2 border-0 transition-opacity duration-1000 ${
               videoReady ? 'opacity-100' : 'opacity-0'
             }`}
           />
