@@ -3,6 +3,7 @@
 import { Suspense, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import {
+  byTopPicks,
   listingFacets,
   rentListings,
   saleListings,
@@ -15,7 +16,9 @@ import { toSlug } from '@/lib/slug';
 import PropertyCard from '../PropertyCard';
 import FilterExplorer, { type SortOption } from '../filters/FilterExplorer';
 
+/* The first option is the default */
 const sortOptions: SortOption<Listing>[] = [
+  { id: 'top-picks', label: 'Top Picks', compare: byTopPicks },
   { id: 'newest', label: 'Newest', compare: (a, b) => b.listedAt.localeCompare(a.listedAt) },
   { id: 'price-asc', label: 'Price: low to high', compare: (a, b) => a.price - b.price },
   { id: 'price-desc', label: 'Price: high to low', compare: (a, b) => b.price - a.price },

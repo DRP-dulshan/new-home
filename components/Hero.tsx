@@ -112,12 +112,12 @@ export default function Hero() {
             aria-label="Hero quick links"
             className="mt-5 mb-6 pr-[72px] md:mt-10 md:mb-12 md:pr-0"
           >
-            <ul className="flex flex-col divide-y divide-white/15 border-y border-white/15 md:flex-row md:flex-wrap md:items-center md:gap-x-14 md:gap-y-5 md:divide-y-0 md:border-0">
+            <ul className="flex flex-col divide-y divide-white/15 border-y border-white/15 md:flex-row md:flex-wrap md:items-center md:gap-x-14 md:gap-y-5 md:divide-y-0 md:border-0 lg:flex-nowrap lg:justify-between lg:gap-x-4">
               {hero.quickLinks.map((link) => (
                 <li key={link.href}>
                   <SmartLink
                     href={link.href}
-                    className="group flex h-10 items-center justify-between gap-2 text-[11px] font-medium uppercase tracking-[0.12em] text-white md:inline-flex md:h-auto md:justify-start md:text-[13px] md:tracking-[0.18em]"
+                    className="group flex h-10 items-center justify-between gap-2 text-[11px] font-medium uppercase tracking-[0.12em] text-white md:inline-flex md:h-auto md:justify-start md:text-[13px] md:tracking-[0.18em] lg:whitespace-nowrap lg:text-[11px] lg:tracking-[0.08em] xl:text-[12px] xl:tracking-[0.12em] 2xl:text-[13px] 2xl:tracking-[0.18em]"
                   >
                     <span className="relative after:absolute after:bottom-[-4px] after:left-0 after:h-px after:w-0 after:bg-white after:transition-all after:duration-300 group-hover:after:w-full group-focus-visible:after:w-full">
                       {link.label}
