@@ -22,7 +22,7 @@ export const about = {
   hero: {
     eyebrow: 'About DRP',
     heading: 'Dubai Real Estate. One Team. Since 2007.',
-    image: drpPhoto(12),
+    image: '/images/team.png',
     imageAlt: 'Inside the DRP office on Palm Jumeirah',
   },
   intro: [
