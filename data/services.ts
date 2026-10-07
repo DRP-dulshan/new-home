@@ -236,7 +236,7 @@ export const propertyManagement = {
     heading: 'How Does It Work?',
     intro:
       'Letting, maintenance, renewals and reporting handled end to end, so owners in Dubai or abroad never need to manage a tenant themselves.',
-    image: unsplash('1616486338812-3dadae4b4ace', 2000),
+    image: '/images/inside.webp',
     imageAlt: 'A bright, furnished living room in a Dubai apartment',
   },
   intro: [
