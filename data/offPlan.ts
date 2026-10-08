@@ -249,7 +249,7 @@ export const offPlanCollections: OffPlanCollection[] = [
     collection: 'Best ROI & Capital Growth',
     title: 'Best ROI & Growth Projects',
     description: 'Projects selected for their high growth potential, rental demand and long-term returns.',
-    image: '/images/off-plan/best-roi-growth.webp',
+    image: '/images/luxury1.jpg',
     alt: 'A balcony pool overlooking the sea',
   }),
   collection({
