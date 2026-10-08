@@ -233,7 +233,7 @@ export const offPlanCollections: OffPlanCollection[] = [
     collection: 'Luxury',
     title: 'Luxury Collection',
     description: "Dubai's finest properties offering exclusive design, prime locations and world-class living.",
-    image: '/images/off-plan/luxury-collection.webp',
+    image: '/images/luxury.webp',
     alt: 'A sea-view terrace with a private pool',
   }),
   collection({
