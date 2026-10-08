@@ -390,6 +390,12 @@ export const interiorDesign = {
       // REAL – from the current DRP Interior Design page
       images: [
         { src: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.jpg', alt: 'A living and dining space from the DRP Essentials package' },
+        // REAL – supplied by DRP
+        { src: '/images/furnishing/essentials/essentials-1.webp', alt: 'An Essentials living room in soft neutrals with a city view' },
+        { src: '/images/furnishing/essentials/essentials-2.webp', alt: 'An Essentials corner sofa with a marble coffee table and marina view' },
+        { src: '/images/furnishing/essentials/essentials-3.webp', alt: 'An Essentials living and dining room with an open kitchen' },
+        { src: '/images/furnishing/essentials/essentials-4.webp', alt: 'An Essentials living room with a boucle sofa and dining area' },
+        { src: '/images/furnishing/essentials/essentials-5.webp', alt: 'An Essentials living room with a crystal chandelier and skyline views' },
       ],
     },
     {
