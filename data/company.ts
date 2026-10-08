@@ -167,7 +167,7 @@ export const careers = {
       'English', 'Arabic', 'Russian', 'French', 'German', 'Italian', 'Spanish',
       'Hindi', 'Urdu', 'Persian', 'Mandarin', 'Tagalog', 'Other',
     ],
-    cv: { maxBytes: 5 * 1024 * 1024, accept: '.pdf,.doc,.docx', extensions: ['pdf', 'doc', 'docx'] },
+    cv: { maxBytes: 4 * 1024 * 1024, accept: '.pdf,.doc,.docx', extensions: ['pdf', 'doc', 'docx'] },
   },
 };
 
