@@ -23,7 +23,7 @@ export default function Page() {
         packages={page.packages}
         tone="cream"
         ctaLabel="Request an appraisal"
-        note="Fees are DEMO PLACEHOLDERS — confirm the current fee structure."
+        note="Indicative fees. Your exact fee is agreed after we assess the property."
       />
       <FaqList items={page.faqs} />
       <FormSection

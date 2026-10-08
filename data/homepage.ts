@@ -34,11 +34,11 @@ export const site = {
   established: 2007,
   tagline:
     'A Dubai real estate agency on Palm Jumeirah, connecting international clients with property, investment and opportunity across the UAE.',
+  /* Kept in the repo so the logos survive the move off the WordPress site */
   logos: {
-    white: 'https://dubairapidproperties.com/wp-content/uploads/2023/11/drp-White1.svg',
-    black: 'https://dubairapidproperties.com/wp-content/uploads/2023/11/drp-black1.svg',
-    favicon:
-      'https://dubairapidproperties.com/wp-content/uploads/2023/02/cropped-drp-fav-270x270.png',
+    white: '/brand/drp-white.svg',
+    black: '/brand/drp-black.svg',
+    favicon: '/icon.png',
   },
 } as const;
 

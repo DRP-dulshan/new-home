@@ -48,7 +48,7 @@ export default async function Page({ params }: PageProps) {
           { value: area.facts.airport, label: 'To the airport' },
           { value: String(homes.length + launches.length), label: 'DRP listings & projects' },
         ]}
-        note={`Typical homes: ${area.facts.homes}. Figures are indicative — DEMO PLACEHOLDERS until replaced with DRP research.`}
+        note={`Typical homes: ${area.facts.homes}. Figures are indicative.`}
       />
 
       <IntroSplit eyebrow={`Living in ${area.name}`} heading="The Area at a Glance" paragraphs={area.intro} tone="cream" />

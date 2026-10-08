@@ -94,7 +94,7 @@ export const mortgage = {
     { q: 'Can non-residents get a mortgage in Dubai?', a: 'Yes. Several UAE banks lend to non-residents, usually with a larger down payment than residents. We will match you with lenders that suit your situation.' },
     { q: 'How much deposit do I need?', a: 'Typically at least 20% of the price for residents buying their first home, and more for non-residents, higher-value or off-plan purchases. Lender policies vary.' },
     { q: 'What other costs should I budget for?', a: 'The Dubai Land Department transfer fee, mortgage registration, valuation and agency fees. The calculator above estimates these for you.' },
-    { q: 'Does DRP charge for mortgage assistance?', a: 'Our mortgage partners are paid by the lender in most cases. DEMO PLACEHOLDER — confirm the arrangement.' },
+    { q: 'Does DRP charge for mortgage assistance?', a: 'Our mortgage partners are paid by the lender in most cases.' }, // DEMO PLACEHOLDER — confirm the arrangement
   ],
   form: {
     formId: 'mortgage',

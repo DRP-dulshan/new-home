@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Inter } from 'next/font/google';
 import { site } from '@/data/homepage';
+import { indexable, siteUrl } from '@/lib/siteUrl';
 import './globals.css';
 
 const display = Cormorant_Garamond({
@@ -20,16 +21,17 @@ const body = Inter({
 export const metadata: Metadata = {
   title: 'Dubai Rapid Properties | Dubai Real Estate. Global Perspective.',
   description: site.tagline,
-  icons: {
-    icon: site.logos.favicon,
-    apple: site.logos.favicon,
-  },
+  metadataBase: new URL(siteUrl),
+  /* app/icon.png and app/apple-icon.png are picked up by Next */
   openGraph: {
     title: 'Dubai Rapid Properties',
     description: site.tagline,
     type: 'website',
     locale: 'en_AE',
+    siteName: site.name,
   },
+  /* Keep *.vercel.app and preview deployments out of search results */
+  robots: indexable ? undefined : { index: false, follow: false },
 };
 
 export const viewport: Viewport = {

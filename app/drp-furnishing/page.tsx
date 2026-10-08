@@ -52,7 +52,7 @@ export default function Page() {
         packages={furnishings.packages}
         tone="cream"
         ctaLabel="Request a quote"
-        note="Package prices are DEMO PLACEHOLDERS — confirm before launch."
+        note="Indicative package prices. Your quote is confirmed after a site visit."
       />
 
       {/* Why furnishing matters (formerly /furnishings/why-it-matters) */}
@@ -65,7 +65,7 @@ export default function Page() {
         <StatStrip
           items={whyItMatters.stats}
           tone="cream"
-          note="Compared with similar unfurnished or dated homes in the DRP portfolio. DEMO PLACEHOLDER figures — replace with DRP data."
+          note="Compared with similar unfurnished or dated homes in the DRP portfolio. Indicative figures."
         />
         <FeatureGrid eyebrow="Where It Shows" heading="Six Ways Furnishing Pays" items={whyItMatters.reasons} />
       </div>

@@ -86,7 +86,7 @@ export const holidayHomes = {
   faqs: [
     { q: 'Do I need a licence to rent short-stay in Dubai?', a: 'Yes. Holiday homes must be registered with Dubai’s Department of Economy and Tourism. DRP handles the registration and renewals for owners.' },
     { q: 'Can I still use my home myself?', a: 'Yes. Block dates in the owner portal and we keep them free of bookings.' },
-    { q: 'What does DRP charge?', a: 'A percentage of booking revenue, agreed after we assess the property. There are no listing fees. DEMO PLACEHOLDER — confirm the fee structure.' },
+    { q: 'What does DRP charge?', a: 'A percentage of booking revenue, agreed after we assess the property. There are no listing fees.' }, // DEMO PLACEHOLDER — confirm the fee structure
     { q: 'Who looks after the guests?', a: 'Our guest experience team, 24 hours a day, with housekeeping and maintenance partners on call.' },
   ],
 };
