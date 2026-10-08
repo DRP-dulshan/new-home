@@ -398,6 +398,12 @@ export const interiorDesign = {
       // REAL – from the current DRP Interior Design page
       images: [
         { src: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.webp', alt: 'A living room from the DRP Signature package' },
+        // REAL – supplied by DRP
+        { src: '/images/furnishing/signature/signature-1.webp', alt: 'A Signature living room with a sculptural chandelier and skyline views' },
+        { src: '/images/furnishing/signature/signature-2.webp', alt: 'A double-height Signature villa living room with a marble feature wall' },
+        { src: '/images/furnishing/signature/signature-3.webp', alt: 'A Signature living room at night with a marble coffee table and lit shelving' },
+        { src: '/images/furnishing/signature/signature-4.webp', alt: 'A Signature majlis with a marble wall and green velvet chairs' },
+        { src: '/images/furnishing/signature/signature-5.webp', alt: 'A Signature lounge with lit shelving and a curved sofa' },
       ],
     },
   ],
