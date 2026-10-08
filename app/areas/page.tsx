@@ -61,7 +61,7 @@ export default function Page() {
             })}
           </ul>
           <p className="mt-14 text-xs font-light text-charcoal-muted/80">
-            Price per sq ft is an indicative average. DEMO PLACEHOLDER figures until replaced with DRP research.
+            Price per sq ft is an indicative average.
           </p>
         </div>
       </section>

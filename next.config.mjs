@@ -1,3 +1,5 @@
+import { legacyRedirects } from './scripts/legacy-redirects.mjs';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -12,6 +14,8 @@ const nextConfig = {
       { source: '/interior-design', destination: '/drp-furnishing', permanent: true },
       /* One car fleet page, under the DRP Ecosystem */
       { source: '/car-fleet', destination: '/ecosystem/car-fleet', permanent: true },
+      /* Addresses from the old WordPress site */
+      ...legacyRedirects(),
     ];
   },
   images: {

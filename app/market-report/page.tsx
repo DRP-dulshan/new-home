@@ -53,7 +53,7 @@ export default function Page() {
           { value: '+9%', label: 'Prime villa prices' },
           { value: '12', label: 'Areas analysed' },
         ]}
-        note="DEMO PLACEHOLDER figures — replace with the final report numbers."
+        note="Indicative figures. The full report has the final numbers."
       />
       <IntroSplit
         eyebrow="Inside the Report"

@@ -13,7 +13,8 @@ export default function Page() {
   return (
     <SiteShell>
       <PageHero {...page.hero} />
-      <StatStrip items={page.stats} note="DEMO PLACEHOLDER figures — replace with portfolio data." />
+      {/* DEMO PLACEHOLDER figures — replace with portfolio data */}
+      <StatStrip items={page.stats} note="Indicative figures across the DRP holiday-home portfolio." />
       <ImageText
         {...page.guests}
         imageAlt={page.guests.imageAlt}

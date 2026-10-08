@@ -115,6 +115,13 @@ Details the old site does not publish, so the new one infers or leaves out:
 - Construction updates and sale projects rarely share a name, so only matching rows
   link through to a project page.
 
+## Search engines and the domain move
+
+- `app/sitemap.ts` and `app/robots.ts` build `/sitemap.xml` and `/robots.txt` from the site's address (`lib/siteUrl.ts`): Vercel's production domain, or `NEXT_PUBLIC_SITE_URL` if set.
+- On `*.vercel.app` and preview deployments, robots.txt blocks crawlers and every page is `noindex`. Indexing switches on by itself once the custom domain is the production domain.
+- `scripts/legacy-redirects.mjs` sends the old WordPress addresses (listed in `data/legacy/wordpress-urls.json`) to their new pages, checked against the current listings and projects at each build.
+- The favicon, logos and share image live in the repo (`app/icon.png`, `public/brand/`, `app/opengraph-image.jpg`).
+
 ## Placeholder content (replace before launch)
 
 | Area | Status |

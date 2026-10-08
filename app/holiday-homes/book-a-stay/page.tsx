@@ -23,7 +23,7 @@ export default function Page() {
             eyebrow="Our Homes"
             heading="Choose Your Home"
             headingId="stays-heading"
-            intro="Rates shown are from-prices per night. DEMO PLACEHOLDER inventory until connected to the booking system."
+            intro="Rates shown are from-prices per night. Send an enquiry and we confirm availability and the exact rate for your dates."
           />
           <div className="mt-12">
             <StayFinder />
