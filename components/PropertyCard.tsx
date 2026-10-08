@@ -25,7 +25,7 @@ export default function PropertyCard(props: Props) {
 
   return (
     <article className="group">
-      <SmartLink href={item.href} className="block">
+      <SmartLink href={item.href} document={!isProject && item.document} className="block">
         <div className="relative aspect-[4/5] w-full overflow-hidden bg-cream">
           <Image
             src={item.image}

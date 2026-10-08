@@ -9,6 +9,7 @@ import { siteUrl } from '@/lib/siteUrl';
 const pages = [
   '/',
   '/properties',
+  '/properties/jebel-ali-villa',
   '/off-plan',
   '/off-plan/projects',
   '/off-plan/collections',

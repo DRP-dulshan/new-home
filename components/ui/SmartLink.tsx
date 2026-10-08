@@ -4,6 +4,8 @@ import { forwardRef, type AnchorHTMLAttributes, type ReactNode } from 'react';
 type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
   external?: boolean;
+  /** A page outside this Next app (e.g. a static export in /public): a plain link, same tab */
+  document?: boolean;
   children: ReactNode;
 };
 
@@ -13,7 +15,7 @@ type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
  * Forwards refs so the header can drive keyboard focus.
  */
 const SmartLink = forwardRef<HTMLAnchorElement, Props>(function SmartLink(
-  { href, external, children, ...rest },
+  { href, external, document, children, ...rest },
   ref,
 ) {
   const isExternal = external ?? /^https?:\/\//.test(href);
@@ -27,7 +29,7 @@ const SmartLink = forwardRef<HTMLAnchorElement, Props>(function SmartLink(
     );
   }
 
-  if (isAnchor) {
+  if (isAnchor || document) {
     return (
       <a ref={ref} href={href} {...rest}>
         {children}

@@ -226,6 +226,7 @@ export function toPropertyCard(
     alt: l.images[0].alt,
     href: l.href ?? listingHref(l.slug),
     hot: l.hotDeal,
+    document: Boolean(l.href?.startsWith('/')),
   };
   return l.offering === 'rent'
     ? { kind: 'rent', item: { ...base, period: '/ year', status: l.hotDeal ? 'Hot Deal' : 'For Rent' } }

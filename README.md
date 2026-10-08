@@ -115,6 +115,19 @@ Details the old site does not publish, so the new one infers or leaves out:
 - Construction updates and sale projects rarely share a name, so only matching rows
   link through to a project page.
 
+## Wave Crest landing page (/properties/jebel-ali-villa)
+
+The Hot Deal card for the Wave Crest villa (`data/hotDeals.ts`) opens its landing page. That page is its own project, [DRP-dulshan/jebel-ali](https://github.com/DRP-dulshan/jebel-ali), built as a static export into `public/properties/jebel-ali-villa/` and served by a rewrite in `next.config.mjs`. Its enquiry form posts to Web3Forms, as set in that repo's `content/site.ts`.
+
+After changing the landing page in its own repo, rebuild the copy here and commit it:
+
+```bash
+scripts/build-jebel-ali-villa.sh             # from the repo's main branch
+scripts/build-jebel-ali-villa.sh ../jebel-ali  # or from a local checkout
+```
+
+`/palm-jebelali-villa`, its address on the old WordPress site, redirects here.
+
 ## Search engines and the domain move
 
 - `app/sitemap.ts` and `app/robots.ts` build `/sitemap.xml` and `/robots.txt` from the site's address (`lib/siteUrl.ts`): Vercel's production domain, or `NEXT_PUBLIC_SITE_URL` if set.
