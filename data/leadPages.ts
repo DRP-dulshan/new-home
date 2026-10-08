@@ -173,7 +173,7 @@ export const propertyValuation = {
     intro:
       'Understanding the correct market value is the first step towards a successful sale or rental.',
     // DEMO PLACEHOLDER – swap for a DRP shoot of a Dubai residential building
-    image: unsplash('1487958449943-2429e8be8625'),
+    image: '/images/val.jpg',
     imageAlt: 'A contemporary Dubai residential building against a clear sky',
   },
   process: {
