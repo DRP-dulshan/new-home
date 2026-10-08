@@ -8,6 +8,9 @@
  *   PF_API_KEY, PF_API_SECRET   from PF Expert → Developer Resources →
  *                               API Credentials (type "API Integration")
  *   PF_API_BASE                 optional, default https://atlas.propertyfinder.com
+ *   PF_LIVE_ONLY=1              optional: show only listings live on Property
+ *                               Finder. By default archived and unpublished
+ *                               listings stay on the site too.
  *
  *   npm run sync:pf              sync now
  *   npm run sync:pf -- --inspect print the shape of one listing (no values
@@ -216,11 +219,12 @@ function agentOf(raw) {
   return name ? titleCase(text(name)) : null;
 }
 
+/* DRP keeps archived and unpublished listings on the site unless this is set */
+const LIVE_ONLY = Boolean(process.env.PF_LIVE_ONLY);
 const NOT_LIVE = /draft|archiv|unpublish|reject|delet|expired|takendown|inactive/;
 
 /**
- * Live on Property Finder: drafts, archived and unpublished listings stay off
- * the site. Also returns which field decided it (e.g. "state.type=archived"),
+ * Live on Property Finder or not (draft, archived, unpublished). Also returns which field decided it (e.g. "state.type=archived"),
  * which the build log counts so the mapping can be checked.
  */
 function liveSignal(raw) {
@@ -307,7 +311,7 @@ async function main() {
   for (const raw of raws) {
     const status = liveSignal(raw);
     statusCounts[`${status.live ? 'live' : 'not live'}: ${status.why}`] = (statusCounts[`${status.live ? 'live' : 'not live'}: ${status.why}`] ?? 0) + 1;
-    if (!status.live) { skip('not live'); continue; }
+    if (!status.live && LIVE_ONLY) { skip('not live'); continue; }
     /* The Property Finder listing id, as the importer stored it, so existing pages keep their address */
     const ref = String(pick(raw, 'id', 'reference', 'referenceNumber') ?? '');
     const title = text(pick(raw, 'title')).replace(/\s+/g, ' ').trim();
@@ -378,7 +382,7 @@ async function main() {
   await writeFile(OUT, `${JSON.stringify(rows, null, 1)}\n`);
   const added = rows.filter((r) => !byRef.has(r.ref)).length;
   const removed = previous.filter((p) => !rows.some((r) => r.ref === p.ref)).length;
-  log(`wrote ${rows.length} listings (${added} new, ${removed} no longer live)`);
+  log(`wrote ${rows.length} listings (${added} new, ${removed} gone from Property Finder)`);
 }
 
 main().catch((err) => {
