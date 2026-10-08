@@ -12,8 +12,11 @@
 
 import type { Listing } from './properties';
 
-/** The Wave Crest landing page (palm-jebel-ali-villa-1 repo) */
-export const WAVE_CREST_URL = 'https://palm.nakheel.villas/';
+/**
+ * The Wave Crest landing page. For now the copy on the current WordPress
+ * site; it moves into this site at /properties/jebel-ali-villa.
+ */
+export const WAVE_CREST_URL = 'https://dubairapidproperties.com/palm-jebelali-villa/';
 
 const waveCrestPhotos: [string, string][] = [
   ['hero-beachfront', 'Wave Crest villa seen from the beach, with the pool terrace, palm-shaded garden and the Arabian Gulf'],
