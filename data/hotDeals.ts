@@ -13,10 +13,10 @@
 import type { Listing } from './properties';
 
 /**
- * The Wave Crest landing page. For now the copy on the current WordPress
- * site; it moves into this site at /properties/jebel-ali-villa.
+ * The Wave Crest landing page: a static export of github.com/DRP-dulshan/jebel-ali
+ * in public/properties/jebel-ali-villa (scripts/build-jebel-ali-villa.sh).
  */
-export const WAVE_CREST_URL = 'https://dubairapidproperties.com/palm-jebelali-villa/';
+export const WAVE_CREST_URL = '/properties/jebel-ali-villa';
 
 const waveCrestPhotos: [string, string][] = [
   ['hero-beachfront', 'Wave Crest villa seen from the beach, with the pool terrace, palm-shaded garden and the Arabian Gulf'],
@@ -65,7 +65,7 @@ export const hotDeals: Listing[] = [
       'Nakheel Beach Collection',
       '50% of payment plan paid',
     ],
-    sourceUrl: WAVE_CREST_URL,
+    sourceUrl: `https://dubairapidproperties.com${WAVE_CREST_URL}`,
     hotDeal: true,
     href: WAVE_CREST_URL,
   },

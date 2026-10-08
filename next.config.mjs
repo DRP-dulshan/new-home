@@ -14,9 +14,22 @@ const nextConfig = {
       { source: '/interior-design', destination: '/drp-furnishing', permanent: true },
       /* One car fleet page, under the DRP Ecosystem */
       { source: '/car-fleet', destination: '/ecosystem/car-fleet', permanent: true },
+      /* The Wave Crest landing page's address on the old WordPress site */
+      { source: '/palm-jebelali-villa', destination: '/properties/jebel-ali-villa', permanent: true },
+      { source: '/palm-jebelali-villa/:path*', destination: '/properties/jebel-ali-villa', permanent: true },
       /* Addresses from the old WordPress site */
       ...legacyRedirects(),
     ];
+  },
+  /*
+   * The Wave Crest landing page is a static export in
+   * public/properties/jebel-ali-villa (scripts/build-jebel-ali-villa.sh).
+   * Its folder URL serves its index.html, ahead of /properties/[slug].
+   */
+  async rewrites() {
+    return {
+      beforeFiles: [{ source: '/properties/jebel-ali-villa', destination: '/properties/jebel-ali-villa/index.html' }],
+    };
   },
   images: {
     remotePatterns: [

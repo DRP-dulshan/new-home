@@ -408,6 +408,8 @@ export type ReadyProperty = {
   status?: string;
   /** Hot deal: the badge turns orange */
   hot?: boolean;
+  /** href is a page outside this Next app, e.g. a deal's landing page */
+  document?: boolean;
   image: string;
   alt: string;
   href: string;
@@ -432,6 +434,8 @@ export type RentalProperty = {
   status: string;
   /** Hot deal: the badge turns orange */
   hot?: boolean;
+  /** href is a page outside this Next app, e.g. a deal's landing page */
+  document?: boolean;
   image: string;
   alt: string;
   href: string;
