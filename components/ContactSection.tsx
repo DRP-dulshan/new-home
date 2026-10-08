@@ -79,7 +79,8 @@ export default function ContactSection() {
             fill
             loading="lazy"
             sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
+            /* Keeps the D|R|P reception sign in frame on wide, short crops */
+            className="object-cover object-[50%_62%]"
           />
           <div aria-hidden="true" className="absolute inset-0 bg-ink/65" />
           <div

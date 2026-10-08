@@ -644,8 +644,9 @@ export const contactSection = {
   heading: 'Speak With a Real Estate Specialist Today',
   paragraph:
     "Whether you're looking to buy, invest, sell or manage a property, our team is ready to assist.",
-  image: drpPhoto(12),
-  imageAlt: 'Inside the DRP office on Palm Jumeirah',
+  // REAL – DRP's own photo of the office reception
+  image: '/images/contact-office.webp',
+  imageAlt: 'The DRP reception on Palm Jumeirah, with the D|R|P sign and brochure',
   interests: [
     'Buying',
     'Off-Plan Investment',
