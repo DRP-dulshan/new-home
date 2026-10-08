@@ -14,9 +14,6 @@ const nextConfig = {
       { source: '/interior-design', destination: '/drp-furnishing', permanent: true },
       /* One car fleet page, under the DRP Ecosystem */
       { source: '/car-fleet', destination: '/ecosystem/car-fleet', permanent: true },
-      /* The Wave Crest hot deal's landing page (data/hotDeals.ts) moved to its own site */
-      { source: '/palm-jebelali-villa', destination: 'https://palm.nakheel.villas/', permanent: false },
-      { source: '/palm-jebelali-villa/:path*', destination: 'https://palm.nakheel.villas/', permanent: false },
       /* Addresses from the old WordPress site */
       ...legacyRedirects(),
     ];
