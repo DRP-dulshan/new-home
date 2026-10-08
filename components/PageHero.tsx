@@ -12,6 +12,8 @@ type Props = {
   imageAlt: string;
   /** CSS object-position, e.g. "50% 20%" to keep a sign near the top in frame */
   imagePosition?: string;
+  /** Starts the photo below the solid header, for photos whose subject sits at the very top */
+  clearHeader?: boolean;
   /** `short` (~60vh) for most inner pages; `tall` for photo-led pages. */
   size?: 'short' | 'tall';
   /** Rendered under the copy, e.g. a brand lockup. */
@@ -30,6 +32,7 @@ export default function PageHero({
   image,
   imageAlt,
   imagePosition,
+  clearHeader = false,
   size = 'short',
   children,
 }: Props) {
@@ -42,15 +45,17 @@ export default function PageHero({
         size === 'tall' ? 'min-h-[85svh] lg:min-h-[92svh]' : 'min-h-[60svh]'
       }`}
     >
-      <Image
-        src={image}
-        alt={imageAlt}
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-        style={imagePosition ? { objectPosition: imagePosition } : undefined}
-      />
+      <div className={`absolute inset-x-0 bottom-0 ${clearHeader ? 'top-16 lg:top-[72px]' : 'top-0'}`}>
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+          style={imagePosition ? { objectPosition: imagePosition } : undefined}
+        />
+      </div>
       <div aria-hidden="true" className="absolute inset-0 bg-ink/55" />
       <div
         aria-hidden="true"

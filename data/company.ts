@@ -176,8 +176,12 @@ export const contactPage = {
     eyebrow: 'Contact',
     heading: 'Get in Touch With DRP',
     intro: 'Call, WhatsApp, email or visit us on the Golden Mile. A DRP advisor will reply within one business day.',
-    image: '/image/drpteam.jpeg',
-    imageAlt: 'Inside the DRP office on Palm Jumeirah',
+    // REAL – the DRP team outside the office on Golden Mile 9
+    image: '/images/drpteam.jpeg',
+    imageAlt: 'The DRP team outside the office, under the D|R|P Dubai Rapid Properties sign',
+    /* Tall, and below the header, so the sign and the whole team stay in frame */
+    size: 'tall' as const,
+    clearHeader: true,
   },
   // DEMO PLACEHOLDER – confirm office hours
   hours: [
