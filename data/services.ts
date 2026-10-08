@@ -378,9 +378,20 @@ export const interiorDesign = {
     imageAlt: 'A living room styled by DRP Interiors',
   },
   /** REAL – the Signature and Essentials package images from the current DRP site */
-  gallery: [
-    { src: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.webp', alt: 'A living room from the DRP Signature package' },
-    { src: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.jpg', alt: 'A living and dining space from the DRP Essentials package' },
+  /** Shown side by side, left to right: Essentials, then Signature */
+  showcase: [
+    {
+      name: 'Essentials',
+      text: 'Complete, durable furnishing for annual lets.',
+      image: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.jpg',
+      alt: 'A living and dining space from the DRP Essentials package',
+    },
+    {
+      name: 'Signature',
+      text: 'Our holiday-home standard, designed to photograph well.',
+      image: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.webp',
+      alt: 'A living room from the DRP Signature package',
+    },
   ],
   intro: [
     'DRP Interiors designs homes with a clear purpose. A family villa, a holiday apartment and a property going to market each need something different, and we design for the outcome as much as the look.',
