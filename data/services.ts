@@ -389,7 +389,7 @@ export const interiorDesign = {
       text: 'Complete, durable furnishing for annual lets.',
       // REAL – from the current DRP Interior Design page
       images: [
-        { src: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.jpg', alt: 'A living and dining space from the DRP Essentials package' },
+        { src: '/media/2026/07/image.jpg', alt: 'A living and dining space from the DRP Essentials package' },
         // REAL – supplied by DRP
         { src: '/images/furnishing/essentials/essentials-1.webp', alt: 'An Essentials living room in soft neutrals with a city view' },
         { src: '/images/furnishing/essentials/essentials-2.webp', alt: 'An Essentials corner sofa with a marble coffee table and marina view' },
@@ -403,7 +403,7 @@ export const interiorDesign = {
       text: 'Our holiday-home standard, designed to photograph well.',
       // REAL – from the current DRP Interior Design page
       images: [
-        { src: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.webp', alt: 'A living room from the DRP Signature package' },
+        { src: '/media/2026/07/image.webp', alt: 'A living room from the DRP Signature package' },
         // REAL – supplied by DRP
         { src: '/images/furnishing/signature/signature-1.webp', alt: 'A Signature living room with a sculptural chandelier and skyline views' },
         { src: '/images/furnishing/signature/signature-2.webp', alt: 'A double-height Signature villa living room with a marble feature wall' },
@@ -478,17 +478,17 @@ export const fitOut = {
     intro:
       'From shell-and-core handover to a finished, rent-ready home: design, approvals and construction managed by one team.',
     // REAL – a DRP bathroom fit-out, from the current DRP Fit Out page
-    image: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/79E2A9DE-11AB-4413-9377-9FD50F843346-scaled.jpeg',
+    image: '/media/2023/06/79E2A9DE-11AB-4413-9377-9FD50F843346-scaled.jpeg',
     imageAlt: 'A marble bathroom finished by the DRP fit-out team',
   },
   /** REAL – one completed DRP bathroom, from the current DRP site */
   gallery: [
-    { src: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/79E2A9DE-11AB-4413-9377-9FD50F843346-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 1' },
-    { src: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/C2891D1F-11A0-4C1C-A205-2460A194A674-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 2' },
-    { src: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/4916688E-4CDC-44CC-82C3-E78AE898C8F7-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 3' },
-    { src: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/8CEC8744-7500-4A04-B056-47C77699B5C2-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 4' },
-    { src: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/BEA1BE7A-DF42-4A27-A0EB-4AC3078D9795-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 5' },
-    { src: 'https://dubairapidproperties.com/wp-content/uploads/2023/06/98AA7D81-C180-428D-953E-A1E0FCA2CB65-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 6' },
+    { src: '/media/2023/06/79E2A9DE-11AB-4413-9377-9FD50F843346-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 1' },
+    { src: '/media/2023/06/C2891D1F-11A0-4C1C-A205-2460A194A674-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 2' },
+    { src: '/media/2023/06/4916688E-4CDC-44CC-82C3-E78AE898C8F7-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 3' },
+    { src: '/media/2023/06/8CEC8744-7500-4A04-B056-47C77699B5C2-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 4' },
+    { src: '/media/2023/06/BEA1BE7A-DF42-4A27-A0EB-4AC3078D9795-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 5' },
+    { src: '/media/2023/06/98AA7D81-C180-428D-953E-A1E0FCA2CB65-scaled.jpeg', alt: 'A DRP bathroom fit-out, photo 6' },
   ],
   intro: [
     'Many new villas and penthouses are handed over needing significant work before anyone can move in. Others need upgrading to compete in the rental market. Our fit-out team manages the whole process.',

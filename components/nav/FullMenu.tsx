@@ -103,7 +103,7 @@ export default function FullMenu({ id, onClose, toggleRef }: Props) {
       className="fixed inset-0 z-[60] flex flex-col overflow-y-auto overscroll-contain bg-ink"
     >
       {/* Top row is left empty — the header's own logo and X sit above this */}
-      <div className="h-[76px] shrink-0 lg:h-[92px]" />
+      <div className="h-16 shrink-0 lg:h-[72px]" />
 
       <nav aria-label="Full menu" className="container-drp flex-1 py-6">
         <ul className="grid gap-x-16 gap-y-1 sm:grid-cols-2 lg:max-w-4xl">
