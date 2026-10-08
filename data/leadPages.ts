@@ -127,7 +127,7 @@ export const listYourProperty = {
     subline:
       'Tell us a little about your property and one of our specialists will contact you.',
     // DEMO PLACEHOLDER – swap for a DRP shoot of a Dubai residential building
-    image: unsplash('1541976590-713941681591'),
+    image: '/images/luxu.png',
     imageAlt: 'A residential tower in Dubai',
   },
   form: {
