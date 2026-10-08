@@ -362,10 +362,16 @@ async function main() {
     log('No usable listings — keeping the current listings.json. Run `npm run sync:pf -- --inspect` to check the mapping.');
     return;
   }
-  /* A sudden drop to a fraction of the portfolio is far likelier a mapping problem than real removals */
+  /*
+   * A sudden drop to a fraction of the portfolio is far likelier an API or
+   * mapping problem than real removals. Listings Property Finder itself marks
+   * archived or unpublished are real removals, so only the rest count here.
+   */
   const homes = (list) => list.filter((r) => r.type !== 'Commercial').length;
-  if (homes(previous) >= 20 && homes(rows) < homes(previous) / 4 && !process.env.PF_SYNC_FORCE) {
-    log(`Only ${homes(rows)} homes against ${homes(previous)} before — keeping the current listings.json. Set PF_SYNC_FORCE=1 to accept.`);
+  const lost = raws.length - (skipped['not live'] ?? 0) - rows.length;
+  const suspicious = raws.length < previous.length / 4 || lost > rows.length;
+  if (previous.length >= 20 && suspicious && !process.env.PF_SYNC_FORCE) {
+    log(`${raws.length} listings from Property Finder, ${rows.length} usable (${homes(rows)} homes) against ${previous.length} before — keeping the current listings.json. Set PF_SYNC_FORCE=1 to accept.`);
     return;
   }
 
