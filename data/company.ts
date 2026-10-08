@@ -176,7 +176,7 @@ export const contactPage = {
     eyebrow: 'Contact',
     heading: 'Get in Touch With DRP',
     intro: 'Call, WhatsApp, email or visit us on the Golden Mile. A DRP advisor will reply within one business day.',
-    image: drpPhoto(12),
+    image: '/image/drpteam.jpeg',
     imageAlt: 'Inside the DRP office on Palm Jumeirah',
   },
   // DEMO PLACEHOLDER – confirm office hours
