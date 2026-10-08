@@ -15,6 +15,7 @@ import {
   type Facet,
   type PriceBand,
 } from '@/lib/filters';
+import { hotDeals } from './hotDeals';
 import type { ReadyProperty, RentalProperty } from './homepage';
 import imported from './imported/listings.json';
 import portal from './imported/portal-listings.json';
@@ -56,6 +57,10 @@ export type Listing = {
   description: string[];
   features: string[];
   sourceUrl: string;
+  /** Pinned first on /properties with a "Hot Deal" badge (data/hotDeals.ts) */
+  hotDeal?: boolean;
+  /** Where the card links instead of /properties/[slug], e.g. the deal's landing page */
+  href?: string;
 };
 
 type ImportedListing = (typeof imported)[number];
@@ -101,13 +106,20 @@ const portalSlugs = new Set(portalListings.map((r) => r.slug));
  * REAL – every DRP listing on Property Finder (listings.json, kept current by
  * scripts/sync-property-finder.mjs), plus the listings added in the admin
  * portal. A portal listing with the same web address as a Property Finder one
- * takes its place. Commercial units are left out: the site covers homes only.
- * Newest first.
+ * takes its place, and a hot deal (data/hotDeals.ts) replaces the listing it
+ * shares a slug with. Commercial units are left out: the site covers homes
+ * only. Newest first, after DRP's hot deals.
  */
-export const listings: Listing[] = [...portalListings, ...imported.filter((r) => !portalSlugs.has(r.slug))]
-  .filter((r) => r.type !== 'Commercial' && r.size)
-  .map(toListing)
-  .sort((a, b) => b.listedAt.localeCompare(a.listedAt));
+const hotDealSlugs = new Set(hotDeals.map((l) => l.slug));
+
+export const listings: Listing[] = [
+  ...hotDeals,
+  ...[...portalListings, ...imported.filter((r) => !portalSlugs.has(r.slug))]
+    .filter((r) => !hotDealSlugs.has(r.slug))
+    .filter((r) => r.type !== 'Commercial' && r.size)
+    .map(toListing)
+    .sort((a, b) => b.listedAt.localeCompare(a.listedAt)),
+];
 
 /* -------------------------------------------------------------------------- */
 /*  HELPERS                                                                   */
@@ -212,12 +224,19 @@ export function toPropertyCard(
     area: `${l.size.toLocaleString('en-US')} sq ft`,
     image: l.images[0].src,
     alt: l.images[0].alt,
-    href: listingHref(l.slug),
+    href: l.href ?? listingHref(l.slug),
+    hot: l.hotDeal,
   };
   return l.offering === 'rent'
-    ? { kind: 'rent', item: { ...base, period: '/ year', status: 'For Rent' } }
-    : { kind: 'ready', item: { ...base, status: 'For Sale' } };
+    ? { kind: 'rent', item: { ...base, period: '/ year', status: l.hotDeal ? 'Hot Deal' : 'For Rent' } }
+    : { kind: 'ready', item: { ...base, status: l.hotDeal ? 'Hot Deal' : 'For Sale' } };
 }
+
+/** Wraps a sort so hot deals stay pinned first, whatever the order chosen. */
+export const hotDealsFirst =
+  (compare: (a: Listing, b: Listing) => number) =>
+  (a: Listing, b: Listing) =>
+    Number(Boolean(b.hotDeal)) - Number(Boolean(a.hotDeal)) || compare(a, b);
 
 /** A listing with this many photos or more has a full gallery. */
 const FULL_GALLERY = 6;
@@ -236,7 +255,7 @@ export const byTopPicks = (a: Listing, b: Listing) =>
 const featuredFour = (items: Listing[]) =>
   items
     .filter((l) => l.images.length >= 4)
-    .sort((a, b) => b.price - a.price)
+    .sort(hotDealsFirst((a, b) => b.price - a.price))
     .slice(0, 4);
 export const homepageSale = featuredFour(saleListings);
 export const homepageRent = featuredFour(rentListings);

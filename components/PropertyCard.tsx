@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { Flame } from 'lucide-react';
 import type { OffPlanProject, ReadyProperty, RentalProperty } from '@/data/homepage';
 import SmartLink from './ui/SmartLink';
 
@@ -15,6 +16,7 @@ export default function PropertyCard(props: Props) {
 
   /* Sale and rental cards share the same shape; only the price line differs. */
   const badge = isProject ? item.paymentPlan ?? 'New Launch' : item.status;
+  const hot = !isProject && item.hot;
   const eyebrow = isProject
     ? item.developer
       ? `${item.developer} · ${item.community}`
@@ -34,9 +36,16 @@ export default function PropertyCard(props: Props) {
             className="object-cover transition-transform duration-[700ms] ease-premium group-hover:scale-[1.06]"
           />
 
-          <span className="absolute left-4 top-4 bg-white/95 px-3 py-1.5 text-[10px] font-medium uppercase tracking-eyebrow text-charcoal backdrop-blur-sm">
-            {badge}
-          </span>
+          {hot ? (
+            <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 bg-orange px-3 py-1.5 text-[10px] font-medium uppercase tracking-eyebrow text-white shadow-[0_6px_18px_rgba(244,123,73,0.35)]">
+              <Flame aria-hidden="true" className="h-3 w-3" strokeWidth={2} />
+              {badge}
+            </span>
+          ) : (
+            <span className="absolute left-4 top-4 bg-white/95 px-3 py-1.5 text-[10px] font-medium uppercase tracking-eyebrow text-charcoal backdrop-blur-sm">
+              {badge}
+            </span>
+          )}
         </div>
 
         <div className="pt-5">

@@ -406,6 +406,8 @@ export type ReadyProperty = {
   baths?: string;
   area: string;
   status?: string;
+  /** Hot deal: the badge turns orange */
+  hot?: boolean;
   image: string;
   alt: string;
   href: string;
@@ -428,6 +430,8 @@ export type RentalProperty = {
   baths: string;
   area: string;
   status: string;
+  /** Hot deal: the badge turns orange */
+  hot?: boolean;
   image: string;
   alt: string;
   href: string;
