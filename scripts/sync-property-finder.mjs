@@ -216,12 +216,26 @@ function agentOf(raw) {
   return name ? titleCase(text(name)) : null;
 }
 
-/** Live on Property Finder: drafts, archived and unpublished listings stay off the site. */
-function isLive(raw) {
-  const live = pick(raw, 'portals.propertyfinder.isLive', 'isLive', 'is_live', 'published');
-  if (typeof live === 'boolean') return live;
-  const state = String(pick(raw, 'state.type', 'state.stage', 'state', 'status') ?? '').toLowerCase();
-  return !/draft|archiv|unpublish|reject|delet|expired|takendown|inactive/.test(state);
+const NOT_LIVE = /draft|archiv|unpublish|reject|delet|expired|takendown|inactive/;
+
+/**
+ * Live on Property Finder: drafts, archived and unpublished listings stay off
+ * the site. Also returns which field decided it (e.g. "state.type=archived"),
+ * which the build log counts so the mapping can be checked.
+ */
+function liveSignal(raw) {
+  for (const path of ['portals.propertyfinder.isLive', 'isLive', 'is_live', 'published']) {
+    const v = pick(raw, path);
+    if (typeof v === 'boolean') return { live: v, why: `${path}=${v}` };
+  }
+  for (const path of ['state.type', 'state.stage', 'state', 'status']) {
+    const v = pick(raw, path);
+    if (v != null && typeof v !== 'object') {
+      const value = String(v).toLowerCase();
+      return { live: !NOT_LIVE.test(value), why: `${path}=${value}` };
+    }
+  }
+  return { live: true, why: 'no status field' };
 }
 
 /** Community and building from the location tree, falling back to the listing text. */
@@ -284,9 +298,16 @@ async function main() {
   const skip = (why) => ((skipped[why] = (skipped[why] ?? 0) + 1), null);
   const usedSlugs = new Set();
 
+  /* Field names and status values only, never listing content — to check the mapping from the build log */
+  log('listing fields:', Object.keys(raws[0] ?? {}).join(', '));
+  log('status fields:', JSON.stringify({ state: shape(raws[0]?.state), portals: shape(raws[0]?.portals) }));
+  const statusCounts = {};
+
   const rows = [];
   for (const raw of raws) {
-    if (!isLive(raw)) { skip('not live'); continue; }
+    const status = liveSignal(raw);
+    statusCounts[`${status.live ? 'live' : 'not live'}: ${status.why}`] = (statusCounts[`${status.live ? 'live' : 'not live'}: ${status.why}`] ?? 0) + 1;
+    if (!status.live) { skip('not live'); continue; }
     /* The Property Finder listing id, as the importer stored it, so existing pages keep their address */
     const ref = String(pick(raw, 'id', 'reference', 'referenceNumber') ?? '');
     const title = text(pick(raw, 'title')).replace(/\s+/g, ' ').trim();
@@ -335,6 +356,7 @@ async function main() {
     });
   }
 
+  log('status:', statusCounts);
   if (Object.keys(skipped).length) log('skipped:', skipped);
   if (!rows.length) {
     log('No usable listings — keeping the current listings.json. Run `npm run sync:pf -- --inspect` to check the mapping.');
