@@ -140,8 +140,11 @@ export const companyFormation = {
     heading: 'Buying Through a Company',
     intro:
       'Free-zone, offshore and mainland structures for investors who hold Dubai property through a company — set up alongside your purchase.',
-    image: '/images/office.jpeg',
-    imageAlt: 'A meeting in the DRP office',
+    // REAL – DRP's office on Golden Mile 9, Palm Jumeirah, at night
+    image: '/images/office-front.webp',
+    imageAlt: 'The DRP office front at night, with the illuminated D|R|P Dubai Rapid Properties sign',
+    /* The sign sits in the top third of the photo; keep it clear of the header */
+    imagePosition: '50% 8%',
   },
   intro: [
     'Many investors choose to own Dubai property through a company: for succession planning, to hold several properties together, or to bring in partners.',
