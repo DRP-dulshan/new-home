@@ -20,11 +20,6 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'dubairapidproperties.com',
-        pathname: '/**',
-      },
       /* Listing photos uploaded in the D|R|P admin portal (Supabase Storage, public bucket) */
       {
         protocol: 'https',

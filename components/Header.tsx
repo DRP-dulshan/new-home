@@ -71,11 +71,8 @@ export default function Header() {
           }`}
         />
 
-        <div
-          className={`container-drp relative z-10 flex items-center justify-between gap-8 transition-[height] duration-500 ease-premium ${
-            solid ? 'h-16 lg:h-[72px]' : 'h-[76px] lg:h-[92px]'
-          }`}
-        >
+        {/* One height on every page, over the hero or solid */}
+        <div className="container-drp relative z-10 flex h-16 items-center justify-between gap-8 lg:h-[72px]">
           {/* ---------- Logo, upper left ---------- */}
           <SmartLink
             href="/"

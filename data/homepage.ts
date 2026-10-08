@@ -22,7 +22,7 @@ const unsplash = (id: string, w = 1600) =>
 
 /** DRP's own photography library (about-1.jpg … about-14.jpg on the live site). */
 const drpPhoto = (n: number) =>
-  `https://dubairapidproperties.com/wp-content/uploads/2023/02/about-${n}.jpg`;
+  `/media/2023/02/about-${n}.jpg`;
 
 /* -------------------------------------------------------------------------- */
 /*  BRAND + CONTACT                                                           */

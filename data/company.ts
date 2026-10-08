@@ -128,7 +128,7 @@ export const managementMessage = {
     'We are a company with big ambitions. We have achieved a lot in the last 19 years, but our sights are set much higher.',
     'We want our brand to become a byword for innovation. We will earn the trust of our customers by exceeding their expectations. We want to be known as a company that pushes the boundaries in all aspects of its business operations.',
   ],
-  image: 'https://dubairapidproperties.com/wp-content/uploads/2026/09/Mr-Jasko-2-1-scaled.jpeg',
+  image: '/media/2026/09/Mr-Jasko-2-1-scaled.jpeg',
   imageAlt: 'Jasko Miletic, Founder & CEO of Dubai Rapid Properties',
 };
 

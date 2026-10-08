@@ -121,6 +121,7 @@ Details the old site does not publish, so the new one infers or leaves out:
 - On `*.vercel.app` and preview deployments, robots.txt blocks crawlers and every page is `noindex`. Indexing switches on by itself once the custom domain is the production domain.
 - `scripts/legacy-redirects.mjs` sends the old WordPress addresses (listed in `data/legacy/wordpress-urls.json`) to their new pages, checked against the current listings and projects at each build.
 - The favicon, logos and share image live in the repo (`app/icon.png`, `public/brand/`, `app/opengraph-image.jpg`).
+- Every photo that came from the WordPress uploads (projects, construction updates, team, services) is in `public/media/` under its old `YYYY/MM/` path, so nothing loads from the old site. `scripts/import-drp-content.mjs` still writes WordPress URLs if it is run again; move any new photos into `public/media/` the same way.
 
 ## Placeholder content (replace before launch)
 
