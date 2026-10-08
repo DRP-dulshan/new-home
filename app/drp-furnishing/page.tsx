@@ -1,12 +1,13 @@
+import Image from 'next/image';
 import PageHero from '@/components/PageHero';
 import SiteShell from '@/components/layout/SiteShell';
-import ListingGallery from '@/components/properties/ListingGallery';
 import FeatureGrid from '@/components/sections/FeatureGrid';
 import FormSection from '@/components/sections/FormSection';
 import IntroSplit from '@/components/sections/IntroSplit';
 import PackageCards from '@/components/sections/PackageCards';
 import ProcessSteps from '@/components/sections/ProcessSteps';
 import StatStrip from '@/components/sections/StatStrip';
+import Reveal from '@/components/ui/Reveal';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { furnishings, interiorDesign as page, whyItMatters } from '@/data/services';
 
@@ -21,10 +22,29 @@ export default function Page() {
       <FeatureGrid eyebrow="Services" heading="What We Design" items={page.services} columns={2} tone="cream" />
       <section aria-labelledby="work-heading" className="section-y bg-white">
         <div className="container-drp">
-          <SectionHeading eyebrow="DRP Interiors" heading="Signature & Essentials" headingId="work-heading" />
-          <div className="mt-12">
-            <ListingGallery images={page.gallery} title="Signature & Essentials" />
-          </div>
+          <SectionHeading eyebrow="DRP Interiors" heading="Essentials & Signature" headingId="work-heading" />
+          <ul className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
+            {page.showcase.map((s, i) => (
+              <Reveal as="li" key={s.name} delay={i * 0.08}>
+                <a href="#packages" className="group block">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-line">
+                    <Image
+                      src={s.image}
+                      alt={s.alt}
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-[900ms] ease-premium group-hover:scale-[1.04]"
+                    />
+                  </div>
+                  <h3 className="mt-6 font-serif text-[1.9rem] leading-tight text-charcoal transition-colors duration-300 group-hover:text-orange">
+                    {s.name}
+                  </h3>
+                  <p className="mt-2 font-light text-charcoal-muted">{s.text}</p>
+                </a>
+              </Reveal>
+            ))}
+          </ul>
         </div>
       </section>
 
