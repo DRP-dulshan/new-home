@@ -241,7 +241,7 @@ export const offPlanCollections: OffPlanCollection[] = [
     collection: 'Affordable Townhouses & Villas',
     title: 'Best Affordable Townhouse & Villa Projects',
     description: 'Spacious homes in vibrant communities, perfect for families and long-term living.',
-    image: '/images/off-plan/affordable-townhouses-villas.webp',
+    image: '/images/villa.jpg',
     alt: 'Villas around a lagoon in a new Dubai community',
   }),
   collection({
