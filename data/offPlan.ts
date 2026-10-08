@@ -257,7 +257,7 @@ export const offPlanCollections: OffPlanCollection[] = [
     collection: 'Under AED 1.5M',
     title: 'Best Projects Under AED 1.5M',
     description: 'High-quality properties with great value and strong investment potential.',
-    image: '/images/off-plan/under-aed-1-5m.webp',
+    image: '/images/million.jpg',
     alt: 'A furnished living and dining room',
   }),
 ];
