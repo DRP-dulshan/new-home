@@ -12,8 +12,10 @@ import {
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowLeft, Check, Search } from 'lucide-react';
 import type { LeadFormConfig, LeadStep } from '@/data/leadPages';
+import { useEnquiry } from '@/lib/enquiry';
 import { DEFAULT_DIAL, normalisePhone, phoneError } from '@/lib/phone';
 import PhoneField from './ui/PhoneField';
+import SendError from './ui/SendError';
 import { EMAIL_PATTERN, inputBase, labelBase } from './ui/formStyles';
 
 type Values = Record<string, string | boolean>;
@@ -53,6 +55,7 @@ export default function LeadForm({ config, context, density = 'regular', classNa
   const [values, setValues] = useState<Values>(INITIAL);
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
+  const { sending, failed, send } = useEnquiry();
 
   const cardRef = useRef<HTMLDivElement>(null);
   const advanceTimer = useRef<number>();
@@ -113,7 +116,7 @@ export default function LeadForm({ config, context, density = 'regular', classNa
     return next;
   };
 
-  const submitLead = () => {
+  const submitLead = async () => {
     const dial = String(values.dialCode ?? DEFAULT_DIAL);
     const payload: Record<string, string | boolean> = {
       form: config.formId,
@@ -134,8 +137,7 @@ export default function LeadForm({ config, context, density = 'regular', classNa
       }
     }
 
-    // TODO: connect to CRM/email endpoint
-    console.log('[LeadForm] submission', payload);
+    if (!(await send(payload))) return;
     focusPending.current = true;
     setSent(true);
   };
@@ -464,6 +466,12 @@ export default function LeadForm({ config, context, density = 'regular', classNa
               </motion.div>
             </AnimatePresence>
 
+            {failed ? (
+              <div className="mt-8">
+                <SendError />
+              </div>
+            ) : null}
+
             {/* ---------- Back / Skip / Next ---------- */}
             <div className="mt-10 flex items-center justify-between gap-4 border-t border-line pt-6 sm:mt-12">
               {stepIndex > 0 ? (
@@ -498,9 +506,10 @@ export default function LeadForm({ config, context, density = 'regular', classNa
                 ) : null}
                 <button
                   type="submit"
-                  className="group inline-flex h-12 items-center gap-3 whitespace-nowrap bg-orange px-6 text-[11px] font-medium uppercase tracking-eyebrow text-white transition-colors duration-300 hover:bg-orange-600 sm:h-14 sm:px-9"
+                  disabled={sending}
+                  className="group inline-flex h-12 items-center gap-3 whitespace-nowrap bg-orange px-6 text-[11px] font-medium uppercase tracking-eyebrow text-white transition-colors duration-300 hover:bg-orange-600 disabled:cursor-wait disabled:opacity-70 sm:h-14 sm:px-9"
                 >
-                  {isLast ? config.submitLabel : 'Next'}
+                  {isLast ? (sending ? 'Sending…' : config.submitLabel) : 'Next'}
                   <span
                     aria-hidden="true"
                     className="transition-transform duration-500 ease-premium group-hover:translate-x-1.5"

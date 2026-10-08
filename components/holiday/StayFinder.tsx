@@ -6,6 +6,8 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { stays, type Stay } from '@/data/services';
 import { EMAIL_PATTERN, inputBase, labelBase } from '../ui/formStyles';
+import { useEnquiry } from '@/lib/enquiry';
+import SendError from '../ui/SendError';
 
 const areaFilters = ['All areas', ...new Set(stays.map((s) => s.area))];
 const guestOptions = [1, 2, 3, 4, 5, 6, 8, 10];
@@ -35,6 +37,7 @@ export default function StayFinder() {
   });
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
+  const { sending, failed, send } = useEnquiry();
 
   const shown = stays.filter((s) => (area === areaFilters[0] || s.area === area) && s.guests >= minGuests);
   const selected = stays.find((s) => s.id === values.stay);
@@ -69,7 +72,7 @@ export default function StayFinder() {
     return e;
   };
 
-  const onSubmit = (ev: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
     const found = validate();
     setErrors(found);
@@ -78,10 +81,14 @@ export default function StayFinder() {
       document.getElementById(`${uid}-${first}`)?.focus();
       return;
     }
-    const payload = { form: 'book-a-stay', ...values, nights, estimate: selected ? selected.nightlyFrom * nights : 0 };
-    // TODO: connect to the booking system / CRM
-    console.log('[StayFinder] booking request', payload);
-    setSent(true);
+    const payload = {
+      form: 'book-a-stay',
+      ...values,
+      stay: selected?.name ?? values.stay,
+      nights,
+      estimate: selected ? `AED ${(selected.nightlyFrom * nights).toLocaleString('en-US')}` : '',
+    };
+    if (await send(payload)) setSent(true);
   };
 
   const err = (key: keyof Fields) =>
@@ -284,6 +291,11 @@ export default function StayFinder() {
                 ))}
               </div>
 
+              {failed ? (
+                <div className="mt-8">
+                  <SendError />
+                </div>
+              ) : null}
               <div className="mt-10 flex flex-col gap-6 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
                 <p aria-live="polite" className="text-sm font-light text-charcoal">
                   {selected && nights > 0 ? (
@@ -298,9 +310,10 @@ export default function StayFinder() {
                 </p>
                 <button
                   type="submit"
-                  className="group inline-flex h-14 items-center justify-center gap-3 bg-orange px-9 text-[11px] font-medium uppercase tracking-eyebrow text-white transition-colors duration-300 hover:bg-orange-600"
+                  disabled={sending}
+                  className="group inline-flex h-14 items-center justify-center gap-3 bg-orange px-9 text-[11px] font-medium uppercase tracking-eyebrow text-white transition-colors duration-300 hover:bg-orange-600 disabled:cursor-wait disabled:opacity-70"
                 >
-                  Send Request
+                  {sending ? 'Sending…' : 'Send Request'}
                   <span aria-hidden="true" className="transition-transform duration-500 ease-premium group-hover:translate-x-1.5">
                     &rarr;
                   </span>

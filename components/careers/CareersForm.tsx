@@ -8,6 +8,8 @@ import { DEFAULT_DIAL, normalisePhone, phoneError } from '@/lib/phone';
 import { SuccessState } from '../LeadForm';
 import PhoneField from '../ui/PhoneField';
 import { EMAIL_PATTERN, inputBase, labelBase } from '../ui/formStyles';
+import SendError from '../ui/SendError';
+import { useEnquiry } from '@/lib/enquiry';
 
 const cfg = careers.join;
 
@@ -56,6 +58,7 @@ export default function CareersForm() {
   const [v, setV] = useState<Fields>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
+  const { sending, failed, send } = useEnquiry();
 
   const set = <K extends keyof Fields>(key: K, value: Fields[K]) => {
     setV((s) => ({ ...s, [key]: value }));
@@ -79,7 +82,7 @@ export default function CareersForm() {
   const checkFile = (file: File): string | undefined => {
     const ext = file.name.split('.').pop()?.toLowerCase() ?? '';
     if (!cfg.cv.extensions.includes(ext)) return 'Please upload a PDF or Word document.';
-    if (file.size > cfg.cv.maxBytes) return 'Please upload a file under 5 MB.';
+    if (file.size > cfg.cv.maxBytes) return 'Please upload a file under 4 MB.';
     return undefined;
   };
 
@@ -129,7 +132,7 @@ export default function CareersForm() {
     cv: `${uid}-cv-button`,
   };
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const found = validate();
     setErrors(found);
@@ -151,8 +154,7 @@ export default function CareersForm() {
       languages: v.languages,
       cv: v.cv ? { name: v.cv.name, size: v.cv.size, type: v.cv.type } : null,
     };
-    // TODO: connect to CRM/email endpoint — send the CV file itself with multipart/form-data
-    console.log('[CareersForm] application', payload);
+    if (!(await send(payload, v.cv))) return;
     focusPending.current = true;
     setSent(true);
   };
@@ -388,12 +390,14 @@ export default function CareersForm() {
               {err('cv')}
             </div>
 
-            <div className="border-t border-line pt-8">
+            <div className="space-y-6 border-t border-line pt-8">
+              {failed ? <SendError /> : null}
               <button
                 type="submit"
-                className="group inline-flex h-14 w-full items-center justify-center gap-3 bg-orange px-10 text-[11px] font-medium uppercase tracking-eyebrow text-white transition-colors duration-300 hover:bg-orange-600 sm:w-auto"
+                disabled={sending}
+                className="group inline-flex h-14 w-full items-center justify-center gap-3 bg-orange px-10 text-[11px] font-medium uppercase tracking-eyebrow text-white transition-colors duration-300 hover:bg-orange-600 disabled:cursor-wait disabled:opacity-70 sm:w-auto"
               >
-                {cfg.submitLabel}
+                {sending ? 'Sending…' : cfg.submitLabel}
                 <span aria-hidden="true" className="transition-transform duration-500 ease-premium group-hover:translate-x-1.5">
                   &rarr;
                 </span>

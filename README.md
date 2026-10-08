@@ -66,6 +66,23 @@ Without `LISTINGS_FEED_URL`, or if the portal is unreachable, the build keeps
 locally. Photos uploaded in the portal are served from Supabase Storage (allowed in
 `next.config.mjs`).
 
+## Enquiry emails
+
+Every form on the site (contact, enquiries, valuations, careers with CV,
+holiday-home bookings) posts to `/api/enquiry`, which emails the enquiry to
+**office@dubairapidproperties.com** through [Resend](https://resend.com).
+Replying to the email replies to the visitor.
+
+Set in Vercel → Environment Variables:
+
+| Variable | |
+| --- | --- |
+| `RESEND_API_KEY` | Required. Resend → API Keys. Without it the forms show a "could not be sent — call or WhatsApp us" message. |
+| `ENQUIRY_FROM` | Optional. Defaults to `DRP Website <onboarding@resend.dev>`, which only delivers to the Resend account's own address — so sign up to Resend with office@dubairapidproperties.com, or verify the domain in Resend and set e.g. `DRP Website <website@dubairapidproperties.com>`. |
+| `ENQUIRY_TO` | Optional. Defaults to office@dubairapidproperties.com. |
+
+CVs are limited to 4 MB (PDF or Word).
+
 ## Real content from the current DRP website
 
 `npm run import:drp` ([`scripts/import-drp-content.mjs`](scripts/import-drp-content.mjs))

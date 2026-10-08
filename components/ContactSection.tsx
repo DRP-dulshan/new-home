@@ -6,6 +6,8 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Check, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { contact, contactSection } from '@/data/homepage';
 import { EMAIL_PATTERN, inputBase, labelBase } from './ui/formStyles';
+import SendError from './ui/SendError';
+import { useEnquiry } from '@/lib/enquiry';
 
 type Fields = {
   name: string;
@@ -25,6 +27,7 @@ export default function ContactSection() {
   const [values, setValues] = useState<Fields>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
+  const { sending, failed, send } = useEnquiry();
 
   const set = (key: keyof Fields) => (e: { target: { value: string } }) => {
     setValues((v) => ({ ...v, [key]: e.target.value }));
@@ -42,8 +45,7 @@ export default function ContactSection() {
     return next;
   };
 
-  /* Demo only — no backend. Replace with the real endpoint/CRM before launch. */
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const found = validate(values);
     setErrors(found);
@@ -52,7 +54,7 @@ export default function ContactSection() {
       first?.focus();
       return;
     }
-    setSent(true);
+    if (await send({ form: 'contact', ...values })) setSent(true);
   };
 
   const details = [
@@ -301,12 +303,14 @@ export default function ContactSection() {
                     </label>
                   </div>
 
+                  {failed ? <SendError /> : null}
                   <div className="flex flex-wrap items-center gap-6 pt-2">
                     <button
                       type="submit"
-                      className="group inline-flex items-center gap-3 bg-orange px-9 py-4 text-[11px] font-medium uppercase tracking-eyebrow text-white transition-colors duration-300 hover:bg-orange-600"
+                      disabled={sending}
+                      className="group inline-flex items-center gap-3 bg-orange px-9 py-4 text-[11px] font-medium uppercase tracking-eyebrow text-white transition-colors duration-300 hover:bg-orange-600 disabled:cursor-wait disabled:opacity-70"
                     >
-                      {contactSection.submitLabel}
+                      {sending ? 'Sending…' : contactSection.submitLabel}
                       <span
                         aria-hidden="true"
                         className="transition-transform duration-500 ease-premium group-hover:translate-x-1.5"
