@@ -26,15 +26,18 @@ export default function Page() {
           <ul className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
             {page.showcase.map((s, i) => (
               <Reveal as="li" key={s.name} delay={i * 0.08}>
-                <ListingGallery
-                  images={s.images}
-                  title={`DRP ${s.name}`}
-                  aspectClass="aspect-[4/3]"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <h3 className="mt-6 font-serif text-[1.9rem] leading-tight text-charcoal">{s.name}</h3>
+                {/* The name and line sit above the photos, so each gallery is labelled before it starts */}
+                <h3 className="font-serif text-[1.9rem] leading-tight text-charcoal">{s.name}</h3>
                 <p className="mt-2 font-light text-charcoal-muted">{s.text}</p>
-                <a href="#packages" className="link-underline mt-4 inline-block text-[11px] font-medium text-charcoal">
+                <div className="mt-6">
+                  <ListingGallery
+                    images={s.images}
+                    title={`DRP ${s.name}`}
+                    aspectClass="aspect-[4/3]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <a href="#packages" className="link-underline mt-5 inline-block text-[11px] font-medium text-charcoal">
                   See the package <span aria-hidden="true">&rarr;</span>
                 </a>
               </Reveal>
