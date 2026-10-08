@@ -378,19 +378,27 @@ export const interiorDesign = {
     imageAlt: 'A living room styled by DRP Interiors',
   },
   /** REAL – the Signature and Essentials package images from the current DRP site */
-  /** Shown side by side, left to right: Essentials, then Signature */
+  /**
+   * Two galleries side by side, left to right: Essentials, then Signature.
+   * To add photos, put them in /public/images/furnishing/<essentials|signature>/
+   * and list them below; arrows and thumbnails appear from the second photo.
+   */
   showcase: [
     {
       name: 'Essentials',
       text: 'Complete, durable furnishing for annual lets.',
-      image: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.jpg',
-      alt: 'A living and dining space from the DRP Essentials package',
+      // REAL – from the current DRP Interior Design page
+      images: [
+        { src: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.jpg', alt: 'A living and dining space from the DRP Essentials package' },
+      ],
     },
     {
       name: 'Signature',
       text: 'Our holiday-home standard, designed to photograph well.',
-      image: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.webp',
-      alt: 'A living room from the DRP Signature package',
+      // REAL – from the current DRP Interior Design page
+      images: [
+        { src: 'https://dubairapidproperties.com/wp-content/uploads/2026/07/image.webp', alt: 'A living room from the DRP Signature package' },
+      ],
     },
   ],
   intro: [

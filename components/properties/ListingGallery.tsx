@@ -4,13 +4,24 @@ import { useState, type KeyboardEvent } from 'react';
 import Image from 'next/image';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-type Props = { images: { src: string; alt: string }[]; title: string };
+type Props = {
+  images: { src: string; alt: string }[];
+  title: string;
+  /** Frame shape; defaults to 4:3 on phones and 16:9 from sm */
+  aspectClass?: string;
+  sizes?: string;
+};
 
 const arrowClass =
   'flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-charcoal shadow-[0_6px_20px_rgba(26,26,26,0.18)] backdrop-blur-sm transition-colors duration-300 hover:text-orange';
 
 /** Main photograph with previous / next, thumbnails and arrow-key support. */
-export default function ListingGallery({ images, title }: Props) {
+export default function ListingGallery({
+  images,
+  title,
+  aspectClass = 'aspect-[4/3] sm:aspect-[16/9]',
+  sizes = '(max-width: 1320px) 100vw, 1320px',
+}: Props) {
   const [index, setIndex] = useState(0);
   const count = images.length;
   const go = (i: number) => setIndex((i + count) % count);
@@ -29,7 +40,7 @@ export default function ListingGallery({ images, title }: Props) {
       onKeyDown={onKeyDown}
       className="outline-none"
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-line sm:aspect-[16/9]">
+      <div className={`relative w-full overflow-hidden bg-line ${aspectClass}`}>
         {images.map((img, i) => (
           <Image
             key={img.src}
@@ -37,7 +48,7 @@ export default function ListingGallery({ images, title }: Props) {
             alt={img.alt}
             fill
             priority={i === 0}
-            sizes="(max-width: 1320px) 100vw, 1320px"
+            sizes={sizes}
             className={`object-cover transition-opacity duration-500 ${i === index ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
