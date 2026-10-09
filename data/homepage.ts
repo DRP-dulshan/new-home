@@ -387,7 +387,7 @@ export const solutions = {
       title: 'DRP Ecosystem',
       subtitle: 'Discover all DRP services and solutions',
       href: '/ecosystem',
-      image: unsplash('1580674684081-7617fbf3d745', 2000),
+      image: '/images/palm3.png',
       alt: 'The Dubai skyline seen across the city',
       span: 'wide',
     },
