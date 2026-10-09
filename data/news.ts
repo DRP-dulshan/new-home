@@ -180,7 +180,7 @@ export const articles: NewsArticle[] = [
     date: '2026-07-19',
     author: 'DRP Client Services',
     readMinutes: 6,
-    image: unsplash('1521791136064-7986c2920216', 2000),
+    image: '/images/golden.jpg',
     alt: 'Two people shaking hands after completing a property transaction',
     body: [
       {
