@@ -92,7 +92,9 @@ export default function Header() {
           </SmartLink>
 
           {/* ---------- Everything else, flush right ---------- */}
-          <div className="flex min-w-0 items-center justify-end gap-6 2xl:gap-8">
+          {/* Gaps stay at 24px on wide screens too: with the phone, the saved-homes heart
+              and the Home link, the row only just fits the 1320px container */}
+          <div className="flex min-w-0 items-center justify-end gap-6">
             <a
               href={contact.phoneHref}
               className={`hidden whitespace-nowrap text-[15px] font-light tracking-wide text-white transition-opacity duration-300 hover:text-orange 2xl:block ${

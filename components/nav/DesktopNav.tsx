@@ -108,7 +108,7 @@ export default function DesktopNav({ items, solid, ctaHref }: Props) {
       onMouseEnter={() => window.clearTimeout(closeTimer.current)}
     >
       <nav aria-label="Primary">
-        <ul className="flex items-center gap-9 2xl:gap-10">
+        <ul className="flex items-center gap-9">
           {items.map((node, index) => {
             const open = openId === node.id;
 
