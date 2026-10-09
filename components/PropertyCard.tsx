@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Flame } from 'lucide-react';
 import type { OffPlanProject, ReadyProperty, RentalProperty } from '@/data/homepage';
 import FavouriteButton from './properties/FavouriteButton';
+import Price from './ui/Price';
 import SmartLink from './ui/SmartLink';
 
 type Props =
@@ -66,7 +67,7 @@ export default function PropertyCard(props: Props) {
           </h3>
 
           <p className="mt-3 font-serif text-lg font-normal text-charcoal sm:text-xl">
-            {isProject ? item.fromPrice : item.price}
+            {isProject ? item.fromPrice : item.aed ? <Price aed={item.aed} /> : item.price}
             {kind === 'rent' ? (
               <span className="ml-1.5 font-sans text-[13px] font-light text-charcoal-muted">
                 {item.period}

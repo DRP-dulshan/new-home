@@ -80,9 +80,12 @@ export const navigation: NavNode[] = [
       },
       { title: 'Dubai Areas', links: areaLinks },
       {
-        title: 'Mortgage & Setup',
+        title: 'Guides & Finance',
         links: [
+          { label: "Buyer's Guide", href: '/buying-guide' },
+          { label: 'Golden Visa', href: '/golden-visa' },
           { label: 'Mortgage Assistance', href: '/ecosystem/mortgage' },
+          { label: 'Property Calculators', href: '/calculators' },
           { label: 'Company Formation', href: '/ecosystem/company-formation' },
         ],
       },
@@ -104,6 +107,7 @@ export const navigation: NavNode[] = [
         links: [
           { label: 'List With DRP', href: '/list-your-property' },
           { label: 'Request a Property Valuation', href: '/property-valuation' },
+          { label: "Seller's Guide", href: '/selling-guide' },
         ],
       },
       {

@@ -70,10 +70,12 @@ export async function POST(req: Request) {
   }
   if (!data || typeof data !== 'object' || Array.isArray(data)) return fail(400, 'bad-data');
 
-  const name = String(data.name ?? '').trim();
   const email = String(data.email ?? '').trim();
   const phone = String(data.phone ?? '').trim();
-  if (!name || (!EMAIL.test(email) && !phone)) return fail(400, 'missing-contact');
+  /* The newsletter signup asks for an email address only */
+  const emailOnly = data.form === 'newsletter';
+  const name = String(data.name ?? '').trim() || (emailOnly ? email : '');
+  if (!name || (!EMAIL.test(email) && !(phone && !emailOnly))) return fail(400, 'missing-contact');
 
   const file = form.get('file');
   const attachments: { filename: string; content: string }[] = [];

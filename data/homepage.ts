@@ -420,6 +420,8 @@ export type ReadyProperty = {
   status?: string;
   /** Hot deal: the badge turns orange */
   hot?: boolean;
+  /** The price in AED, so the card can show it in the visitor's currency */
+  aed?: number;
   /** href is a page outside this Next app, e.g. a deal's landing page */
   document?: boolean;
   image: string;
@@ -446,6 +448,8 @@ export type RentalProperty = {
   status: string;
   /** Hot deal: the badge turns orange */
   hot?: boolean;
+  /** The price in AED, so the card can show it in the visitor's currency */
+  aed?: number;
   /** href is a page outside this Next app, e.g. a deal's landing page */
   document?: boolean;
   image: string;
@@ -709,6 +713,9 @@ export const footer = {
         { label: 'Off-Plan', href: '/off-plan' },
         { label: 'Explore Dubai Areas', href: '/areas' },
         { label: 'List Your Property', href: '/list-your-property' },
+        { label: "Buyer's Guide", href: '/buying-guide' },
+        { label: 'Golden Visa', href: '/golden-visa' },
+        { label: 'Property Calculators', href: '/calculators' },
       ],
     },
     {

@@ -16,7 +16,7 @@ export function monthlyPayment(loan: number, annualRatePct: number, years: numbe
   return (loan * r) / (1 - Math.pow(1 + r, -n));
 }
 
-type FieldProps = {
+export type FieldProps = {
   id: string;
   label: string;
   value: number;
@@ -27,7 +27,7 @@ type FieldProps = {
   display: string;
 };
 
-function SliderField({ id, label, value, onChange, min, max, step, display }: FieldProps) {
+export function SliderField({ id, label, value, onChange, min, max, step, display }: FieldProps) {
   return (
     <div>
       <div className="flex items-baseline justify-between gap-4">

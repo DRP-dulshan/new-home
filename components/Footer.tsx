@@ -1,4 +1,5 @@
 import { contact, footer, licences, site } from '@/data/homepage';
+import NewsletterSignup from './NewsletterSignup';
 import SmartLink from './ui/SmartLink';
 
 export default function Footer() {
@@ -91,8 +92,13 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Newsletter */}
+        <div className="mt-14 border-t border-white/10 pt-10">
+          <NewsletterSignup />
+        </div>
+
         {/* Careers note */}
-        <div className="mt-14 border-t border-white/10 pt-6">
+        <div className="mt-10 border-t border-white/10 pt-6">
           <p className="text-sm font-light text-white/55">
             {footer.careersNote.text}{' '}
             <SmartLink

@@ -1,7 +1,9 @@
 import SiteShell from '@/components/layout/SiteShell';
 import PageHero from '@/components/PageHero';
+import PropertyAlerts from '@/components/properties/PropertyAlerts';
 import PropertyExplorer from '@/components/properties/PropertyExplorer';
 import CtaBand from '@/components/sections/CtaBand';
+import CurrencySwitch from '@/components/ui/CurrencySwitch';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { unsplash } from '@/lib/media';
 
@@ -19,15 +21,20 @@ export default function Page() {
         imageAlt="A furnished sea-view living room on Palm Jumeirah"
       />
       <section aria-labelledby="listings-heading" className="bg-cream pb-[var(--section-y)]">
-        <div className="container-drp pb-10 pt-[var(--section-y)] sm:pb-12">
+        <div className="container-drp flex flex-wrap items-end justify-between gap-6 pb-10 pt-[var(--section-y)] sm:pb-12">
           <SectionHeading
             eyebrow="Explore Real Estate"
             heading="Available Now"
             headingId="listings-heading"
           />
+          <div className="flex items-center gap-3">
+            <span className="text-[10px] uppercase tracking-eyebrow text-charcoal-muted">Prices in</span>
+            <CurrencySwitch />
+          </div>
         </div>
         <PropertyExplorer />
       </section>
+      <PropertyAlerts />
       <CtaBand
         eyebrow="Off-Market"
         heading="Not seeing the right home?"

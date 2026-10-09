@@ -138,6 +138,12 @@ scripts/build-jebel-ali-villa.sh ../jebel-ali  # or from a local checkout
 
 ## Placeholder content (replace before launch)
 
+- **RERA ORN and trade licence** — `licences` in `data/homepage.ts`. Empty values stay hidden; once set they show in the footer and the structured data.
+- **Agents' BRNs** — `brn` on each person in `teamOrder` (`data/company.ts`), shown on their profile and their listings.
+- **Exchange rates** — `data/currency.ts`. AED is pegged to the dollar; update EUR and GBP from time to time.
+- **Vercel Web Analytics** — switch it on in the Vercel project (Analytics tab); the site already sends page views.
+
+
 | Area | Status |
 | --- | --- |
 | Client reviews (6) | **Placeholder** — invented quotes and names. Replace with real Google reviews. |

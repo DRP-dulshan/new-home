@@ -217,6 +217,7 @@ export function toPropertyCard(
     id: l.slug,
     title: l.title,
     price: formatPrice(l),
+    aed: l.price,
     type: l.type,
     location: l.area,
     beds: bedsLabel(l.beds),

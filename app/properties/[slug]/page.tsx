@@ -10,6 +10,8 @@ import PropertyMap from '@/components/properties/PropertyMap';
 import ArrowLink from '@/components/ui/ArrowLink';
 import Reveal from '@/components/ui/Reveal';
 import SectionHeading from '@/components/ui/SectionHeading';
+import CurrencySwitch from '@/components/ui/CurrencySwitch';
+import Price from '@/components/ui/Price';
 import SmartLink from '@/components/ui/SmartLink';
 import { contactStep, type LeadFormConfig } from '@/data/leadPages';
 import {
@@ -125,12 +127,15 @@ export default async function Page({ params }: PageProps) {
                   </>
                 )}
               </p>
-              <p className="mt-6 font-serif text-[clamp(1.8rem,3vw,2.4rem)] text-charcoal">
-                {formatPrice(listing)}
-                {isRent ? (
-                  <span className="ml-2 font-sans text-sm font-light text-charcoal-muted">/ year</span>
-                ) : null}
-              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+                <p className="font-serif text-[clamp(1.8rem,3vw,2.4rem)] text-charcoal">
+                  <Price aed={listing.price} />
+                  {isRent ? (
+                    <span className="ml-2 font-sans text-sm font-light text-charcoal-muted">/ year</span>
+                  ) : null}
+                </p>
+                <CurrencySwitch />
+              </div>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <FavouriteButton slug={listing.slug} title={listing.title} variant="inline" />
