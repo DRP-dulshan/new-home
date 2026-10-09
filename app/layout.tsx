@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Inter } from 'next/font/google';
 import { site } from '@/data/homepage';
+import { Analytics } from '@vercel/analytics/next';
+import JsonLd from '@/components/JsonLd';
+import { organisation } from '@/lib/structuredData';
 import { indexable, siteUrl } from '@/lib/siteUrl';
 import './globals.css';
 
@@ -51,7 +54,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://player.vimeo.com" />
         <link rel="preconnect" href="https://images.unsplash.com" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <JsonLd data={organisation()} />
+        {/* Vercel Web Analytics: cookieless page views, switched on in the Vercel project */}
+        <Analytics />
+      </body>
     </html>
   );
 }

@@ -80,6 +80,8 @@ export type TeamMember = {
   email?: boolean;
   /** Other spellings used on Property Finder listings, e.g. "Adithya Mitter" */
   agentNames?: string[];
+  /** RERA Broker Registration Number, shown on their profile and listings */
+  brn?: string;
 };
 
 /**
@@ -93,6 +95,8 @@ const teamOrder: {
   whatsapp?: boolean;
   email?: boolean;
   agentNames?: string[];
+  /** PLACEHOLDER – RERA BRN; empty hides it */
+  brn?: string;
 }[] = [
   { slug: 'darren-hayes', line: "Active in Dubai's real estate market since 2007.", email: true },
   { slug: '3107-2', line: 'Guiding buyers and sellers through every step, with a keen eye for detail.', whatsapp: true, email: true },

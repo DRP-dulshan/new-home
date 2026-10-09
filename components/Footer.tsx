@@ -1,4 +1,5 @@
-import { contact, footer, site } from '@/data/homepage';
+import { contact, footer, licences, site } from '@/data/homepage';
+import NewsletterSignup from './NewsletterSignup';
 import SmartLink from './ui/SmartLink';
 
 export default function Footer() {
@@ -91,8 +92,13 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Newsletter */}
+        <div className="mt-14 border-t border-white/10 pt-10">
+          <NewsletterSignup />
+        </div>
+
         {/* Careers note */}
-        <div className="mt-14 border-t border-white/10 pt-6">
+        <div className="mt-10 border-t border-white/10 pt-6">
           <p className="text-sm font-light text-white/55">
             {footer.careersNote.text}{' '}
             <SmartLink
@@ -112,7 +118,16 @@ export default function Footer() {
 
         {/* Legal bar */}
         <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs font-light text-white/40">{footer.copyright}</p>
+          <div className="space-y-1.5">
+            <p className="text-xs font-light text-white/40">{footer.copyright}</p>
+            {licences.orn || licences.tradeLicence ? (
+              <p className="text-xs font-light text-white/40">
+                {[licences.orn && `RERA ORN ${licences.orn}`, licences.tradeLicence && `Trade Licence ${licences.tradeLicence}`]
+                  .filter(Boolean)
+                  .join(' · ')}
+              </p>
+            ) : null}
+          </div>
           <ul className="flex items-center gap-6">
             {footer.legal.map((item) => (
               <li key={item.label}>

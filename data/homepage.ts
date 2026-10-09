@@ -58,6 +58,18 @@ export const contact = {
   emailHref: 'mailto:Office@dubairapidproperties.com',
 } as const;
 
+/**
+ * PLACEHOLDER – DRP's registration numbers, shown in the footer once set.
+ * Dubai's RERA rules expect a broker's ORN on its advertising. Leave a value
+ * empty to hide it.
+ */
+export const licences = {
+  /** RERA Office Registration Number */
+  orn: '',
+  /** DED trade licence number */
+  tradeLicence: '',
+} as const;
+
 /* -------------------------------------------------------------------------- */
 /*  NAVIGATION                                                                */
 /* -------------------------------------------------------------------------- */
@@ -408,6 +420,8 @@ export type ReadyProperty = {
   status?: string;
   /** Hot deal: the badge turns orange */
   hot?: boolean;
+  /** The price in AED, so the card can show it in the visitor's currency */
+  aed?: number;
   /** href is a page outside this Next app, e.g. a deal's landing page */
   document?: boolean;
   image: string;
@@ -434,6 +448,8 @@ export type RentalProperty = {
   status: string;
   /** Hot deal: the badge turns orange */
   hot?: boolean;
+  /** The price in AED, so the card can show it in the visitor's currency */
+  aed?: number;
   /** href is a page outside this Next app, e.g. a deal's landing page */
   document?: boolean;
   image: string;
@@ -697,6 +713,9 @@ export const footer = {
         { label: 'Off-Plan', href: '/off-plan' },
         { label: 'Explore Dubai Areas', href: '/areas' },
         { label: 'List Your Property', href: '/list-your-property' },
+        { label: "Buyer's Guide", href: '/buying-guide' },
+        { label: 'Golden Visa', href: '/golden-visa' },
+        { label: 'Property Calculators', href: '/calculators' },
       ],
     },
     {

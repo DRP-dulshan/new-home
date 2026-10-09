@@ -13,6 +13,7 @@
     "sync:listings": "node scripts/sync-listings.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "2.0.1",
     "embla-carousel-react": "^8.3.0",
     "framer-motion": "^11.11.9",
     "lucide-react": "^0.453.0",
