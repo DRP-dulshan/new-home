@@ -90,6 +90,9 @@ export default async function Page({ params }: PageProps) {
             <div className="lg:col-span-7 lg:pt-6">
               <p className="eyebrow text-orange">{member.role}</p>
               <h1 className="heading-display mt-4 text-[clamp(2.4rem,5vw,4rem)] text-charcoal">{member.name}</h1>
+              {member.brn ? (
+                <p className="mt-3 text-[11px] uppercase tracking-eyebrow text-charcoal-muted">RERA BRN {member.brn}</p>
+              ) : null}
 
               <div className="mt-8 max-w-[62ch] space-y-5">
                 {member.bio.length ? (

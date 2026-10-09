@@ -1,8 +1,11 @@
 import { notFound } from 'next/navigation';
 import SiteShell from '@/components/layout/SiteShell';
+import JsonLd from '@/components/JsonLd';
 import LeadForm from '@/components/LeadForm';
 import PropertyCard from '@/components/PropertyCard';
+import FavouriteButton from '@/components/properties/FavouriteButton';
 import ListingGallery from '@/components/properties/ListingGallery';
+import ShareLinks from '@/components/news/ShareLinks';
 import PropertyMap from '@/components/properties/PropertyMap';
 import ArrowLink from '@/components/ui/ArrowLink';
 import Reveal from '@/components/ui/Reveal';
@@ -19,6 +22,7 @@ import {
 } from '@/data/properties';
 import { areaHref, areas } from '@/data/areas';
 import { teamHref, teamMemberForAgent } from '@/data/company';
+import { listingData } from '@/lib/structuredData';
 import { staticSlugs } from './slugs';
 
 /** Next 16: route params arrive as a Promise and must be awaited. */
@@ -75,6 +79,7 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <SiteShell>
+      <JsonLd data={listingData(listing)} />
       <section className="bg-white pb-[var(--section-y)] pt-24 lg:pt-28">
         <div className="container-drp">
           <nav aria-label="Breadcrumb" className="py-5 text-[11px] uppercase tracking-eyebrow text-charcoal-muted sm:py-6">
@@ -127,6 +132,11 @@ export default async function Page({ params }: PageProps) {
                 ) : null}
               </p>
 
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <FavouriteButton slug={listing.slug} title={listing.title} variant="inline" />
+                <ShareLinks title={`${listing.title} — ${formatPrice(listing)}`} />
+              </div>
+
               <dl className="mt-10 grid grid-cols-2 border-t border-line sm:grid-cols-3">
                 {facts.map(([label, value]) => (
                   <div key={label} className="border-b border-line py-5 pr-4">
@@ -172,8 +182,8 @@ export default async function Page({ params }: PageProps) {
                     </SmartLink>
                   ) : (
                     <span className="text-charcoal">{listing.agent}</span>
-                  )}{' '}
-                  · Ref. {listing.ref}
+                  )}
+                  {agent?.brn ? ` (BRN ${agent.brn})` : ''} · Ref. {listing.ref}
                 </p>
               ) : null}
 

@@ -10,6 +10,7 @@ import { navCta, navigation } from '@/data/navigation';
 import DesktopNav from './nav/DesktopNav';
 import FullMenu from './nav/FullMenu';
 import MenuToggle from './nav/MenuToggle';
+import SavedLink from './nav/SavedLink';
 import SmartLink from './ui/SmartLink';
 
 const MENU_ID = 'full-menu';
@@ -108,6 +109,8 @@ export default function Header() {
             >
               <DesktopNav items={items} solid={solid} ctaHref={ctaHref} />
             </div>
+
+            <SavedLink className={menuOpen ? 'pointer-events-none opacity-0' : solid ? '' : 'logo-shadow-video'} />
 
             {/* Owners who list with DRP sign in to the separate portal */}
             <a
