@@ -9,3 +9,18 @@ export const licences = {
   /** Trade licence number */
   tradeLicence: '915740',
 } as const;
+
+/**
+ * REAL – RERA Broker Registration Numbers, by the agent's name as it appears
+ * on the team page and on Property Finder listings (spellings differ, so a
+ * person can be listed more than once).
+ */
+export const agentBrns: Record<string, string> = {
+  'Tara Topic': '77282',
+  'Adithya Micheal': '95049',
+  'Adithya Mitter': '95049',
+  'Adithya Micheal Mitter': '95049',
+  'Jasmin Miletic': '35884',
+};
+
+export const brnFor = (name: string | null | undefined) => (name ? agentBrns[name.trim()] : undefined);

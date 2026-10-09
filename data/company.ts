@@ -17,6 +17,7 @@ import { HOLIDAY_HOMES_URL } from './external';
 import { contact } from './homepage';
 import importedTeam from './imported/team.json';
 import { toSlug } from '@/lib/slug';
+import { brnFor } from './licences';
 
 export const about = {
   hero: {
@@ -80,7 +81,7 @@ export type TeamMember = {
   email?: boolean;
   /** Other spellings used on Property Finder listings, e.g. "Adithya Mitter" */
   agentNames?: string[];
-  /** RERA Broker Registration Number, shown on their profile and listings */
+  /** RERA Broker Registration Number (data/licences.ts), shown on their profile */
   brn?: string;
 };
 
@@ -95,8 +96,6 @@ const teamOrder: {
   whatsapp?: boolean;
   email?: boolean;
   agentNames?: string[];
-  /** PLACEHOLDER – RERA BRN; empty hides it */
-  brn?: string;
 }[] = [
   { slug: 'darren-hayes', line: "Active in Dubai's real estate market since 2007.", email: true },
   { slug: '3107-2', line: 'Guiding buyers and sellers through every step, with a keen eye for detail.', whatsapp: true, email: true },
@@ -110,7 +109,7 @@ const teamOrder: {
 export const team: TeamMember[] = teamOrder.flatMap(({ slug, ...extra }) => {
   const person = importedTeam.find((t) => t.slug === slug);
   return person
-    ? [{ id: slug, slug: toSlug(person.name), name: person.name, role: person.role, bio: person.bio, photo: person.photo, ...extra }]
+    ? [{ id: slug, slug: toSlug(person.name), name: person.name, role: person.role, bio: person.bio, photo: person.photo, brn: brnFor(person.name), ...extra }]
     : [];
 });
 
