@@ -67,6 +67,7 @@ export default function SolutionTile({ tile }: { tile: Tile }) {
             fill
             loading="lazy"
             sizes={tileImageSizes[tile.span]}
+            style={tile.imagePosition ? { objectPosition: tile.imagePosition } : undefined}
             className="object-cover transition-transform duration-[700ms] ease-premium group-hover:scale-[1.07]"
           />
 
