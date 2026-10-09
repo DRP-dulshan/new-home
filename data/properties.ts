@@ -16,6 +16,7 @@ import {
   type PriceBand,
 } from '@/lib/filters';
 import { hotDeals } from './hotDeals';
+import { licences } from './licences';
 import type { ReadyProperty, RentalProperty } from './homepage';
 import imported from './imported/listings.json';
 import portal from './imported/portal-listings.json';
@@ -73,7 +74,8 @@ const toListing = (r: ImportedListing): Listing => {
   return {
     slug: r.slug,
     ref: r.ref ?? r.slug,
-    permit: r.permit,
+    /* The importer took DRP's trade licence for a permit on some listings; that is not a listing permit */
+    permit: r.permit && r.permit !== licences.tradeLicence ? r.permit : null,
     title,
     offering: r.offering as Offering,
     price: r.price,

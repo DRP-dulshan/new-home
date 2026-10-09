@@ -34,7 +34,8 @@ export const hotDeals: Listing[] = [
     /* The same villa's Property Finder listing, which this deal replaces */
     slug: 'exclusive-5-bedroom-luxurious-frond-villa-2',
     ref: 'W976PKP7JZCZ3RT6694JZ1Q5WM',
-    permit: '915740',
+    /* 915740 on the Property Finder listing is DRP's trade licence, not this listing's permit */
+    permit: null,
     title: 'Wave Crest · 5 Bedroom Beach Villa',
     offering: 'buy',
     price: 24_500_000,
