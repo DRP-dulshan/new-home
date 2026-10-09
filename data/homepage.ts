@@ -58,17 +58,8 @@ export const contact = {
   emailHref: 'mailto:Office@dubairapidproperties.com',
 } as const;
 
-/**
- * PLACEHOLDER – DRP's registration numbers, shown in the footer once set.
- * Dubai's RERA rules expect a broker's ORN on its advertising. Leave a value
- * empty to hide it.
- */
-export const licences = {
-  /** RERA Office Registration Number */
-  orn: '',
-  /** DED trade licence number */
-  tradeLicence: '',
-} as const;
+/* DRP's registration numbers live in ./licences, so data/properties.ts can read them too */
+export { licences } from './licences';
 
 /* -------------------------------------------------------------------------- */
 /*  NAVIGATION                                                                */
