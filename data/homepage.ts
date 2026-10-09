@@ -20,10 +20,6 @@ import { homepageRent, homepageSale, toPropertyCard } from './properties';
 const unsplash = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
 
-/** DRP's own photography library (about-1.jpg … about-14.jpg on the live site). */
-const drpPhoto = (n: number) =>
-  `/media/2023/02/about-${n}.jpg`;
-
 /* -------------------------------------------------------------------------- */
 /*  BRAND + CONTACT                                                           */
 /* -------------------------------------------------------------------------- */
@@ -286,6 +282,8 @@ export type SolutionTile = {
   external?: boolean;
   image?: string;
   alt?: string;
+  /** CSS object-position for the photo, e.g. "50% 25%" to keep a sign in frame */
+  imagePosition?: string;
   /** Layout span on the 4-column desktop bento grid. */
   span: 'large' | 'tall' | 'wide' | 'standard';
   /** Renders the charcoal editorial card instead of a photo tile. */
@@ -305,8 +303,9 @@ export const solutions = {
       title: 'Connect With a Specialist',
       subtitle: 'Speak directly with a DRP advisor',
       href: '#contact',
-      image: drpPhoto(2),
-      alt: 'The DRP office on Golden Mile, Palm Jumeirah',
+      image: '/images/office-night.webp',
+      alt: 'The DRP office on Golden Mile, Palm Jumeirah, lit up at night',
+      imagePosition: '50% 22%',
       span: 'large',
     },
     {
