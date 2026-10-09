@@ -149,7 +149,7 @@ export const articles: NewsArticle[] = [
     date: '2026-08-02',
     author: 'DRP Off-Plan Team',
     readMinutes: 4,
-    image: unsplash('1541976590-713941681591', 2000),
+    image: '/images/como.jpg',
     alt: 'A newly launched residential tower in Dubai',
     body: [
       {
