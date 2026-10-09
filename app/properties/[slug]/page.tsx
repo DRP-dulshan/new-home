@@ -24,6 +24,7 @@ import {
 } from '@/data/properties';
 import { areaHref, areas } from '@/data/areas';
 import { teamHref, teamMemberForAgent } from '@/data/company';
+import { brnFor } from '@/data/licences';
 import { listingData } from '@/lib/structuredData';
 import { staticSlugs } from './slugs';
 
@@ -188,7 +189,7 @@ export default async function Page({ params }: PageProps) {
                   ) : (
                     <span className="text-charcoal">{listing.agent}</span>
                   )}
-                  {agent?.brn ? ` (BRN ${agent.brn})` : ''} · Ref. {listing.ref}
+                  {brnFor(listing.agent) ? ` (BRN ${brnFor(listing.agent)})` : ''} · Ref. {listing.ref}
                 </p>
               ) : null}
 
