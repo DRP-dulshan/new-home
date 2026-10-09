@@ -75,7 +75,7 @@ export const articles: NewsArticle[] = [
     date: '2026-08-28',
     author: 'DRP Sales Team',
     readMinutes: 5,
-    image: unsplash('1518684079-3c830dcef090', 2000),
+    image: '/images/palm.jpg',
     alt: 'The Jumeirah beachfront and Burj Al Arab',
     body: [
       {
@@ -246,7 +246,7 @@ export const articles: NewsArticle[] = [
     date: '2026-06-21',
     author: 'DRP Holiday Homes',
     readMinutes: 5,
-    image: unsplash('1567767292278-a4f21aa2d36e', 2000),
+    image: '/images/homs.webp',
     alt: 'The living room of a furnished Dubai holiday home',
     body: [
       {
