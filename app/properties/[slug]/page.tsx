@@ -7,6 +7,7 @@ import FavouriteButton from '@/components/properties/FavouriteButton';
 import ListingGallery from '@/components/properties/ListingGallery';
 import ShareLinks from '@/components/news/ShareLinks';
 import PropertyMap from '@/components/properties/PropertyMap';
+import PermitCheck from '@/components/properties/PermitCheck';
 import ArrowLink from '@/components/ui/ArrowLink';
 import Reveal from '@/components/ui/Reveal';
 import SectionHeading from '@/components/ui/SectionHeading';
@@ -72,7 +73,6 @@ export default async function Page({ params }: PageProps) {
     ['Type', listing.type],
     ['Status', listing.completion],
     ...(listing.furnishing ? [['Furnishing', listing.furnishing]] : []),
-    ...(listing.permit ? [['DLD Permit', listing.permit]] : []),
   ];
   /* Only link areas that have a guide */
   const guide = areas.find((a) => a.name === listing.area);
@@ -151,6 +151,7 @@ export default async function Page({ params }: PageProps) {
                   </div>
                 ))}
               </dl>
+              {listing.permit ? <PermitCheck permit={listing.permit} permitUrl={listing.permitUrl} /> : null}
 
               <h2 className="mt-14 font-serif text-[1.75rem] font-light text-charcoal">About this property</h2>
               <div className="mt-5 space-y-5">

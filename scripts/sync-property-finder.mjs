@@ -280,6 +280,21 @@ function shape(v, depth = 0) {
   return typeof v;
 }
 
+/**
+ * The DLD (Trakheesi / Madmoun) page that validates a listing's advertising
+ * permit, wherever Property Finder puts it: the first web address on the
+ * listing's compliance details that points at Dubai Land Department.
+ */
+function permitUrlOf(raw) {
+  const seen = [];
+  const walk = (v, depth = 0) => {
+    if (typeof v === 'string') seen.push(v.trim());
+    else if (v && typeof v === 'object' && depth < 5) Object.values(v).forEach((x) => walk(x, depth + 1));
+  };
+  walk(raw?.compliance);
+  return seen.find((v) => /^https:\/\/[^/]*dubailand\.gov\.ae\//i.test(v)) ?? null;
+}
+
 async function main() {
   if (!KEY || !SECRET) {
     log('PF_API_KEY / PF_API_SECRET not set — keeping the current listings.');
@@ -304,6 +319,7 @@ async function main() {
 
   /* Field names and status values only, never listing content — to check the mapping from the build log */
   log('listing fields:', Object.keys(raws[0] ?? {}).join(', '));
+  log('compliance fields:', JSON.stringify(shape(raws.find((r) => r?.compliance)?.compliance ?? null)));
   log('status fields:', JSON.stringify({ state: shape(raws[0]?.state), portals: shape(raws[0]?.portals) }));
   const statusCounts = {};
 
@@ -338,6 +354,7 @@ async function main() {
       slug,
       ref,
       permit: pick(raw, 'compliance.listingAdvertisementNumber', 'compliance.advertisementLicenseNumber', 'permitNumber', 'permit', 'reraPermit') ?? null,
+      permitUrl: permitUrlOf(raw),
       title,
       offering,
       price,
