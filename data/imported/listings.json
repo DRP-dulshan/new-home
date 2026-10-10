@@ -56,8 +56,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.132021,55.151405",
-   "exact": true
+   "query": "Serenia Residences West, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.132021,
+    55.151405
+   ]
   }
  },
  {
@@ -115,8 +119,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.210396,55.282097",
-   "exact": true
+   "query": "Burj Daman, DIFC, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.210396,
+    55.282097
+   ]
   }
  },
  {
@@ -182,8 +190,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.072954,55.128089",
-   "exact": true
+   "query": "Al Bateen Residences, Jumeirah Beach Residence, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.072954,
+    55.128089
+   ]
   }
  },
  {
@@ -246,8 +258,12 @@
   "features": [],
   "sourceUrl": "",
   "map": {
-   "query": "25.132021,55.151405",
-   "exact": true
+   "query": "Serenia Residences West, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.132021,
+    55.151405
+   ]
   }
  },
  {
@@ -317,8 +333,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.116311,55.137435",
-   "exact": true
+   "query": "Marina Residences 4, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.116311,
+    55.137435
+   ]
   }
  },
  {
@@ -391,8 +411,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.117048,55.391597",
-   "exact": true
+   "query": "Silicon Gates 1, Dubai Silicon Oasis, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.117048,
+    55.391597
+   ]
   }
  },
  {
@@ -488,8 +512,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.110724,55.139576",
-   "exact": true
+   "query": "The Fairmont Palm Residence North, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.110724,
+    55.139576
+   ]
   }
  },
  {
@@ -559,8 +587,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.114132,55.141732",
-   "exact": true
+   "query": "Al Das, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.114132,
+    55.141732
+   ]
   }
  },
  {
@@ -623,8 +655,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.111506,55.138568",
-   "exact": true
+   "query": "NH Collection Dubai The Palm, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.111506,
+    55.138568
+   ]
   }
  },
  {
@@ -691,8 +727,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.180151,55.252418",
-   "exact": true
+   "query": "Aykon City Tower B, Business Bay, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.180151,
+    55.252418
+   ]
   }
  },
  {
@@ -761,8 +801,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.08333,55.144753",
-   "exact": true
+   "query": "No.9, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.08333,
+    55.144753
+   ]
   }
  },
  {
@@ -828,8 +872,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.11295,55.246242",
-   "exact": true
+   "query": "Park Heights 1, Dubai Hills Estate, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.11295,
+    55.246242
+   ]
   }
  },
  {
@@ -893,8 +941,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.085305,55.149287",
-   "exact": true
+   "query": "Murjan Tower, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.085305,
+    55.149287
+   ]
   }
  },
  {
@@ -962,8 +1014,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.097187,55.139897",
-   "exact": true
+   "query": "Sunrise Bay Podium, Dubai Harbour, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.097187,
+    55.139897
+   ]
   }
  },
  {
@@ -1036,8 +1092,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.171214,55.327602",
-   "exact": true
+   "query": "310 Riverside Crescent, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.171214,
+    55.327602
+   ]
   }
  },
  {
@@ -1102,8 +1162,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.173004,55.324453",
-   "exact": true
+   "query": "340 Riverside Crescent, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.173004,
+    55.324453
+   ]
   }
  },
  {
@@ -1181,8 +1245,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.081082,55.136665",
-   "exact": true
+   "query": "Five Luxe JBR, Jumeirah Beach Residence, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.081082,
+    55.136665
+   ]
   }
  },
  {
@@ -1261,8 +1329,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.113987,55.140047",
-   "exact": true
+   "query": "The Palm Tower, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.113987,
+    55.140047
+   ]
   }
  },
  {
@@ -1331,8 +1403,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.05632,55.2206",
-   "exact": true
+   "query": "Dana Tower, JVC, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.05632,
+    55.2206
+   ]
   }
  },
  {
@@ -1402,8 +1478,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.105998,55.150144",
-   "exact": true
+   "query": "Al Khushkar, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.105998,
+    55.150144
+   ]
   }
  },
  {
@@ -1479,8 +1559,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.112488,55.139684",
-   "exact": true
+   "query": "Cheval Maison The Palm Dubai, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.112488,
+    55.139684
+   ]
   }
  },
  {
@@ -1545,8 +1629,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.115834,55.139716",
-   "exact": true
+   "query": "Marina Residences 6, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.115834,
+    55.139716
+   ]
   }
  },
  {
@@ -1614,8 +1702,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.075302,55.138407",
-   "exact": true
+   "query": "Silverene Tower B, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.075302,
+    55.138407
+   ]
   }
  },
  {
@@ -1689,8 +1781,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.13999,55.14253",
-   "exact": true
+   "query": "One Crescent, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.13999,
+    55.14253
+   ]
   }
  },
  {
@@ -1764,8 +1860,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.075138,55.137805",
-   "exact": true
+   "query": "Silverene Tower A, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.075138,
+    55.137805
+   ]
   }
  },
  {
@@ -1829,8 +1929,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.113987,55.140047",
-   "exact": true
+   "query": "The Palm Tower, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.113987,
+    55.140047
+   ]
   }
  },
  {
@@ -1898,8 +2002,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.022288,55.262859",
-   "exact": true
+   "query": "Richmond, Damac Hills, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.022288,
+    55.262859
+   ]
   }
  },
  {
@@ -1974,8 +2082,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.081082,55.136665",
-   "exact": true
+   "query": "Five Luxe JBR, Jumeirah Beach Residence, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.081082,
+    55.136665
+   ]
   }
  },
  {
@@ -2071,8 +2183,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.11812,55.110121",
-   "exact": true
+   "query": "The 8, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.11812,
+    55.110121
+   ]
   }
  },
  {
@@ -2141,7 +2257,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Al Tamr, Shoreline Apartments, Palm Jumeirah, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.109267,
+    55.145799
+   ]
   }
  },
  {
@@ -2193,7 +2313,11 @@
   "sourceUrl": "",
   "map": {
    "query": "330 Riverside Crescent, Sobha Hartland II, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.17169,
+    55.325874
+   ]
   }
  },
  {
@@ -2244,7 +2368,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Al Dabas, Shoreline Apartments, Palm Jumeirah, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.107397,
+    55.150273
+   ]
   }
  },
  {
@@ -2292,7 +2420,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Aykon City, Business Bay, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.180151,
+    55.252418
+   ]
   }
  },
  {
@@ -2348,7 +2480,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Marina Residence 4, Palm Jumeirah, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.116311,
+    55.137435
+   ]
   }
  },
  {
@@ -2392,7 +2528,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Chelsea Residences, Dubai Maritime City, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.279367,
+    55.260343
+   ]
   }
  },
  {
@@ -2438,7 +2578,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Princess Tower, Dubai Marina, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.08856,
+    55.147044
+   ]
   }
  },
  {
@@ -2496,7 +2640,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Binghatti Aquarise, Business Bay, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.176679,
+    55.273303
+   ]
   }
  },
  {
@@ -2554,7 +2702,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Fairmont Palm Residence North, Palm Jumeirah, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.110724,
+    55.139576
+   ]
   }
  },
  {
@@ -2636,7 +2788,11 @@
   "sourceUrl": "",
   "map": {
    "query": "DAMAC Park Towers, DIFC, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.209227,
+    55.278552
+   ]
   }
  },
  {
@@ -2690,8 +2846,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.100593,55.141931",
-   "exact": true
+   "query": "Grand Bleu Tower 1, Dubai Harbour, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.100593,
+    55.141931
+   ]
   }
  },
  {
@@ -2754,7 +2914,11 @@
   "sourceUrl": "",
   "map": {
    "query": "DAMAC Bay 2, Dubai Harbour, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.091707,
+    55.145209
+   ]
   }
  },
  {
@@ -2827,7 +2991,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Azure Residences, Palm Jumeirah, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.106434,
+    55.152678
+   ]
   }
  },
  {
@@ -2898,7 +3066,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Farhad Azizi Residence, Al Jaddaf, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.209074,
+    55.314943
+   ]
   }
  },
  {
@@ -2967,8 +3139,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.031524,55.135745",
-   "exact": true
+   "query": "Al Furjan West, Al Furjan, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.031524,
+    55.135745
+   ]
   }
  },
  {
@@ -3044,7 +3220,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Oceana, Palm Jumeirah, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.110165,
+    55.137511
+   ]
   }
  },
  {
@@ -3109,7 +3289,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Mykonos, DAMAC Lagoons, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.007237,
+    55.222481
+   ]
   }
  },
  {
@@ -3151,7 +3335,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Azizi Riviera, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.173416,
+    55.307697
+   ]
   }
  },
  {
@@ -3219,7 +3407,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Seventh Heaven, Al Barari, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.099628,
+    55.315948
+   ]
   }
  },
  {
@@ -3296,7 +3488,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Al Bateen Residences, Jumeirah Beach Residence, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.072954,
+    55.128089
+   ]
   }
  },
  {
@@ -3370,7 +3566,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Lagoon Views 11, Damac Lagoons, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.012831,
+    55.225928
+   ]
   }
  },
  {
@@ -3447,7 +3647,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Marina Residence 4, Palm Jumeirah, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.116311,
+    55.137435
+   ]
   }
  },
  {
@@ -3509,7 +3713,11 @@
   "sourceUrl": "",
   "map": {
    "query": "320 Riverside Crescent, Sobha Hartland II, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.171366,
+    55.326724
+   ]
   }
  },
  {
@@ -3575,7 +3783,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Society House, Downtown Dubai, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.194249,
+    55.286848
+   ]
   }
  },
  {
@@ -3651,7 +3863,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Binghatti Stars, Dubai Silicon Oasis, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.112525,
+    55.376107
+   ]
   }
  },
  {
@@ -3699,7 +3915,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Golden Mile 9, Palm Jumeirah, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.11159,
+    55.141112
+   ]
   }
  },
  {
@@ -3762,7 +3982,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Mayfair Residency, Business Bay, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.18195,
+    55.277238
+   ]
   }
  },
  {
@@ -3825,7 +4049,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Peninsula, Business Bay, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.186047,
+    55.268804
+   ]
   }
  },
  {
@@ -3886,7 +4114,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Saba 4, Jumeirah Lake Towers, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.065562,
+    55.142637
+   ]
   }
  },
  {
@@ -3951,7 +4183,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Azure Residences, Palm Jumeirah, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.106434,
+    55.152678
+   ]
   }
  },
  {
@@ -4028,7 +4264,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Azure Residences, Palm Jumeirah, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.106434,
+    55.152678
+   ]
   }
  },
  {
@@ -4076,7 +4316,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Seven City, Jumeirah Lake Towers, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.0791,
+    55.153834
+   ]
   }
  },
  {
@@ -4153,7 +4397,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Mayfair Tower, Business Bay, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.18195,
+    55.277238
+   ]
   }
  },
  {
@@ -4228,7 +4476,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Greenview 2, Dubai South, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    24.863992,
+    55.133754
+   ]
   }
  },
  {
@@ -4304,7 +4556,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Azizi Riviera, Mohammed Bin Rashid City, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.173416,
+    55.307697
+   ]
   }
  },
  {
@@ -4373,7 +4629,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Cloud Tower, Jumeirah Village Triangle, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.038406,
+    55.180451
+   ]
   }
  },
  {
@@ -4428,7 +4688,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Cotier House, Dubai Islands, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.287828,
+    55.294273
+   ]
   }
  },
  {
@@ -4500,7 +4764,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Sunset Bay, Dubai Islands, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.286899,
+    55.297649
+   ]
   }
  },
  {
@@ -4573,7 +4841,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Helvetia Residences, JVC, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.047471,
+    55.205949
+   ]
   }
  },
  {
@@ -4633,7 +4905,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Holland Gardens, Town Square, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    24.99741,
+    55.298404
+   ]
   }
  },
  {
@@ -4701,7 +4977,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Binghatti Hills, Dubai Science Park, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.070994,
+    55.248796
+   ]
   }
  },
  {
@@ -4776,7 +5056,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Samana Park Meadows, Dubailand, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.090686,
+    55.384321
+   ]
   }
  },
  {
@@ -4850,7 +5134,11 @@
   "sourceUrl": "",
   "map": {
    "query": "ELO 2, Damac Hills 2, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    24.983594,
+    55.392105
+   ]
   }
  },
  {
@@ -4917,7 +5205,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Murjan, Jumeirah Beach Residence, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.082179,
+    55.139807
+   ]
   }
  },
  {
@@ -5002,7 +5294,11 @@
   "sourceUrl": "",
   "map": {
    "query": "DAMAC Park Towers, DIFC, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.209649,
+    55.279008
+   ]
   }
  },
  {
@@ -5086,7 +5382,11 @@
   "sourceUrl": "",
   "map": {
    "query": "DAMAC Park Towers, DIFC, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.209806,
+    55.278974
+   ]
   }
  },
  {
@@ -5153,7 +5453,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Murjan, Jumeirah Beach Residence, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.082179,
+    55.139807
+   ]
   }
  },
  {
@@ -5228,7 +5532,11 @@
   "sourceUrl": "",
   "map": {
    "query": "The Waves Tower, Dubai Marina, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.070901,
+    55.134126
+   ]
   }
  },
  {
@@ -5297,7 +5605,11 @@
   "sourceUrl": "",
   "map": {
    "query": "The Waves Tower B, Dubai Marina, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.071305,
+    55.13381
+   ]
   }
  },
  {
@@ -5310,7 +5622,7 @@
   "price": 1200000,
   "type": "Apartment",
   "area": "Jumeirah",
-  "building": "Lamtara 2",
+  "building": "Madinat Jumeirah Living",
   "beds": 4,
   "baths": 3,
   "size": 3598,
@@ -5371,7 +5683,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Madinat Jumeirah Living, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.136617,
+    55.188655
+   ]
   }
  },
  {
@@ -5450,8 +5766,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.075138,55.137805",
-   "exact": true
+   "query": "Silverene Tower A, Dubai Marina, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.075138,
+    55.137805
+   ]
   }
  },
  {
@@ -5523,7 +5843,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Violet 1, Damac Hills 2, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    24.985748,
+    55.392731
+   ]
   }
  },
  {
@@ -5600,7 +5924,11 @@
   "sourceUrl": "",
   "map": {
    "query": "DAMAC Park Towers, DIFC, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.209806,
+    55.278974
+   ]
   }
  },
  {
@@ -5678,7 +6006,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Sparkle Tower 2, Dubai Marina, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.071897,
+    55.131535
+   ]
   }
  },
  {
@@ -5737,7 +6069,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Silverene Tower A, Dubai Marina, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.075138,
+    55.137805
+   ]
   }
  },
  {
@@ -5799,7 +6135,11 @@
   "sourceUrl": "",
   "map": {
    "query": "The Palm Tower, Palm Jumeirah, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.113987,
+    55.140047
+   ]
   }
  },
  {
@@ -5885,7 +6225,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Golden Mile 1, Palm Jumeirah, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.105371,
+    55.149152
+   ]
   }
  },
  {
@@ -5957,7 +6301,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Petalz by Danube, International City, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.167239,
+    55.396041
+   ]
   }
  },
  {
@@ -6029,7 +6377,11 @@
   "sourceUrl": "",
   "map": {
    "query": "The Waves Tower A, Dubai Marina, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.070809,
+    55.134361
+   ]
   }
  },
  {
@@ -6097,7 +6449,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Silverene Tower A, Dubai Marina, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.075138,
+    55.137805
+   ]
   }
  },
  {
@@ -6155,7 +6511,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Garden 2, Arjan, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.068012,
+    55.239643
+   ]
   }
  },
  {
@@ -6218,8 +6578,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.059037,55.216311",
-   "exact": true
+   "query": "Celestara Residences, JVC, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.059037,
+    55.216311
+   ]
   }
  },
  {
@@ -6289,7 +6653,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Canal Heights, Business Bay, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.183645,
+    55.278618
+   ]
   }
  },
  {
@@ -6302,7 +6670,7 @@
   "price": 2100000,
   "type": "Apartment",
   "area": "Business Bay",
-  "building": "Executive Tower B",
+  "building": "East Heights 4",
   "beds": 1,
   "baths": 1,
   "size": 1357,
@@ -6338,7 +6706,11 @@
   "sourceUrl": "",
   "map": {
    "query": "East Heights 4, Business Bay, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.192765,
+    55.266481
+   ]
   }
  },
  {
@@ -6351,7 +6723,7 @@
   "price": 2100000,
   "type": "Apartment",
   "area": "Business Bay",
-  "building": "Executive Tower B",
+  "building": "East Heights 4",
   "beds": 1,
   "baths": 1,
   "size": 1362,
@@ -6426,7 +6798,11 @@
   "sourceUrl": "",
   "map": {
    "query": "East Heights 4, Business Bay, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.192765,
+    55.266481
+   ]
   }
  },
  {
@@ -6489,8 +6865,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.002258,55.000262",
-   "exact": true
+   "query": "Palm Jebel Ali Frond A, Palm Jebel Ali, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.002258,
+    55.000262
+   ]
   }
  },
  {
@@ -6576,7 +6956,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Sparkle Tower A, Dubai Marina, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.071484,
+    55.132098
+   ]
   }
  },
  {
@@ -6658,8 +7042,12 @@
   ],
   "sourceUrl": "",
   "map": {
-   "query": "25.107867,55.133293",
-   "exact": true
+   "query": "Signature Villas Frond P, Palm Jumeirah, Dubai, United Arab Emirates",
+   "exact": true,
+   "near": [
+    25.107867,
+    55.133293
+   ]
   }
  },
  {
@@ -6720,7 +7108,11 @@
   "sourceUrl": "",
   "map": {
    "query": "Samana Barari Lagoons, Dubailand, Dubai, United Arab Emirates",
-   "exact": true
+   "exact": true,
+   "near": [
+    25.092935,
+    55.320937
+   ]
   }
  }
 ]
