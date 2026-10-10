@@ -265,11 +265,30 @@ function placeOf(loc, title, description) {
   /* The deepest name below the community: the tower, or the subcommunity / cluster for villas */
   const below = tree.slice(tree.indexOf(community) + 1).map((t) => text(t.name).trim()).filter(Boolean);
   const building = below.length ? below[below.length - 1] : null;
+  /* Searched by name, so Google Maps pins and labels the building itself */
+  const query = `${building ? `${building}, ` : ''}${area}, Dubai, United Arab Emirates`;
+  /* Searching around Property Finder's pin keeps a common name from matching a namesake across town */
   const { lat, lng } = loc.coordinates ?? {};
-  const query = lat != null && lng != null
-    ? `${lat},${lng}`
-    : `${[...below].reverse().join(', ')}${below.length ? ', ' : ''}${text(community.name)}, Dubai, United Arab Emirates`;
-  return { area, building, map: { query, exact: building != null } };
+  const near = lat != null && lng != null ? [lat, lng] : undefined;
+  return { area, building, map: { query, exact: building != null, ...(near && { near }) } };
+}
+
+/** The importer's checked map, when it pins a building by name (a bare "lat,lng" shows no name on the map) */
+const checkedMap = (old) => (old?.map?.exact && !/^-?[\d.]+,\s*-?[\d.]+$/.test(old.map.query) ? old.map : null);
+
+/**
+ * Property Finder's building, unless the listing never names it and the
+ * importer's checked map names a building the listing does mention — an
+ * agent picking the wrong tower on Property Finder, e.g. "East Heights 4"
+ * filed under "Executive Tower B".
+ */
+function buildingOf(place, old, listingText) {
+  const words = (s) => (s ?? '').toLowerCase().match(/[a-z0-9]+/g) ?? [];
+  const said = new Set(words(listingText));
+  const named = (name) => words(name).filter((w) => w.length > 2 && !/^(the|tower|towers|residence|residences)$/.test(w)).some((w) => said.has(w));
+  const checked = checkedMap(old)?.query.split(',')[0].trim() ?? null;
+  if (place.building && !named(place.building) && checked && named(checked)) return checked;
+  return place.building;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -369,7 +388,7 @@ async function main() {
       price,
       type: typeOf(raw),
       area: place.area,
-      building: place.building,
+      building: buildingOf(place, old, `${title} ${description.join(' ')}`),
       beds: bedsOf(raw),
       baths: num(pick(raw, 'bathrooms', 'baths')),
       size: sizeOf(raw),
@@ -381,8 +400,8 @@ async function main() {
       description,
       features: featuresOf(raw),
       sourceUrl: pick(raw, 'portals.propertyfinder.url', 'url', 'link') ?? '',
-      /* The importer's checked map wins when it pins the building; otherwise Property Finder's coordinates */
-      map: old?.map?.exact ? old.map : place.map,
+      /* The importer's checked map wins when it pins the building; otherwise the building by name */
+      map: { ...(checkedMap(old) ?? place.map), ...(place.map.near && { near: place.map.near }) },
     });
   }
 

@@ -7,15 +7,21 @@ type Props = {
   label: string;
   /** False when only the community is known, so the pin marks the area, not the building */
   exact: boolean;
+  /** [lat, lng] to search around, so a building name finds that building and not a namesake elsewhere */
+  near?: [number, number];
   headingId: string;
   tone?: 'light' | 'dark';
 };
 
-const embedSrc = (q: string) => `https://www.google.com/maps?q=${encodeURIComponent(q)}&z=15&output=embed`;
-const mapsLink = (q: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+const embedSrc = (q: string, near?: [number, number]) =>
+  `https://www.google.com/maps?q=${encodeURIComponent(q)}${near ? `&ll=${near.join(',')}` : ''}&z=15&output=embed`;
+const mapsLink = (q: string, near?: [number, number]) =>
+  near
+    ? `https://www.google.com/maps/search/${encodeURIComponent(q)}/@${near.join(',')},16z`
+    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 
 /** Location heading, an embedded Google map and a link out to Google Maps. */
-export default function PropertyMap({ query, label, exact, headingId, tone = 'light' }: Props) {
+export default function PropertyMap({ query, label, exact, near, headingId, tone = 'light' }: Props) {
   const dark = tone === 'dark';
   return (
     <div>
@@ -34,7 +40,7 @@ export default function PropertyMap({ query, label, exact, headingId, tone = 'li
       )}
       <div className="relative mt-6 aspect-[4/3] overflow-hidden bg-line sm:aspect-[16/9]">
         <iframe
-          src={embedSrc(query)}
+          src={embedSrc(query, near)}
           title={`Map of ${label}`}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
@@ -42,7 +48,7 @@ export default function PropertyMap({ query, label, exact, headingId, tone = 'li
         />
       </div>
       <a
-        href={mapsLink(query)}
+        href={mapsLink(query, near)}
         target="_blank"
         rel="noopener noreferrer"
         className={`mt-4 inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-eyebrow transition-colors duration-300 hover:text-orange ${

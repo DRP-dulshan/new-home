@@ -44,8 +44,11 @@ export type Listing = {
   area: string;
   /** The building or cluster the listing names, e.g. "Silverene Tower A" */
   building: string | null;
-  /** Google Maps search, checked at import; `exact` is false when it shows the community */
-  map: { query: string; exact: boolean };
+  /**
+   * Google Maps search, checked at import; `exact` is false when it shows the community.
+   * `near` is Property Finder's [lat, lng] for the building, so the search finds that building and not a namesake.
+   */
+  map: { query: string; exact: boolean; near?: [number, number] };
   /** 0 = studio */
   beds: number;
   baths: number;
@@ -90,7 +93,7 @@ const toListing = (r: ImportedListing): Listing => {
     type: r.type as ListingType,
     area: r.area,
     building: r.building,
-    map: r.map,
+    map: { query: r.map.query, exact: r.map.exact, ...(r.map.near?.length === 2 && { near: [r.map.near[0], r.map.near[1]] as [number, number] }) },
     beds: r.beds ?? 0,
     baths: r.baths ?? 1,
     size: r.size ?? 0,
