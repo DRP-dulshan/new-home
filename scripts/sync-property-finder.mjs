@@ -22,7 +22,7 @@
 
 import { spawnSync } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
-import { inferArea } from './lib/gazetteer.mjs';
+import { GAZETTEER, inferArea } from './lib/gazetteer.mjs';
 
 // Node's built-in fetch only honours HTTPS_PROXY when NODE_USE_ENV_PROXY is set.
 if ((process.env.HTTPS_PROXY || process.env.https_proxy) && !process.env.NODE_USE_ENV_PROXY) {
@@ -61,7 +61,10 @@ async function getToken() {
 }
 
 async function api(token, path) {
-  const res = await fetch(`${BASE}${path}`, { headers: { Authorization: `Bearer ${token}`, Accept: 'application/json' } });
+  /* Node's fetch sends `Accept-Language: *` by default, and Property Finder's locations endpoint answers that with a 404 */
+  const res = await fetch(`${BASE}${path}`, {
+    headers: { Authorization: `Bearer ${token}`, Accept: 'application/json', 'Accept-Language': 'en' },
+  });
   if (!res.ok) throw new Error(`GET ${path} failed: ${res.status} ${(await res.text()).slice(0, 200)}`);
   return res.json();
 }
@@ -82,24 +85,23 @@ async function allListings(token) {
   return rows;
 }
 
-/** Location names by id, for listings that only carry a location id. */
-const locationCache = new Map();
-async function locationById(token, id) {
-  if (locationCache.has(id)) return locationCache.get(id);
-  let loc = null;
-  try {
-    const body = await api(token, `/v1/locations/${encodeURIComponent(id)}`);
-    loc = body.data ?? body;
-  } catch {
+/**
+ * Property Finder's location for each id: { name, type, coordinates, tree },
+ * where the tree runs city → community → subcommunity → tower.
+ */
+async function locationsById(token, ids) {
+  const byId = new Map();
+  const unique = [...new Set(ids.filter((id) => id != null).map(String))];
+  for (let i = 0; i < unique.length; i += PER_PAGE) {
+    const batch = unique.slice(i, i + PER_PAGE);
     try {
-      const body = await api(token, `/v1/locations?filter[id]=${encodeURIComponent(id)}`);
-      loc = rowsOf(body)[0] ?? null;
-    } catch {
-      loc = null;
+      const body = await api(token, `/v1/locations?filter[id]=${batch.map(encodeURIComponent).join(',')}&perPage=${PER_PAGE}`);
+      for (const loc of rowsOf(body)) byId.set(String(loc.id), loc);
+    } catch (err) {
+      log(`location lookup failed, those listings fall back to their text: ${err.message}`);
     }
   }
-  locationCache.set(id, loc);
-  return loc;
+  return byId;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -242,28 +244,32 @@ function liveSignal(raw) {
   return { live: true, why: 'no status field' };
 }
 
-/** Community and building from the location tree, falling back to the listing text. */
-async function placeOf(token, raw, title, description) {
-  let loc = pick(raw, 'location');
-  if (loc && typeof loc !== 'object') loc = { id: loc };
-  if (loc && loc.id != null && !(loc.name || loc.path || loc.tree || loc.community)) {
-    loc = { ...loc, ...((await locationById(token, loc.id)) ?? {}) };
+/** The site's name for a Property Finder community, e.g. "Jumeirah Village Circle" → "JVC". */
+function areaName(community) {
+  const exact = GAZETTEER.find(([name]) => name.toLowerCase() === community.toLowerCase());
+  return exact?.[0] ?? inferArea(community) ?? community;
+}
+
+/**
+ * Area, building and map from Property Finder's location tree. Only when a
+ * listing has no location does the area come from words in its text.
+ */
+function placeOf(loc, title, description) {
+  const tree = Array.isArray(loc?.tree) ? loc.tree : [];
+  const community = tree.find((t) => t.type === 'COMMUNITY');
+  if (!community) {
+    const area = inferArea(title) ?? inferArea(description) ?? 'Dubai';
+    return { area, building: null, map: { query: `${area}, Dubai, United Arab Emirates`, exact: false } };
   }
-  const names = [];
-  if (loc) {
-    const tree = loc.tree ?? loc.path ?? loc.breadcrumbs ?? loc.hierarchy;
-    if (Array.isArray(tree)) names.push(...tree.map((t) => text(typeof t === 'string' ? t : (t.name ?? t.title))));
-    else if (typeof tree === 'string') names.push(...tree.split(/[,>/]/));
-    for (const k of ['city', 'community', 'subCommunity', 'sub_community', 'tower', 'building', 'name']) {
-      if (loc[k]) names.push(text(typeof loc[k] === 'object' ? loc[k].name : loc[k]));
-    }
-  }
-  const clean = [...new Set(names.map((n) => n.trim()).filter((n) => n && !/^(dubai|uae|united arab emirates)$/i.test(n)))];
-  const area = inferArea(...clean) ?? inferArea(title) ?? inferArea(description) ?? clean[0] ?? 'Dubai';
-  /* The tree runs community → building, so its last name is the most specific */
-  const last = clean.length > 1 ? clean[clean.length - 1] : null;
-  const building = last && last.toLowerCase() !== area.toLowerCase() ? last : null;
-  return { area, building, query: `${building ? `${building}, ` : ''}${area}, Dubai, United Arab Emirates` };
+  const area = areaName(text(community.name));
+  /* The deepest name below the community: the tower, or the subcommunity / cluster for villas */
+  const below = tree.slice(tree.indexOf(community) + 1).map((t) => text(t.name).trim()).filter(Boolean);
+  const building = below.length ? below[below.length - 1] : null;
+  const { lat, lng } = loc.coordinates ?? {};
+  const query = lat != null && lng != null
+    ? `${lat},${lng}`
+    : `${[...below].reverse().join(', ')}${below.length ? ', ' : ''}${text(community.name)}, Dubai, United Arab Emirates`;
+  return { area, building, map: { query, exact: building != null } };
 }
 
 /* -------------------------------------------------------------------------- */
@@ -323,6 +329,9 @@ async function main() {
   log('status fields:', JSON.stringify({ state: shape(raws[0]?.state), portals: shape(raws[0]?.portals) }));
   const statusCounts = {};
 
+  const locations = await locationsById(token, raws.map((r) => pick(r, 'location.id', 'location')));
+  log(`${locations.size} locations from Property Finder`);
+
   const rows = [];
   for (const raw of raws) {
     const status = liveSignal(raw);
@@ -343,7 +352,7 @@ async function main() {
       .map((p) => p.replace(/\s+/g, ' ').trim())
       .filter(Boolean);
     const old = byRef.get(ref);
-    const place = await placeOf(token, raw, title, description.join(' '));
+    const place = placeOf(locations.get(String(pick(raw, 'location.id', 'location'))), title, description.join(' '));
 
     /* Keep a listing's address stable across syncs */
     let slug = old?.slug ?? slugify(title);
@@ -372,8 +381,8 @@ async function main() {
       description,
       features: featuresOf(raw),
       sourceUrl: pick(raw, 'portals.propertyfinder.url', 'url', 'link') ?? '',
-      /* The importer's checked map wins; new listings show their building or community */
-      map: old?.map ?? { query: place.query, exact: false },
+      /* The importer's checked map wins when it pins the building; otherwise Property Finder's coordinates */
+      map: old?.map?.exact ? old.map : place.map,
     });
   }
 
