@@ -3,6 +3,7 @@ import PageHero from '@/components/PageHero';
 import PropertyCard from '@/components/PropertyCard';
 import SiteShell from '@/components/layout/SiteShell';
 import ProjectCard from '@/components/offplan/ProjectCard';
+import AreaMarket from '@/components/market/AreaMarket';
 import CtaBand from '@/components/sections/CtaBand';
 import FeatureGrid from '@/components/sections/FeatureGrid';
 import IntroSplit from '@/components/sections/IntroSplit';
@@ -13,6 +14,7 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import { getArea } from '@/data/areas';
 import { projects } from '@/data/offPlan';
 import { listings, toPropertyCard } from '@/data/properties';
+import { areaMarket, formatAed } from '@/lib/dld';
 import { toSlug } from '@/lib/slug';
 import { staticSlugs } from './slugs';
 
@@ -36,6 +38,8 @@ export default async function Page({ params }: PageProps) {
 
   const homes = listings.filter((l) => l.area === area.name);
   const launches = projects.filter((p) => p.area === area.name);
+  /* Dubai Land Department's registered sales replace the guide's indicative figure */
+  const market = areaMarket(area.name);
 
   return (
     <SiteShell>
@@ -43,7 +47,9 @@ export default async function Page({ params }: PageProps) {
 
       <StatStrip
         items={[
-          { value: area.facts.pricePerSqft, label: 'Avg. price per sq ft' },
+          market?.medianPsf
+            ? { value: formatAed(market.medianPsf), label: 'Median price per sq ft (DLD)' }
+            : { value: area.facts.pricePerSqft, label: 'Avg. price per sq ft' },
           { value: area.facts.rentalYield, label: 'Gross rental yield' },
           { value: area.facts.airport, label: 'To the airport' },
           { value: String(homes.length + launches.length), label: 'DRP listings & projects' },
@@ -54,6 +60,8 @@ export default async function Page({ params }: PageProps) {
       <IntroSplit eyebrow={`Living in ${area.name}`} heading="The Area at a Glance" paragraphs={area.intro} tone="cream" />
 
       <FeatureGrid eyebrow="Why Buyers Choose It" heading="What Sets It Apart" items={area.highlights} />
+
+      <AreaMarket area={area.name} />
 
       {homes.length ? (
         <section aria-labelledby="homes-heading" className="section-y bg-cream">

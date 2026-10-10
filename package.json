@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/sync-property-finder.mjs && node scripts/sync-listings.mjs",
+    "prebuild": "node scripts/sync-property-finder.mjs && node scripts/sync-listings.mjs && node scripts/sync-dld.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "import:drp": "node scripts/import-drp-content.mjs",
     "sync:pf": "node scripts/sync-property-finder.mjs",
-    "sync:listings": "node scripts/sync-listings.mjs"
+    "sync:listings": "node scripts/sync-listings.mjs",
+    "sync:dld": "node scripts/sync-dld.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "2.0.1",
