@@ -19,6 +19,7 @@ import { hotDeals } from './hotDeals';
 import { licences } from './licences';
 import type { ReadyProperty, RentalProperty } from './homepage';
 import imported from './imported/listings.json';
+import hiddenListings from './imported/hidden-listings.json';
 import portal from './imported/portal-listings.json';
 
 export type Offering = 'buy' | 'rent';
@@ -103,6 +104,8 @@ const toListing = (r: ImportedListing): Listing => {
  */
 const portalListings = portal as unknown as ImportedListing[];
 const portalSlugs = new Set(portalListings.map((r) => r.slug));
+/* Property Finder listings hidden in the admin portal */
+const hiddenSlugs = new Set<string>(hiddenListings);
 
 /**
  * REAL – every DRP listing on Property Finder (listings.json, kept current by
@@ -117,7 +120,7 @@ const hotDealSlugs = new Set(hotDeals.map((l) => l.slug));
 export const listings: Listing[] = [
   ...hotDeals,
   ...[...portalListings, ...imported.filter((r) => !portalSlugs.has(r.slug))]
-    .filter((r) => !hotDealSlugs.has(r.slug))
+    .filter((r) => !hotDealSlugs.has(r.slug) && !hiddenSlugs.has(r.slug))
     .filter((r) => r.type !== 'Commercial' && r.size)
     .map(toListing)
     .sort((a, b) => b.listedAt.localeCompare(a.listedAt)),

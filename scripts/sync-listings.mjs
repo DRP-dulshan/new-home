@@ -32,6 +32,7 @@ if ((process.env.HTTPS_PROXY || process.env.https_proxy) && !process.env.NODE_US
 const FEED = process.env.LISTINGS_FEED_URL?.trim();
 const REQUIRED = process.env.LISTINGS_FEED_REQUIRED === '1';
 const FILE = new URL('../data/imported/portal-listings.json', import.meta.url);
+const HIDDEN_FILE = new URL('../data/imported/hidden-listings.json', import.meta.url);
 
 function keep(reason) {
   const message = `[listings] ${reason} Keeping data/imported/portal-listings.json as it is.`;
@@ -106,4 +107,21 @@ if (next === current) {
 } else {
   await writeFile(FILE, next);
   console.log(`[listings] ${listings.length} listings from the portal written to data/imported/portal-listings.json.`);
+}
+
+/*
+ * Property Finder listings staff have hidden in the portal: their web
+ * addresses, which data/properties.ts leaves off the site. A failure here
+ * keeps the file as it is.
+ */
+try {
+  const hidden = await download(`${FEED.replace(/\/$/, '')}/hidden`);
+  if (Array.isArray(hidden) && hidden.every((s) => typeof s === 'string')) {
+    const nextHidden = `${JSON.stringify(hidden, null, 1)}\n`;
+    const currentHidden = await readFile(HIDDEN_FILE, 'utf8').catch(() => '');
+    if (nextHidden !== currentHidden) await writeFile(HIDDEN_FILE, nextHidden);
+    console.log(`[listings] ${hidden.length} Property Finder listings hidden in the portal.`);
+  }
+} catch (err) {
+  console.warn(`[listings] Could not read the hidden listings (${err.message}); keeping the current list.`);
 }
