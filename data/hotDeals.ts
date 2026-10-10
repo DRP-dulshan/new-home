@@ -36,6 +36,7 @@ export const hotDeals: Listing[] = [
     ref: 'W976PKP7JZCZ3RT6694JZ1Q5WM',
     /* 915740 on the Property Finder listing is DRP's trade licence, not this listing's permit */
     permit: null,
+    permitUrl: null,
     title: 'Wave Crest · 5 Bedroom Beach Villa',
     offering: 'buy',
     price: 24_500_000,

@@ -33,6 +33,8 @@ export type Listing = {
   ref: string;
   /** DLD advertising permit */
   permit: string | null;
+  /** DLD (Trakheesi / Madmoun) page validating the permit, when Property Finder supplies one */
+  permitUrl: string | null;
   title: string;
   offering: Offering;
   /** AED. Rentals are per year. */
@@ -70,6 +72,10 @@ type ImportedListing = (typeof imported)[number];
 /** Property Finder titles use a lower-case "l" as a separator. */
 const cleanTitle = (t: string) => t.replace(/\s+l\s+/g, ' | ').replace(/\s*\|\s*$/, '').trim();
 
+/** Only a Dubai Land Department address is trusted as a permit check. */
+const dldUrl = (v: unknown) =>
+  typeof v === 'string' && /^https:\/\/[^/]*dubailand\.gov\.ae\//i.test(v) ? v : null;
+
 const toListing = (r: ImportedListing): Listing => {
   const title = cleanTitle(r.title);
   return {
@@ -77,6 +83,7 @@ const toListing = (r: ImportedListing): Listing => {
     ref: r.ref ?? r.slug,
     /* The importer took DRP's trade licence for a permit on some listings; that is not a listing permit */
     permit: r.permit && r.permit !== licences.tradeLicence ? r.permit : null,
+    permitUrl: dldUrl((r as { permitUrl?: unknown }).permitUrl),
     title,
     offering: r.offering as Offering,
     price: r.price,
