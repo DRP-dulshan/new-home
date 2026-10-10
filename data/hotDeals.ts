@@ -43,7 +43,7 @@ export const hotDeals: Listing[] = [
     type: 'Villa',
     area: 'Palm Jebel Ali',
     building: 'Frond A',
-    map: { query: 'Frond A, Palm Jebel Ali, Dubai', exact: false },
+    map: { query: 'Frond A, Palm Jebel Ali, Dubai', exact: false, near: [25.002258, 55.000262] },
     beds: 5,
     baths: 7,
     size: 8368,

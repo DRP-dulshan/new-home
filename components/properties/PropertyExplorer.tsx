@@ -1,6 +1,7 @@
 'use client';
 
 import { Suspense, useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
 import {
   byTopPicks,
@@ -16,6 +17,13 @@ import { priceSelection, type Selection } from '@/lib/filters';
 import { toSlug } from '@/lib/slug';
 import PropertyCard from '../PropertyCard';
 import FilterExplorer, { type SortOption } from '../filters/FilterExplorer';
+
+/* Leaflet needs the browser; the map loads only when someone opens it */
+const ListingsMap = dynamic(() => import('./ListingsMap'), {
+  ssr: false,
+  loading: () => <div className="h-[70vh] min-h-[420px] w-full animate-pulse border border-line bg-cream" />,
+});
+const renderMap = (results: Listing[]) => <ListingsMap listings={results} />;
 
 const sorts: SortOption<Listing>[] = [
   { id: 'top-picks', label: 'Top Picks', compare: byTopPicks },
@@ -102,6 +110,7 @@ function Explorer({
       initialSelection={initialSelection}
       sortOptions={sortOptions}
       leading={leading}
+      renderMap={renderMap}
       emptyHint="Try removing a filter, or tell a specialist what you are looking for — many listings are shared privately."
     />
   );

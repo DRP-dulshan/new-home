@@ -12,7 +12,7 @@ import {
   type RefObject,
 } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { Check, ChevronDown, SlidersHorizontal, X } from 'lucide-react';
+import { Check, ChevronDown, LayoutGrid, Map as MapIcon, SlidersHorizontal, X } from 'lucide-react';
 import { emptySelection, matchesAll, type Facet, type Selection } from '@/lib/filters';
 
 /** Header height + breathing room, so a scrolled-to grid clears the sticky bars. */
@@ -34,6 +34,8 @@ type Props<T> = {
   /** Rendered at the start of the bar on every screen size, e.g. Buy / Rent tabs. */
   leading?: ReactNode;
   emptyHint?: string;
+  /** Offers a map of the results beside the grid; ?view=map opens on it. */
+  renderMap?: (results: T[]) => ReactNode;
 };
 
 /**
@@ -50,6 +52,7 @@ export default function FilterExplorer<T>({
   initialSelection,
   sortOptions,
   leading,
+  renderMap,
   emptyHint = 'Try removing a filter, or speak to a specialist about what you are looking for.',
 }: Props<T>) {
   const reduce = useReducedMotion();
@@ -61,6 +64,20 @@ export default function FilterExplorer<T>({
   const [sortId, setSortId] = useState(sortOptions?.[0]?.id);
   const [openFacet, setOpenFacet] = useState<string | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [view, setView] = useState<'grid' | 'map'>('grid');
+  /* Read after mount, so the server-rendered grid matches the first render */
+  const offersMap = Boolean(renderMap);
+  useEffect(() => {
+    if (offersMap && new URLSearchParams(window.location.search).get('view') === 'map') setView('map');
+  }, [offersMap]);
+  const showView = (next: 'grid' | 'map') => {
+    setView(next);
+    /* Keep the address shareable without a navigation */
+    const url = new URL(window.location.href);
+    if (next === 'map') url.searchParams.set('view', 'map');
+    else url.searchParams.delete('view');
+    window.history.replaceState(null, '', url);
+  };
   const sheetTriggerRef = useRef<HTMLButtonElement>(null);
   const gridTopRef = useRef<HTMLDivElement>(null);
   /* Bumped only by the visitor's own filter or sort changes, so the grid never
@@ -211,7 +228,31 @@ export default function FilterExplorer<T>({
                 Clear all
               </button>
             ) : null}
-            {sortOptions?.length ? (
+            {renderMap ? (
+              <div role="group" aria-label="Show as" className="flex rounded-md border border-line bg-white p-1">
+                {(
+                  [
+                    ['grid', 'Grid', LayoutGrid],
+                    ['map', 'Map', MapIcon],
+                  ] as const
+                ).map(([id, label, Icon]) => (
+                  <button
+                    key={id}
+                    type="button"
+                    aria-pressed={view === id}
+                    onClick={() => showView(id)}
+                    className={`flex h-9 items-center gap-2 rounded px-3 text-[13px] transition-colors duration-300 ${
+                      view === id ? 'bg-charcoal text-white' : 'text-charcoal-light hover:text-charcoal'
+                    }`}
+                  >
+                    <Icon aria-hidden="true" className="h-4 w-4" strokeWidth={1.5} />
+                    <span className="hidden sm:inline">{label}</span>
+                    <span className="sr-only sm:hidden">{label}</span>
+                  </button>
+                ))}
+              </div>
+            ) : null}
+            {sortOptions?.length && view === 'grid' ? (
               <div className="relative">
                 <label htmlFor={`${uid}-sort`} className="sr-only">
                   Sort by
@@ -272,7 +313,9 @@ export default function FilterExplorer<T>({
 
       {/* ---------- Results ---------- */}
       <div ref={gridTopRef} className="container-drp pt-10 sm:pt-14">
-        {results.length ? (
+        {results.length && view === 'map' && renderMap ? (
+          renderMap(results)
+        ) : results.length ? (
           <ul className="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
             <AnimatePresence mode="popLayout" initial={false}>
               {results.map((item) => (
