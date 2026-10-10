@@ -66,6 +66,16 @@ Without `LISTINGS_FEED_URL`, or if the portal is unreachable, the build keeps
 locally. Photos uploaded in the portal are served from Supabase Storage (allowed in
 `next.config.mjs`).
 
+### Editing or hiding a Property Finder listing
+
+In the portal (Website → Listings → **Property Finder listings**), **Edit** copies a Property Finder
+listing into the portal under the same web address; the site then shows that copy, which can be
+changed in the normal listing form (price, title, description, photos, agent…). **Hide** takes a
+listing off the site. Property Finder itself is not touched, and an edited listing no longer follows
+changes made on Property Finder. The portal reads the Property Finder list from `/pf-listings.json`,
+and `scripts/sync-listings.mjs` downloads the hidden addresses into
+`data/imported/hidden-listings.json` (the portal's `/api/public/listings/hidden`).
+
 ## Enquiry emails
 
 Every form on the site (contact, enquiries, valuations, careers with CV,
