@@ -215,8 +215,8 @@ export default function FilterExplorer<T>({
             </button>
           </div>
 
-          <div className="flex shrink-0 items-center gap-5">
-            <p aria-live="polite" className="text-[12px] font-light text-charcoal-muted sm:text-[13px]">
+          <div className="flex shrink-0 items-center gap-3">
+            <p aria-live="polite" className="whitespace-nowrap text-[12px] font-light text-charcoal-muted sm:text-[13px]">
               {countLabel}
             </p>
             {chips.length ? (
@@ -240,14 +240,14 @@ export default function FilterExplorer<T>({
                     key={id}
                     type="button"
                     aria-pressed={view === id}
+                    title={label}
                     onClick={() => showView(id)}
-                    className={`flex h-9 items-center gap-2 rounded px-3 text-[13px] transition-colors duration-300 ${
+                    className={`flex h-9 w-9 items-center justify-center rounded text-[13px] transition-colors duration-300 ${
                       view === id ? 'bg-charcoal text-white' : 'text-charcoal-light hover:text-charcoal'
                     }`}
                   >
                     <Icon aria-hidden="true" className="h-4 w-4" strokeWidth={1.5} />
-                    <span className="hidden sm:inline">{label}</span>
-                    <span className="sr-only sm:hidden">{label}</span>
+                    <span className="sr-only">{label}</span>
                   </button>
                 ))}
               </div>
