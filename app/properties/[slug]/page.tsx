@@ -8,6 +8,7 @@ import ListingGallery from '@/components/properties/ListingGallery';
 import ShareLinks from '@/components/news/ShareLinks';
 import PropertyMap from '@/components/properties/PropertyMap';
 import PermitCheck from '@/components/properties/PermitCheck';
+import RecentSales from '@/components/market/RecentSales';
 import ArrowLink from '@/components/ui/ArrowLink';
 import Reveal from '@/components/ui/Reveal';
 import SectionHeading from '@/components/ui/SectionHeading';
@@ -179,6 +180,8 @@ export default async function Page({ params }: PageProps) {
               <section aria-labelledby="location-heading" className="mt-14">
                 <PropertyMap {...location} headingId="location-heading" />
               </section>
+
+              <RecentSales listing={listing} headingId="sales-heading" />
 
               {listing.agent ? (
                 <p className="mt-12 text-sm font-light text-charcoal-muted">
